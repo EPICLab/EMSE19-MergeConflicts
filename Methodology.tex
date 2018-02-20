@@ -1,0 +1,176 @@
+\section{Methodology}\label{methodology}
+
+%We employed exploratory interviews with software practitioners and surveys of practitioners to validate our findings.
+We use mixed methods to first explore the topic of practitioners' difficulties when encountering merge conflicts through a set of exploratory interviews, and then validate our findings through a survey of practitioners, as per guidelines by \mbox{Easterbrook et al.}~\cite{easterbrook2008selecting}.
+Mixed methods allow us to analyze both qualitative and quantitative data to get both an individual and a population-wide perspective of software practitioners.
+
+We codified the interview transcripts into a taxonomy of barriers, constraints, and concerns following established guidelines~\cite{latoza2006maintaining, shull2008guide, tao2012software}.
+We then created a survey to get a broader perspective on how software practitioners approach merge conflicts, using the vocabulary generated from the interviews to create the survey questions.
+%We build a survey populating the answers to each question with the results of the interviews.
+%We use a shared vocabulary from the interviews to form questions that are emblematic of merge conflicts, but also relatable to software practitioners.
+
+\subsection{Terminology}\label{terminology_methods}
+For this work, we define merge conflict as a scenario in which two copies of the same codebase diverge and cannot be automatically merged, thus requiring human intervention to resolve. 
+While we recognize that other types of conflicts exist in software projects (i.e. social conflicts or semantic conflicts, such as build or test failure), we focused our interviews and survey on code-related merge conflicts.
+
+\subsection{Interviews}\label{interview_methods}
+
+We conducted semi-structured interviews with software practitioners to understand their concerns when facing merge conflicts and the factors that impact merge conflict difficulty.
+
+We selected interview participants from top contributors to open-source projects, and from industry contacts using snowball sampling~\cite{goodman1961snowball} to reach a larger sample size.
+Each participant was asked to identify additional practitioners for recruitment to our study.
+We interviewed ten software practitioners from seven different organizations spanning six different industries: 
+%Our 10 participants were from six different industries: 
+	\textit{Semiconductor Manufacturing} (3 participants), \textit{Healthcare Software} (2), \textit{Academia} (2), \textit{Business Software} (1), \textit{IT Services} (1), and \textit{Sports \& Wellness Technology} (1).
+Each participant was asked to describe their role within their organization, resulting in five roles with multiple responses for \textit{Software Engineer / Developer}.
+Table~\ref{interview_demographics} provides additional demographics data, including project sizes and whether the participant primarily focuses on open- or closed-source software development.
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.3}
+\caption{Interview Participant Demographic}
+\label{interview_demographics}
+\centering
+\begin{tabularx}{0.48\textwidth}{@{}CClLR@{}}
+\toprule
+	\parnoteclear % tabularx will otherwise add each note thrice
+	\textbf{Ptc.}\parnote{Ptc. = Participant} & \textbf{Exp.}\parnote{Exp. = Years of Software Development Experience} & \textbf{Role} & \textbf{Project Source} & \textbf{Project \mbox{Contrib.}}\parnote{Project Contrib. = Approximate number of contributors (between March 2016-March 2017)}\\
+\midrule
+	P1 & 18 yrs. & Sr. \mbox{Software} \mbox{Developer} & Open & 1700\\
+	P2 & 6 yrs. & Software \mbox{Engineer} & Open & 1700\\
+	P3 & 3 yrs. & Software \mbox{Engineer} & Open & 1700\\
+	P4 & 10 yrs. & Software \mbox{Developer} & Open & \textless10\\
+	P5 & 3 yrs. & Infrastructure \mbox{Engineer} & Closed & \textless10\\
+	P6 & 5 yrs. & Software \mbox{Developer} & Closed & \textless10\\
+	P7 & 5 yrs. & Software \mbox{Engineer} & Open & 200\\
+	P8 & 25 yrs. & Director & Open & 600\\
+	P9 & 8 yrs. & Software \mbox{Developer} & Open & 600\\
+	P10 & 2 yrs. & Software \mbox{Developer} & Open & \textless5\\
+\bottomrule
+\end{tabularx}
+\parnotes
+\vspace*{-0.5\baselineskip}
+\end{table}
+
+%, including consumer \& business software companies, academic software development teams at two U.S. universities, a semiconductor manufacturer, a healthcare software company, and a sports \& wellness technology company.
+%Our participants had five years of software development experience on average.
+%We assigned each participant a subject number (Table~\ref{interview_demographics}).
+
+Each interview lasted between 30 to 60 minutes. Participants were offered US\$50 in either cash, gift card, or a donation to a charity of their choice.
+
+At the beginning of the interview we gave participants a short explanation of the research goals, our definition of merge conflicts, and collected demographics data. 
+We then asked participants about the roles that they play in their project, their experience working in team settings,  questions about merge conflicts, the process of conflict resolution, and the difficulties that they faced in conflict resolution.
+
+We formulated the interview questions about merge conflicts in order to understand how practitioners perceived and how they approached merge conflicts.
+The following is an example of some of the questions we asked in the interview. The full set of questions can be found in our companion site~\cite{companion_site}.
+\begin{itemize}
+	\item Can you describe a merge conflict, or a set of conflicts, that you would consider to be the typical case?
+	\item Do you have any particularly memorable merge conflict resolutions that you can recall?
+	\item Have you had some code structures, design patterns, coding styles, etc., that you would consider a ``usual suspect'' in a conflict?
+	\item What kind of measures would you take to minimize the amount of defects that you introduce?
+\end{itemize}
+
+The semi-structured interview format allowed participants to provide us with unanticipated information~\cite{seaman2008qualitative}. 
+Further, we allowed open-ended discussion about merge conflicts in general at the end of the interview, which allowed participants to share ideas and topics that they found particularly important. 
+We continued interviewing participants until we reached saturation in the answers~\cite{fusch2015we}.
+\Subsubsection{Analysis} Interviews were audio-taped and transcribed. 
+The first two authors unitized~\cite{unitization} the interview transcripts into cards that each contained a single logically consistent statement. 
+To organize these cards we employed card sorting, a collaborative technique of exploring how people think about a certain topic~\cite{spencer2009card}\cite{card_sort}, which allows key concepts and associations to be identified through an open sorting method that iteratively develops categories during the process.
+
+We performed two iterations of the open card sorting process.
+In the first iteration, we developed a standardized coding scheme and improved it to an acceptable point by \textit{negotiated agreement}, which was reached when no further thematic categories could be created and agreed upon by both coders~\cite{garrison2006revisiting}\cite{ritchie2013qualitative}.
+The coding scheme dictated that sentences must be consecutive and topically related to be grouped into a single card.
+Logically connected statements that were separated by other lines were considered to be separate cards, as a conservative measure to preserve context within each card.
+
+In the second iteration, the first two authors sorted cards according to our coding scheme and discussed the resulting taxonomies until consensus was reached.
+Based upon our research questions, we grouped the resulting categories as follows: the factors that impact how practitioners approach merge conflicts (Section~\ref{RQ1}), the difficulties that practitioners face when resolving conflicts (Section~\ref{RQ2}), and the impact of development tools on the resolution process (Section~\ref{RQ3}).
+
+%Cards were initially sorted into three categories that corresponded to our research questions before following the typical card sorting workflow [blog cited by Zimmerman in 145 Q's paper]. This workflow requires two people to go through each card and group them by themes. The themes can then be divided into sub-groups or generalized into larger groups.
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.3}
+\caption{Survey Participant Roles\textsuperscript{i}}
+\label{survey_roles}
+\centering
+\begin{tabularx}{0.45\textwidth}{@{}r|*{10}{C}c@{}}
+\toprule
+\addlinespace[5.4em]
+	& \begin{rotate}{45} Soft. Developers \end{rotate} 
+	& \begin{rotate}{45} Sys. Architects \end{rotate} 
+	& \begin{rotate}{45} DevOps \end{rotate} 
+	& \begin{rotate}{45} Project Managers \end{rotate}
+	& \begin{rotate}{45} Project Maintainers \end{rotate}
+	& \begin{rotate}{45} Sys. Admins \end{rotate}
+	& \begin{rotate}{45} Other \end{rotate}\\
+\midrule
+	Software Developers & 154 & & & & & & \\
+	System Architects & 53 & 54 & & & & & \\
+	DevOps & 51 & 34 & 53 & & & & \\
+	Project Managers & 44 & 29 & 20 & 44 & & & \\
+	Project Maintainers & 39 & 21 & 24 & 22 & 40 & & \\
+	Systems Administrators & 22 & 16 & 15 & 14 & 12 & 23 & \\
+	Other & 8 & 4 & 4 & 3 & 1 & 2 & 11 \\
+\bottomrule
+	\multicolumn{8}{c}{\noindent\parbox[t]{7.8cm}{\vspace{-3px}\textsuperscript{i}\hspace{0.2em}Survey respondents were allowed to select multiple roles. Each entry represents the number of respondents that selected both of the roles indicated for the column and row. 62 out of 162 respondents (38\%) selected three or more roles.}}
+\end{tabularx}
+\vspace*{-\baselineskip}
+\end{table}
+
+\begin{table*}[!htbp]
+\renewcommand{\arraystretch}{1.3}
+\caption{Factors of Merge Conflict Difficulty from Survey}
+\label{survey_merge_conflicts}
+\centering
+\begin{tabularx}{0.77\textwidth}{>{\rowmac}c | >{\rowmac}l | *5{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
+
+\toprule
+	Factor & Description & 1 & 2 & 3 & 4 & 5 & Mean & Median \\
+\midrule
+	\setrow{\bfseries}F1 & Complexity of conflicting lines of code & 5 & 29 & 38 & 56 & 34 & 3.52 & 4 \\
+	\setrow{\bfseries}F2 & Your knowledge/expertise in area of conflicting code & 5 & 23 & 50 & 54 & 30 & 3.50 & 4 \\
+	\setrow{\bfseries}F3 & Complexity of the files with conflicts & 8 & 34 & 49 & 51 & 18 & 3.23 & 3 \\
+	\setrow{\bfseries}F4 & Number of conflicting lines of code & 2 & 40 & 64 & 45 & 11 & 3.14 & 3 \\
+	F5 & Time to resolve a conflict & 14 & 56 & 51 & 25 & 15 & 2.82 & 3 \\
+	F6 & Atomicity of changesets in the conflict & 20 & 48 & 51 & 29 & 13 & 2.80 & 3 \\
+	F7 & Dependencies of conflicting code on other components & 20 & 56 & 39 & 33 & 14 & 2.78 & 3 \\
+	F8 & Number of files in the conflict & 10 & 69 & 50 & 26 & 6 & 2.68 & 3 \\
+	F9 & Non-functional changes (whitespace, renaming, etc.) & 47 & 63 & 31 & 15 & 4 & 2.16 & 2 \\
+\bottomrule
+\end{tabularx}
+\vspace*{-0.5\baselineskip}
+\end{table*}
+
+\subsection{Survey}\label{survey_methods}
+
+We conducted a 50-question survey of software development practitioners in order to examine the themes and categories found in the interviews. We sought to understand which factors impact practitioners the most when they encounter and resolve merge conflicts.
+The survey was conducted online and anonymity was guaranteed in order to elicit honest responses from participants.
+We developed questions to confirm, extend, and broaden the results from the interviews.
+
+
+\renewcommand*{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+We recruited survey participants from contributor lists on popular open-source repositories on GitHub\footnote{github.com}, advertised on social networking sites (Facebook\footnote{facebook.com} and Reddit\footnote{reddit.com}), and by directly contacting software practitioners via email. 
+Due to the nature of social media and mailing lists, we cannot compute a response rate. 
+However, our participants spanned different organization structures and geographical locations, giving us generalizability of results.
+The survey was available for 56 days and we received 162 survey responses, but individual parts of the survey have varying response rates and are reported where appropriate in Section~\ref{results}.
+
+%spanned six different software roles, ranging from system architects to system administrators (see Table~\ref{survey_roles}). 
+
+Survey participants were primarily male (91.9\% overall). 
+Participants were given six different software roles to select, and in many cases, participants considered themselves to be fulfilling multiple roles. 
+Table~\ref{survey_roles} provides a pairwise breakdown of participants' role selections, with a majority of respondents considering themselves to be \textit{Software Engineer/Developer} (95.1\% overall).
+Survey participants indicated a median software development experience of 6-10 years (36.4\% overall), and worked on project sizes ranging from 2 to more than 51 developers (the median was 2-5 developers, constituting 48.8\% of all responses).
+
+The survey was divided into four categories, with each category containing 5-7 questions (see \cite{companion_site} for questions).
+First, we elicited background information about demographics, roles, and experience.
+Second, we asked questions related to difficulties that practitioners experience when encountering merge conflicts.
+Third, we asked questions related to conflict resolution and the factors that affect practitioners.
+Finally we asked questions about the tools and tool features that practitioners use when working with merge conflicts.
+Questions were presented either as 5-point Likert-type scales (with no pre-selected answers) or open-ended text forms to gather additional insights.
+
+\Subsubsection{Analysis} We evaluated the distribution of survey answers for each Likert-type question by analyzing across demographic categories.
+Where answers differed across a demographic category, we note the difference and provide further discussion of these results in Section~\ref{results}.
+
+We used Likert-type questions to measure the extent to which participants agreed with a particular statement. This means that lower mean and median values indicate less agreement with the statement in a particular question.
+% As a result, a value of 1 and a value of 5 do not represent opposing opinions that we would see in a Likert scale that gives options from \textit{Strongly disagree} to \textit{Strongly agree}.
+We use this design to validate both the degree of agreement to the interview results, as well as the existence of individual factors.
+%This allowed us to verify interview results with larger-scale survey results.

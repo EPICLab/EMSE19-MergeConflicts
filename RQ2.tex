@@ -1,0 +1,104 @@
+\subsection{\textbf{RQ2:} What unmet needs impact the difficulty of a conflict resolution?}\label{RQ2}
+
+There can often be gaps in how practitioners perceive the difficulty of merge conflicts and the actual hurdles that they face when resolving these conflicts. 
+These gaps can then in turn affect how well practitioners can resolve the conflict.
+
+We, therefore, asked our interview participants open-ended questions about their experiences in resolving the most recent past conflicts, especially their recollection of what made the resolution difficult.
+%These gaps are often a result of a lack of knowledge about the conflicting code or their awareness of ongoing, relevant changes. 
+%The perception of merge conflict difficulty and the actual hurdles of resolving them are distinct, and at times separated by a gap in knowledge or awareness.
+%These gaps prevented practitioners from accurately gauging the difficulty of a merge conflict before beginning to resolve it.
+%What makes a merge conflict difficult?? - don't tools do this, I don't know this
+Their responses indicated that there are several unmet needs. We identified ten needs (see Table~\ref{survey_res_diffs}), which range from needs about the ability to understand the code, their expertise, and existing tool support.  
+
+Using results from the interview, we asked survey participants to rate how much each of the ten needs affected their ability to resolve merge conflicts.
+We received 141 responses using a 5-point Likert-type scale indicating the degree of effect on resolution difficulty (1 being \textit{Not at all}, 3 being \textit{A moderate amount}, and 5 being \textit{A great deal}).
+Results of the survey are presented in Table~\ref{survey_res_diffs}. 
+
+All the unmet needs have a mean score of at least $3.03$ on the 5-point Likert-type scale, implying that all of them mattered at least a moderate amount.
+We present and discuss in detail the top four unmet needs, plus additional observations regarding the other six unmet needs. 
+As with the factors in the previous section, all these needs also relate to \textit{technical aspects} (e.g., understanding the conflicting code) and their \textit{expertise} in resolving conflicts.
+
+%All of the unmet needs in Table~\ref{survey_res_diffs} can be considered important to practitioners when resolving merge conflicts, since each received a mean score of at least 3.03 on the 5-point Likert scale.
+%However, practitioners primarily working on closed-source development differed in perceptions of \textit{tool support for examining development history} (N10).
+%We further discuss this demographic difference in Section~\ref{oss_vs_closed_tool_support}.
+
+\Subsubsection{Technical Aspects}
+Three needs among the top four relate to technical aspects of merge conflict resolution.
+The \textit{understandability of conflicting code} (N1) is ranked as the most important need, with both \textit{contextual information about the conflict} (N3) and \textit{the way in which tools present relevant information} (N4) ranking in the top four.
+
+Data from version control systems is used by practitioners to identify the evolution of the code~\cite{Mihai_lenses}, however, it is not easily available and requires a context switch from the code editor to the version control system~\cite{Guzzi2015}. 
+Moreover, these changes are often processed in isolation, especially when there are many changes (conflicts) to process. 
+Such decomposition of overall conflicting changes into smaller ``chunks" is needed to be able to manage the complexity of the resolution process; however, this occludes viewing the changes and their impact in a holistic manner. 
+Often practitioners deal with the decomposed (smaller) changes, hoping that they will all together work out. 
+For example, P1 compared the resolution hurdles between two conflicts, where one was simple, and the other spanned multiple files and complex blocks of code.
+\begin{quoting}
+\textit{``You focus on understanding the small change, not the big one. It's easier to understand... get the small change to go with the flow of the bigger change.''}
+\end{quoting}
+
+Another challenge when viewing changes in isolation, is the fact that practitioners may miss the impact of the changes made as part of the resolution to the rest of the code base. 
+Identifying the impact of changes on the rest of the code base has been repeatedly found to be a problem in collaborative development, as found by deSouza and Redmiles~\cite{deSouza2008} and more recently by Guzzi et al.~\cite{Guzzi2015}. 
+The top unmet needs in our study too revolved around the challenges that practitioners face in how much information they had about the conflicting code (N3), and the difficulty in finding the needed information from current tools and practices (N3, N4, N8, N10). 
+This indicates that despite advances in supporting parallel development practices, the right information needed to resolve conflicts is still not easily available to practitioners. 
+%Practitioners often look at changes in isolation to deal with the technical complexities, but may overlook understanding the conflicting code in context of the larger codebase.
+%Decomposing the conflict into small changes makes it easier to understand; however, this can cause tunnel vision and lead to defects arising from the merge resolution.
+
+\begin{table*}[!htbp]
+\renewcommand{\arraystretch}{1.3}
+\caption{Improvements for Practitioner Toolsets from Survey}
+\label{survey_tool_needs}
+\centering
+%\begin{tabularx}{0.9\textwidth}{@{}r|*{6}{C}c@{}}
+\begin{tabularx}{0.852\textwidth}{>{\rowmac}c | >{\rowmac}l | *5{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
+
+\toprule
+	Improvement & Description & 1 & 2 & 3 & 4 & 5 & Mean & Median\\
+\midrule
+	\setrow{\bfseries}I1 & Better usability & 6 & 17 & 32 & 48 & 16 & 3.43 & 4\\
+	\setrow{\bfseries}I2 & Better ways of filtering out less relevant information & 8 & 15 & 32 & 48 & 16 & 3.41 & 4\\
+	\setrow{\bfseries}I3 & Better ways of exploring project history & 7 & 21 & 36 & 39 & 16 & 3.30 & 3\\
+	\setrow{\bfseries}I4 & Better graphical presentation of information & 13 & 26 & 26 & 37 & 16 & 3.14 & 3\\
+	I5 & Better transparency in tool functionality/operations & 16 & 36 & 24 & 40 & 3 & 2.82 & 3\\
+	I6 & Better terminology that is more consistent with my other tools & 23 & 41 & 32 & 15 & 8 & 2.53 & 2\\
+	\bottomrule
+\end{tabularx}
+\vspace*{-0.5\baselineskip}
+\end{table*}
+
+Conflict resolution can sometime lead to defects in the code base. This can arise because of several reasons. For example the rationale of the two conflicting changes might be unclear and the merge might cause unintentional problems down the line. Or the resolved changes might not follow rigorous code review and testing to which the original changes were subject to.
+Therefore, even when the practitioner understands the particular conflicting code, they may still need additional meta information about the rationale of changes and idea of future feature implementation. This is especially true in situations where the code base is old, and such information not readily available. During our interview, P7 commented:
+\begin{quoting}
+\textit{``It's harder to merge code when you're merging in some legacy code... But if you're a young team, and everybody who wrote the code is still a part of the team, it's easier.''}
+\end{quoting}
+
+\Subsubsection{Expertise}
+Knowledge is a key component of practitioner's needs when resolving merge conflicts, but along with that general knowledge is a need for expertise in the specific areas of code involved in a conflict.
+Practitioners recognize this need as having a sizable effect on their ability to resolve a merge conflict, and selected \textit{expertise in the area of conflicting code} (N2) as the second most important need.
+
+Examining code artifacts, reviewing change history, and reading documentation help with understanding the code when they are present and well-maintained.
+However, locating and maintaining these supporting documents is not always possible.
+In fact, Forward et al.~\cite{forward2002documentation} conducted a survey of 48 software practitioners and found that 68\% either agreed or strongly agreed that documentation is always outdated.
+When these gaps arise, practitioners compensate by consulting experts in the area of conflicting code instead.
+
+This result aligns with the goals of the TIPMerge tool~\cite{CostaSarma}, which seeks to locate experts that are best suited to resolve conflicts in a particular area of code.
+However, TIPMerge, as well as other recommendation tools are not being used by real-world practitioners, as evidenced by the lack of such tools in the list of top 10 merge tools (see Table~\ref{survey_toolset}).
+The reason for this lack of research tools adoption requires further investigation.
+
+Another surprising fact was that while the informative nature of commit messages (N8) and project culture (N9) were mentioned, they were not as highly ranked. % The same is true for project culture (N9). 
+We had expected them to be higher based on prior work~\cite{yamauchi2014clustering, hindle2009automatic, cortes2014automatically, hattori2008nature}. We found no statistical differences between commercial or open source projects, including when accounting for experience levels.
+Our results indicate that team practices, including writing commit messages may have matured enough, such that these factors are no longer considered critical in our sample set. 
+
+
+\Subsubsection{Open-Source vs. Closed-Source Needs}\label{oss_vs_closed_tool_support} 
+It is interesting to note that for needs N1-N8 there was no statistical difference between practitioners focused on open-source and those focused on closed-source development when it comes to their conflict resolution needs.
+We found that practitioners who focus on open-source software development consider \textit{tool support for examining development history} (N10) to be the 3rd highest unmet need (mean: 3.60).
+Whereas, practitioners who focus on closed-source software development consider it to be the least impactful unmet need (mean: 2.86).
+%A Wilcoxon Signed-Ranks test indicated that open-source practitioners' ranking of N10 were statistically higher than closed-source practitioners' rankings of N10 (W = 1192.5, $p$-value = 0.02).
+
+This was also true in our interviews, with P8 stating:
+
+\begin{quoting}
+\textit{``I'm often dealing with code other people wrote. Nobody can review every pull request. So now I have to go back and do some archaeology to find out what's going on. Code is much easier to write than read.''}
+\end{quoting}
+
+This result suggests that history exploration in open-source projects is a more difficult task due to the lack of upfront planning and large number of volunteering contributors.
+%, or that tools are better at supporting history exploration in closed-source development environments.
