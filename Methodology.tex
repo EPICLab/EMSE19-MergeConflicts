@@ -1,3 +1,5 @@
+%!TEX root = main.tex
+
 \section{Methodology}\label{methodology}
 
 %We employed exploratory interviews with software practitioners and surveys of practitioners to validate our findings.
@@ -30,7 +32,7 @@ Table~\ref{interview_demographics} provides additional demographics data, includ
 \caption{Interview Participant Demographic}
 \label{interview_demographics}
 \centering
-\begin{tabularx}{0.48\textwidth}{@{}CClLR@{}}
+\begin{tabularx}{\textwidth}{@{}CClLR@{}}
 \toprule
 	\parnoteclear % tabularx will otherwise add each note thrice
 	\textbf{Ptc.}\parnote{Ptc. = Participant} & \textbf{Exp.}\parnote{Exp. = Years of Software Development Experience} & \textbf{Role} & \textbf{Project Source} & \textbf{Project \mbox{Contrib.}}\parnote{Project Contrib. = Approximate number of contributors (between March 2016-March 2017)}\\
@@ -91,7 +93,7 @@ Based upon our research questions, we grouped the resulting categories as follow
 \caption{Survey Participant Roles\textsuperscript{i}}
 \label{survey_roles}
 \centering
-\begin{tabularx}{0.45\textwidth}{@{}r|*{10}{C}c@{}}
+\begin{tabularx}{\textwidth}{@{}r|*{10}{C}c@{}}
 \toprule
 \addlinespace[5.4em]
 	& \begin{rotate}{45} Soft. Developers \end{rotate} 
@@ -115,12 +117,13 @@ Based upon our research questions, we grouped the resulting categories as follow
 \vspace*{-\baselineskip}
 \end{table}
 
-\begin{table*}[!htbp]
+\begin{sidewaystable}
+\begin{center}
 \renewcommand{\arraystretch}{1.3}
 \caption{Factors of Merge Conflict Difficulty from Survey}
 \label{survey_merge_conflicts}
 \centering
-\begin{tabularx}{0.77\textwidth}{>{\rowmac}c | >{\rowmac}l | *5{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
+\begin{tabularx}{0.8\hsize}{>{\rowmac}c | >{\rowmac}l | *5{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
 
 \toprule
 	Factor & Description & 1 & 2 & 3 & 4 & 5 & Mean & Median \\
@@ -136,8 +139,8 @@ Based upon our research questions, we grouped the resulting categories as follow
 	F9 & Non-functional changes (whitespace, renaming, etc.) & 47 & 63 & 31 & 15 & 4 & 2.16 & 2 \\
 \bottomrule
 \end{tabularx}
-\vspace*{-0.5\baselineskip}
-\end{table*}
+\end{center}
+\end{sidewaystable}
 
 \subsection{Survey}\label{survey_methods}
 

@@ -4,7 +4,7 @@
 \usepackage{url}
 \usepackage{color}
 \usepackage{varwidth}
-\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
 \usepackage{quoting}
 \quotingsetup{vskip=4pt,leftmargin=10pt,rightmargin=8pt}
 %\usepackage{csquotes}
@@ -31,8 +31,12 @@
                {\endlist}
 \makeatother
 
+\setlength{\rotFPtop}{0pt plus 1fil}% <- add this line after loading rotating
+\setlength{\rotFPbot}{0pt plus 1fil}% <- maybe its better to add this line too
+
 %\renewcommand\thesubsubsectiondis{}
-\newcommand{\Subsubsection}[1]{\subsubsection{\underline{#1}}}
+%\newcommand{\Subsubsection}[1]{\subsubsection{\underline{#1}}}
+\newcommand{\Subsubsection}[1]{\subsubsection{#1}}
 \hyphenation{op-tical net-works semi-conduc-tor}
 % This will go in the next version of parnotes.sty
 \makeatletter
