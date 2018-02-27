@@ -1,3 +1,5 @@
+%!TEX root = main.tex
+
 \subsection{\textbf{RQ2:} What unmet needs impact the difficulty of a conflict resolution?}\label{RQ2}
 
 There can often be gaps in how practitioners perceive the difficulty of merge conflicts and the actual hurdles that they face when resolving these conflicts. 
@@ -42,27 +44,27 @@ This indicates that despite advances in supporting parallel development practice
 %Practitioners often look at changes in isolation to deal with the technical complexities, but may overlook understanding the conflicting code in context of the larger codebase.
 %Decomposing the conflict into small changes makes it easier to understand; however, this can cause tunnel vision and lead to defects arising from the merge resolution.
 
-\begin{table*}[!htbp]
-\renewcommand{\arraystretch}{1.3}
-\caption{Improvements for Practitioner Toolsets from Survey}
-\label{survey_tool_needs}
-\centering
-%\begin{tabularx}{0.9\textwidth}{@{}r|*{6}{C}c@{}}
-\begin{tabularx}{0.852\textwidth}{>{\rowmac}c | >{\rowmac}l | *5{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
-
-\toprule
-	Improvement & Description & 1 & 2 & 3 & 4 & 5 & Mean & Median\\
-\midrule
-	\setrow{\bfseries}I1 & Better usability & 6 & 17 & 32 & 48 & 16 & 3.43 & 4\\
-	\setrow{\bfseries}I2 & Better ways of filtering out less relevant information & 8 & 15 & 32 & 48 & 16 & 3.41 & 4\\
-	\setrow{\bfseries}I3 & Better ways of exploring project history & 7 & 21 & 36 & 39 & 16 & 3.30 & 3\\
-	\setrow{\bfseries}I4 & Better graphical presentation of information & 13 & 26 & 26 & 37 & 16 & 3.14 & 3\\
-	I5 & Better transparency in tool functionality/operations & 16 & 36 & 24 & 40 & 3 & 2.82 & 3\\
-	I6 & Better terminology that is more consistent with my other tools & 23 & 41 & 32 & 15 & 8 & 2.53 & 2\\
-	\bottomrule
-\end{tabularx}
-\vspace*{-0.5\baselineskip}
-\end{table*}
+%\begin{sidewaystable}[]
+%\renewcommand{\arraystretch}{1.3}
+%\caption{Improvements for Practitioner Toolsets from Survey}
+%\label{survey_tool_needs}
+%\centering
+%%\begin{tabularx}{0.9\textwidth}{@{}r|*{6}{C}c@{}}
+%\begin{tabularx}{0.86\textwidth}{>{\rowmac}c | >{\rowmac}l | *5{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
+%
+%\toprule
+%	Improvement & Description & 1 & 2 & 3 & 4 & 5 & Mean & Median\\
+%\midrule		
+%	\setrow{\bfseries}I1 & Better usability & 6 & 17 & 32 & 48 & 16 & 3.43 & 4\\
+%	\setrow{\bfseries}I2 & Better ways of filtering out less relevant information & 8 & 15 & 32 & 48 & 16 & 3.41 & 4\\
+%	\setrow{\bfseries}I3 & Better ways of exploring project history & 7 & 21 & 36 & 39 & 16 & 3.30 & 3\\
+%	\setrow{\bfseries}I4 & Better graphical presentation of information & 13 & 26 & 26 & 37 & 16 & 3.14 & 3\\
+%	I5 & Better transparency in tool functionality/operations & 16 & 36 & 24 & 40 & 3 & 2.82 & 3\\
+%	I6 & Better terminology that is more consistent with my other tools & 23 & 41 & 32 & 15 & 8 & 2.53 & 2\\
+%	\bottomrule
+%\end{tabularx}
+%%\vspace*{-0.5\baselineskip}
+%\end{sidewaystable}
 
 Conflict resolution can sometime lead to defects in the code base. This can arise because of several reasons. For example the rationale of the two conflicting changes might be unclear and the merge might cause unintentional problems down the line. Or the resolved changes might not follow rigorous code review and testing to which the original changes were subject to.
 Therefore, even when the practitioner understands the particular conflicting code, they may still need additional meta information about the rationale of changes and idea of future feature implementation. This is especially true in situations where the code base is old, and such information not readily available. During our interview, P7 commented:

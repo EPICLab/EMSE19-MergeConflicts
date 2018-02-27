@@ -1,10 +1,10 @@
-\documentclass[conference]{IEEEtran}
+\documentclass{svjour3}
 
 \usepackage{dblfloatfix}
 \usepackage{url}
 \usepackage{color}
 \usepackage{varwidth}
-\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
 \usepackage{quoting}
 \quotingsetup{vskip=4pt,leftmargin=10pt,rightmargin=8pt}
 %\usepackage{csquotes}
@@ -17,6 +17,7 @@
 \usepackage[roman]{parnotes}
 \usepackage[many]{tcolorbox}
 \usepackage[symbol,para]{footmisc}
+\usepackage[strings]{underscore}
 
 \makeatletter
 \renewenvironment{quotation}
@@ -30,8 +31,12 @@
                {\endlist}
 \makeatother
 
-\renewcommand\thesubsubsectiondis{}
-\newcommand{\Subsubsection}[1]{\subsubsection{\underline{#1}}}
+\setlength{\rotFPtop}{0pt plus 1fil}% <- add this line after loading rotating
+\setlength{\rotFPbot}{0pt plus 1fil}% <- maybe its better to add this line too
+
+%\renewcommand\thesubsubsectiondis{}
+%\newcommand{\Subsubsection}[1]{\subsubsection{\underline{#1}}}
+\newcommand{\Subsubsection}[1]{\subsubsection{#1}}
 \hyphenation{op-tical net-works semi-conduc-tor}
 % This will go in the next version of parnotes.sty
 \makeatletter
@@ -56,21 +61,17 @@
 \begin{document}
 \title{Software Practitioner Perspectives on Merge Conflicts and Resolutions}
 
-\author{
-\IEEEauthorblockN{Shane McKee\IEEEauthorrefmark{1},
-Nicholas Nelson\IEEEauthorrefmark{1},
-Anita Sarma,
-and Danny Dig}
-\IEEEauthorblockA{
-Oregon State University,
-Corvallis, OR\\ \{mckeesh, nelsonni, anita.sarma, digd\}@oregonstate.edu}}
-%\author{Anonymous Author(s)}
+\author{Nicholas Nelson \and Caius Brindescu \and Shane McKee \and Anita Sarma \and Danny Dig}
+
+\institute{Nicholas Nelson \and Caius Brindescu \and Shane McKee \and Anita Sarma \and Danny Dig \at
+	Oregon State University, Corvallis, OR, 97331 \\
+	\email{\{nelnonni,brindesc,mckeesh,anita.sarma,digd\}@oregonstate.edu}
+}
 
 \maketitle
-\thispagestyle{plain}
-\pagestyle{plain}
+
 \input{Abstract}
-\IEEEpeerreviewmaketitle
+
 \input{Introduction}
 \input{Methodology}
 \input{Results}
@@ -80,7 +81,7 @@ Corvallis, OR\\ \{mckeesh, nelsonni, anita.sarma, digd\}@oregonstate.edu}}
 \input{Conclusions}
 \input{Acknowledgements}
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{spmpsci}
 \bibliography{Bibliography}{}
 
 \end{document}
