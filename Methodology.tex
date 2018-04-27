@@ -4,22 +4,22 @@
 
 %We employed exploratory interviews with software practitioners and surveys of practitioners to validate our findings.
 
-To understand the merge conflict processes, barriers, and resolution strategies of software developers, we used mixed methods consisting of interviews to gather qualitative insights and surveys to provide quantitative triangulations into the broader context of merge conflicts in software development.
+To understand the merge conflict processes, barriers, and resolution strategies of software developers, we used mixed methods consisting of interviews to gather qualitative insights and surveys to provide quantitative triangulations into the broader context of merge conflicts.
 Mixed methods allow us to identify perspectives and themes from both individual and population-wide samples to strengthen the validity of both, as per guidelines from Easterbrook et al.~\cite{easterbrook2008selecting}.
 
 We conducted \textit{Exploratory Interviews} with software developers to create a taxonomy of processes, barriers, strategies, and concerns experienced by developers when encountering merge conflicts.
-We then triangulate and extend the results of our interviews by conducting two separate surveys using vocabulary generated from the interviews to create survey questions related to how developers approach, mitigate, and evaluate the resolution to merge conflicts. 
+We then triangulate and extend the results of our interviews by conducting a \textit{Processes Survey}~(S1) and a \textit{Barriers Survey}~(S2) using vocabulary generated from the interviews. 
 
-In this study, we were particularly interested in understanding the processes that software developers have developed or adopted in order to successfully resolve merge conflicts.
+In this study, we were particularly interested in understanding the processes that software developers have created or adopted in order to successfully resolve merge conflicts.
 Processes are developed to address common problems in teams and organizations and identifying the problems is an essential element to process improvement~\cite{beecham2003software}.
 To analyze the processes, we conducted a \textit{Processes Survey}~(S1) of software developers to understand how they monitor for merge conflicts, how they plan their resolution strategies, and their processes for evaluating whether their resolutions are successful.
 
 To understand the scale of barriers, constraints, and concerns of software developers when approaching merge conflicts, we conducted a separate \textit{Barriers Survey}~(S2) of software developers.
 In this survey, we sought to extend the results from our interviews and to include additional questions relating to tools, technology, and coordination within development teams.
 
-Triangulating the results from the \textit{Exploratory Survey}, \textit{Processes Survey}~(S1), and \textit{Barriers Survey}~(S2) allows us to understand both the perspectives of individual software developers experiencing merge conflicts, as well as the trends occurring within the larger community of software developers.
+Using mixed methods of interviews and surveys, we explore the perspectives of individual software developers and the trends at large in respect to approaching, mitigating, resolving, and evaluating merge conflicts that occur in distributed software development.
 
-\subsection{Interviews}\label{interviews}
+\subsection{Exploratory Interviews}\label{interviews}
 
 Semi-structured interviews provide qualitative data collection through open-ended questions that elicit interviewee's thoughts and opinions about a particular topic.
 The resulting data includes themes and terminology from the perspective of the interviewee, as opposed to the interviewer, and provides a context for further quantitative inquiry~\cite{easterbrook2008selecting}.
@@ -100,11 +100,18 @@ The results of this survey are presented in Section~\ref{results}.
 \label{processes_roles}
 \end{figure}
 
-Survey participants were assumed to be software developers in some capacity, but primary roles within individual organizations can differ throughout the industry.
+Survey participants had a mean of 9.1 years of programming experience, and primarily worked in teams of 2-5 members (45.10\% overall).
+Participants were assumed to be software developers in some capacity, but primary roles within individual organizations can differ throughout the industry.
 Participants were given seven different software roles to select, as well as an \textit{Other} field to provide additional roles not included in the pre-populated options.
 Figure~\ref{processes_roles} provides a visual illustration of the distribution of primary roles among respondents.
 Almost 80\% of respondents were primarily a \textit{Developer} or \textit{Engineer} (40.59\% and 38.61\% respectively), with 5.94\% selecting \textit{Architect}, 6.93\% \textit{DevOps}, 0.99\% \textit{Designer}, and 6.93\% \textit{Other}.
 Among respondents that selected \textit{Other}, the open-text responses included: \textit{Tester}, \textit{Security Analyst}, \textit{Hobbyist Programmer}, and \textit{Researcher}.
+
+The survey was divided into four categories, with each containing 3-5 questions (see \cite{companion_site} for individual questions).
+First, we elicited background information about demographics, roles, and experience.
+Second, we asked questions relating to how and when developers become aware of merge conflicts.
+Third, we asked questions related to planning and implementing merge conflict resolution strategies.
+Finally, we asked questions about evaluating the effectiveness of those merge conflict resolutions and the particular tools that are used throughout the processes of working with merge conflicts.
 
 \subsection{Barriers Survey (S2)}\label{perceptions_survey}
 
@@ -158,7 +165,7 @@ Third, we asked questions related to conflict resolution and the factors that af
 Finally we asked questions about the tools and tool features that developers use when working with merge conflicts.
 Questions were presented either as 5-point Likert-type scales (with no pre-selected answers) or open-ended text forms to gather additional insights.
 
-\subsection{Analysis}\label{analysis}
+\subsection{Survey Analysis}\label{analysis}
 To evaluate the representativeness of our survey respondents to the larger software developer population, we compare the demographics from the \textit{Processes Survey}~(S1) and the \textit{Barriers Survey}~(S2) with the results of the 2018 StackOverflow Developer Survey\footnote{https://insights.stackoverflow.com/survey/2018}.
 
 The 2018 StackOverflow Developer Survey was conducted on 101,592 software developers from 183 countries.
@@ -166,9 +173,10 @@ This survey includes the number of years spent coding professionally by 77,903 r
 For comparison purposes, we similarly grouped the results from the \textit{Processes Survey}~(S1) and the \textit{Barriers Survey}~(S2).
 Figure~\ref{populations} provides a graphical representation of the percentile distribution of professional programming experience among respondents to the \textit{Processes Survey}~(S1), \textit{Barriers Survey}~(S2), and the 2018 StackOverflow Developer Survey.
 
-To further compare the distribution of programming experience across these population samples, we compare the confidence contour for probability distributions between each of the datasets.
+To further compare the distribution of programming experience across these population samples, we conduct nonparametric tests of the equality of the probability distributions between two samples.
 Comparing \textit{Processes Survey}~(S1) responses with 2018 StackOverflow Developer Survey responses, we conclude that we cannot reject the null hypothesis that these samples were drawn from the same population distribution (Two-sample Kolmogorov-Smirnov test, D = 0.33636, p-value = 0.5939).
 We similarly conclude that \textit{Barriers Survey}~(S2) responses and 2018 StackOverflow Developer Survey responses can possibly be drawn from the same population distribution (Two-sample Kolmogorov-Smirnov test, D = 0.27273, p-value = 0.8326).
+Therefore, although we cannot conclude that our surveys were sampled from the same population distribution as the 2018 StackOverflow Developer Survey, we can conclude that the samples are at least plausibly similar enough to be representative of the larger developer community. 
 
 \begin{figure}[!htbp]
 \centering
