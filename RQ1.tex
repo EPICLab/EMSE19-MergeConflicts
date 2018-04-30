@@ -1,16 +1,56 @@
 %!TEX root = main.tex
 
-\subsection{\textbf{RQ1:} How do practitioners approach merge conflicts?}\label{RQ1}
-To understand the perspective of practitioners when encountering a merge conflict, we asked interview participants to reflect on situations when they initially face a merge conflict: what kind of information do they seek, how do they approach the resolution of the conflict, and what tools they use. 
+\subsection{\textbf{RQ1:} What processes do software developers utilize for merge conflicts?}\label{RQ1}
 
-We identified nine factors (from card sorting) that practitioners consider when approaching a conflict and attempting to determine its difficulty (see Table~\ref{survey_merge_conflicts}). 
+
+
+\subsection{\textbf{RQ1a:} How do software developers become aware of merge conflicts?}\label{RQ1a}
+
+\subsection{\textbf{RQ1b:} How do software developers plan for merge conflict resolutions?}\label{RQ1b}
+
+\subsection{\textbf{RQ1c:} How do software developers evaluate merge conflict resolutions?}\label{RQ1c}
+
+\subsection{\textbf{RQ2:} What difficulties do software developers experience with merge conflicts?}\label{RQ2}
+
+To understand the perspective of software developers when encountering a merge conflict, we asked interview participants to reflect on situations when they initially face a merge conflict: what kind of information do they seek, how do they approach the resolution of the conflict, and what tools they use. 
+
+We identified nine factors (from card sorting) that developers consider when approaching a conflict and attempting to determine its difficulty (see Table~\ref{survey_merge_conflicts}). 
 We asked survey participants to rate how each of these nine factors affected their perceptions of difficulty when approaching a merge conflict.
-%The survey then asked participants to rate how much each of these 9 factors affected their perceptions of difficulty when approaching a merge conflict. 
-
 
 We received 162 responses and present the aggregated results in Table~\ref{survey_merge_conflicts}; ranked according to the mean score for each factor.
 Here, we discuss in detail the top 4 factors with a mean score greater than $3.00$.
 These factors can be grouped into themes of \textit{technical aspects} and \textit{expertise}, and our results are presented according to these groups.
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Developer Needs for Merge Conflict Resolutions from Barriers Survey (S2)}
+\label{interview_demographics}
+\centering
+\begin{tabularx}{\textwidth}{>{\rowmac}c >{\rowmac}l | *1{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
+\toprule
+    \parnoteclear % tabularx will otherwise add each note thrice
+	Need & Description & \likertscale{1,2,3,4,5} & Median\parnote{Median Likert score on 5-point scale} & Mean\parnote{Mean Likert score on 5-point scale} \\
+\midrule
+	\setrow{\bfseries}N1 & Ease of understanding conflicting code & \likertplot{coordinates {(1,0)(2,14)(3,25)(4,65)(5,37)}}{28.2}{0,14,25,65,37} & 4 & 3.89 \\
+	\setrow{\bfseries}N2 & Expertise in area of conflicting code & \likertplot{coordinates {(1,1)(2,17)(3,38)(4,49)(5,36)}}{28.2}{1,17,38,49,36} & 4 & 3.72 \\
+	\setrow{\bfseries}N3 & Amount of info about conflicting code & \likertplot{coordinates {(1,2)(2,21)(3,38)(4,48)(5,32)}}{28.2}{2,21,38,48,32} & 4 & 3.62 \\
+	\setrow{\bfseries}N4 & Tools presenting understandable info & \likertplot{coordinates {(1,4)(2,24)(3,47)(4,32)(5,34)}}{28.2}{4,24,47,32,34} & 3 & 3.48 \\
+	N5 & Changing assumptions within code & \likertplot{coordinates {(1,8)(2,27)(3,45)(4,36)(5,25)}}{28.2}{8,27,45,36,25} & 3 & 3.30 \\
+	N6 & Complexity of project structure & \likertplot{coordinates {(1,6)(2,38)(3,39)(4,41)(5,17)}}{28.2}{6,38,39,41,17} & 3 & 3.18 \\
+	N7 & Trustworthiness of tools & \likertplot{coordinates {(1,17)(2,29)(3,39)(4,32)(5,34)}}{28.2}{17,29,39,32,34} & 3 & 3.12 \\
+	N8 & Informativeness of commit messages & \likertplot{coordinates {(1,18)(2,32)(3,30)(4,44)(5,17)}}{28.2}{18,32,30,44,17} & 3 & 3.07 \\
+	N9 & Project culture & \likertplot{coordinates {(1,13)(2,37)(3,43)(4,27)(5,21)}}{28.2}{13,37,43,27,21} & 3 & 3.04 \\
+	N10 & Tool support for history exploration & \likertplot{coordinates {(1,16)(2,40)(3,31)(4,32)(5,22)}}{28.2}{16,40,31,32,22} & 3 & 3.03 \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
+
+\subsection{\textbf{RQ3:} What unmet needs impact the difficulty of merge conflict resolutions?}\label{RQ3}
+
+\subsection{\textbf{RQ4:} How well do tools support developer's needs for merge conflicts?}\label{RQ4}
+
+
 
 %\begin{sidewaystable}
 %\renewcommand{\arraystretch}{1.3}

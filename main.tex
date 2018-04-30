@@ -18,6 +18,8 @@
 \usepackage[many]{tcolorbox}
 \usepackage[symbol,para]{footmisc}
 \usepackage[strings]{underscore}
+\usepackage{tikz,dcolumn,booktabs,lscape}% <- sparklines chart embedded in tables
+\usetikzlibrary{positioning}
 
 \makeatletter
 \renewenvironment{quotation}
@@ -45,6 +47,37 @@
     \parnotereset
 }
 \makeatother
+
+% Plot a tiny Likert bar chart
+% Input:
+%   #1 Coordinate data
+%   #2 Mean value
+%   #3 Array of values
+\newcommand{\likertplot}[3]{%
+    \begin{tikzpicture}[xscale=0.25, yscale=0.015, baseline]
+        \begin{scope}[ycomb, yscale=0.3]
+            \draw[ultra thin, black!20] (1,#2)--(5,#2);
+            \draw[black!80, line width=2mm] plot #1;
+%            \foreach [count=\i] \x in {#3}
+%            {
+%              \draw[shift={(\i,0)}] 
+%                (0pt,3pt) -- (0pt,-3pt) node[below,font=\scriptsize] {$\x$};
+%            }
+        \end{scope}
+    \end{tikzpicture}%
+}
+
+\newcommand{\likertscale}[1]{%
+    \begin{tikzpicture}[xscale=0.25, yscale=0.01, baseline={(0,-0.3)}]
+        \begin{scope}[ycomb, yscale=0.4]
+            \foreach [count=\i] \x in {#1}
+            {
+              \draw[shift={(\i,0)}] 
+                (0pt,3pt) -- (0pt,-3pt) node[below,font=\small] {$\x$};
+            }
+        \end{scope}
+    \end{tikzpicture}%
+}
 
 \newcolumntype{L}{>{\hsize=.8\hsize\raggedright\arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
