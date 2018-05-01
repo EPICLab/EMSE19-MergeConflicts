@@ -1,198 +1,132 @@
 %!TEX root = main.tex
 
-\subsection{\textbf{RQ3:} How well do tools meet practitioner needs in resolving merge conflicts?}\label{RQ3}
-Development tools need to be easy to use and provide contextualized, pertinent information in a manner that is easy to understand.
-To investigate how well current tools satisfy the needs of practitioners, we asked interview participants open-ended questions about how they resolve merge conflicts.
-We also ask about improvements that would be most valuable to them. 
+\subsection{\textbf{RQ3:} What unmet needs impact the difficulty of merge conflict resolutions?}\label{RQ3}
 
-Our results indicate that practitioners use a wide range of tools, with many directly using the Git command line interface. Our interview participants mentioned six different dimensions along which they would like improvements to tool support (see Table~\ref{survey_tool_needs}). 
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Developer Needs for Merge Conflict Resolutions from Barriers Survey (S2)}
+\label{s2_needs}
+\centering
+\begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | *1{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
+\toprule
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Need & Description & \likertscale{1,2,3,4,5} & Median\parnote{Responses on 5-point Likert scale indicating the degree of importance to merge resolutions (1 indicates \textit{no importance}, 5 indicates \textit{great importance}).} & Mean\textsuperscript{i} \\
+\midrule
+  \setrow{\bfseries}N1 & Ease of understanding conflicting code & \likertplot{coordinates {(1,0)(2,14)(3,25)(4,65)(5,37)}}{28.2}{0,14,25,65,37} & 4 & 3.89 \\
+  \setrow{\bfseries}N2 & Expertise in area of conflicting code & \likertplot{coordinates {(1,1)(2,17)(3,38)(4,49)(5,36)}}{28.2}{1,17,38,49,36} & 4 & 3.72 \\
+  \setrow{\bfseries}N3 & Amount of info about conflicting code & \likertplot{coordinates {(1,2)(2,21)(3,38)(4,48)(5,32)}}{28.2}{2,21,38,48,32} & 4 & 3.62 \\
+  \setrow{\bfseries}N4 & Tools presenting understandable info & \likertplot{coordinates {(1,4)(2,24)(3,47)(4,32)(5,34)}}{28.2}{4,24,47,32,34} & 3 & 3.48 \\
+  N5 & Changing assumptions within code & \likertplot{coordinates {(1,8)(2,27)(3,45)(4,36)(5,25)}}{28.2}{8,27,45,36,25} & 3 & 3.30 \\
+  N6 & Complexity of project structure & \likertplot{coordinates {(1,6)(2,38)(3,39)(4,41)(5,17)}}{28.2}{6,38,39,41,17} & 3 & 3.18 \\
+  N7 & Trustworthiness of tools & \likertplot{coordinates {(1,17)(2,29)(3,39)(4,32)(5,34)}}{28.2}{17,29,39,32,34} & 3 & 3.12 \\
+  N8 & Informativeness of commit messages & \likertplot{coordinates {(1,18)(2,32)(3,30)(4,44)(5,17)}}{28.2}{18,32,30,44,17} & 3 & 3.07 \\
+  N9 & Project culture & \likertplot{coordinates {(1,13)(2,37)(3,43)(4,27)(5,21)}}{28.2}{13,37,43,27,21} & 3 & 3.04 \\
+  N10 & Tool support for history exploration & \likertplot{coordinates {(1,16)(2,40)(3,31)(4,32)(5,22)}}{28.2}{16,40,31,32,22} & 3 & 3.03 \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
 
-We framed the survey questions to validate the improvement needs expressed in our interviews, and ranked those six needs according to mean score.
-Table~\ref{survey_tool_needs} presents the needs from the survey responses ordered by their mean scores.
-We received 119 responses using a 5-point Likert-type scale to indicate the usefulness of each type of tool improvement (1 being \textit{Not Useful}, 3 being \textit{Moderately Useful}, and 5 being \textit{Essential}).
 
-In addition, we also asked participants which tools they use during conflict resolution.
-We identified 105 different tools from the 115 responses. Some mentioned generic responses such as \textit{`` text editor''}, for which we create a separate category.
-%We group these generic responses together where semantically similar meanings exist. 
-Table~\ref{survey_toolset} lists the top 10 most common tools used by participants to resolve merge conflicts.
+There can often be gaps in how practitioners perceive the difficulty of merge conflicts and the actual hurdles that they face when resolving these conflicts. 
+These gaps can then in turn affect how well practitioners can resolve the conflict.
 
-In examining the list of these tools, we note that practitioners most often use basic tools (e.g. Git, Vim/vi, or a Text Editor) to handle merge conflicts instead of employing specialized tools or plugins to modern IDEs. 
-In this list, there is only one IDE (Eclipse), and three diff/merge toolsets (Git Diff, KDiff3, and Meld). 
-This indicates that practitioners are currently not leveraging the functionalities provided by many research prototypes (e.g., Palantir~\cite{palantir}, Crystal~\cite{Brun2011}) that are specifically designed to facilitate proactive conflict detection, since they are built as plug-ins to modern IDEs. 
+We, therefore, asked our interview participants open-ended questions about their experiences in resolving the most recent past conflicts, especially their recollection of what made the resolution difficult.
+%These gaps are often a result of a lack of knowledge about the conflicting code or their awareness of ongoing, relevant changes. 
+%The perception of merge conflict difficulty and the actual hurdles of resolving them are distinct, and at times separated by a gap in knowledge or awareness.
+%These gaps prevented practitioners from accurately gauging the difficulty of a merge conflict before beginning to resolve it.
+%What makes a merge conflict difficult?? - don't tools do this, I don't know this
+Their responses indicated that there are several unmet needs. We identified ten needs (see Table~\ref{survey_res_diffs}), which range from needs about the ability to understand the code, their expertise, and existing tool support.  
 
-We next discuss the top four improvements rated by survey respondents. These are the responses that have a mean value higher than $3.00$.
+Using results from the interview, we asked survey participants to rate how much each of the ten needs affected their ability to resolve merge conflicts.
+We received 141 responses using a 5-point Likert-type scale indicating the degree of effect on resolution difficulty (1 being \textit{Not at all}, 3 being \textit{A moderate amount}, and 5 being \textit{A great deal}).
+Results of the survey are presented in Table~\ref{survey_res_diffs}. 
 
-%\begin{table}[!htbp]
+All the unmet needs have a mean score of at least $3.03$ on the 5-point Likert-type scale, implying that all of them mattered at least a moderate amount.
+We present and discuss in detail the top four unmet needs, plus additional observations regarding the other six unmet needs. 
+As with the factors in the previous section, all these needs also relate to \textit{technical aspects} (e.g., understanding the conflicting code) and their \textit{expertise} in resolving conflicts.
+
+%All of the unmet needs in Table~\ref{survey_res_diffs} can be considered important to practitioners when resolving merge conflicts, since each received a mean score of at least 3.03 on the 5-point Likert scale.
+%However, practitioners primarily working on closed-source development differed in perceptions of \textit{tool support for examining development history} (N10).
+%We further discuss this demographic difference in Section~\ref{oss_vs_closed_tool_support}.
+
+\subsubsection{Technical Aspects}
+Three needs among the top four relate to technical aspects of merge conflict resolution.
+The \textit{understandability of conflicting code} (N1) is ranked as the most important need, with both \textit{contextual information about the conflict} (N3) and \textit{the way in which tools present relevant information} (N4) ranking in the top four.
+
+Data from version control systems is used by practitioners to identify the evolution of the code~\cite{Mihai_lenses}, however, it is not easily available and requires a context switch from the code editor to the version control system~\cite{Guzzi2015}. 
+Moreover, these changes are often processed in isolation, especially when there are many changes (conflicts) to process. 
+Such decomposition of overall conflicting changes into smaller ``chunks" is needed to be able to manage the complexity of the resolution process; however, this occludes viewing the changes and their impact in a holistic manner. 
+Often practitioners deal with the decomposed (smaller) changes, hoping that they will all together work out. 
+For example, P1 compared the resolution hurdles between two conflicts, where one was simple, and the other spanned multiple files and complex blocks of code.
+\begin{quoting}
+\textit{``You focus on understanding the small change, not the big one. It's easier to understand... get the small change to go with the flow of the bigger change.''}
+\end{quoting}
+
+Another challenge when viewing changes in isolation, is the fact that practitioners may miss the impact of the changes made as part of the resolution to the rest of the code base. 
+Identifying the impact of changes on the rest of the code base has been repeatedly found to be a problem in collaborative development, as found by deSouza and Redmiles~\cite{deSouza2008} and more recently by Guzzi et al.~\cite{Guzzi2015}. 
+The top unmet needs in our study too revolved around the challenges that practitioners face in how much information they had about the conflicting code (N3), and the difficulty in finding the needed information from current tools and practices (N3, N4, N8, N10). 
+This indicates that despite advances in supporting parallel development practices, the right information needed to resolve conflicts is still not easily available to practitioners. 
+%Practitioners often look at changes in isolation to deal with the technical complexities, but may overlook understanding the conflicting code in context of the larger codebase.
+%Decomposing the conflict into small changes makes it easier to understand; however, this can cause tunnel vision and lead to defects arising from the merge resolution.
+
+%\begin{sidewaystable}[]
 %\renewcommand{\arraystretch}{1.3}
-%\caption{Survey Participant Merge Toolsets (Top 10)}
-%\label{survey_toolset}
+%\caption{Improvements for Practitioner Toolsets from Survey}
+%\label{survey_tool_needs}
 %\centering
-%\begin{tabularx}{0.8\textwidth}{@{}r|Cl@{}}
+%%\begin{tabularx}{0.9\textwidth}{@{}r|*{6}{C}c@{}}
+%\begin{tabularx}{0.86\textwidth}{>{\rowmac}c | >{\rowmac}l | *5{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
+%
 %\toprule
-%Tool & \# Participants & Description\\
-%\midrule
-%Git	& 37 & Version Control System\\
-%Vim/vi & 17 & Text Editor\\
-%Text Editor (unspecified) & 14 & Text Editor\\
-%Git Diff & 11 & Diffing Tool\\
-%GitHub & 11 & Website\\
-%Eclipse & 10 & IDE\\
-%KDiff3 & 9 & Diff \& Merge\\
-%Meld & 8 & Diff \& Merge\\
-%SourceTree & 8 & Git/Hg Desktop Client\\
-%Sublime Text & 7 & Text Editor\\
-%\bottomrule
+%	Improvement & Description & 1 & 2 & 3 & 4 & 5 & Mean & Median\\
+%\midrule		
+%	\setrow{\bfseries}I1 & Better usability & 6 & 17 & 32 & 48 & 16 & 3.43 & 4\\
+%	\setrow{\bfseries}I2 & Better ways of filtering out less relevant information & 8 & 15 & 32 & 48 & 16 & 3.41 & 4\\
+%	\setrow{\bfseries}I3 & Better ways of exploring project history & 7 & 21 & 36 & 39 & 16 & 3.30 & 3\\
+%	\setrow{\bfseries}I4 & Better graphical presentation of information & 13 & 26 & 26 & 37 & 16 & 3.14 & 3\\
+%	I5 & Better transparency in tool functionality/operations & 16 & 36 & 24 & 40 & 3 & 2.82 & 3\\
+%	I6 & Better terminology that is more consistent with my other tools & 23 & 41 & 32 & 15 & 8 & 2.53 & 2\\
+%	\bottomrule
 %\end{tabularx}
-%\end{table}
+%%\vspace*{-0.5\baselineskip}
+%\end{sidewaystable}
 
-\subsubsection{Better Usability}
-%The right toolset is essential for efficiently developing solutions and resolving conflicts.
-Usability is an important factor that determines whether a toolset supports or hinders the practitioner's workflow.
-Our survey results indicate that \textit{better usability} (I1) is the most desired improvement of toolsets used for conflict resolution. 
-%Based on the results of the survey, we found that practitioners rate usability as the most desired improvement for their current merge tools (I1).
-While usability of a particular tool is important, the usability concerns become even more pertinent when they span multiple tools that are similar and must operate in sync with each other.
-Survey results indicate that participants use an average of 2.5 tools, and as many as 7 tools, to resolve merge conflicts.
-%With multiple tools being used during merging and conflict resolution, toolset fragmentation is a real concern for practitioners.
-For instance, in our interview P1 demonstrated how he typically resolved a merge conflict by using four different tools and said: 
+Conflict resolution can sometime lead to defects in the code base. This can arise because of several reasons. For example the rationale of the two conflicting changes might be unclear and the merge might cause unintentional problems down the line. Or the resolved changes might not follow rigorous code review and testing to which the original changes were subject to.
+Therefore, even when the practitioner understands the particular conflicting code, they may still need additional meta information about the rationale of changes and idea of future feature implementation. This is especially true in situations where the code base is old, and such information not readily available. During our interview, P7 commented:
 \begin{quoting}
-\textit{``I have to jump around between tools and copy and paste version numbers...this is why integration matters.''}
+\textit{``It's harder to merge code when you're merging in some legacy code... But if you're a young team, and everybody who wrote the code is still a part of the team, it's easier.''}
 \end{quoting}
 
-Switching across multiple tools while resolving a conflict is disruptive and comes at a cost. Psychology studies~\cite{Meiran2000}\cite{gopher2000switching} have shown that task switching reduces performance and causes mental fatigue. 
-Gerald Weinberg highlighted that context switching arising from toolset fragmentation is a big problem in engineering teams~\cite{Weinberg1992}. 
+\subsubsection{Expertise}
+Knowledge is a key component of practitioner's needs when resolving merge conflicts, but along with that general knowledge is a need for expertise in the specific areas of code involved in a conflict.
+Practitioners recognize this need as having a sizable effect on their ability to resolve a merge conflict, and selected \textit{expertise in the area of conflicting code} (N2) as the second most important need.
 
-%This frustration is understandable for practitioners whose workflows frequently get interrupted by tool switches. Psychology studies~\cite{Meiran2000}\cite{gopher2000switching} have found that task switching comes with costs in performance and mental fatigue, and, in 1992, Gerald Weinberg highlighted the problem of toolset fragmentation within engineering teams~\cite{Weinberg1992}. 
+Examining code artifacts, reviewing change history, and reading documentation help with understanding the code when they are present and well-maintained.
+However, locating and maintaining these supporting documents is not always possible.
+In fact, Forward et al.~\cite{forward2002documentation} conducted a survey of 48 software practitioners and found that 68\% either agreed or strongly agreed that documentation is always outdated.
+When these gaps arise, practitioners compensate by consulting experts in the area of conflicting code instead.
 
-\subsubsection{Better Exploration of Project History}
-Practitioners have been known to use historical data to understand code evolution and development processes~\cite{Mihai_lenses}.
-Version control and bug tracking systems contain a huge amount of meta-information about the evolution of code and development processes.
-However, it is not easy to find the right bit of information in these large systems. 
-Currently, there is insufficient support for performing detailed analysis of how a code snippet evolved over time and why. 
-Better ways of exploring the project history (I3) was one of the top requested improvements in our survey. 
-As P1 mentioned in the interview:
+This result aligns with the goals of the TIPMerge tool~\cite{CostaSarma}, which seeks to locate experts that are best suited to resolve conflicts in a particular area of code.
+However, TIPMerge, as well as other recommendation tools are not being used by real-world practitioners, as evidenced by the lack of such tools in the list of top 10 merge tools (see Table~\ref{survey_toolset}).
+The reason for this lack of research tools adoption requires further investigation.
+
+Another surprising fact was that while the informative nature of commit messages (N8) and project culture (N9) were mentioned, they were not as highly ranked. % The same is true for project culture (N9). 
+We had expected them to be higher based on prior work~\cite{yamauchi2014clustering, hindle2009automatic, cortes2014automatically, hattori2008nature}. We found no statistical differences between commercial or open source projects, including when accounting for experience levels.
+Our results indicate that team practices, including writing commit messages may have matured enough, such that these factors are no longer considered critical in our sample set. 
+
+
+\subsubsection{Open-Source vs. Closed-Source Needs}\label{oss_vs_closed_tool_support} 
+It is interesting to note that for needs N1-N8 there was no statistical difference between practitioners focused on open-source and those focused on closed-source development when it comes to their conflict resolution needs.
+We found that practitioners who focus on open-source software development consider \textit{tool support for examining development history} (N10) to be the 3rd highest unmet need (mean: 3.60).
+Whereas, practitioners who focus on closed-source software development consider it to be the least impactful unmet need (mean: 2.86).
+%A Wilcoxon Signed-Ranks test indicated that open-source practitioners' ranking of N10 were statistically higher than closed-source practitioners' rankings of N10 (W = 1192.5, $p$-value = 0.02).
+
+This was also true in our interviews, with P8 stating:
+
 \begin{quoting}
-\textit{``Give me a way to explore the history. To drill down, to go back up, you know? To resurface and understand what happened.''}
+\textit{``I'm often dealing with code other people wrote. Nobody can review every pull request. So now I have to go back and do some archaeology to find out what's going on. Code is much easier to write than read.''}
 \end{quoting}
 
-
-Currently, when performing any complex analysis it is easier to write stand alone scripts to extract the information. 
-During the interview, P1 mentioned that he has written several scripts to locate particular historical commits that relate to a current merge conflict. 
-Similarly, P9 described a tool, \texttt{git-diff}, that was developed by their team to add additional difference analysis functionality across branches:
-\begin{quoting}
-\textit{``git-diff will just do the diff based on the SHAs... we're adding metadata... It also hooks into GitHub labels to do some more advanced heuristics.''}
-\end{quoting}
-
-While writing these scripts allows extraction of relevant data contextualized to the need, it also leads to a proliferation of multiple scripts that are written by individual practitioners and need to be maintained or integrated.
-This further adds to the problem of context-switching when practitioners must switch between multiple tools, and execute multiple scripts.
-
-We are not the first to recognize the gap in tool support provided for analyzing development history among practitioners~\cite{Mihai_lenses, sun2015informationhistory, guo2016cold-start, yan2014miningcontracts}. 
-It appears that practical applications of history exploration are still beyond the reach of practitioners. 
-One of the reasons for this might be the simple set of text editors, and toolsets, that our study participants seem to prefer.
-
-\subsubsection{Better Filtering of Less-Relevant Information}\label{better_filtering}
-Tools that routinely handle large or complex datasets require filtering in order to efficiently locate desired pieces of information.
-For example, when there are several commits in a pull request and multiple levels of code review at the line level.
-It is difficult to extract the key issue in the pull request, which can get lost in the sea of low level details. Similarly, if there are multiple commits in a pull request or branch, it is hard to extract the right information.
-Therefore, tools that provide filtering can better assist practitioners in working with large amounts of metadata associated with the changes.
-\textit{Better ways of filtering out less relevant information} (I2) was selected as the second most important need; P1 explained:
-\begin{quoting}
-\textit{``You want to extract the relevant commits. The ones that actually clash...you want to zoom in on them and understand just enough and don't waste time.''}
-\end{quoting}
-
-While improvements in history exploration (I3) will make project metadata more accessible, improvements in filtering for relevant metadata will allow practitioners to focus on the relevant parts of the code impacted by the merge conflict.
-
-%Version control systems (VCS) and bug tracking systems provide insufficient support for detailed analysis of software evolution and information retrieval~\cite{fischer2003release_history}.
-%For software practitioners using \texttt{git} and other VCS, it is often easier to write scripts that accommodate their particular information needs by augmenting the capabilities of the VCS.
-%During the interviews, P1 described writing several scripts in order to locate particular historical commits that relate to a current merge conflict.
-%P9 also described a tool, \texttt{git-diff}, developed as part of their efforts to add additional difference analysis functionality across branches:
-%\begin{displayquote}
-%\textit{``git-diff will just do the diff based on the SHAs... we're adding metadata and cherry picking, so the SHAs are always going to be changing... It also hooks into GitHub labels and uses the labels on the project to do some more advanced heuristics.''}
-%\end{displayquote}
-%\todo{Shane: This transition is a bit rough}
-%In our survey results, we see that practitioners rank \textit{better ways of filtering out less relevant information} (I2) as the second highest improvement needed in modern merge toolsets.
-%This suggests that further work is needed to bring these capabilities from single-purpose scripts into common toolsets used by all practitioners.
-%
-%\Subsubsection{Better Exploration of Project History}
-%Codoban et al.~\cite{mihai_lenses} introduced the concept of the \textit{Archeology Lens} to describe examining old development history to retrieve lost knowledge and postulated that additional tool support was needed in this context.
-%We also find that practitioners consider history exploration to be a major area of improvement for development toolsets.
-%Among survey participants, \textit{better ways of exploring project history} (I3) ranked as the third most important improvement needed.
-%During our interviews, P1 said: 
-%
-%\begin{displayquote}
-%\textit{``Give me a way to explore the history. To drill down, to go back up, you know? To resurface and understand what happened.''}
-%\end{displayquote}
-%
-%The gap in support for analyzing development history among practitioner toolsets has previously been recognized by researchers~\cite{sun2015informationhistory, guo2016cold-start, yan2014miningcontracts}, however practical application of these efforts appear to have not yet reached practitioners.
-
-\subsubsection{Better Graphical Presentation of Information}
-The usefulness of information is helped or hindered by the way in which it is presented to users.
-In our survey results, we found that \textit{better graphical presentation of information} (I4) was ranked the fourth highest improvement needed (mean: 3.14).
-
-In our interviews, several practitioners reported experiencing issues with inconsistent terminology, inconsistent visual metaphors (e.g. colors, notifications, etc.), and the organizational layout of different development tools.
-The cost of context switching in software development is well-known to researchers~\cite{czerwinski2004taskswitching, li2007cost_of_context_switch, blackwell2002attentioninvestment, convertino2003dualview}, and our results indicate that switching between different terminology and information presentation styles can also be a problem.
-There is a need for tools that share commonality in both terminology and presentation. 
-
-%\begin{figure*}[!htbp]
-%\centering
-%\includegraphics[width=0.92\textwidth]{ConflictComplexityVsSize.pdf}
-%\caption{Effectiveness of practitioners' toolsets in supporting perceived size and complexity of merge conflicts, split on development experience. Bubble values indicate number of survey responses for effectiveness of a particular merge conflict size and complexity, and bubble size indicates the number of responses for comparison purposes.\vspace*{-0.5\baselineskip}}
-%\label{size_vs_complexity}
-%\end{figure*}
-
-%\begin{table}[!htbp]
-%\renewcommand{\arraystretch}{1.3}
-%\caption{Practitioners' Trust in their Merging, History Exploration, and Conflict Resolution Tools\textsuperscript{i}}
-%\label{survey_tool_trust}
-%\centering
-%\begin{tabularx}{0.65\textwidth}{@{}r|*{10}{C}c@{}}
-%\toprule
-%Trust Level & Response Count & Response \%\\
-%\midrule
-%Completely & 20 & 16.52\\
-%A lot & 50 & 41.32\\
-%A moderate amount & 41 & 33.88\\
-%A little & 10 & 8.26\\
-%Not at all & 0 & 0.00\\
-%\bottomrule
-%	\multicolumn{3}{c}{\noindent\parbox[t]{7.8cm}{\vspace{-3px}\textsuperscript{i}\hspace{0.2em}Survey respondents answered on a 5-point Likert-type scale indicating trust in their toolset (1 being \textit{Not at all} and 5 being \textit{Completely}).}}
-%\end{tabularx}
-%\end{table}
-
-\subsubsection{Tool Mistrust/Transparency}\label{tool_trust}
-Most merge tools attempt to resolve conflicts using a variety of algorithms, but revert to manual resolution when these algorithms fail.
-Several interview participants indicated that they mistrust merge tools when they obscure the steps and rationale for particular results when resolving merge conflicts.
-The opaque nature of history exploration tools was also found to be a source of practitioners' overall mistrust of their toolsets.
-P4 commented:
-\begin{quoting}
-\textit{``I've never trusted the merge tools or diff tools... Sometimes I'll even manually go and do the merge myself rather than use a tool. Just because I've had several times where it's a bad merge, and I broke some code.''}
-\end{quoting}
-
-Based upon this theme of mistrust, we asked survey participants to rate the degree to which they trust their merging, history exploration, and conflict resolution tools.
-We received 121 responses to this question, with a mean score of 3.66 placing the most common responses between \textit{a moderate amount} and \textit{a lot} of trust (Table~\ref{survey_tool_trust}).
-Assuming that responses of \textit{a moderate amount}, \textit{a little}, or \textit{not at all} indicate some degree of mistrust, we find that 42.15\% of practitioners experience some gap in toolset trust.
-
-However, the severity of toolset mistrust is not as significant as our interview results suggested.
-Only 8.26\% of practitioners indicated that they trust their toolset \textit{a little} or \textit{not at all} (10 out of 121 responses).
-As the results of the survey were counter to our interview results, we looked further. We found that: (1) participants reported on the trust levels of the tools that they regularly use, and (2) a large number of participants reported that they had discontinued toolsets when they ran into errors. This indicates that if participants had reported their trust level of these discontinued tools the results would have been lower.
-
-\subsubsection{Perceptions of Tool Effectiveness}\label{tool_effectiveness}
-The perceived size and complexity of merge conflicts affect the way in which practitioners plan, allocate, and enact resolutions.
-To understand the degree to which these two factors impact practitioners' perceptions about the effectiveness of their toolsets, we asked survey participants to rate their toolset across four different merge conflict archetypes: (A1) \textit{simple, small merge conflicts}, (A2) \textit{simple, large merge conflicts}, (A3) \textit{complex, small merge conflicts}, and (A4) \textit{complex, large merge conflicts}.
-
-Since individual participants have different toolsets, and consider different factors when determining the perceived size and complexity of a merge conflict, we instructed participants to rate their own toolset against these archetypes using their notion of what constitutes a simple vs. complex and small vs. large merge conflict.
-
-Fig.~\ref{size_vs_complexity} provides a visual illustration of the results of this survey question.
-The four plots display the results for each of the archetypes, with archetype (A1) in the top-left plot, (A2) in bottom-left plot, (A3) in the top-right plot, and (A4) in the bottom-right plot.
-Individual plots are composed of a horizontal axis containing participants' software development experience, which we collect since experience can determine the range of conflicts that they have faced and their perceptions.
-The vertical axis shows the range of possible responses for the effectiveness of merge toolsets.
-The size and number within each bubble represent the number of respondents with a particular amount of software development experience that rated their toolset at that specific effectiveness level.
-
-For example, a practitioner with 6-10 years of experience who indicates that her merge toolset is \textit{Extremely Effective} for \textit{small, simple merge conflicts} would be represented in the largest bubble (containing 19) in A1. % in the top-left plot. 
-She would also be represented in the largest bubble (containing 13) in the bottom-right plot (A4) if she indicated that her merge toolset was \textit{Moderately effective} for \textit{large, complex merge conflicts}.
-
-Observing the overall trends when moving between plots, we find that practitioners perceive complexity of the conflict to have a greater impact on the effectiveness of their merge toolsets than the size of merge conflicts.
-Numerical analysis confirms this when finding that the mean response for archetype (A1) is 4.278 (where 5 is \textit{Extremely Effective} and 1 is \textit{Not effective at all}), (A2) is 3.782, (A3) is 3.347, and (A4) is 2.783.
-The shift from \textit{small} to \textit{large} merge conflict size (A1 to A2) results in a difference in mean responses of 0.496, whereas the shift from \textit{simple} to \textit{complex} merge conflict complexity results in a difference in mean responses of 0.930.
-
-These results suggest that merge tools are currently equipped to handle increases in the size of merge conflicts, but not as well equipped for increases in complexity.
-The increasing amount of code being developed in distributed environments means that scaling support in both dimensions is necessary to accommodate practitioners' needs.
+This result suggests that history exploration in open-source projects is a more difficult task due to the lack of upfront planning and large number of volunteering contributors.
+%, or that tools are better at supporting history exploration in closed-source development environments.
