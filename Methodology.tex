@@ -183,3 +183,59 @@ Therefore, although we cannot conclude that our surveys were sampled from the sa
 \caption{Percentile distributions of professional programming experience compared between \textit{Processes Survey}~(S1), \textit{Barriers Survey}~(S2), and 2018 StackOverflow Developer Survey respondents. Responses are inclusively binned into 3-year buckets for comparison across surveys.}
 \label{populations}
 \end{figure}
+
+The \emph{Processes Survey}~(S1) questions 7, 8, 11, 14 and 19 were open ended.
+To analyze them, we performed open thematic coding on the answers.
+For question 7, the first two authors independently the data.
+They performed 2 rounds: for the first they achieved an agreement of 0.80; for the second round they achieved a score of 0.95.
+Both rounds used Jaccard's coefficient for measuring agreement. 
+For the other questions, the first two authors used card sorting and  negotiated agreement to code the answers.
+All the questions, except question 11 required one round of card sorting.
+Question 11 required two rounds.
+The code sets used are presented in Table~\ref{tab:codes}.
+
+\def\shift{\hspace{0.5em}}
+\begin{table}[!htbp]
+\centering
+\caption{Codebook used for coding the open ended answers}
+\label{tab:codes}
+\begin{tabular}{lp{1.5in}p{1.3in}}
+\toprule
+Code & Description & Example \\
+\midrule
+\multicolumn{3}{l}{\textbf{Q7: How do you monitor for merge conflicts?}} \\
+\shift Proactive & & \\
+\shift Reactive & & \\
+\midrule
+\multicolumn{3}{l}{\textbf{Q8: How do you determine the urgency of a merge conflict?}} \\
+\shift Project Structure & & \\
+\shift Code Under Conflict & & \\
+\shift External Dependencies & & \\
+\shift No System & & \\
+\midrule
+\multicolumn{3}{p{4.5in}}{\raggedright\textbf{Q11: What is your first step in trying to understand code involved in a merge conflict?}} \\
+\shift About the conflict & & \\
+\shift The Code Itself & & \\
+\shift Analyzing the code & & \\
+\shift Design Concerns & & \\
+\shift Project Organization & & \\
+\shift No-op & & \\
+\midrule
+\multicolumn{3}{p{4.5in}}{\raggedright\textbf{Q14: What effect did deferring your response to a merge conflict have on the resolution of the conflict?}} \\
+\shift Physical Manifestations & & \\
+\shift External to company impact & & \\
+\shift Policy/culture changes & & \\
+\shift The Nuclear Option & & \\
+\shift Increased Complexity & & \\
+\shift Stop the presses & & \\
+\shift No-op & & \\
+\midrule
+\multicolumn{3}{p{4.5in}}{\raggedright\textbf{Q19: If your first attempt at resolving a merge conflict fails, what backup strategies do you use?}} \\
+\shift Collaborating & & \\
+\shift Redoing changes & & \\
+\shift Take it offline & & \\
+\shift Try again & & \\
+\shift No strategy/Other & & \\
+\bottomrule
+\end{tabular}	
+\end{table}
