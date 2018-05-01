@@ -7,11 +7,12 @@
 To understand the merge conflict processes, barriers, and resolution strategies of software developers, we used mixed methods consisting of interviews to gather qualitative insights and surveys to provide quantitative triangulations into the broader context of merge conflicts.
 Mixed methods allow us to identify perspectives and themes from both individual and population-wide samples to strengthen the validity of both, as per guidelines from Easterbrook et al.~\cite{easterbrook2008selecting}.
 
-We conducted \textit{Exploratory Interviews} with software developers to create a taxonomy of processes, barriers, strategies, and concerns experienced by developers when encountering merge conflicts.
+We conducted \textit{Exploratory Interviews} with software developers to create a taxonomy of processes, barriers, strategies, and concerns experienced by developers when encountering and resolving merge conflicts.
 We then triangulate and extend the results of our interviews by conducting a \textit{Processes Survey}~(S1) and a \textit{Barriers Survey}~(S2) using vocabulary generated from the interviews. 
 
 In this study, we were particularly interested in understanding the processes that software developers have created or adopted in order to successfully resolve merge conflicts.
-Processes are developed to address common problems in teams and organizations and identifying the problems is an essential element to process improvement~\cite{beecham2003software}.
+Processes are developed to address common problems in teams and organizations.
+Identifying the problems developers face is an essential element to process improvement~\cite{beecham2003software}.
 To analyze the processes, we conducted a \textit{Processes Survey}~(S1) of software developers to understand how they monitor for merge conflicts, how they plan their resolution strategies, and their processes for evaluating whether their resolutions are successful.
 
 To understand the scale of barriers, constraints, and concerns of software developers when approaching merge conflicts, we conducted a separate \textit{Barriers Survey}~(S2) of software developers.
@@ -26,12 +27,14 @@ The resulting data includes themes and terminology from the perspective of the i
 
 We conducted semi-structured interviews with software developers to understand their concerns when facing merge conflicts and the factors that impact merge conflict difficulty.
 We selected interview participants from top contributors to open-source projects, and from industry contacts using snowball sampling~\cite{goodman1961snowball} to reach a larger sample size.
-Each participant was asked to identify additional practitioners for recruitment to our study.
+Finally, we asked each participant to identify additional practitioners for recruitment to our study.
 
 We interviewed ten software developers from seven different organizations spanning six different industries.
-Eight of the participants primarily worked on open-source projects.
+Eight of the participants worked primarily on open-source projects.
 Participants worked on a variety of project sizes; from projects with less than five active contributors, to more than 1700 contributors (as evaluated by analyzing code repositories for a 12-month period).
 Table~\ref{interview_demographics} provides additional demographics data, including software development experience, role, industry, project size, and whether the participant primarily focused on open- or closed-source software development.
+Each interview lasted between 30 to 60 minutes.
+Participants were offered US\$50 in either cash, gift card, or a donation to a charity of their choice.
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.3}
@@ -58,9 +61,6 @@ Table~\ref{interview_demographics} provides additional demographics data, includ
 \parnotes
 \end{table}
 
-Each interview lasted between 30 to 60 minutes.
-Participants were offered US\$50 in either cash, gift card, or a donation to a charity of their choice.
-
 At the beginning of the interview we gave participants a short explanation of the research goals, our definition of merge conflicts, and collected demographics data. 
 We then asked participants about the roles that they play in their project, their experience working in team settings, questions about merge conflicts, the process of conflict resolution, and the difficulties that they faced in conflict resolution.
 
@@ -81,16 +81,15 @@ We continued interviewing participants until we reached saturation in the answer
 \subsection{Processes Survey (S1)}\label{processes_survey}
 
 Merge conflicts are disruptive to the collaborative software development workflow, and developers have adapted and developed several different processes for handling these complexities.
-To understand the common structure and prevalence of these processes, we conducted a 15-question \textit{Processes Survey} of software developers that included both open-ended and predefined questions.
+To understand the common structure and prevalence of these processes, we conducted a 15-question \textit{Processes Survey} (S1) of software developers that included both open-ended and predefined questions.
+Surveys are commonly used to for mapping the state of practice, establishing baselines for investigating research topics, and gathering opinions regarding software engineering technologies and practices~\cite{deMello2016survey}.
 
-We recruited \textit{Processes Survey} participants from contributor lists on popular open-source repositories on GitHub, advertised on social networking sites (Twitter and Reddit), and by directly contacting software developers via email.
+We recruited participants from contributor lists on popular open-source repositories on GitHub, advertised on social networking sites (Twitter and Reddit), and by directly contacting software developers via email.
 Due to the nature of social media and mailing lists, we cannot compute a response rate from these distribution methods.
 However, we did observe that 35.29\% of respondents were located outside of the United States and several respondents indicated that they sent the survey onward to other software developers.
 
-We recruited participants for both the \textit{Processes Survey}~(S1) and the \textit{Barriers Survey}~(S2) using similar methods to allow for comparisons and triangulation of the results.
 The survey was conducted online and anonymity was guaranteed.
-We advertised on social networking sites (Twitter and Reddit), and through emails to industry contacts and interview participants to locate additional software developers using snowball sampling.
-The \textit{Processes Survey} was available for 38 days and we received 113 survey responses, however, 11 responses were incomplete, resulting in 102 total responses.
+The \textit{Processes Survey}~(S1) was available for 38 days and we received 113 survey responses, however, 11 responses were incomplete, resulting in 102 total responses.
 The results of this survey are presented in Section~\ref{results}.
 
 \begin{figure}[!htbp]
@@ -107,7 +106,7 @@ Figure~\ref{processes_roles} provides a visual illustration of the distribution 
 Almost 80\% of respondents were primarily a \textit{Developer} or \textit{Engineer} (40.59\% and 38.61\% respectively), with 5.94\% selecting \textit{Architect}, 6.93\% \textit{DevOps}, 0.99\% \textit{Designer}, and 6.93\% \textit{Other}.
 Among respondents that selected \textit{Other}, the open-text responses included: \textit{Tester}, \textit{Security Analyst}, \textit{Hobbyist Programmer}, and \textit{Researcher}.
 
-The survey was divided into four categories, with each containing 3-5 questions (see \cite{companion_site} for individual questions).
+We divided the survey into four categories, with each containing 3-5 questions (see \cite{companion_site} for individual questions).
 First, we elicited background information about demographics, roles, and experience.
 Second, we asked questions relating to how and when developers become aware of merge conflicts.
 Third, we asked questions related to planning and implementing merge conflict resolution strategies.
@@ -115,13 +114,13 @@ Finally, we asked questions about evaluating the effectiveness of those merge co
 
 \subsection{Barriers Survey (S2)}\label{perceptions_survey}
 
-Surveys are commonly used to for mapping the state of practice, establishing baselines for investigating research topics, and gathering opinions regarding software engineering technologies and practices~\cite{deMello2016survey}.
-We conducted a 50-question \textit{Barriers Survey} of software developers in order to examine the barriers, constraints, and concerns experienced when encountering merge conflicts.
+In the last step, we conducted a 50-question \textit{Barriers Survey} of software developers in order to examine the barriers, constraints, and concerns experienced when encountering merge conflicts.
 We developed questions to confirm, extend, and broaden the results from the interviews.
 
 \renewcommand*{\thefootnote}{\arabic{footnote}}
-\setcounter{footnote}{0}
-We recruited \textit{Barriers Survey} participants from contributor lists on popular open-source repositories on GitHub, advertised on social networking sites (Facebook and Reddit), and by directly contacting software developers via email. 
+%\setcounter{footnote}{0}
+We recruited participants for both the \textit{Processes Survey}~(S1) and the \textit{Barriers Survey}~(S2) using similar methods to allow for comparisons and triangulation of the results.
+We therefore recruited participants from contributor lists on popular open-source repositories on GitHub, advertised on social networking sites (Facebook, Twitter and Reddit), and by directly contacting software developers via email. 
 Participants spanned a variety of organization structures and geographical locations, giving generalizability to results.
 The survey was conducted online and anonymity was guaranteed in order to elicit honest responses from participants.
 The survey was available for 56 days and we received 162 survey responses, but individual parts of the survey have varying response rates and are reported where appropriate in Section~\ref{results}. 
@@ -158,7 +157,7 @@ Survey participants indicated a median software development experience of 6-10 y
 \end{tabularx}
 \end{table}
 
-The \textit{Barriers Survey} was divided into four categories, with each category containing 5-7 questions (see \cite{companion_site} for questions).
+We divided the \textit{Barriers Survey}~(S2) into four categories, each category containing 5-7 questions (see \cite{companion_site} for questions).
 First, we elicited background information about demographics, roles, and experience.
 Second, we asked questions related to difficulties that developers experience when encountering merge conflicts.
 Third, we asked questions related to conflict resolution and the factors that affect developers.
