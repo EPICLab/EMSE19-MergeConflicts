@@ -1,106 +1,152 @@
 %!TEX root = main.tex
 
-\subsection{\textbf{RQ2:} What unmet needs impact the difficulty of a conflict resolution?}\label{RQ2}
+\subsection{\textbf{RQ2:} What difficulties do software developers experience with merge conflicts?}\label{RQ2}
 
-There can often be gaps in how practitioners perceive the difficulty of merge conflicts and the actual hurdles that they face when resolving these conflicts. 
-These gaps can then in turn affect how well practitioners can resolve the conflict.
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Factors of Merge Conflict Difficulty from Barriers Survey (S2)}
+\label{s2_factors}
+\centering
+\begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | *1{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
+\toprule
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Factor & Description & \likertscale{1,2,3,4,5} & Median\parnote{Responses on 5-point Likert scale indicating the degree of effect on resolution difficulty (1 indicates \textit{no effect}, 5 indicates \textit{great effect}).} & Mean\textsuperscript{i} \\
+\midrule
+  \setrow{\bfseries}F1 & Complexity of conflicting lines of code & \likertplot{coordinates {(1,5)(2,29)(3,38)(4,56)(5,34)}}{28.2}{5,29,38,56,34} & 4 & 3.52 \\
+  \setrow{\bfseries}F2 & Knowledge/expertise in area of conflict & \likertplot{coordinates {(1,5)(2,23)(3,50)(4,54)(5,30)}}{28.2}{5,23,50,54,30} & 4 & 3.50 \\
+  \setrow{\bfseries}F3 & Complexity of files with conflicts & \likertplot{coordinates {(1,8)(2,34)(3,49)(4,51)(5,18)}}{28.2}{8,34,49,51,18} & 3 & 3.23 \\
+  \setrow{\bfseries}F4 & Number of conflicting lines of code & \likertplot{coordinates {(1,2)(2,40)(3,64)(4,45)(5,11)}}{28.2}{2,40,64,45,11} & 3 & 3.14 \\
+  F5 & Time to resolve a conflict & \likertplot{coordinates {(1,14)(2,56)(3,51)(4,25)(5,15)}}{28.2}{14,56,51,25,15} & 3 & 2.82 \\
+  F6 & Atomicity of changesets in conflict & \likertplot{coordinates {(1,20)(2,48)(3,51)(4,29)(5,13)}}{28.2}{20,48,51,29,13} & 3 & 2.80 \\
+  F7 & Dependencies of conflicting code & \likertplot{coordinates {(1,20)(2,56)(3,39)(4,33)(5,14)}}{28.2}{20,56,39,33,14} & 3 & 2.78 \\
+  F8 & Number of files in the conflict & \likertplot{coordinates {(1,10)(2,69)(3,50)(4,26)(5,6)}}{28.2}{10,69,50,26,6} & 3 & 2.68 \\
+  F9 & Non-functional changes in codebase & \likertplot{coordinates {(1,47)(2,63)(3,31)(4,15)(5,4)}}{28.2}{47,63,31,15,4} & 2 & 2.16 \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
 
-We, therefore, asked our interview participants open-ended questions about their experiences in resolving the most recent past conflicts, especially their recollection of what made the resolution difficult.
-%These gaps are often a result of a lack of knowledge about the conflicting code or their awareness of ongoing, relevant changes. 
-%The perception of merge conflict difficulty and the actual hurdles of resolving them are distinct, and at times separated by a gap in knowledge or awareness.
-%These gaps prevented practitioners from accurately gauging the difficulty of a merge conflict before beginning to resolve it.
-%What makes a merge conflict difficult?? - don't tools do this, I don't know this
-Their responses indicated that there are several unmet needs. We identified ten needs (see Table~\ref{survey_res_diffs}), which range from needs about the ability to understand the code, their expertise, and existing tool support.  
+To understand the perspective of software developers when encountering a merge conflict, we asked interview participants to reflect on situations when they initially face a merge conflict: what kind of information do they seek, how do they approach the resolution of the conflict, and what tools they use. 
 
-Using results from the interview, we asked survey participants to rate how much each of the ten needs affected their ability to resolve merge conflicts.
-We received 141 responses using a 5-point Likert-type scale indicating the degree of effect on resolution difficulty (1 being \textit{Not at all}, 3 being \textit{A moderate amount}, and 5 being \textit{A great deal}).
-Results of the survey are presented in Table~\ref{survey_res_diffs}. 
+We identified nine factors (from card sorting) that developers consider when approaching a conflict and attempting to determine its difficulty (see Table~\ref{s2_factors}). 
+We asked survey participants to rate how each of these nine factors affected their perceptions of difficulty when approaching a merge conflict.
 
-All the unmet needs have a mean score of at least $3.03$ on the 5-point Likert-type scale, implying that all of them mattered at least a moderate amount.
-We present and discuss in detail the top four unmet needs, plus additional observations regarding the other six unmet needs. 
-As with the factors in the previous section, all these needs also relate to \textit{technical aspects} (e.g., understanding the conflicting code) and their \textit{expertise} in resolving conflicts.
+We received 162 responses and present the aggregated results in Table~\ref{s2_factors}; ranked according to the mean score for each factor.
+Here, we discuss in detail the top 4 factors with a mean score greater than $3.00$.
+These factors can be grouped into themes of \textit{technical aspects} and \textit{expertise}, and our results are presented according to these groups.
 
-%All of the unmet needs in Table~\ref{survey_res_diffs} can be considered important to practitioners when resolving merge conflicts, since each received a mean score of at least 3.03 on the 5-point Likert scale.
-%However, practitioners primarily working on closed-source development differed in perceptions of \textit{tool support for examining development history} (N10).
-%We further discuss this demographic difference in Section~\ref{oss_vs_closed_tool_support}.
+\subsubsection{Technical Aspects}\label{artifact-based-factors}
+Two of the top four factors refer to perceptions about the complexity of merge conflicts (F1, F3), with the third factor being \textit{number of conflicting lines} (F4), which can be construed as a specific metric of complexity of the conflict. 
+While practitioners mentioned complexity of the lines of code and the file, none mentioned using metrics, such as cyclomatic complexity~\cite{fenton2000quantitative}\cite{mccabe1976complexity} or Function Point Analysis~\cite{garmus2001fpa}\cite{symons1988function}. 
+Instead, practitioners made educated guesses on the complexity of the code based on their own experience of either writing the code, or having worked with it. 
+Some of the simple to compute metrics, such as \textit{number of conflicting lines of code} (F4), \textit{number of files involved} (F8), \textit{atomicity of changesets} (F6), and \textit{the time} they thought it would take \textit{to resolve the conflict} (F5) were mentioned. 
+The only factor where static analysis tools can help was in identifying the \textit{dependencies of the conflicting code} (F7).
+This indicates that understanding the complexity of the conflicting code is important, but practitioners do not use the metrics that have been proposed by research. While some of the simple proxies for complexity are used, practitioners primarily rely on their own ``judgement" of the complexity of the conflict.
+%Researchers have thus far computed complexity of changes in code using proxies such as lines of code changed and numbers of files changed~\cite{khoshgoftaar1990predicting}.
+%Other code-centric metrics such as cyclomatic complexity~\cite{fenton2000quantitative}\cite{mccabe1976complexity} and atomicity changes~\cite{khelladi2016ad} can also be used, but require some amount of computation.
+%We found that practitioner's perceptions of complexity are just as important in determining how they approach the resolution of a merge conflict.
 
-\Subsubsection{Technical Aspects}
-Three needs among the top four relate to technical aspects of merge conflict resolution.
-The \textit{understandability of conflicting code} (N1) is ranked as the most important need, with both \textit{contextual information about the conflict} (N3) and \textit{the way in which tools present relevant information} (N4) ranking in the top four.
-
-Data from version control systems is used by practitioners to identify the evolution of the code~\cite{Mihai_lenses}, however, it is not easily available and requires a context switch from the code editor to the version control system~\cite{Guzzi2015}. 
-Moreover, these changes are often processed in isolation, especially when there are many changes (conflicts) to process. 
-Such decomposition of overall conflicting changes into smaller ``chunks" is needed to be able to manage the complexity of the resolution process; however, this occludes viewing the changes and their impact in a holistic manner. 
-Often practitioners deal with the decomposed (smaller) changes, hoping that they will all together work out. 
-For example, P1 compared the resolution hurdles between two conflicts, where one was simple, and the other spanned multiple files and complex blocks of code.
+This perception of the conflict complexity can affect whether a practitioner resolves the conflict immediately (when small), or whether they should wait to examine the conflict when further resources are available; P8 commented:
 \begin{quoting}
-\textit{``You focus on understanding the small change, not the big one. It's easier to understand... get the small change to go with the flow of the bigger change.''}
+\textit{``Small is always easy. A 1-line merge conflict is always easier to resolve than a 400-line merge conflict, and can be done now.''}
 \end{quoting}
 
-Another challenge when viewing changes in isolation, is the fact that practitioners may miss the impact of the changes made as part of the resolution to the rest of the code base. 
-Identifying the impact of changes on the rest of the code base has been repeatedly found to be a problem in collaborative development, as found by deSouza and Redmiles~\cite{deSouza2008} and more recently by Guzzi et al.~\cite{Guzzi2015}. 
-The top unmet needs in our study too revolved around the challenges that practitioners face in how much information they had about the conflicting code (N3), and the difficulty in finding the needed information from current tools and practices (N3, N4, N8, N10). 
-This indicates that despite advances in supporting parallel development practices, the right information needed to resolve conflicts is still not easily available to practitioners. 
-%Practitioners often look at changes in isolation to deal with the technical complexities, but may overlook understanding the conflicting code in context of the larger codebase.
-%Decomposing the conflict into small changes makes it easier to understand; however, this can cause tunnel vision and lead to defects arising from the merge resolution.
+If a merge conflict is perceived to be large or complex, a practitioner may decide to forgo attempting to resolve it through code manipulation and choose to revert the changes instead~\cite{Guzzi2015}.
+This ``nuclear option'' requires practitioners to disrupt the development flow, set aside their current development work, and potentially remove ``good'' code that was not part of the conflict in order to return to a non-conflicting state.
+In the interview, P1 describes this process as:
+\begin{quoting}
+\textit{``If you have many conflicts involved, many commits in the conflict...throw one of the branches away. You cannot combine tens of commits conflicting...it's not sane!''}
+\end{quoting}
 
-%\begin{sidewaystable}[]
-%\renewcommand{\arraystretch}{1.3}
-%\caption{Improvements for Practitioner Toolsets from Survey}
-%\label{survey_tool_needs}
-%\centering
-%%\begin{tabularx}{0.9\textwidth}{@{}r|*{6}{C}c@{}}
-%\begin{tabularx}{0.86\textwidth}{>{\rowmac}c | >{\rowmac}l | *5{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
+Further, when integrators are preparing code for production environments they prioritize merge conflicts for code review based upon the perceived difficulty of resolving the affected code.
+We find that these decisions rely on human judgement factors as much as they rely on data-driven metrics.
+Practitioners may not have the time to compute project-wide complexity metrics, such as those proposed in  literature. Therefore, we need metrics that can be easily calculated by ``lay practitioners" as they face a conflict. 
+%are human-aware and take into account the perceived difficulties of merge conflicts.
+
+\subsubsection{Expertise}\label{knowledge-based-factors}
+Our findings show that expertise in the area of conflicting code is one of the top factors in determining the difficulty of a merge conflict (F2). This reiterates the fact that practitioners rely on their own knowledge about the conflicting code base when approaching a conflict. 
+
+Our results indicate that when practitioners feel they don't have the expertise in the conflicting code base, they consider the conflict difficult to merge and seek out more information or assistance from others. 
+P5 illustrated this need for expertise when describing his workflow: 
+\begin{quoting}
+	\textit{``A lot of what I work on is in my own little area...I know what to do\textellipsis But in [unfamiliar part of code], then I'll get someone else to resolve the merge conflict for me. It's someone else's code, and I don't want to screw it up.''}
+\end{quoting}
+
+
+
+%The importance of the knowledge-based factor indicates that practitioners attribute value to information; the greater knowledge in the conflicting code, the more likely it can be resolved correctly.
+%When information is not available, practitioners seek others with expertise to fill this information gap.
+
+%When attempting to resolve a conflict alone, practitioners working in unfamiliar code often feel uncomfortable making decisions during a merge due to lack of familiarity with the code or impacts related to the code change~\cite{CostaSarma}. 
+%Situations such as these raise questions relating to which person is best suited to resolve the conflict without introducing a new bug or unintentionally changing code behavior. 
+
+Our findings confirm the need for tools that identify appropriate experts~\cite{CostaSarma} and encourage further research into selection of knowledgeable practitioners for merge conflict resolution.
+
+
+%We find that expertise, as well as awareness of specific expert knowledge among teams, is an important factor in determining the difficulty of a merge conflict.
+%The ability to know who to contact in order to resolve a merge conflict partially explains the drive towards specific integrator and release engineer roles increasing appearing in many software development projects~\cite{adams_release_eng}.
+
+%The results of our survey indicate that \textit{complexity of conflicting lines of code} and \textit{knowledge/expertise in the area of conflicting code} are factors that practitioners find have a direct effect on the perceived difficulty of a merge conflict.
+%Although we found consensus across all demographics, the experience level of respondents had an affect on the degree to which they responded affirmatively for these factors (see Table~\ref{survey_merge_conflicts}).
 %
-%\toprule
-%	Improvement & Description & 1 & 2 & 3 & 4 & 5 & Mean & Median\\
-%\midrule		
-%	\setrow{\bfseries}I1 & Better usability & 6 & 17 & 32 & 48 & 16 & 3.43 & 4\\
-%	\setrow{\bfseries}I2 & Better ways of filtering out less relevant information & 8 & 15 & 32 & 48 & 16 & 3.41 & 4\\
-%	\setrow{\bfseries}I3 & Better ways of exploring project history & 7 & 21 & 36 & 39 & 16 & 3.30 & 3\\
-%	\setrow{\bfseries}I4 & Better graphical presentation of information & 13 & 26 & 26 & 37 & 16 & 3.14 & 3\\
-%	I5 & Better transparency in tool functionality/operations & 16 & 36 & 24 & 40 & 3 & 2.82 & 3\\
-%	I6 & Better terminology that is more consistent with my other tools & 23 & 41 & 32 & 15 & 8 & 2.53 & 2\\
-%	\bottomrule
-%\end{tabularx}
-%%\vspace*{-0.5\baselineskip}
-%\end{sidewaystable}
+%Practitioners with 1-5 years and 6-10 years of experience were only nominally in agreement that merge conflict difficulty is affected by \textit{complexity of conflicting lines of code} (mean: 3.31 and mean: 3.37 respectively) and \textit{knowledge/expertise in the area of conflicting code} (mean: 3.21 and mean: 3.42 respectively).
+%As practitioner experiences increases, the level of agreement increases on both of these factors, with practitioners indicating 26+ years experience having the highest consensus (mean: 4.06, std. deviation: 0.77). 
+%
+%Larger, more complex projects typically require that developers have more experience and a higher degree of knowledge about the systems used in the project.
+%As the size of a software project increases, so does the complexity of the underlying code~\cite{banker1993software}\cite{curtis1979third}.
+%Therefore, more experienced practitioners are likely to have a broader range of understanding about both \textit{complexity of conflicting lines of code} and \textit{knowledge/expertise in the area of conflicting code} and their affects on merge conflict difficulty.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=3.4in]{MeanProjectSize.pdf}
+%\caption{Mean Likert Score by Project Size for \textit{knowledge/expertise in the area of conflicting code} category of factors that effect the perceived difficulty of merge conflicts.}
+%\label{mean_likert_project_size}
+%\end{figure}
+%
+%When analyzing by the size of project that practitioners normally work on, we found that \textit{knowledge/expertise in the area of conflicting code} was increasingly viewed as having an effect on merge conflict difficult as the practitioners' project size increased (see Figure~\ref{mean_likert_project_size}).
+%The practitioners that usually work in project sizes of \textit{1 developer}, \textit{2-5 developers}, and \textit{6-10 developers} had relatively neutral responses regarding the effects of \textit{knowledge/expertise in the area of conflicting code} (mean: 3.12, mean: 3.38, and mean: 3.47 respectively).
+%However, practitioners that usually work in project sizes of \textit{11-50 developers} and \textit{51+ developers} more positively indicated that \textit{knowledge/expertise in the area of conflicting code} has an effect on the difficulty of merge conflicts (mean: 4.00 and mean: 3.69 respectively).
+%
+%We also found that practitioners agree that \textit{non-functional changes (whitespace, renaming, etc.)} (mean: 2.16, std. deviation: 1.03) has no effect on the perceived difficulty of a merge conflict.
+%Non-functional changes are textual conflicts that can be resolved without consideration of dependencies, performance, or scope.
+%Practitioners have less to reason about when resolving merge conflicts that involve only textual conflicts, and therefore are unlikely to perceive \textit{non-functional changes} as affecting the difficulty of merge conflicts.
 
-Conflict resolution can sometime lead to defects in the code base. This can arise because of several reasons. For example the rationale of the two conflicting changes might be unclear and the merge might cause unintentional problems down the line. Or the resolved changes might not follow rigorous code review and testing to which the original changes were subject to.
-Therefore, even when the practitioner understands the particular conflicting code, they may still need additional meta information about the rationale of changes and idea of future feature implementation. This is especially true in situations where the code base is old, and such information not readily available. During our interview, P7 commented:
-\begin{quoting}
-\textit{``It's harder to merge code when you're merging in some legacy code... But if you're a young team, and everybody who wrote the code is still a part of the team, it's easier.''}
-\end{quoting}
+%Intuitively, we would assume that an increased perception of \textit{knowledge/expertise in the area of conflicting code} as difficulty factor would correlate with a decreased perception of \textit{complexity of conflicting lines of code} as a difficulty factor of merge conflicts.
+%This relationship would indicate that a developer's expertise allows them to rationalize about merge conflicts with higher complexity, since they have a higher degree of past knowledge in that area of conflict.
+%However, we find a statistical significant correlation between \textit{complexity of conflicting lines of code} and \textit{knowledge/expertise in the area of conflicting code} (Pearson's correlation coefficient: 0.2766, p-value: 0.0003664, 95\% confidence interval: 0.1279 0.4132).
+%This suggests that ...
 
-\Subsubsection{Expertise}
-Knowledge is a key component of practitioner's needs when resolving merge conflicts, but along with that general knowledge is a need for expertise in the specific areas of code involved in a conflict.
-Practitioners recognize this need as having a sizable effect on their ability to resolve a merge conflict, and selected \textit{expertise in the area of conflicting code} (N2) as the second most important need.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Examining code artifacts, reviewing change history, and reading documentation help with understanding the code when they are present and well-maintained.
-However, locating and maintaining these supporting documents is not always possible.
-In fact, Forward et al.~\cite{forward2002documentation} conducted a survey of 48 software practitioners and found that 68\% either agreed or strongly agreed that documentation is always outdated.
-When these gaps arise, practitioners compensate by consulting experts in the area of conflicting code instead.
+%\subsubsection{Interviews}
+%%The interview results suggest that developers approach merge conflicts...
+%
+%\subsubsection{Survey}
+%Our survey suggests that regardless of gender, developer role, experience level, project size, and source distribution model, software practitioners say that the following factors affect the difficulty of a merge conflict most: 
+%\begin{itemize}
+%\item \textit{Complexity of conflicting lines of code}
+%\item \textit{Your knowledge/expertise in area of conflicting code}
+%\end{itemize}
+%
+%Similarly, software practitioners across every measured demographic perceived the following factors to be less important when deciding the difficulty of a merge conflict:
+%\begin{itemize}
+%\item \textit{Non-functional changes (whitespace, renaming, etc)}
+%\item \textit{Number of files in the conflict}
+%\end{itemize}
+%
+%While survey participants did not agree that non-functional changes strongly factor into the difficulty of a merge conflict, it is still worth noting that several interview participants named non-functional changes, such as large refactor or reformatting changes, as a cause for merge conflicts. This suggests that non-functional changes may increase the likelihood of a merge conflict happening, but they do not contribute to the conflict's difficulty.
+%
+%However, some demographics do view certain difficulties. For instance, open-source developers think that \textit{Atomicity of change sets in the conflict} impacts the difficulty, while closed-source developers and people who split their time evenly think that atomic change sets have no effect on the difficulty. This may be explained by the findings in Rigby et al\cite{OSS_smaller_commits}, which shows that open-source projects tend to review smaller changes than closed-source projects because "The small size lets reviewers focus on the entire change, and the incrementality reduces reviewers’ preparation time and lets them maintain an overall picture of how the change fits into the system." It is possible that our result reflects this difference of culture.
+%
+%We also found that Project Maintainers say that \textit{Time to resolve a conflict} has an effect, while no other role agrees. This suggests that those in a maintainer role may be more subject to time-related constraints such as maintenance or release schedules. 
+%
+%\comment{Project Managers say no effect because they focus on project schedules, not conflict resolutions, i.e. they are higher level/abstraction?}
+%
+%\todo{might be previous work}
+%Support and infrastructure roles (System Engineer, Sys Admin, System Architect, DevOps) emphasized that \textit{Dependencies of conflicting code on other components} have more of an effect than other roles did. This might be due to infrastructure systems being maintained in a live environment, or systems that are currently in production use and at risk of real-time dependency failures. 
+%
+%Developers on projects of size 1 say that \textit{Dependencies of conflicting code on other components}. Because no other project sizes agree with this idea, we hypothesize that this could be due to their high dependence on external code because of the software production limitations of a 1-developer team.
+%
+%We also found that the group of developers with 21-25 years of experience frequently contradicted general consensus, but it seems more likely that these differences were simply due to the group's small sample size (4).
 
-This result aligns with the goals of the TIPMerge tool~\cite{CostaSarma}, which seeks to locate experts that are best suited to resolve conflicts in a particular area of code.
-However, TIPMerge, as well as other recommendation tools are not being used by real-world practitioners, as evidenced by the lack of such tools in the list of top 10 merge tools (see Table~\ref{survey_toolset}).
-The reason for this lack of research tools adoption requires further investigation.
-
-Another surprising fact was that while the informative nature of commit messages (N8) and project culture (N9) were mentioned, they were not as highly ranked. % The same is true for project culture (N9). 
-We had expected them to be higher based on prior work~\cite{yamauchi2014clustering, hindle2009automatic, cortes2014automatically, hattori2008nature}. We found no statistical differences between commercial or open source projects, including when accounting for experience levels.
-Our results indicate that team practices, including writing commit messages may have matured enough, such that these factors are no longer considered critical in our sample set. 
-
-
-\Subsubsection{Open-Source vs. Closed-Source Needs}\label{oss_vs_closed_tool_support} 
-It is interesting to note that for needs N1-N8 there was no statistical difference between practitioners focused on open-source and those focused on closed-source development when it comes to their conflict resolution needs.
-We found that practitioners who focus on open-source software development consider \textit{tool support for examining development history} (N10) to be the 3rd highest unmet need (mean: 3.60).
-Whereas, practitioners who focus on closed-source software development consider it to be the least impactful unmet need (mean: 2.86).
-%A Wilcoxon Signed-Ranks test indicated that open-source practitioners' ranking of N10 were statistically higher than closed-source practitioners' rankings of N10 (W = 1192.5, $p$-value = 0.02).
-
-This was also true in our interviews, with P8 stating:
-
-\begin{quoting}
-\textit{``I'm often dealing with code other people wrote. Nobody can review every pull request. So now I have to go back and do some archaeology to find out what's going on. Code is much easier to write than read.''}
-\end{quoting}
-
-This result suggests that history exploration in open-source projects is a more difficult task due to the lack of upfront planning and large number of volunteering contributors.
-%, or that tools are better at supporting history exploration in closed-source development environments.
+%We asked participants how much they trust their merging, history exploration, and/or conflict resolution tools, and 57.9\% of participants reported that they trusted these tools either \textit{A Lot} or \textit{Completely}. While this is a majority of developers, this still leaves a significant number of people (42.1\%) who trust their tools \textit{A moderate amount} or \textit{A little}. Though we had the option for \textit{Not at all}, no participants selected this option, presumably because users stop using tools that they do not trust at all. While we found no previous work discussing the threshold for how much users must trust tools for a good tool experience, we postulate that users who cannot trust their tools \textit{A Lot} or \textit{Completely} will avoid relying on such tools too much.

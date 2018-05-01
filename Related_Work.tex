@@ -1,4 +1,8 @@
+%!TEX root = main.tex
+
 \section{Related Work}\label{related_work}
+
+\subsection{Collaboration}
 
 Gousios et al. \cite{integrator_perspective} conduct a study in which they ask integrators to describe difficulties in maintaining their projects and code contributions. 
 They showed that integrators have problems with their tools, have trouble with non-atomic changesets, and rank \textit{git knowledge} in the top 30\% of their list of biggest challenges. 
@@ -12,4 +16,60 @@ However, they also note that although automatic merging was used, their particip
 Guzzi et al. further explain that their interviewees avoid merge conflicts by using strict policies and software modularity.
 Their results complement our findings that toolset mistrust is a major concern, and that standards need to be implemented in order to avoid complex merge conflicts.
 
-Codoban et al.~\cite{Mihai_lenses} seek to evaluate developer understanding and usage of code history. Our results show that tool support during history exploration factors into the difficulty of a merge conflict a moderate amount (N10). This result independently verifies their findings that practitioners experience tool limitations in usability (I1) and history visualization (I4).
+Begole et al.~\cite{begole_work_2002} investigate the work rhythms of developers.
+They use minute-by-minute records of computer activity coupled with locality of the activity, calendar appointments, and e-mail activities to provide meaningful visualizations for group coordination.
+The passive nature of these visualizations requires users to engage and coordinate, which differs from version control systems that actively support the software development process.
+Finally, Meyer et al.~\cite{meyer_work_2017} look at the activities of developers, their productivity and context switching.
+They identify patterns in activity that can help developers collaborate more effectively. 
+
+\subsection{History Understanding and Navigation}
+
+Codoban et al.~\cite{Mihai_lenses} seek to evaluate developer understanding and usage of code history. 
+Our results show that tool support during history exploration factors into the difficulty of a merge conflict a moderate amount (N10). 
+This result independently verifies their findings that practitioners experience tool limitations in usability (I1) and history visualization (I4).
+
+Ragavan et al.~\cite{ragavan_pfis-v_2017} propose an Information Foraging Theory (IFT) model for how developers forage in the presences of history (in their paper they refer to this as ``variations'').
+This model highlights the needs of developers attempting to understand merge conflicts, whereas we examine the methods and strategies that developers employ prior to encountering a merge conflict and the processes for evaluating their resolutions.
+
+While these studies provide an insight into how developers use, explore and understand history, they do not approach any of the problems that collaborative development can bring to software development.
+
+%\subsection{Tool evaluation}
+
+\subsection{Better Merge Conflict Resolution}
+
+Currently, all version control systems treat source code files as text.
+Therefore, merging is done at a textual level, ignoring all structure that the files might contain.
+Several researchers have looked at ways to improve this status quo.
+
+Westfechtel~\cite{westfechtel_structure-oriented_1991} proposes a merging technique that uses the structural (i.e. lexical) information of a language when performing a merge. However, such tools are language dependent and the required algorithms are expensive to run.
+Apel et al.~\cite{apel_structured_2012-1, apel_semistructured_2011} proposes \emph{JDime}, which improves existing structured merging techniques by only using structural information when the unstructured (i.e. text only) merge has failed.
+Binkley et al.~\cite{binkley_program_1995} proposes using call graph information to correctly merge different versions of the program.
+
+Lippe and van Oosterom~\cite{lippe_operation-based_1992} go a different way.
+They propose a new merging technique, \emph{operation-based merging} that would replay the changes that were performed on the two branches, in the order in which they were performed.
+
+These studies compliment our results which show that toolset mistrust is a major concern among developers, and by addressing the quality and consistency of the algorithms and tools available for merge conflicts will hopefully improve developer trust in the future.
+
+\subsection{Workspace awareness} 
+
+Biehl et al.~\cite{biehl_fastdash:_2007} propose \emph{FastDASH}, a tool that fosters awareness between members of a team. 
+FastDASH provides a dashboard that shows the files that are checked out, modified, and staged by other members of the team.
+da Silva et al.~\cite{da_silva_lighthouse:_2006} propose \emph{Lighthouse} to show the changes being made at the design level.
+Their tools presents all changes from the perspective of changes to the model (in the form of UML diagrams) of all of the developers project.
+While all these approaches provide awareness of potential conflicts, they require the developer to actively monitor and discern if a conflict is likely or has occurred.
+
+Sarma et al.~\cite{palantir, sarma_palantir:_2003} go a step further and propose \emph{Palant\'{i}r}.
+Palant\'{i}r monitors other developer's workspaces, and, depending on the changes, will notify the developer, in a non-obtrusive manner, if a conflict has happened.
+Similarly, Hatori and Lanza~\cite{hattori2010syde} propose \emph{Syde} that monitors the changes at an Abstract Syntax Tree (AST) level.
+This allows the tool to give more precise information to the developer.
+
+Brun et al.~\cite{Brun2011} propose \emph{Crystal}, which monitors selected branches in the repository. 
+Crystal preemptively merges the branches in the background and will notify the developers of any conflicts that arise. 
+It detects both \emph{direct} conflicts (changes to the same line), and \emph{indirect} conflicts (changes to a different line that cause build or test failures).
+Guimara\~{e}s et al.~\cite{Guimaraes} propose \emph{WeCode}, which also merges in uncommitted code, in order to improve the time to detection of a merge conflict.
+
+Servant et al.~\cite{servant_casi:_2010} proposes \emph{CASI}, that uses visualization to help developers detect conflict early.
+CASI shows all the program elements that are influenced by the changes made in the team, so that developers can coordinate more efficiently.
+
+Kasi and Sarma~\cite{kasi_cassandra:_2013} take a more proactive approach and propose a novel task scheduling approach that aims to minize the number of conflicts. 
+\emph{Cassandra} uses developer preferences, task and file dependencies to schedule tasks so that they are less likely to conflict.

@@ -1,0 +1,15 @@
+.DS_Store
+*.log
+*.aux
+*.bbl
+*.pdf
+*.synctex.gz
+*.swp
+*.blg
+.texpadtmp
+
+# R and RStudio files
+.RData
+.Rapp.history
+.Rhistory
+.Rproj.user

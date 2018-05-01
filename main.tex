@@ -1,4 +1,4 @@
-\documentclass{svjour3}
+\documentclass[smallcondensed]{svjour3}
 
 \usepackage{dblfloatfix}
 \usepackage{url}
@@ -18,6 +18,8 @@
 \usepackage[many]{tcolorbox}
 \usepackage[symbol,para]{footmisc}
 \usepackage[strings]{underscore}
+\usepackage{tikz,dcolumn,booktabs,lscape}% <- sparklines chart embedded in tables
+\usetikzlibrary{positioning}
 
 \makeatletter
 \renewenvironment{quotation}
@@ -36,7 +38,7 @@
 
 %\renewcommand\thesubsubsectiondis{}
 %\newcommand{\Subsubsection}[1]{\subsubsection{\underline{#1}}}
-\newcommand{\Subsubsection}[1]{\subsubsection{#1}}
+%\newcommand{\Subsubsection}[1]{\subsubsection{#1}}
 \hyphenation{op-tical net-works semi-conduc-tor}
 % This will go in the next version of parnotes.sty
 \makeatletter
@@ -45,6 +47,37 @@
     \parnotereset
 }
 \makeatother
+
+% Plot a tiny Likert bar chart
+% Input:
+%   #1 Coordinate data
+%   #2 Mean value
+%   #3 Array of values
+\newcommand{\likertplot}[3]{%
+    \begin{tikzpicture}[xscale=0.25, yscale=0.015, baseline]
+        \begin{scope}[ycomb, yscale=0.3]
+            \draw[ultra thin, black!20] (1,#2)--(5,#2);
+            \draw[black!80, line width=2mm] plot #1;
+%            \foreach [count=\i] \x in {#3}
+%            {
+%              \draw[shift={(\i,0)}] 
+%                (0pt,3pt) -- (0pt,-3pt) node[below,font=\scriptsize] {$\x$};
+%            }
+        \end{scope}
+    \end{tikzpicture}%
+}
+
+\newcommand{\likertscale}[1]{%
+    \begin{tikzpicture}[xscale=0.25, yscale=0.01, baseline={(0,-0.3)}]
+        \begin{scope}[ycomb, yscale=0.4]
+            \foreach [count=\i] \x in {#1}
+            {
+              \draw[shift={(\i,0)}] 
+                (0pt,3pt) -- (0pt,-3pt) node[below,font=\small] {$\x$};
+            }
+        \end{scope}
+    \end{tikzpicture}%
+}
 
 \newcolumntype{L}{>{\hsize=.8\hsize\raggedright\arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
@@ -59,13 +92,15 @@
 %\newcommand\todo[1]{}
 
 \begin{document}
-\title{Software Practitioner Perspectives on Merge Conflicts and Resolutions}
+\title{Processes, Barriers, and Resolution Strategies for Merge Conflicts}
 
-\author{Nicholas Nelson \and Caius Brindescu \and Shane McKee \and Anita Sarma \and Danny Dig}
+\author{Nicholas Nelson \and Caius Brindescu \and Shane~McKee \and Anita Sarma \and Danny Dig}
 
-\institute{Nicholas Nelson \and Caius Brindescu \and Shane McKee \and Anita Sarma \and Danny Dig \at
-	Oregon State University, Corvallis, OR, 97331 \\
-	\email{\{nelnonni,brindesc,mckeesh,anita.sarma,digd\}@oregonstate.edu}
+\institute{Nicholas Nelson \and Caius Brindescu \and Anita Sarma \and Danny Dig
+\at Oregon State University, Corvallis, OR 97331\\\email{\{nelsonni,brindescu,anita.sarma,digd\}@oregonstate.edu}
+\and
+Shane McKee
+\at Intel Corporation, Hillsboro, OR 97124\\\email{shane.mckee@intel.com}
 }
 
 \maketitle
@@ -73,16 +108,17 @@
 \input{Abstract}
 
 \input{Introduction}
+\input{Related_Work}
 \input{Methodology}
 \input{Results}
+\input{Discussion}
 \input{Implications}
 \input{Threats}
-\input{Related_Work}
 \input{Conclusions}
 \input{Acknowledgements}
 
 \bibliographystyle{spmpsci}
-\bibliography{Bibliography}{}
+\bibliography{Bibliography,second}
 
 \end{document}
 
