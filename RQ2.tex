@@ -13,7 +13,7 @@
   Factor & Description & \likertscale{1,2,3,4,5} & Median\parnote{Responses on 5-point Likert scale indicating the degree of effect on resolution difficulty (1 indicates \textit{no effect}, 5 indicates \textit{great effect}).} & Mean\textsuperscript{i} \\
 \midrule
   \setrow{\bfseries}F1 & Complexity of conflicting lines of code & \likertplot{coordinates {(1,5)(2,29)(3,38)(4,56)(5,34)}}{28.2}{5,29,38,56,34} & 4 & 3.52 \\
-  \setrow{\bfseries}F2 & Knowledge/expertise in area of conflict & \likertplot{coordinates {(1,5)(2,23)(3,50)(4,54)(5,30)}}{28.2}{5,23,50,54,30} & 4 & 3.50 \\
+  \setrow{\bfseries}F2 & Expertise in area of conflicting code & \likertplot{coordinates {(1,5)(2,23)(3,50)(4,54)(5,30)}}{28.2}{5,23,50,54,30} & 4 & 3.50 \\
   \setrow{\bfseries}F3 & Complexity of files with conflicts & \likertplot{coordinates {(1,8)(2,34)(3,49)(4,51)(5,18)}}{28.2}{8,34,49,51,18} & 3 & 3.23 \\
   \setrow{\bfseries}F4 & Number of conflicting lines of code & \likertplot{coordinates {(1,2)(2,40)(3,64)(4,45)(5,11)}}{28.2}{2,40,64,45,11} & 3 & 3.14 \\
   F5 & Time to resolve a conflict & \likertplot{coordinates {(1,14)(2,56)(3,51)(4,25)(5,15)}}{28.2}{14,56,51,25,15} & 3 & 2.82 \\
@@ -26,7 +26,7 @@
 \parnotes
 \end{table}
 
-To understand the perspective of software developers when encountering a merge conflict, we asked interview participants to reflect on situations when they initially face a merge conflict: what kind of information do they seek, how do they approach the resolution of the conflict, and what tools they use. 
+To understand the perspective of software developers when encountering a merge conflict, we asked interview participants to reflect on situations when they initially face a merge conflict: what kind of information do they seek, how do they approach the resolution of the conflict, and what tools do they use. 
 
 We identified nine factors (from card sorting) that developers consider when approaching a conflict and attempting to determine its difficulty (see Table~\ref{s2_factors}). 
 We asked survey participants to rate how each of these nine factors affected their perceptions of difficulty when approaching a merge conflict.
@@ -36,23 +36,21 @@ Here, we discuss in detail the top 4 factors with a mean score greater than $3.0
 These factors can be grouped into themes of \textit{technical aspects} and \textit{expertise}, and our results are presented according to these groups.
 
 \subsubsection{Technical Aspects}\label{artifact-based-factors}
-Two of the top four factors refer to perceptions about the complexity of merge conflicts (F1, F3), with the third factor being \textit{number of conflicting lines} (F4), which can be construed as a specific metric of complexity of the conflict. 
-While practitioners mentioned complexity of the lines of code and the file, none mentioned using metrics, such as cyclomatic complexity~\cite{fenton2000quantitative}\cite{mccabe1976complexity} or Function Point Analysis~\cite{garmus2001fpa}\cite{symons1988function}. 
-Instead, practitioners made educated guesses on the complexity of the code based on their own experience of either writing the code, or having worked with it. 
-Some of the simple to compute metrics, such as \textit{number of conflicting lines of code} (F4), \textit{number of files involved} (F8), \textit{atomicity of changesets} (F6), and \textit{the time} they thought it would take \textit{to resolve the conflict} (F5) were mentioned. 
-The only factor where static analysis tools can help was in identifying the \textit{dependencies of the conflicting code} (F7).
-This indicates that understanding the complexity of the conflicting code is important, but practitioners do not use the metrics that have been proposed by research. While some of the simple proxies for complexity are used, practitioners primarily rely on their own ``judgement" of the complexity of the conflict.
-%Researchers have thus far computed complexity of changes in code using proxies such as lines of code changed and numbers of files changed~\cite{khoshgoftaar1990predicting}.
-%Other code-centric metrics such as cyclomatic complexity~\cite{fenton2000quantitative}\cite{mccabe1976complexity} and atomicity changes~\cite{khelladi2016ad} can also be used, but require some amount of computation.
-%We found that practitioner's perceptions of complexity are just as important in determining how they approach the resolution of a merge conflict.
+Two of the top four factors refer to perceptions about the complexity of merge conflicts (F1, F3), with the third factor being \textit{number of conflicting lines of code} (F4), which can be construed as a specific metric of complexity of the conflict. 
+While developers mentioned complexity of the lines of code and the file, none mentioned using metrics, such as cyclomatic complexity~\cite{fenton2000quantitative}\cite{mccabe1976complexity} or Function Point Analysis~\cite{garmus2001fpa}\cite{symons1988function}. 
+Instead, developers made educated guesses on the complexity of the code based on their own experience of either writing the code, or having worked with it. 
+Some of the simple to compute metrics, such as \textit{number of conflicting lines of code} (F4), \textit{number of files in the conflict} (F8), \textit{atomicity of changesets in conflict} (F6), and the \textit{time to resolve a conflict} (F5) were mentioned. 
+The only factor where static analysis tools can help was in identifying the \textit{dependencies of conflicting code} (F7).
+This indicates that understanding the complexity of the conflicting code is important, but developers do not use the metrics that have been proposed by research.
+While some of the simple proxies for complexity are used, developers primarily rely on their own ``judgement" of the complexity of the conflict.
 
-This perception of the conflict complexity can affect whether a practitioner resolves the conflict immediately (when small), or whether they should wait to examine the conflict when further resources are available; P8 commented:
+This perception of the conflict complexity can affect whether a developer resolves the conflict immediately (when small), or whether they should wait to examine the conflict when further resources are available; P8 commented:
 \begin{quoting}
 \textit{``Small is always easy. A 1-line merge conflict is always easier to resolve than a 400-line merge conflict, and can be done now.''}
 \end{quoting}
 
-If a merge conflict is perceived to be large or complex, a practitioner may decide to forgo attempting to resolve it through code manipulation and choose to revert the changes instead~\cite{Guzzi2015}.
-This ``nuclear option'' requires practitioners to disrupt the development flow, set aside their current development work, and potentially remove ``good'' code that was not part of the conflict in order to return to a non-conflicting state.
+If a merge conflict is perceived to be large or complex, a developer may decide to forgo attempting to resolve it through code manipulation and choose to revert the changes instead~\cite{Guzzi2015}.
+This ``nuclear option'' requires developers to disrupt the development flow, set aside their current development work, and potentially remove ``good'' code that was not part of the conflict in order to return to a non-conflicting state.
 In the interview, P1 describes this process as:
 \begin{quoting}
 \textit{``If you have many conflicts involved, many commits in the conflict...throw one of the branches away. You cannot combine tens of commits conflicting...it's not sane!''}
@@ -60,61 +58,20 @@ In the interview, P1 describes this process as:
 
 Further, when integrators are preparing code for production environments they prioritize merge conflicts for code review based upon the perceived difficulty of resolving the affected code.
 We find that these decisions rely on human judgement factors as much as they rely on data-driven metrics.
-Practitioners may not have the time to compute project-wide complexity metrics, such as those proposed in  literature. Therefore, we need metrics that can be easily calculated by ``lay practitioners" as they face a conflict. 
+Developers may not have the time to compute project-wide complexity metrics, such as those proposed in  literature.
+Therefore, we need metrics that can be easily calculated by ``lay developers" as they face a conflict. 
 %are human-aware and take into account the perceived difficulties of merge conflicts.
 
 \subsubsection{Expertise}\label{knowledge-based-factors}
-Our findings show that expertise in the area of conflicting code is one of the top factors in determining the difficulty of a merge conflict (F2). This reiterates the fact that practitioners rely on their own knowledge about the conflicting code base when approaching a conflict. 
+Our findings show that \textit{expertise in the area of conflicting code}~(F2) is one of the top factors in determining the difficulty of a merge conflict. This reiterates the fact that developers rely on their own knowledge about the conflicting codebase when approaching a conflict. 
 
-Our results indicate that when practitioners feel they don't have the expertise in the conflicting code base, they consider the conflict difficult to merge and seek out more information or assistance from others. 
+Our results indicate that when developers feel they don't have the expertise in the conflicting codebase, they consider the conflict difficult to merge and seek out more information or assistance from others. 
 P5 illustrated this need for expertise when describing his workflow: 
 \begin{quoting}
 	\textit{``A lot of what I work on is in my own little area...I know what to do\textellipsis But in [unfamiliar part of code], then I'll get someone else to resolve the merge conflict for me. It's someone else's code, and I don't want to screw it up.''}
 \end{quoting}
 
-
-
-%The importance of the knowledge-based factor indicates that practitioners attribute value to information; the greater knowledge in the conflicting code, the more likely it can be resolved correctly.
-%When information is not available, practitioners seek others with expertise to fill this information gap.
-
-%When attempting to resolve a conflict alone, practitioners working in unfamiliar code often feel uncomfortable making decisions during a merge due to lack of familiarity with the code or impacts related to the code change~\cite{CostaSarma}. 
-%Situations such as these raise questions relating to which person is best suited to resolve the conflict without introducing a new bug or unintentionally changing code behavior. 
-
-Our findings confirm the need for tools that identify appropriate experts~\cite{CostaSarma} and encourage further research into selection of knowledgeable practitioners for merge conflict resolution.
-
-
-%We find that expertise, as well as awareness of specific expert knowledge among teams, is an important factor in determining the difficulty of a merge conflict.
-%The ability to know who to contact in order to resolve a merge conflict partially explains the drive towards specific integrator and release engineer roles increasing appearing in many software development projects~\cite{adams_release_eng}.
-
-%The results of our survey indicate that \textit{complexity of conflicting lines of code} and \textit{knowledge/expertise in the area of conflicting code} are factors that practitioners find have a direct effect on the perceived difficulty of a merge conflict.
-%Although we found consensus across all demographics, the experience level of respondents had an affect on the degree to which they responded affirmatively for these factors (see Table~\ref{survey_merge_conflicts}).
-%
-%Practitioners with 1-5 years and 6-10 years of experience were only nominally in agreement that merge conflict difficulty is affected by \textit{complexity of conflicting lines of code} (mean: 3.31 and mean: 3.37 respectively) and \textit{knowledge/expertise in the area of conflicting code} (mean: 3.21 and mean: 3.42 respectively).
-%As practitioner experiences increases, the level of agreement increases on both of these factors, with practitioners indicating 26+ years experience having the highest consensus (mean: 4.06, std. deviation: 0.77). 
-%
-%Larger, more complex projects typically require that developers have more experience and a higher degree of knowledge about the systems used in the project.
-%As the size of a software project increases, so does the complexity of the underlying code~\cite{banker1993software}\cite{curtis1979third}.
-%Therefore, more experienced practitioners are likely to have a broader range of understanding about both \textit{complexity of conflicting lines of code} and \textit{knowledge/expertise in the area of conflicting code} and their affects on merge conflict difficulty.
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=3.4in]{MeanProjectSize.pdf}
-%\caption{Mean Likert Score by Project Size for \textit{knowledge/expertise in the area of conflicting code} category of factors that effect the perceived difficulty of merge conflicts.}
-%\label{mean_likert_project_size}
-%\end{figure}
-%
-%When analyzing by the size of project that practitioners normally work on, we found that \textit{knowledge/expertise in the area of conflicting code} was increasingly viewed as having an effect on merge conflict difficult as the practitioners' project size increased (see Figure~\ref{mean_likert_project_size}).
-%The practitioners that usually work in project sizes of \textit{1 developer}, \textit{2-5 developers}, and \textit{6-10 developers} had relatively neutral responses regarding the effects of \textit{knowledge/expertise in the area of conflicting code} (mean: 3.12, mean: 3.38, and mean: 3.47 respectively).
-%However, practitioners that usually work in project sizes of \textit{11-50 developers} and \textit{51+ developers} more positively indicated that \textit{knowledge/expertise in the area of conflicting code} has an effect on the difficulty of merge conflicts (mean: 4.00 and mean: 3.69 respectively).
-%
-%We also found that practitioners agree that \textit{non-functional changes (whitespace, renaming, etc.)} (mean: 2.16, std. deviation: 1.03) has no effect on the perceived difficulty of a merge conflict.
-%Non-functional changes are textual conflicts that can be resolved without consideration of dependencies, performance, or scope.
-%Practitioners have less to reason about when resolving merge conflicts that involve only textual conflicts, and therefore are unlikely to perceive \textit{non-functional changes} as affecting the difficulty of merge conflicts.
-
-%Intuitively, we would assume that an increased perception of \textit{knowledge/expertise in the area of conflicting code} as difficulty factor would correlate with a decreased perception of \textit{complexity of conflicting lines of code} as a difficulty factor of merge conflicts.
-%This relationship would indicate that a developer's expertise allows them to rationalize about merge conflicts with higher complexity, since they have a higher degree of past knowledge in that area of conflict.
-%However, we find a statistical significant correlation between \textit{complexity of conflicting lines of code} and \textit{knowledge/expertise in the area of conflicting code} (Pearson's correlation coefficient: 0.2766, p-value: 0.0003664, 95\% confidence interval: 0.1279 0.4132).
-%This suggests that ...
+Our findings confirm the need for tools that identify appropriate experts~\cite{CostaSarma} and encourage further research into selection of knowledgeable developers for merge conflict resolution.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
