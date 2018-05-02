@@ -14,10 +14,36 @@
 \boldif{\textit{Add anecdotal quotes and descriptions from interviews to highlight these observations.}}
 
 \boldif{Based on these anecdotal observations, we construct an initial model of the processes that developers employ when working with merge conflicts, see Fig.~\ref{model}.}
+Based on the initial anecdotal observations obtained from the interviews, we constructed an initial model of the process developers use when working with merge conflcits.
+Figure~\ref{model} shows the model.
+It consists of 3 phases: \emph{awareness, planning,} and \emph{resolution}
+
+\boldif{Awareness is how developers become aware}
+The \emph{awareness} phase consists of the actions developers take to become aware of the merge conflicts.
+This could be accidental, or passive, as the developer will become of a merge conflict when they try to merge changes, or when they perform a pull.
+At the other end of the spectrum are developers who are \emph{proactively} monitoring for merge conflicts as they code.
+They are looking for changes that might be problematic, either manually (regular updates) or through the use of specialized tools.
+
+\boldif{Planning is when developers plan their future actions}
+The second phase \emph{planning} occurs after the developer has become aware that a conflict has occurred, and they are about to tackle the conflict.
+Some developers might try and solve it immediately, while others might postpone the resolution.
+Some might change their strategy depending on the conflict, incoming deadlines, etc.
+
+\boldif{Evaluation is how developers check that their solution is correct}
+Finally, after the conflict has been resolved, developers enter in their \emph{evaluation} phase.
+In this phase, the developer has to evaluate their resolution before it is committed to the repository. 
+This is to ensure the correctness of the resultant code.
+Possible actions during this stage are compilation and building the product at one end.
+Developer wanting more guarantees can go a step further and run the tests.
+Finally, some groups might have policies such as code reviews that need to be performed on the merge conflict resolution.
  
 \boldif{To explore and validate this model, we asked developers to reflect upon how they become aware of merge conflicts, how they plan for merge conflict resolutions, and how they evaluate their merge conflict resolutions in the \textit{Processes Survey}~(S1).}
- 
+In order to explore and validate this model, and our assumption, we conducted the \emph{Processes Survery}~(S1).
+We plan on understanding how developers become aware of a merge conflicts (what steps they take, what tools they use, etc.)
+We also want to investigate their strategies for dealing with merge conflicts and how they decide when the resolution is emph{good.}
+
 \boldif{We present the results to these research questions in Section~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c}.}
+Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c} presents the results to these research questions.
 
 \subsection{\textbf{RQ1a:} How do software developers become aware of merge conflicts?}\label{RQ1a}
 
