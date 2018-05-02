@@ -21,6 +21,9 @@
 \usepackage{tikz,dcolumn,booktabs,lscape}% <- sparklines chart embedded in tables
 \usetikzlibrary{positioning}
 
+\newif\ifdraft
+\drafttrue
+
 \makeatletter
 \renewenvironment{quotation}
                {\list{}{\listparindent=0pt
@@ -78,6 +81,8 @@
         \end{scope}
     \end{tikzpicture}%
 }
+
+\def\boldif#1{\ifdraft\textbf{**#1**\newline}\else\relax\fi}
 
 \newcolumntype{L}{>{\hsize=.8\hsize\raggedright\arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
