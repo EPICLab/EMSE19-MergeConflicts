@@ -27,10 +27,10 @@ Development tools need to be easy to use and provide contextualized, pertinent i
 To investigate how well current tools satisfy the needs of practitioners, we asked interview participants open-ended questions about how they resolve merge conflicts.
 We also ask about improvements that would be most valuable to them. 
 
-Our results indicate that practitioners use a wide range of tools, with many directly using the Git command line interface. Our interview participants mentioned six different dimensions along which they would like improvements to tool support (see Table~\ref{survey_tool_needs}). 
+Our results indicate that practitioners use a wide range of tools, with many directly using the Git command line interface. Our interview participants mentioned six different dimensions along which they would like improvements to tool support (see Table~\ref{s2_tool_improvements}). 
 
 We framed the survey questions to validate the improvement needs expressed in our interviews, and ranked those six needs according to mean score.
-Table~\ref{survey_tool_needs} presents the needs from the survey responses ordered by their mean scores.
+Table~\ref{s2_tool_improvements} presents the needs from the survey responses ordered by their mean scores.
 We received 119 responses using a 5-point Likert-type scale to indicate the usefulness of each type of tool improvement (1 being \textit{Not Useful}, 3 being \textit{Moderately Useful}, and 5 being \textit{Essential}).
 
 In addition, we also asked participants which tools they use during conflict resolution.
@@ -44,28 +44,55 @@ This indicates that practitioners are currently not leveraging the functionaliti
 
 We next discuss the top four improvements rated by survey respondents. These are the responses that have a mean value higher than $3.00$.
 
-%\begin{table}[!htbp]
-%\renewcommand{\arraystretch}{1.3}
-%\caption{Survey Participant Merge Toolsets (Top 10)}
-%\label{survey_toolset}
-%\centering
-%\begin{tabularx}{0.8\textwidth}{@{}r|Cl@{}}
-%\toprule
-%Tool & \# Participants & Description\\
-%\midrule
-%Git	& 37 & Version Control System\\
-%Vim/vi & 17 & Text Editor\\
-%Text Editor (unspecified) & 14 & Text Editor\\
-%Git Diff & 11 & Diffing Tool\\
-%GitHub & 11 & Website\\
-%Eclipse & 10 & IDE\\
-%KDiff3 & 9 & Diff \& Merge\\
-%Meld & 8 & Diff \& Merge\\
-%SourceTree & 8 & Git/Hg Desktop Client\\
-%Sublime Text & 7 & Text Editor\\
-%\bottomrule
-%\end{tabularx}
-%\end{table}
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.3}
+\caption{Merge Awareness Toolsets (Top 10) from Processes Survey (S1)}
+\label{s1_toolset}
+\centering
+\begin{tabularx}{\textwidth}{c|rl}
+\toprule
+  \parnoteclear % tabularx will otherwise add each note thrice
+  \# Participants (\%)\parnote{Survey participants were allowed to provide multiple tools. Each entry represents the number of participants that responded with that particular tool, along with the percentage of the overall tool responses (126 responses). 57 out of 102 respondents (56\%) indicated the use of at least one merge awareness tool.} & Tool & Description\\
+\midrule
+  32 (25.40\%) & Git & Version Control System\\
+  7 (5.56\%) & Email (unspecified) & Email Client or System\\
+  7 (5.56\%) & GitHub & Website\\
+  4 (3.17\%) & SVN & Version Control System\\
+  4 (3.17\%) & Visual Studio & IDE\\
+  3 (2.38\%) & PagerDuty & IT Incident Response Platform\\
+  3 (2.38\%) & GitLab & Website\\
+  3 (2.38\%) & Jenkins & Continuous Integration Platform\\
+  3 (2.38\%) & Team Foundation Server & Version Control System\\
+  3 (2.38\%) & VCS (unspecified) & Version Control System\\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.3}
+\caption{Merge Resolution Toolsets (Top 10) from Barriers Survey (S2)}
+\label{s2_toolset}
+\centering
+\begin{tabularx}{\textwidth}{c|rl}
+\toprule
+  \parnoteclear % tabularx will otherwise add each note thrice
+  \# Participants (\%)\parnote{Survey participants were allowed to provide multiple tools. Each entry represents the number of participants that responded with that particular tool, along with the percentage of the overall tool responses (236 responses). 115 out of 162 respondents (71\%) indicated the use of at least one merge resolution tool.} & Tool & Description\\
+\midrule
+  37 (15.68\%) & Git & Version Control System\\
+  17 (7.20\%) & Vim/vi & Text Editor\\
+  14 (5.93\%) & Text Editor (unspecified) & Text Editor\\
+  11 (4.66\%) & Git Diff & Diffing Tool\\
+  11 (4.66\%) & GitHub & Website\\
+  10 (4.24\%) & Eclipse & IDE\\
+  9 (3.81\%) & KDiff3 & Diff \& Merge\\
+  8 (3.39\%) & Meld & Diff \& Merge\\
+  8 (3.39\%) & SourceTree & Git/Hg Desktop Client\\
+  7 (2.97\%) & Sublime Text & Text Editor\\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
 
 \subsubsection{Better Usability}
 %The right toolset is essential for efficiently developing solutions and resolving conflicts.
