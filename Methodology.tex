@@ -80,9 +80,9 @@ We continued interviewing participants until we reached saturation in the answer
 
 \subsection{Processes Survey (S1)}\label{processes_survey}
 
-Merge conflicts are disruptive to the collaborative software development workflow, and developers have adapted and developed several different processes for handling these complexities.
+Merge conflicts are disruptive to the collaborative software development workflow, and developers have adapted and developed different processes for handling these complexities.
 To understand the common structure and prevalence of these processes, we conducted a 15-question \textit{Processes Survey} (S1) of software developers that included both open-ended and predefined questions.
-Surveys are commonly used to for mapping the state of practice, establishing baselines for investigating research topics, and gathering opinions regarding software engineering technologies and practices~\cite{deMello2016survey}.
+Surveys are commonly used for mapping the state of practice, establishing baselines for investigating research topics, and gathering opinions regarding software engineering technologies and practices~\cite{deMello2016survey}.
 
 We recruited participants from contributor lists on popular open-source repositories on GitHub, advertised on social networking sites (Twitter and Reddit), and by directly contacting software developers via email.
 Due to the nature of social media and mailing lists, we cannot compute a response rate from these distribution methods.
@@ -200,15 +200,18 @@ Based upon our research questions, we grouped the resulting categories as follow
 
 \subsubsection{Processes Survey (S1) Analysis}
 
-The \emph{Processes Survey}~(S1) questions 7, 8, 11, 14 and 19 were open ended.
-To analyze them, we performed open thematic coding on the answers.
-For question 7, the first two authors independently the data.
-They performed 2 rounds: for the first they achieved an agreement of 0.80; for the second round they achieved a score of 0.95.
-Both rounds used Jaccard's coefficient for measuring agreement. 
-For the other questions, the first two authors used card sorting and  negotiated agreement to code the answers.
-All the questions, except question 11 required one round of card sorting.
-Question 11 required two rounds.
-The code sets used are presented in Table~\ref{tab:codes}.
+We evaluated the distribution of survey answers for each of the four Likert-type question by analyzing across demographic categories.
+We used Likert-type questions to measure the extent to which participants agreed with a particular statement, or the degree to which a factor has impacted the participant.
+Where answers differed across a demographic category, we note the difference and provide further discussion of these results.
+
+The \textit{Processes Survey}~(S1) contained five open-ended questions.
+We performed open thematic coding to analyze the responses to these questions.
+Table~\ref{tab:codes} provides the resulting codebook, including descriptions and examples.
+After establishing a codebook, the first two authors independently coded the responses to each open-ended question.
+For question 7 (see \ref{tab:codes}), we achieve an inter-rater reliability (IRR) agreement of $0.95$ (Jaccard similarity coefficent).
+For questions 8, 11, 14, and 19, we achieve IRR agreements of $0.81$, $0.88$, $0.74$, and $0.92$, respectively.
+
+Result for both open-ended and Likert-type questions are presents in Section~\ref{results}.
 
 \def\shift{\hspace{0.5em}}
 \begin{table}[!htbp]
@@ -258,12 +261,11 @@ Code & Description & Example \\
 
 \subsubsection{Barriers Survey (S2) Analysis}
 
-We evaluated the distribution of survey answers for each Likert-type question by analyzing across demographic categories.
-The only open-ended question in the Barriers Survey related to the tools that developers use to resolve merge conflicts; we tally the answers to this question and present the results in Section~.
-Where answers differed across a demographic category, we note the difference and provide further discussion of these results in Section~\ref{results}.
+We evaluated the results of the \textit{Barriers Survey}~(S2) by performing open card sorting on the all open-ended questions.
+The resulting categories were standardized to an acceptable point by \textit{negotiated agreement}.
 
-We used Likert-type questions to measure the extent to which participants agreed with a particular statement.
+The Barriers Survey was primarily composed of Likert-type questions, which were used to measure the extent to which participants agreed with a particular statement.
 This means that lower mean and median values indicate less agreement with the statement in a particular question.
 We use this design to validate both the degree of agreement to the interview results, as well as the existence of individual factors.
 
-The Barriers Survey did not contain open-ended questions, so no additionally qualitative analysis measures were required for the results.
+We present discussion and results of the survey in Section~\ref{results}. 
