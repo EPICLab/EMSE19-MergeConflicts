@@ -101,9 +101,28 @@ We find that 42 of 57 responses (73.68\%) described reactive processes of merge 
 Examining the tools used by respondents with reactive processes, we find that they primarily use version control systems (Git, SVN, TFS, CVS) or continuous integration systems (Jenkins, Travis CI, TeamCity); 64.28\% and 29.19\% of respondents, respectively.
 We find that developers are currently not leveraging the functionalities provided by many research prototypes (e.g., Palantir~\cite{palantir}, Crystal~\cite{Brun2011}) that are specifically designed to facilitate proactive conflict detection.
 
-\boldif{Provide further discussion on the results; analysis between Caius and Nick still needed to group the processes into groups}
-
 In addition, we identified \textbf{X} distinct categories of processes that developers use to monitor for merge conflicts (see Table~\ref{s1_monitoring_processes}).
+\boldif{Provide further discussion on the results of Q7 analysis; analysis between Caius and Nick still needed to group the processes into groups}
+\boldif{Provide results and discussion for Q8; factors for determining urgency of a merge conflict.}
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Factors for Determining the Urgency of a Merge Conflict from Processes Survey (S1)}
+\label{s1_conflict_urgency}
+\centering
+\begin{tabularx}{\textwidth}{c | l | c | r}
+\toprule
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Factor & Description & \# Participants\parnote{Each entry represents the number (and percentage) of participants that described the relevance of that particular factor. 72 out of 102 respondents (71\%) provided a description.} & Percentage (\%)\\
+\midrule
+  F1 & No systematic factors & 22 & 30.56\% \\
+  F2 & External dependencies & 17 & 23.61\% \\
+  F3 & Code under conflict & 17 & 23.61\% \\
+  F4 & Project structure & 16 & 22.22\% \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
  
 \subsection{\textbf{RQ1b:} How do software developers plan for merge conflict resolutions?}\label{RQ1b}
 \vspace*{-0.5\baselineskip}
@@ -111,6 +130,43 @@ In addition, we identified \textbf{X} distinct categories of processes that deve
 \textit{``If you are unable to understand the cause of a problem, it is impossible to solve it.'' –- Naoto Kan}
 \end{quoting}
 \vspace*{+0.3\baselineskip}
+
+Software developers adopt strategies for increasing their own efficiency and productivity.
+We asked Process Survey (S1) participants a series of questions relating to their strategies for gaining understanding about a merge conflict, prioritizing merge conflict resolutions, and deferring resolutions when necessary.
+
+\begin{figure}[!htbp]
+\centering
+\fbox{\includegraphics[width=0.98\textwidth,keepaspectratio]{imgs/CodeOwnershipFactor}}
+\caption{Degree of Code Ownership as a Factor of Merge Conflict Strategies. Mean: 3.21 (\textit{About half the time}), Std. Deviation: 1.23, and Variance: 1.52. 89 out of 102 respondents (87.26\%) indicated a degree for this question on the Processes Survey (S1).}
+\label{model}
+\end{figure}
+
+We asked participants how often \textit{code ownership} was a factor in their merge conflict resolution strategy, and found that on average participants indicate that it factors in \textit{about half the time} (see Figure~\ref{s1_conflict_urgency}).
+Only 10.11\% of participants indicated that code ownership \textit{never} factors into their resolution strategy.
+
+Additionally, we found that 56.18\% of participants have deferred responding to a merge conflict.
+To understand the rationale behind deferring, we asked participants to select the factors that determine whether they will defer responding to a merge conflict (see ).
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Initial Strategies for Understanding Conflicting Code from Processes Survey (S1)}
+\label{s1_understanding_code}
+\centering
+\begin{tabularx}{\textwidth}{c | l | c | r}
+\toprule
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Category & Description & \# Participants\parnote{Each entry represents the number (and percentage) of participants that described a strategy consistent with that particular category. 79 out of 102 respondents (77\%) provided a description.} & Percentage (\%) \\
+\midrule
+  U1 & Examining the conflict & 26 & 32.91\% \\
+  U2 & Analysis/manipulation of the code & 19 & 24.05\% \\
+  U3 & Examining the code & 18 & 22.79\% \\
+  U4 & Design concerns & 8 & 10.13\% \\
+  U5 & Project organization concerns & 6 & 7.60\% \\
+  U6 & No strategy & 2 & 2.53\% \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
 
 \subsection{\textbf{RQ1c:} How do software developers evaluate merge conflict resolutions?}\label{RQ1c}
 \vspace*{-0.5\baselineskip}
