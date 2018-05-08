@@ -134,39 +134,95 @@ In addition, we identified \textbf{X} distinct categories of processes that deve
 Software developers adopt strategies for increasing their own efficiency and productivity.
 We asked Process Survey (S1) participants a series of questions relating to their strategies for gaining understanding about a merge conflict, prioritizing merge conflict resolutions, and deferring resolutions when necessary.
 
-\begin{figure}[!htbp]
-\centering
-\fbox{\includegraphics[width=0.98\textwidth,keepaspectratio]{imgs/CodeOwnershipFactor}}
-\caption{Degree of Code Ownership as a Factor of Merge Conflict Strategies. Mean: 3.21 (\textit{About half the time}), Std. Deviation: 1.23, and Variance: 1.52. 89 out of 102 respondents (87.26\%) indicated a degree for this question on the Processes Survey (S1).}
-\label{model}
-\end{figure}
+\subsubsection{Initial Strategies for Understanding Conflicting Code}
 
-We asked participants how often \textit{code ownership} was a factor in their merge conflict resolution strategy, and found that on average participants indicate that it factors in \textit{about half the time} (see Figure~\ref{s1_conflict_urgency}).
-Only 10.11\% of participants indicated that code ownership \textit{never} factors into their resolution strategy.
+We asked participants to describe their initial strategies for understanding conflicting code involved in a merge conflict.
+We find that developers primarily approach merge conflicts by \textit{examining the conflict} (U1), \textit{analyzing or manipulating the code} (U2), or \textit{examining the code} (U3) (see Table~\ref{s1_understanding_code}).
 
-Additionally, we found that 56.18\% of participants have deferred responding to a merge conflict.
-To understand the rationale behind deferring, we asked participants to select the factors that determine whether they will defer responding to a merge conflict (see ).
+One participant described their strategy of examining the conflict as:
+\begin{quoting}
+\textit{``Reviewing the most recent commits (comments and code) to see whether its a shallow conflict or not.''}
+\end{quoting}
+Another participant indicated their strategy of analyzing the code involves:
+\begin{quoting}
+\textit{``...determining if the merge conflict involves important functionality; stepping through with a debugger helps.''}
+\end{quoting}
+Overall, we find that developers initially focus on the code involved in the merge conflict or information related to the conflict itself.
+This illustrates the importance of code metrics and tool support for developers looking to gain understanding about a merge conflict when planning for a resolution.
+
+Surprisingly, we found that two of our participants (2.53\% of respondents) indicated that they \textit{``...don't have a strategy''} or \textit{``mostly try to fix it as soon as possible''}.
+The existence of this \textit{no strategy} approach is anecdotal, but curious, since we assume that developers are rationale actors seeking to organize themselves in ways that increase the likelihood of successful outcomes.
+And yet this strategy appears to go counter to that notion.
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
 \caption{Initial Strategies for Understanding Conflicting Code from Processes Survey (S1)}
 \label{s1_understanding_code}
 \centering
-\begin{tabularx}{\textwidth}{c | l | c | r}
+\begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
-  Category & Description & \# Participants\parnote{Each entry represents the number (and percentage) of participants that described a strategy consistent with that particular category. 79 out of 102 respondents (77\%) provided a description.} & Percentage (\%) \\
+  Category & Description & \# Participants\parnote{79 out of 102 respondents (77\%) provided a description of their initial strategy.} & Percentage (\%)\textsuperscript{i} \\
 \midrule
   U1 & Examining the conflict & 26 & 32.91\% \\
   U2 & Analysis/manipulation of the code & 19 & 24.05\% \\
   U3 & Examining the code & 18 & 22.79\% \\
-  U4 & Design concerns & 8 & 10.13\% \\
-  U5 & Project organization concerns & 6 & 7.60\% \\
+  U4 & Focus on design concerns & 8 & 10.13\% \\
+  U5 & Examine project organization & 6 & 7.60\% \\
   U6 & No strategy & 2 & 2.53\% \\
 \bottomrule
 \end{tabularx}
 \parnotes
 \end{table}
+\vspace{0.8em}
+
+\subsubsection{Deferring Responses to Merge Conflicts}
+
+We also found that 56.18\% of participants have deferred responding to a merge conflict.
+To understand the rationale behind deferring, we asked participants to select the factors that determine whether they will defer their response to a merge conflict.
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Factors in Deferring Responses to Merge Conflicts from Processes Survey (S1)}
+\label{s1_deferring_response}
+\centering
+\begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
+\toprule
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Factor & Description & \# Participants\parnote{\textit{Processes Survey}~(S1) respondents were allowed to select multiple factors. 44 out of 102 respondents (43\%) selected more than one factor.} & Percentage (\%)\textsuperscript{i} \\
+\midrule
+  D1 & Complexity of the conflicting code & 36 & 25.00\% \\
+  D2 & Number of conflicting code locations & 32 & 22.22\% \\
+  D3 & Ownership of the conflicting code & 25 & 17.36\% \\
+  D4 & Size of the conflicting code & 20 & 13.89\% \\
+  D5 & Approaching deadlines & 13 & 9.03\% \\
+  D6 & Work schedule constraints & 2 & 1.39\% \\
+  D7 & Other & 7 & 4.86\% \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
+
+The top three reasons that developers defer responding to a merge conflict are: \textit{complexity of the conflicting code} (D1), \textit{number of conflicting code locations} (D2), and \textit{ownership of the conflicting code} (D3) (see Table~\ref{s1_deferring_response}).
+Previous studies have shown that increases in the perception of \textit{complexity of conflicting code} are associated with increases in the perception of merge conflict difficulties~\cite{mckee2017software}.
+If developers are deferring code that they perceive as complex, then some of the perceived difficulties might arise from developers delaying resolutions and being forced to untangle additional code changes made on top of the conflicting code.
+
+As the third most selected choice, \textit{ownership of the conflicting code} (D3) indicates that group dynamics play a role in merge conflicts.
+One of the participants succinctly describes this factor in their response:
+\begin{quoting}
+\textit{``Code is mine? I fix it. Code is others? I submit PR or bug reports.''}
+\end{quoting}
+
+As an additional question to explore this factor, we asked participants how often \textit{code ownership} factored into their merge conflict resolution strategy.
+We found that on average participants indicate that it factors in \textit{about half the time} (mean: 3.21 on 5-point Likert-type scale).
+Only 10.11\% of participants indicated that code ownership \textit{never} factors into their resolution strategy (see Figure~\ref{s1_conflict_urgency}).
+
+\begin{figure}[!htbp]
+\centering
+\fbox{\includegraphics[width=0.98\textwidth,keepaspectratio]{imgs/CodeOwnershipFactor}}
+\caption{Degree of Code Ownership as a Factor in Merge Conflict Strategies. Scale: 1 is \textit{Always} and 5 is \textit{Never}. 89 out of 102 respondents (87.26\%) provided a response to this question on the \textit{Processes Survey}~(S1).}
+\label{model}
+\end{figure}
 
 \subsection{\textbf{RQ1c:} How do software developers evaluate merge conflict resolutions?}\label{RQ1c}
 \vspace*{-0.5\baselineskip}
@@ -174,4 +230,26 @@ To understand the rationale behind deferring, we asked participants to select th
 \textit{``We fail more often because we solve the wrong problem than because we get the wrong solution to the right problem.'' –- Russell L. Ackoff}
 \end{quoting}
 \vspace*{+0.3\baselineskip}
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Effects of Deferring Responses on Merge Conflict Resolutions from Processes Survey (S1)}
+\label{s1_deferring_consequences}
+\centering
+\begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
+\toprule
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Effect & Description & \# Participants\parnote{36 out of 102 respondents (35\%) indicated at least one effect.} & Percentage (\%)\textsuperscript{i} \\
+\midrule
+  E1 & Stop the Presses & 15 & 41.67\% \\
+  E2 & Increased complexity & 9 & 25.00\% \\
+  E3 & Non-operational effects & 5 & 13.89\% \\
+  E4 & Policy/cultural changes & 3 & 8.33\% \\
+  E5 & The Nuclear Option & 2 & 5.56\% \\
+  E6 & Impact beyond the organization & 1 & 2.78\% \\
+  E7 & Physical manifestations & 1 & 2.78\% \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
 
