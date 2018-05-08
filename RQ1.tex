@@ -66,7 +66,7 @@ Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c} presents the results to these re
 \begin{tabularx}{\textwidth}{ll|c}
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
-  Tool & Description & \# Participants (\%)\parnote{Survey participants were allowed to provide multiple tools. Each entry represents the number (and percentage) of participants that responded with that particular tool. 57 out of 102 respondents (56\%) indicated the use of at least one merge awareness tool.}\\
+  Tool & Description & \# Participants (\%)\parnote{\textit{Processes Survey}~(S1) participants were allowed to provide multiple tools. Each entry represents the number (and percentage) of participants that responded with that particular tool. 57 out of 102 respondents (56\%) indicated the use of at least one merge awareness tool.}\\
 \midrule
   Git & Version Control System & 32 (25.40\%)\\
   Email (unspecified) & Email Client or System & 7 (5.56\%)\\
@@ -101,10 +101,6 @@ We find that 42 of 57 responses (73.68\%) described reactive processes of merge 
 Examining the tools used by respondents with reactive processes, we find that they primarily use version control systems (Git, SVN, TFS, CVS) or continuous integration systems (Jenkins, Travis CI, TeamCity); 64.28\% and 29.19\% of respondents, respectively.
 We find that developers are currently not leveraging the functionalities provided by many research prototypes (e.g., Palantir~\cite{palantir}, Crystal~\cite{Brun2011}) that are specifically designed to facilitate proactive conflict detection.
 
-In addition, we identified \textbf{X} distinct categories of processes that developers use to monitor for merge conflicts (see Table~\ref{s1_monitoring_processes}).
-\boldif{Provide further discussion on the results of Q7 analysis; analysis between Caius and Nick still needed to group the processes into groups}
-\boldif{Provide results and discussion for Q8; factors for determining urgency of a merge conflict.}
-
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
 \caption{Factors for Determining the Urgency of a Merge Conflict from Processes Survey (S1)}
@@ -113,7 +109,7 @@ In addition, we identified \textbf{X} distinct categories of processes that deve
 \begin{tabularx}{\textwidth}{c | l | c | r}
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
-  Factor & Description & \# Participants\parnote{Each entry represents the number (and percentage) of participants that described the relevance of that particular factor. 72 out of 102 respondents (71\%) provided a description.} & Percentage (\%)\\
+  Factor & Description & \# Participants\parnote{Each entry represents the number (and percentage) of participants that indicated that particular factor was relevant. 72 out of 102 respondents (71\%) provided their factors.} & Percentage (\%)\\
 \midrule
   F1 & No systematic factors & 22 & 30.56\% \\
   F2 & External dependencies & 17 & 23.61\% \\
@@ -123,6 +119,10 @@ In addition, we identified \textbf{X} distinct categories of processes that deve
 \end{tabularx}
 \parnotes
 \end{table}
+
+In addition, we identified \textbf{X} distinct categories of processes that developers use to monitor for merge conflicts (see Table~\ref{s1_monitoring_processes}).
+\boldif{Provide further discussion on the results of Q7 analysis; analysis between Caius and Nick still needed to group the processes into groups}
+\boldif{Provide results and discussion for Q8; factors for determining urgency of a merge conflict.}
  
 \subsection{\textbf{RQ1b:} How do software developers plan for merge conflict resolutions?}\label{RQ1b}
 \vspace*{-0.5\baselineskip}
