@@ -15,7 +15,7 @@ In the interview, P3 describes this process as:
 \boldif{Based on these anecdotal observations, we construct an initial model of the processes that developers employ when working with merge conflicts, see Fig.~\ref{model}.}
 Based on the initial anecdotal observations obtained from the interviews, we construct an initial model of the process developers experience between the introduction and resolution of merge conflicts.
 Figure~\ref{model} provides an illustration of the model.
-It consists of three phases: \emph{awareness, planning,} and \emph{evaluation}.
+It consists of three phases: \emph{awareness, planning,} and \emph{evaluation.}
 
 \begin{figure}[!htbp]
 \centering
@@ -31,9 +31,11 @@ At the other end of the spectrum are developers who \emph{proactively} monitor f
 They are actively looking for changes that might be problematic, either manually or through the use of specialized tools.
 
 \boldif{Planning is when developers plan their future actions}
-Second, the \emph{planning} phase occurs after the developer has become aware that a conflict has occurred, and they are about to tackle the conflict.
-Some developers might try and solve it immediately, while others might postpone the resolution.
+Secondly, the \emph{planning} phase occurs after the developer has become aware that a conflict has occurred, and they are about to tackle the conflict.
+This includes the decision of when they will try and resolve the conflict.
+Some developers might try and resolve it immediately, while others might postpone the resolution.
 Some might change their strategy depending on the conflict, incoming deadlines, etc.
+This also includes other actions, such as if they are going to tackle the conflict alone, or collaborate with the person that made the other changes.
 
 \boldif{Evaluation is how developers check that their solution is correct}
 Finally, after the conflict has been resolved, developers enter in the \emph{evaluation} phase.
@@ -48,7 +50,7 @@ In order to explore and validate this model, and our assumptions, we conducted t
 We plan on understanding how developers become aware of a merge conflicts (what steps they take, what tools they use, etc.)
 We also want to investigate their strategies for dealing with merge conflicts and how they decide whether the resolution has addressed all of their concerns.
 
-\boldif{We present the results to these research questions in Section~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c}.}
+\boldif{We present the results to these research questions in Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c}.}
 Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c} presents the results to these research questions.
 
 \subsection{\textbf{RQ1a:} How do software developers become aware of merge conflicts?}\label{RQ1a}
@@ -83,7 +85,7 @@ Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c} presents the results to these re
 \parnotes
 \end{table}
 
-We asked Processes Survey (S1) participants to categorize and describe their monitoring processes: whether and how they monitor for merge conflicts, and how they determine the urgency of any merge conflicts that occur.
+We asked the Processes Survey (S1) participants to categorize and describe their monitoring processes: whether and how they monitor for merge conflicts, and how they determine the urgency of any merge conflicts that occur.
 We found that 32.26\% of participants do not monitor for merge conflicts during their development sessions.
 For the 67.74\% participants that indicate \textit{yes} or \textit{sometimes} to the question of monitoring for merge conflicts, we asked them to describe the processes and tools that they use for monitoring.
 
@@ -98,8 +100,8 @@ This indicates that developers are currently relying on reactive tools that indi
 We then evaluate responses for processes that are proactive or reactive in nature (using card sorting and negotiated agreement).
 We find that 42 of 57 responses (73.68\%) described reactive processes of merge conflict monitoring; such as waiting for build systems notifications, examining commit logs, or checking code consistency during branch integration.
 
-Examining the tools used by respondents with reactive processes, we find that they primarily use version control systems (Git, SVN, TFS, CVS) or continuous integration systems (Jenkins, Travis CI, TeamCity); 64.28\% and 29.19\% of respondents, respectively.
-We find that developers are currently not leveraging the functionalities provided by many research prototypes (e.g., Palantir~\cite{palantir}, Crystal~\cite{Brun2011}) that are specifically designed to facilitate proactive conflict detection.
+Examining the tools used by respondents with reactive processes, we find that 64.28\% of our respondents use version control systems (Git, SVN, TFS, CVS), while 29.19\% use continuous integration systems (Jenkins, Travis CI, TeamCity).
+We find that developers are currently not leveraging the functionalities provided by many research prototypes (e.g., Palant\'{i}r~\cite{palantir}, Crystal~\cite{Brun2011}) that are specifically designed to facilitate proactive conflict detection.
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
@@ -145,13 +147,13 @@ One participant described their strategy of examining the conflict as:
 \end{quoting}
 Another participant indicated their strategy of analyzing the code involves:
 \begin{quoting}
-\textit{``...determining if the merge conflict involves important functionality; stepping through with a debugger helps.''}
+\textit{``[\ldots] determining if the merge conflict involves important functionality; stepping through with a debugger helps.''}
 \end{quoting}
 Overall, we find that developers initially focus on the code involved in the merge conflict or information related to the conflict itself.
 This illustrates the importance of code metrics and tool support for developers looking to gain understanding about a merge conflict when planning for a resolution.
 
-Surprisingly, we found that two of our participants (2.53\% of respondents) indicated that they \textit{``...don't have a strategy''} or \textit{``mostly try to fix it as soon as possible''}.
-The existence of this \textit{no strategy} approach is anecdotal, but curious, since we assume that developers are rationale actors seeking to organize themselves in ways that increase the likelihood of successful outcomes.
+Surprisingly, we found that two of our participants (2.53\% of respondents) indicated that they \textit{``[\ldots] don't have a strategy''} or \textit{``mostly try to fix it as soon as possible.''}
+The existence of this \textit{no strategy} approach is anecdotal, but curious, since we assume that developers are rational actors seeking to organize themselves in ways that increase the likelihood of successful outcomes.
 And yet this strategy appears to go counter to that notion.
 
 \begin{table}[!htbp]
@@ -179,7 +181,7 @@ And yet this strategy appears to go counter to that notion.
 \subsubsection{Deferring Responses to Merge Conflicts}
 
 We also found that 56.18\% of participants have deferred responding to a merge conflict.
-To understand the rationale behind deferring, we asked participants to select the factors that determine whether they will defer their response to a merge conflict.
+To understand the rationale behind deferring, we asked the participants to select the factors they consider when trying to determine whether they will defer their response to a merge conflict.
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
@@ -214,7 +216,7 @@ One of the participants succinctly describes this factor in their response:
 \end{quoting}
 
 As an additional question to explore this factor, we asked participants how often \textit{code ownership} factored into their merge conflict resolution strategy.
-We found that on average participants indicate that it factors in \textit{about half the time} (mean: 3.21 on 5-point Likert-type scale).
+We found that on average participants indicate that it factors in \textit{about half the time} (mean: 3.21 on a 5-point Likert-type scale).
 Only 10.11\% of participants indicated that code ownership \textit{never} factors into their resolution strategy (see Figure~\ref{s1_conflict_urgency}).
 
 \begin{figure}[!htbp]
