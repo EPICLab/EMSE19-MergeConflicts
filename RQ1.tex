@@ -9,13 +9,19 @@ To understand the processes of software developers when collaboratively working 
 Several participants describe using tools that alert them to potential or current merge conflicts, processes for analyzing and understanding conflicting code prior to implementing a resolution, and the use of tools and checklists for validating that their resolution worked.
 In the interview, P3 describes this process as:
 \begin{quoting}
-\textit{``Part of my job on the integration team requires that I check for bad regressions. I use scripts to track patches as they're being backported, so I know when and where to look if it introduces a conflict. [\ldots] And once I've fixed it, I try to compare with the previous version to make sure it works in a similar way.''}
+\textit{``Part of my job on the integration team requires that I check for bad regressions. I use scripts to track patches as they're being backported, so I know when and where to look if [a patch] introduces a conflict. [\ldots] And once I've fixed [the conflict], I try to compare with the previous version to make sure [the code] works in a similar way.''}
 \end{quoting}
+As described above, the user becomes aware of a merge conflicting by using these scripts, plans to resolve them by maintaining information about the locations of things, and evaluates the resulting patches to verify that the conflict has been resolved.
+\boldif{Provide descriptions that link the stages of Merge Conflict model to this quote. Use it to drive description of simplified model description paragraph}
 
 \boldif{Based on these anecdotal observations, we construct an initial model of the processes that developers employ when working with merge conflicts, see Fig.~\ref{model}.}
-Based on the initial anecdotal observations obtained from the interviews, we construct an initial model of the process developers experience between the introduction and resolution of merge conflicts.
+Our interview results suggest that a model 
+
+ we construct an initial model of the process developers experience between the introduction and resolution of merge conflicts.
 Figure~\ref{model} provides an illustration of the model.
 It consists of three phases: \emph{awareness, planning,} and \emph{evaluation.}
+
+\boldif{Discuss the fact that no other studies have shown that a model exists for merge conflicts}
 
 \begin{figure}[!htbp]
 \centering
@@ -152,7 +158,7 @@ Another participant indicated their strategy of analyzing the code involves:
 Overall, we find that developers initially focus on the code involved in the merge conflict or information related to the conflict itself.
 This illustrates the importance of code metrics and tool support for developers looking to gain understanding about a merge conflict when planning for a resolution.
 
-Surprisingly, we found that two of our participants (2.53\% of respondents) indicated that they \textit{``[\ldots] don't have a strategy''} or \textit{``mostly try to fix it as soon as possible.''}
+Surprisingly, we found that two of our participants (2.53\% of respondents) indicated that they \textit{``don't have a strategy''} or \textit{``mostly try to fix it as soon as possible.''}
 The existence of this \textit{no strategy} approach is anecdotal, but curious, since we assume that developers are rational actors seeking to organize themselves in ways that increase the likelihood of successful outcomes.
 And yet this strategy appears to go counter to that notion.
 
