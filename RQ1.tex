@@ -95,6 +95,8 @@ Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c} presents the results to these re
 From the Processes Survey (S1) we found that 32.26\% of participants do not actively monitor for merge conflicts during their development activities.
 For the rest of the developers who answered with \emph{yes} or \emph{sometimes} (67.74\%), we identified 61 different tools in 126 instances.
 
+\nsubsection{Reactive and Proactive Monitoring for Merge Conflicts}
+
 \boldif{Reactive detection only notify developers that a merge conflict \emph{has happened}. Developers use it to minimize the size/complexity of the conflict, or it's impact on the team.}
 Reactive monitoring for merge conflicts will only allow the developer to be notified after a merge conflict has occurred.
 However, developers still use this process to manage or reduce the complexity of a conflict.
@@ -123,6 +125,8 @@ Others will broadcast their changes in order to notify team members if they will
 \begin{quotation}
 	[\ldots] send emails before making breaking changes to the API or related sub-modules.
 \end{quotation}
+
+\nsubsection{Tools for Monitoring for Merge Conflicts}
 
 \boldif{The tools that developers use allow for only a \emph{reactive} approach.}
 Examining the tools used by respondents with reactive processes, we find that 87.72\% of our respondents use version control systems (Git, SVN, TFS, CVS), while 21.05\% use continuous integration systems (Jenkins, Travis CI, TeamCity).
@@ -211,12 +215,12 @@ In addition, we identified \textbf{X} distinct categories of processes that deve
 \boldif{Developers use different strategies for dealing with MC}
 When encountering a merge conflict, developers have different strategies at their disposal.
 They can either; (a) defer the merge conflict for a later date or; (b) try and solve the conflict.
-In our Processes Survey (S1) we tried to get an understanding of these strategies and when developers use them.
+In the \textit{Processes Survey}~(S1) we tried to get an understanding of these strategies and when developers use them.
 
 \boldif{The first option is that they might defer the MC, for a later time}
 The easiest option when encountering a merge conflict is to simply not deal with it.
 Indeed, we found that 56.18\% of participants have deferred at least once when responding to a merge conflict.
-The reasons for deferring are varied and include the \textit{complexity of the conflicting code} (D1), the \textit{number of conflicting code locations} (D2), and the \textit{ownership of the conflicting code} (D3) (Table~\ref{s1_deferring_response}).
+The reasons for deferring are varied and include the \textit{complexity of the conflicting code} (D1), the \textit{number of conflicting code locations} (D2), and the \textit{ownership of the conflicting code} (D3) (additional reasons D4--D7 can be found in Table~\ref{s1_deferring_response}).
 One of the participants succinctly describes how they consider the \emph{ownership of the conflicting code} when deciding when to defer as:
 \begin{quotation}
 	Code is mine? I fix it. Code is others? I submit PR or bug reports.
@@ -247,6 +251,8 @@ This indicated that the deferral is not always temporal, but sometimes developer
 \parnotes
 \end{table}
 
+\nsubsection{Deferring Response to Merge Conflicts}
+
 \boldif{Deferring can have bad consequences, including increased complexity and delaying features.}
 Deferring the resolution does not come without it's price.
 Figure~\ref{fig:effects-deferral} shows the top effects of a deferral.
@@ -265,7 +271,7 @@ In some cases, features had to be removed from releases, in order for the integr
 	We have had several releases come up short in new features because they got delayed by integration problems.
 \end{quotation}
 
-\boldif{However, some effect can be severe, including impact to customers, or having to reimplement features}.
+\boldif{However, some effect can be severe, including impact to customers, or having to reimplement features.}
 In one extreme case, a participant reported that the effects of a unresolved merge conflicts affected production software, which resulted in downtime of the product, as it broke functionality:
 \begin{quotation}
 	Broke the app for customers until we could get a patch pushed [\ldots].
@@ -281,6 +287,8 @@ Finally, the merge conflicts can get too severe, and developers have to resort t
 	\caption{The effects of deferring a merge conflicts. It the majority of cases, the developers end up having to stop the development in order to resolve the problems.}
 	\label{fig:effects-deferral}
 \end{figure}
+
+\nsubsection{Initial Strategies}
 
 \boldif{If they have not deferred, they need to understand the (changes in the) conflict}
 Other than deferring, the other remaining option for developers is to resolve the conflict.
@@ -330,6 +338,8 @@ And yet this strategy appears to go counter to that notion.
 \caption{Degree of Code Ownership as a Factor in Merge Conflict Strategies. Scale: 1 is \textit{Always} and 5 is \textit{Never}. 89 out of 102 respondents (87.26\%) provided a response to this question in the \textit{Processes Survey}~(S1).}
 \label{fig:code-ownership-resolution}
 \end{figure}
+
+\nsubsection{Code Ownership in Merge Conflict Resolution Strategies}
 
 \boldif{The role of code ownership in the resolution strategy.}
 Finally, we found that, on average, participants indicate that code ownership factors \textit{about half the time} in their strategy of code ownership (mean: 3.21 on a 5-point Likert-type scale).
@@ -432,7 +442,7 @@ We found that on average participants indicate that it factors in \textit{about 
 Only 10.11\% of participants indicated that code ownership \textit{never} factors into their resolution strategy (see Figure~\ref{s1_conflict_urgency}).
 \end{comment}
 
-\subsubsection{\textbf{RQ1c:} How do software developers \textbf{evaluate} merge conflict resolutions?}\label{RQ1c}
+\subsubsection{\textbf{RQ1c}: How do software developers \textbf{evaluate} merge conflict resolutions?}\label{RQ1c}
 
 \vspace*{-0.5\baselineskip}
 \begin{quoting}
@@ -443,9 +453,7 @@ Only 10.11\% of participants indicated that code ownership \textit{never} factor
 After implementing a merge conflict resolution, software developers must evaluate whether their resolution has returned the codebase to a clean state.
 However, it is unclear what conditions are considered by developers to be the benchmark for successful merge conflict resolutions.
 
-\vspace*{0.8\baselineskip}
-\noindent\textit{Success Conditions for Merge Conflict Resolutions}
-\vspace*{0.5\baselineskip}
+\nsubsection{Success Conditions for Merge Conflict Resolutions}
 
 To understand which conditions of merge conflict resolutions might be the benchmarks, we examined the results of the \textit{Exploratory Interview} and found six common conditions that developers described as being important to their resolution strategies.
 We asked developers in the \textit{Processes Survey}~(S1) to select all conditions that they would consider to be a successful merge conflict resolution from this list of six conditions.
@@ -492,9 +500,7 @@ The survey respondents that selected \textit{code looks correct (i.e. visual tes
 Looking at the combination of \textit{code looks correct (i.e. visual test passes} with the other conditions, we find that 54 respondents also selected \textit{all tests pass} (52.9\%).
 As the most common pairing of selected conditions on the \textit{Processes Survey}~(S1), we conclude that although developers rely upon their expertise to visually inspect a merge conflict resolution, they also verifying their observations through testing.
 
-\vspace*{0.8\baselineskip}
-\noindent\textit{Merge Conflict Resolution Toolsets}
-\vspace*{0.5\baselineskip}
+\nsubsection{Merge Conflict Resolution Toolsets}
 
 As conditions such as testing and compilation are used to gauge the success of a merge conflict resolution, it is also important to understand the tools that developers are relying upon for evaluating resolutions.
 Using the \textit{Exploratory Interviews} responses to guide us, we found five categories of software development tools that developers discuss in relation to merge conflicts.
@@ -531,9 +537,7 @@ We note that this result is in line with the most common merge conflict resoluti
 However, the availability of tools for evaluating merge conflict resolutions might be constraining the conditions that developers are willing and able to use.
 Further research is needed to determine whether there is a causal relationship between these dimensions, and whether more effective metrics could be supported by merge conflict toolsets.
 
-\vspace*{0.8\baselineskip}
-\noindent\textit{Backup Strategies}
-\vspace*{0.5\baselineskip}
+\nsubsection{Backup Strategies}
 
 Merge conflict resolutions are not always successful.
 When they fail, developers have to alter their resolutions and potentially switch strategies in order to successfully resolve the conflict.

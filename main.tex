@@ -93,6 +93,13 @@
 \newcommand\clearrow{\global\let\rowmac\relax}
 \clearrow
 
+\newcommand{\nsubsection}[1]{%
+  \setlength\parindent{0pt}%
+  \vskip 15pt plus 1ex minus .5ex
+  \par
+  \textit{#1}\vskip .5em plus .1em minus .05em\par
+}
+
 %\newcommand\comment[1]{}
 %\newcommand{\comment}[1]{{\noindent\bfseries #1\\}}
 %\newcommand\todo[1]{{\noindent\color{red}\\\textbf{TODO:~}#1\\}}
