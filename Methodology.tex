@@ -198,75 +198,71 @@ Logically connected statements that were separated by other lines were considere
 In the second iteration, the first and third authors sorted cards according to our coding scheme and discussed the resulting taxonomies until consensus was reached.
 Based upon our research questions, we grouped the resulting categories as follows: the processes that developers use for merge conflicts (Section~\ref{RQ1}, the difficulties that developers face with merge conflicts (Section~\ref{RQ2}), and the impact of development tools on the resolution process (Section~\ref{RQ3}).
 
-\subsubsection{Processes Survey (S1) Analysis}
-\boldif{Combine 3.4.2 and 3.4.3 sections to describe analysis of both surveys}
+\subsubsection{Survey Analysis}
 
-We evaluated the distribution of survey answers for each of the four Likert-type question by analyzing across demographic categories.
+For the \textit{Processes Survey}~(S1), we evaluated the distribution of survey answers for each of the four Likert-type question by analyzing across demographic categories.
 We used Likert-type questions to measure the extent to which participants agreed with a particular statement, or the degree to which a factor has impacted the participant.
 Where answers differed across a demographic category, we note the difference and provide further discussion of these results.
 
 The \textit{Processes Survey}~(S1) contained five open-ended questions.
 We performed open thematic coding to analyze the responses to these questions.
-Table~\ref{tab:codes} provides the resulting codebook, including descriptions and examples.
+The resulting codebook, including descriptions and examples, are available on our companion site~\cite{companion_site}.
+%Table~\ref{tab:codes} provides the resulting codebook, including descriptions and examples.
 After establishing a codebook, the first two authors independently coded the responses to each open-ended question.
-For question 7 (see Table~\ref{tab:codes} for open-ended questions and codes), we achieve an inter-rater reliability (IRR) agreement of $0.95$ (Jaccard similarity coefficent).
-For questions 8, 11, 14, and 19, we achieve IRR agreements of $0.81$, $0.88$, $0.74$, and $0.92$, respectively.
+For question 7 (\textit{``How do you monitor for merge conflicts?''}), we achieve an inter-rater reliability (IRR) agreement of $0.95$ (Jaccard similarity coefficent).
+For questions 8 (\textit{``How do you determine the urgency of a merge conflict?''}), 11 (\textit{``What is your first step in trying to understand code involved in a merge conflict?''}), 14 (\textit{``What effect did deferring your response to a merge conflict have on the resolution of the conflict?''}), and 19 (\textit{``If your first attempt at resolving a merge conflict fails, what backup strategies do you use?''}), we achieve IRR agreements of $0.81$, $0.88$, $0.74$, and $0.92$, respectively.
 
-Result for both open-ended and Likert-type questions are presents in Section~\ref{results}.
-
-\def\shift{\hspace{0.5em}}
-\begin{table}[!htbp]
-\centering
-\caption{Codebook used for coding open-ended responses from Processes Survey (S1)}
-\label{tab:codes}
-\begin{tabular}{lp{1.5in}p{1.3in}}
-\toprule
-Code & Description & Example \\
-\midrule
-\multicolumn{3}{l}{\textbf{Q7: How do you monitor for merge conflicts?}} \\
-\shift Proactive & & \\
-\shift Reactive & & \\
-\midrule
-\multicolumn{3}{l}{\textbf{Q8: How do you determine the urgency of a merge conflict?}} \\
-\shift Project Structure & & \\
-\shift Code Under Conflict & & \\
-\shift External Dependencies & & \\
-\shift No System & & \\
-\midrule
-\multicolumn{3}{p{4.5in}}{\raggedright\textbf{Q11: What is your first step in trying to understand code involved in a merge conflict?}} \\
-\shift About the conflict & & \\
-\shift The Code Itself & & \\
-\shift Analyzing the code & & \\
-\shift Design Concerns & & \\
-\shift Project Organization & & \\
-\shift No-op & & \\
-\midrule
-\multicolumn{3}{p{4.5in}}{\raggedright\textbf{Q14: What effect did deferring your response to a merge conflict have on the resolution of the conflict?}} \\
-\shift Physical Manifestations & & \\
-\shift External to company impact & & \\
-\shift Policy/culture changes & & \\
-\shift The Nuclear Option & & \\
-\shift Increased Complexity & & \\
-\shift Stop the presses & & \\
-\shift No-op & & \\
-\midrule
-\multicolumn{3}{p{4.5in}}{\raggedright\textbf{Q19: If your first attempt at resolving a merge conflict fails, what backup strategies do you use?}} \\
-\shift Collaborating & & \\
-\shift Redoing changes & & \\
-\shift Take it offline & & \\
-\shift Try again & & \\
-\shift No strategy/Other & & \\
-\bottomrule
-\end{tabular}	
-\end{table}
-
-\subsubsection{Barriers Survey (S2) Analysis}
+%\def\shift{\hspace{0.5em}}
+%\begin{table}[!htbp]
+%\centering
+%\caption{Codebook used for coding open-ended responses from Processes Survey (S1)}
+%\label{tab:codes}
+%\begin{tabular}{lp{1.5in}p{1.3in}}
+%\toprule
+%Code & Description & Example \\
+%\midrule
+%\multicolumn{3}{l}{\textbf{Q7: How do you monitor for merge conflicts?}} \\
+%\shift Proactive & & \\
+%\shift Reactive & & \\
+%\midrule
+%\multicolumn{3}{l}{\textbf{Q8: How do you determine the urgency of a merge conflict?}} \\
+%\shift Project Structure & & \\
+%\shift Code Under Conflict & & \\
+%\shift External Dependencies & & \\
+%\shift No System & & \\
+%\midrule
+%\multicolumn{3}{p{4.5in}}{\raggedright\textbf{Q11: What is your first step in trying to understand code involved in a merge conflict?}} \\
+%\shift About the conflict & & \\
+%\shift The Code Itself & & \\
+%\shift Analyzing the code & & \\
+%\shift Design Concerns & & \\
+%\shift Project Organization & & \\
+%\shift No-op & & \\
+%\midrule
+%\multicolumn{3}{p{4.5in}}{\raggedright\textbf{Q14: What effect did deferring your response to a merge conflict have on the resolution of the conflict?}} \\
+%\shift Physical Manifestations & & \\
+%\shift External to company impact & & \\
+%\shift Policy/culture changes & & \\
+%\shift The Nuclear Option & & \\
+%\shift Increased Complexity & & \\
+%\shift Stop the presses & & \\
+%\shift No-op & & \\
+%\midrule
+%\multicolumn{3}{p{4.5in}}{\raggedright\textbf{Q19: If your first attempt at resolving a merge conflict fails, what backup strategies do you use?}} \\
+%\shift Collaborating & & \\
+%\shift Redoing changes & & \\
+%\shift Take it offline & & \\
+%\shift Try again & & \\
+%\shift No strategy/Other & & \\
+%\bottomrule
+%\end{tabular}	
+%\end{table}
 
 We evaluated the results of the \textit{Barriers Survey}~(S2) by performing open card sorting on the all open-ended questions.
 The resulting categories were standardized to an acceptable point by \textit{negotiated agreement}.
 
-The Barriers Survey was primarily composed of Likert-type questions, which were used to measure the extent to which participants agreed with a particular statement.
+The \textit{Barriers Survey}~(S2) was primarily composed of Likert-type questions, which were used to measure the extent to which participants agreed with a particular statement.
 This means that lower mean and median values indicate less agreement with the statement in a particular question.
 We use this design to validate both the degree of agreement to the interview results, as well as the existence of individual factors.
 
-We present discussion and results of the survey in Section~\ref{results}. 
+We present discussion and results of the \textit{Processes Survey}~(S1) and \textit{Barriers Survey}~(S2) in Section~\ref{results}. 
