@@ -208,6 +208,136 @@ In addition, we identified \textbf{X} distinct categories of processes that deve
 \end{quoting}
 \vspace*{+0.3\baselineskip}
 
+\boldif{Developers use different strategies for dealing with MC}
+When encountering a merge conflict, developers have different strategies at their disposal.
+They can either; (a) defer the merge conflict for a later date or; (b) try and solve the conflict.
+In our Processes Survey (S1) we tried to get an understanding of these strategies and when developers use them.
+
+\boldif{The first option is that they might defer the MC, for a later time}
+The easiest option when encountering a merge conflict is to simply not deal with it.
+Indeed, we found that 56.18\% of participants have deferred at least once when responding to a merge conflict.
+The reasons for deferring are varied and include the \textit{complexity of the conflicting code} (D1), the \textit{number of conflicting code locations} (D2), and the \textit{ownership of the conflicting code} (D3) (Table~\ref{s1_deferring_response}).
+One of the participants succinctly describes how they consider the \emph{ownership of the conflicting code} when deciding when to defer as:
+\begin{quotation}
+	Code is mine? I fix it. Code is others? I submit PR or bug reports.
+\end{quotation}
+This indicated that the deferral is not always temporal, but sometimes developers will defer to other team members.
+
+
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Factors in Deferring Responses to Merge Conflicts from Processes Survey (S1)}
+\label{s1_deferring_response}
+\centering
+\begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
+\toprule
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Factor & Description & \# Participants\parnote{\textit{Processes Survey}~(S1) respondents were allowed to select multiple factors. 44 out of 102 respondents (43\%) selected more than one factor.} & Percentage (\%)\textsuperscript{i} \\
+\midrule
+  D1 & Complexity of the conflicting code & 36 & 25.00\% \\
+  D2 & Number of conflicting code locations & 32 & 22.22\% \\
+  D3 & Ownership of the conflicting code & 25 & 17.36\% \\
+  D4 & Size of the conflicting code & 20 & 13.89\% \\
+  D5 & Approaching deadlines & 13 & 9.03\% \\
+  D6 & Work schedule constraints & 2 & 1.39\% \\
+  D7 & Other & 7 & 4.86\% \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
+
+\boldif{Deferring can have bad consequences, including increased complexity and delaying features.}
+Deferring the resolution does not come without it's price.
+Figure~\ref{fig:effects-deferral} shows the top effects of a deferral.
+The most common effect was that developers have had to stop the development (\emph{Stop the Presses,} 15 responses) in order to resolve the conflicts.
+The second most common effect is the increased complexity of the conflicts, as it was reported by 9 of our participants.
+One participant noted that:
+\begin{quotation}
+	Deferring a merge conflict simply kicks the can down the road (or off a cliff). Typically resolving the conflict only gets more difficult as time passes.
+\end{quotation}
+A respondent even hinted that the complexity increase can be quite severe, of orders of magnitude:
+\begin{quotation}
+	Untangling takes days instead of minutes when it gets too out of hand.
+\end{quotation}
+In some cases, features had to be removed from releases, in order for the integration problems to be successfully resolved:
+\begin{quotation}
+	We have had several releases come up short in new features because they got delayed by integration problems.
+\end{quotation}
+
+\boldif{However, some effect can be severe, including impact to customers, or having to reimplement features}.
+In one extreme case, a participant reported that the effects of a unresolved merge conflicts affected production software, which resulted in downtime of the product, as it broke functionality:
+\begin{quotation}
+	Broke the app for customers until we could get a patch pushed [\ldots].
+\end{quotation}
+Finally, the merge conflicts can get too severe, and developers have to resort to the \emph{Nuclear Option}, where they scrap their changes and reimplement them:
+\begin{quotation}
+	Uh.... KABOOM! More changes came in and everything piled up. Nothing to do but wipe it all back to clean and start trying to piece things back together.
+\end{quotation}
+
+\begin{figure}
+	\centering
+	\fbox{\includegraphics[width=0.9\textwidth,keepaspectratio]{EffectsDeferral.png}}
+	\caption{The effects of deferring a merge conflicts. It the majority of cases, the developers end up having to stop the development in order to resolve the problems.}
+	\label{fig:effects-deferral}
+\end{figure}
+
+\boldif{If they have not deferred, they need to understand the (changes in the) conflict}
+Other than deferring, the other remaining option for developers is to resolve the conflict.
+They primarily approach merge conflicts by \textit{examining the conflict} (U1), \textit{analyzing or manipulating the code} (U2), or \textit{examining the code} (U3) (see Table~\ref{s1_understanding_code}).
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Initial Strategies for Understanding Conflicting Code from Processes Survey (S1)}
+\label{s1_understanding_code}
+\centering
+\begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
+\toprule
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Category & Description & \# Participants\parnote{79 out of 102 respondents (77\%) provided a description of their initial strategy.} & Percentage (\%)\textsuperscript{i} \\
+\midrule
+  U1 & Examining the conflict & 26 & 32.91\% \\
+  U2 & Analysis/manipulation of the code & 19 & 24.05\% \\
+  U3 & Examining the code & 18 & 22.79\% \\
+  U4 & Focus on design concerns & 8 & 10.13\% \\
+  U5 & Examine project organization & 6 & 7.60\% \\
+  U6 & No strategy & 2 & 2.53\% \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
+\vspace{0.8em}
+
+\boldif{The most common strategies for understanding the conflict are examining the conflict and analysis/manipulation of the code.}
+One participant described their strategy of examining the conflict as:
+\begin{quotation}
+	Reviewing the most recent commits (comments and code) to see whether its a shallow conflict or not.
+\end{quotation}
+	Another participant indicated their strategy of analyzing the code involves:
+\begin{quotation}
+[\ldots] determining if the merge conflict involves important functionality; stepping through with a debugger helps.
+\end{quotation}
+Overall, we find that developers initially focus on the code involved in the merge conflict or information related to the conflict itself.
+
+\boldif{Surprisingly, some developers do not have a strategy for MCR}
+Surprisingly, we found that two of our participants (2.53\% of respondents) indicated that they \textit{``don't have a strategy''} or \textit{``mostly try to fix it as soon as possible.''}
+The existence of this \textit{no strategy} approach is anecdotal, but curious, since we assume that developers are rational actors seeking to organize themselves in ways that increase the likelihood of successful outcomes.
+And yet this strategy appears to go counter to that notion.
+
+\begin{figure}[!htbp]
+\centering
+\fbox{\includegraphics[width=0.98\textwidth,keepaspectratio]{imgs/CodeOwnershipFactor}}
+\caption{Degree of Code Ownership as a Factor in Merge Conflict Strategies. Scale: 1 is \textit{Always} and 5 is \textit{Never}. 89 out of 102 respondents (87.26\%) provided a response to this question on the \textit{Processes Survey}~(S1).}
+\label{fig:code-ownership-resolution}
+\end{figure}
+
+\boldif{The role of code ownership in the resolution strategy.}
+Finally, we found that, on average, participants indicate that code ownership factors \textit{about half the time} in their strategy of code ownership (mean: 3.21 on a 5-point Likert-type scale).
+This is consistent with their responses for their criteria for deferring a resolution, where it is the third most common factor in their decision. 
+Only 10.11\% of participants indicated that code ownership \textit{never} factors into their resolution strategy (see Figure~\ref{fig:code-ownership-resolution}).
+
+\begin{comment}
+
 Software developers adopt strategies for increasing their own efficiency and productivity.
 We asked Process Survey (S1) participants a series of questions relating to their strategies for gaining understanding about a merge conflict, prioritizing merge conflict resolutions, and deferring resolutions when necessary.
 
@@ -300,8 +430,10 @@ One of the participants succinctly describes this factor in their response:
 As an additional question to explore this factor, we asked participants how often \textit{code ownership} factored into their merge conflict resolution strategy.
 We found that on average participants indicate that it factors in \textit{about half the time} (mean: 3.21 on a 5-point Likert-type scale).
 Only 10.11\% of participants indicated that code ownership \textit{never} factors into their resolution strategy (see Figure~\ref{s1_conflict_urgency}).
+\end{comment}
 
 \subsubsection{\textbf{RQ1c:} How do software developers evaluate merge conflict resolutions?}\label{RQ1c}
+
 \vspace*{-0.5\baselineskip}
 \begin{quoting}
 \textit{``We fail more often because we solve the wrong problem than because we get the wrong solution to the right problem.'' –- Russell L. Ackoff}
