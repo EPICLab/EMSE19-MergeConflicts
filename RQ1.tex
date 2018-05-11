@@ -93,33 +93,33 @@ Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c} presents the results to these re
 
 \boldif{Developers use 2 methods for becoming aware of merge conflicts: proactive and reactive.}
 From the Processes Survey (S1) we found that 32.26\% of participants do not actively monitor for merge conflicts during their development activities.
-For the rest of the developers who answered with \emph{yes} or \emph{sometimes} (67.74\%), we identified 61 different tools, in 126 instances.
+For the rest of the developers who answered with \emph{yes} or \emph{sometimes} (67.74\%), we identified 61 different tools in 126 instances.
 
 \boldif{Reactive detection only notify developers that a merge conflict \emph{has happened}. Developers use it to minimize the size/complexity of the conflict, or it's impact on the team.}
-Reactive monitoring for merge conflicts will only notify the developer after a merge conflict has occured.
-However, developers still use them to manage or reduce the complexity of a conflict.
-For the developers that answered that they monitor for merge conflicts (replied either \emph{yes} or \emph{sometimes} to the question of monitoring merge conflicts, we found that 73.68\% (42 out of 57 responses) described reactive processes.
+Reactive monitoring for merge conflicts will only allow the developer to be notified after a merge conflict has occurred.
+However, developers still use this process to manage or reduce the complexity of a conflict.
+For the developers that answered that they monitor for merge conflicts (replied either \emph{yes} or \emph{sometimes}), we found that 73.68\% (42 out of 57 responses) described reactive processes.
 For example, one developer said they use integration tools to detect merge problems before they advance to testing:
 \begin{quotation}
 	[\ldots] integration tests [\ldots] tell us if builds are breaking and we use those to locate merge conflicts. [\ldots] we use it to catch merge bugs before they go to smoke testing for release
 \end{quotation}
-Another has mentioned that they try to solve them early to minimize disruptions to the team:
+Another developer mentioned that they try to solve merge conflicts early in order to minimize disruptions to the team:
 \begin{quotation}
 	We try to catch conflicts early so that fewer developers have to be involved in looking at broken code.
 \end{quotation}
 
 \boldif{Proactive monitoring allows devs to detect MC before they happen. However, it is more involved, as it requires a lot more manual effort from the developers.}
-Proactive monitoring allows developers to preempt merge conflicts.
+Proactive monitoring allows developers to preemptively catch merge conflicts before they happen.
 Some developers mentioned they achieved this by manually tracking incoming changes:
 \begin{quotation}
 	I monitor commit logs before I begin merging branches so that I see any potentially overlapping code that will break the merge.
 \end{quotation}
-Others teams rely more on communication.
-This can happen either during stand-up meeting, to make sure that everybody is aware of other's tasks:
+Other teams rely more on communication.
+This can happen during regular team meetings, to make sure that everybody is aware of each other's tasks:
 \begin{quotation}
 	[\ldots] standups allow us to know where everyone is working that week.
 \end{quotation}
-Others will broadcast their changes in order to notify others if they will make breaking changes:
+Others will broadcast their changes in order to notify team members if they will make breaking changes:
 \begin{quotation}
 	[\ldots] send emails before making breaking changes to the API or related sub-modules.
 \end{quotation}
@@ -127,11 +127,11 @@ Others will broadcast their changes in order to notify others if they will make 
 \boldif{The tools that developers use allow for only a \emph{reactive} approach.}
 Examining the tools used by respondents with reactive processes, we find that 87.72\% of our respondents use version control systems (Git, SVN, TFS, CVS), while 21.05\% use continuous integration systems (Jenkins, Travis CI, TeamCity).
 Table~\ref{tab:tool-counts} presents the top 10 tools developers use when monitoring for merge conflicts.
-The majority of the tools allow only a reactive (monitoring) approach.
-It's worth nothing that tools, such as those for Continuous Integration (CI) and developer notification systems (PagerDuty) are used only by developers relying on a \emph{reactive} strategy.
+The majority of the tools allow only a reactive approach to merge conflict monitoring.
+It is worth noting that tools, such as those for Continuous Integration (CI) and developer notification systems (e.g. PagerDuty) are used only by developers relying on a \emph{reactive} strategy.
 
 \boldif{Devs do not use existing workspace awareness tools that come from the acadmemia.}
-When collaborating, developers generally rely on passive communication tools, like Email, to coordinate.
+When collaborating, developers generally rely on passive communication tools, like email, to coordinate.
 Developers are currently not leveraging the functionalities provided by many research prototypes (e.g., Palant\'{i}r~\cite{palantir}, Crystal~\cite{Brun2011}) that are specifically designed to facilitate proactive conflict detection.
 
 \begin{table}[hbt]
