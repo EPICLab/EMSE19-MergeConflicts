@@ -443,6 +443,10 @@ Only 10.11\% of participants indicated that code ownership \textit{never} factor
 After implementing a merge conflict resolution, software developers must evaluate whether their resolution has returned the codebase to a clean state.
 However, it is unclear what conditions are considered by developers to be the benchmark for successful merge conflict resolutions.
 
+\vspace*{0.8\baselineskip}
+\noindent\textit{Success Conditions for Merge Conflict Resolutions}
+\vspace*{0.5\baselineskip}
+
 To understand which conditions of merge conflict resolutions might be the benchmarks, we examined the results of the \textit{Exploratory Interview} and found six common conditions that developers described as being important to their resolution strategies.
 We asked developers in the \textit{Processes Survey}~(S1) to select all conditions that they would consider to be a successful merge conflict resolution from this list of six conditions.
 We included an open-ended \textit{other} option to allow for additional conditions to surface, but only two developers selected that condition (indicating \textit{performance tests showing similar performance} and \textit{client approval}).
@@ -487,27 +491,67 @@ The survey respondents that selected \textit{code looks correct (i.e. visual tes
 Looking at the combination of \textit{code looks correct (i.e. visual test passes} with the other conditions, we find that 54 respondents also selected \textit{all tests pass} (52.9\%).
 As the most common pairing of selected conditions on the \textit{Processes Survey}~(S1), we conclude that although developers rely upon their expertise to visually inspect a merge conflict resolution, they also verifying their observations through testing.
 
+\vspace*{0.8\baselineskip}
+\noindent\textit{Merge Conflict Resolution Toolsets}
+\vspace*{0.5\baselineskip}
 
+As conditions such as testing and compilation are used to gauge the success of a merge conflict resolution, it is also important to understand the tools that developers are relying upon for evaluating resolutions.
+Using the \textit{Exploratory Interviews} responses to guide us, we found five categories of software development tools that developers discuss in relation to merge conflicts.
+We then asked \textit{Processes Survey}~(S1) participants to select the categories of tools that they use to assist in evaluating whether their conflict resolutions have met the conditions for success.
+We received 204 selections from 89 respondents and present the aggregated results in Figure~\ref{fig:resolution-evaluation-tools}.
 
-\begin{table}[!htbp]
-\renewcommand{\arraystretch}{1.2}
-\caption{Effects of Deferring Responses on Merge Conflict Resolutions from Processes Survey (S1)}
-\label{s1_deferring_consequences}
-\centering
-\begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
-\toprule
-  \parnoteclear % tabularx will otherwise add each note thrice
-  Effect & Description & \# Participants\parnote{36 out of 102 respondents (35\%) indicated at least one effect.} & Percentage (\%)\textsuperscript{i} \\
-\midrule
-  E1 & Stop the Presses & 15 & 41.67\% \\
-  E2 & Increased complexity & 9 & 25.00\% \\
-  E3 & Non-operational effects & 5 & 13.89\% \\
-  E4 & Policy/cultural changes & 3 & 8.33\% \\
-  E5 & The Nuclear Option & 2 & 5.56\% \\
-  E6 & Impact beyond the organization & 1 & 2.78\% \\
-  E7 & Physical manifestations & 1 & 2.78\% \\
-\bottomrule
-\end{tabularx}
-\parnotes
-\end{table}
+\begin{figure}
+	\centering
+	\fbox{\includegraphics[width=0.95\textwidth,keepaspectratio]{ResolutionEvaluationTools.png}}
+	\caption{Tools for evaluating the results of merge conflict resolutions}
+	\label{fig:resolution-evaluation-tools}
+\end{figure}
 
+By far the most selected tools were \textit{version control systems} (VCS) and \textit{continuous integration} (CI) platforms, with 82 (40.2\%) and 62 (30.4\%) respectively.
+All other tool categories combined had a mean of only 15 selections and represent only 29.4\% of response selections.
+
+The use of \textit{continuous integration} requires that tests be written and maintained, and can only provide meaningful information when code is compilable.
+We note that this result is in line with the inclusion of \textit{all tests passing} (C1) and \textit{code successfully compiles} (C2) as the most common conditions for a successful merge conflict resolution.
+However, the availability of tools for evaluating merge conflict resolutions might be constraining the conditions that developers are willing and able to use.
+Further research is needed to determine whether additional metrics and conditions for success are needed to more effectively evaluate merge conflict resolutions.
+
+\vspace*{0.8\baselineskip}
+\noindent\textit{Backup Strategies}
+\vspace*{0.5\baselineskip}
+
+Merge conflict resolutions are not always successful.
+When they fail, developers have to alter their resolutions and potentially switch strategies in order to successfully resolve the conflict.
+
+To understand the prevalence of failed conflict resolutions, we asked \textit{Processes Survey} (S1) participants to indicate the frequency in which their first attempt at resolving a merge conflict fails.
+Figure~\ref{fig:first-attempt-failure} illustrates the resulting distribution.
+On the 5-point Likert-type scale, where 1 is \textit{very frequently} and 5 is \textit{very infrequently}), the mean response was 3.49 (std. dev. = 1.11, variance = 1.24).
+This corresponds to \textit{somewhat infrequently} being the average response, which suggests that first attempts typically succeed.
+However, this does show that for 78.7\% (70 out of 89) of participants occasionally have to make another attempt at resolving a merge conflict.
+
+\begin{figure}
+	\centering
+	\fbox{\includegraphics[width=0.95\textwidth,keepaspectratio]{FirstAttemptFailure.png}}
+	\caption{Frequency of first attempt failures of merge conflict resolutions}
+	\label{fig:first-attempt-failure}
+\end{figure}
+
+Further, we asked survey participants to describe their backup strategies for when their first attempt at resolving a merge conflict fails.
+We received 75 responses and present the aggregate results in Figure~\ref{fig:backup-strategies}.
+Developers use a variety of strategies for resolving merge conflicts, and their backup strategies include \textit{take it offline} (S1), \textit{collaborating} (S2), \textit{try again} (S3), \textit{redoing changes} (S4), and \textit{no backup strategy} (S5).
+Since \textit{no backup strategy} (S5) is not a strategy in and of itself, we focus these results on strategies S1-S4 instead.
+
+The \textit{take it offline} (S1) strategy involves moving conflicting code away from shared branches or code repositories, and working locally to resolve the conflict without disrupting other developers.
+The antithesis of this strategy is \textit{collaborating} (S2), where developers seek out other developers that are more knowledgeable about the area of conflicting code.
+The S1 and S2 strategies contrast each other, and show that developers reserve more costly strategies (in terms of time, effort, and coordination) as backups.
+
+Additionally, we find that developers also simply \textit{try again} (S3) to merge the same code together and hope that their tools are able to succeed with a second attempt.
+Developers also resort to \textit{redoing changes} (S4), by way of reverting and manually recreating the changes found in conflicting commits, when their initial attempts fail.
+The S3 and S4 strategies appear to cement the extremes of the cost spectrum of backup strategies for resolving merge conflicts.
+Where simply retrying the same merge (S3) requires vary little additional work, the process of redoing changes (S4) is a duplication of previous efforts and costly on developer's time.
+
+\begin{figure}
+	\centering
+	\fbox{\includegraphics[width=0.95\textwidth,keepaspectratio]{BackupStrategies.png}}
+	\caption{Backup strategies of developers for merge conflict resolutions.}
+	\label{fig:backup-strategies}
+\end{figure}
