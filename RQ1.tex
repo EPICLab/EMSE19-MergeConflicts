@@ -327,7 +327,7 @@ And yet this strategy appears to go counter to that notion.
 \begin{figure}[!htbp]
 \centering
 \fbox{\includegraphics[width=0.98\textwidth,keepaspectratio]{imgs/CodeOwnershipFactor}}
-\caption{Degree of Code Ownership as a Factor in Merge Conflict Strategies. Scale: 1 is \textit{Always} and 5 is \textit{Never}. 89 out of 102 respondents (87.26\%) provided a response to this question on the \textit{Processes Survey}~(S1).}
+\caption{Degree of Code Ownership as a Factor in Merge Conflict Strategies. Scale: 1 is \textit{Always} and 5 is \textit{Never}. 89 out of 102 respondents (87.26\%) provided a response to this question in the \textit{Processes Survey}~(S1).}
 \label{fig:code-ownership-resolution}
 \end{figure}
 
@@ -444,7 +444,7 @@ After implementing a merge conflict resolution, software developers must evaluat
 However, it is unclear what conditions are considered by developers to be the benchmark for successful merge conflict resolutions.
 
 To understand which conditions of merge conflict resolutions might be the benchmarks, we examined the results of the \textit{Exploratory Interview} and found six common conditions that developers described as being important to their resolution strategies.
-We asked developers in the \textit{Processes Survey}~(S1) to select, from this list of six conditions, all that they would consider to be a successful merge conflict resolution.
+We asked developers in the \textit{Processes Survey}~(S1) to select all conditions that they would consider to be a successful merge conflict resolution from this list of six conditions.
 We included an open-ended \textit{other} option to allow for additional conditions to surface, but only two developers selected that condition (indicating \textit{performance tests showing similar performance} and \textit{client approval}).
 We received 324 selections from 89 respondents and present the aggregated results in Table~\ref{conditionsSuccess}.
 
@@ -453,37 +453,40 @@ We received 324 selections from 89 respondents and present the aggregated result
 \caption{Conditions of Successful Merge Conflict Resolutions from Processes Survey (S1)\textsuperscript{i}}
 \label{conditionsSuccess}
 \centering
-\begin{tabularx}{\textwidth}{@{}r|*{10}{C}c@{}}
+\begin{tabularx}{\textwidth}{@{}lr|*{7}{C}c@{}}
 \toprule
 \addlinespace[4.9em]
-	& \begin{rotate}{30} All tests pass \end{rotate}
+	& & \begin{rotate}{30} All tests pass \end{rotate}
 	& \begin{rotate}{30} Code compiles \end{rotate}
 	& \begin{rotate}{30} VCS warnings gone \end{rotate}
 	& \begin{rotate}{30} Merged to production \end{rotate}
 	& \begin{rotate}{30} Code looks correct \end{rotate}
 	& \begin{rotate}{30} Code review \end{rotate}
-	& \begin{rotate}{30} Other \end{rotate}\\
+	& \begin{rotate}{30} Other \end{rotate} \\
 \midrule
-	All tests pass & 67 & & & & & & \\
-	Code compiles & 50 & 67 & & & & & \\
-	VCS warnings gone & 38 & 42 & 51 & & & & \\
-	Merged to production & 27 & 27 & 26 & 33 & & & \\
-	Code looks correct & 50 & 54 & 41 & 27 & 66 & & \\
-	Code review & 32 & 31 & 25 & 19 & 27 & 38 & \\
-	Other & 2 & 2 & 0 & 0 & 2 & 0 & 2 \\
+	C1 & All tests pass & 67 & & & & & & \\
+	C2 & Code compiles & 50 & 67 & & & & & \\
+	C3 & VCS warnings gone & 38 & 42 & 51 & & & & \\
+	C4 & Merged to production & 27 & 27 & 26 & 33 & & & \\
+	C5 & Code looks correct & 50 & 54 & 41 & 27 & 66 & & \\
+	C6 & Code review & 32 & 31 & 25 & 19 & 27 & 38 & \\
+	C7 & Other & 2 & 2 & 0 & 0 & 2 & 0 & 2 \\
 \bottomrule
-    \multicolumn{8}{c}{\noindent\parbox[t]{11.7cm}{\vspace{0.4em}\textsuperscript{i}\hspace{0.2em}\textit{Processes Survey}~(S1) respondents were allowed to select multiple conditions. Each entry represents the number of respondents that selected both of the conditions indicated for the column and row. 68 out of 102 respondents (67\%) selected three or more conditions.}} \\
+    \multicolumn{9}{c}{\noindent\parbox[t]{11.7cm}{\vspace{0.4em}\textsuperscript{i}\hspace{0.2em}\textit{Processes Survey}~(S1) respondents were allowed to select multiple conditions. Each entry represents the number of respondents that selected both of the conditions indicated for the column and row. 68 out of 102 respondents (67\%) selected three or more conditions.}} \\
 \end{tabularx}
 \end{table}
 
-The most commonly selected conditions that signify a successful merge conflict resolution were when \textit{all tests pass} (67 responses), \textit{code successfully compiles} (67), and \textit{code looks correct (i.e. visual test passes)} (66).
+The most commonly selected conditions that signify a successful merge conflict resolution were when \textit{all tests pass} (C1), \textit{code successfully compiles} (C2), and \textit{code looks correct (i.e. visual test passes)} (C3).
+The use of testing (C1) as both functionality and code quality assurance measures are well-known~\cite{beizer1984software}\cite{tian2005software}, and have been fundamental to  development processes such as test-driven development for several years~\cite{beck2003test}.
+Similarly, the use of compilers to validate code (C2) as being executable and in good-working order will be familiar to any developer using an interpreted programming language.
 
-These results indicate that developers are apt to visually inspect the code for any further complications prior to considering a merge conflict resolution as successful.
-The survey respondents that selected \textit{code looks correct (i.e. visual test passes)} had a mean of $\sim$9.2 years of programming experience.
-Inspecting code requires time and expertise in the area of conflicting code, and although these developers have prior development experience, they might not have a similar degree of experience in their codebase.
+The use of visual inspection as a measure of successful merge conflict resolutions is surprising, given that \textit{complexity of conflicting lines of code} is the highest rate factor for impacting merge conflict difficulty~\cite{mckee2017software}.
+Inspecting code requires time and expertise in the area of conflicting code.
+The survey respondents that selected \textit{code looks correct (i.e. visual test passes)} had a mean of 9.2 years of programming experience, which is only slightly higher than the overall mean of 9.0 years of programming experience.
 
 Looking at the combination of \textit{code looks correct (i.e. visual test passes} with the other conditions, we find that 54 respondents also selected \textit{all tests pass} (52.9\%).
 As the most common pairing of selected conditions on the \textit{Processes Survey}~(S1), we conclude that although developers rely upon their expertise to visually inspect a merge conflict resolution, they also verifying their observations through testing.
+
 
 
 \begin{table}[!htbp]
