@@ -85,7 +85,7 @@ Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c} presents the results to these re
   GitLab & Website & 3 (2.38\%)\\
   Jenkins & Continuous Integration Platform & 3 (2.38\%)\\
   Team Foundation Server & Version Control System & 3 (2.38\%)\\
-  VCS (unspecified) & Version Control System & 3 (2.38\%)\\
+  VCS (unspecified) & Version Control System\hspace{1.9cm} & 3 (2.38\%)\\
 \bottomrule
 \end{tabularx}
 \parnotes
@@ -233,7 +233,7 @@ This indicated that the deferral is not always temporal, but sometimes developer
 \begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
-  Factor & Description & \# Participants\parnote{\textit{Processes Survey}~(S1) respondents were allowed to select multiple factors. 44 out of 102 respondents (43\%) selected more than one factor.} & Percentage (\%)\textsuperscript{i} \\
+  Factor & Description & \# Selections\parnote{\textit{Processes Survey}~(S1) respondents were allowed to select multiple factors. 44 out of 102 respondents (43\%) selected more than one factor.} & Percentage (\%)\textsuperscript{i} \\
 \midrule
   D1 & Complexity of the conflicting code & 36 & 25.00\% \\
   D2 & Number of conflicting code locations & 32 & 22.22\% \\
@@ -241,7 +241,7 @@ This indicated that the deferral is not always temporal, but sometimes developer
   D4 & Size of the conflicting code & 20 & 13.89\% \\
   D5 & Approaching deadlines & 13 & 9.03\% \\
   D6 & Work schedule constraints & 2 & 1.39\% \\
-  D7 & Other & 7 & 4.86\% \\
+  D7 & Other\hspace{4.6cm} & 7 & 4.86\% \\
 \bottomrule
 \end{tabularx}
 \parnotes
@@ -294,14 +294,14 @@ They primarily approach merge conflicts by \textit{examining the conflict} (U1),
 \begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
-  Category & Description & \# Participants\parnote{79 out of 102 respondents (77\%) provided a description of their initial strategy.} & Percentage (\%)\textsuperscript{i} \\
+  Strategy & Description & \# Participants\parnote{79 out of 102 respondents (77\%) provided a description of their initial strategy.} & Percentage (\%)\textsuperscript{i} \\
 \midrule
   U1 & Examining the conflict & 26 & 32.91\% \\
   U2 & Analysis/manipulation of the code & 19 & 24.05\% \\
   U3 & Examining the code & 18 & 22.79\% \\
   U4 & Focus on design concerns & 8 & 10.13\% \\
   U5 & Examine project organization & 6 & 7.60\% \\
-  U6 & No strategy & 2 & 2.53\% \\
+  U6 & No strategy\hspace{3.5cm} & 2 & 2.53\% \\
 \bottomrule
 \end{tabularx}
 \parnotes
@@ -460,12 +460,13 @@ We received 324 selections from 89 respondents and present the aggregated result
 \begin{tabularx}{\textwidth}{@{}lr|*{7}{C}c@{}}
 \toprule
 \addlinespace[4.9em]
-	& & \begin{rotate}{30} All tests pass \end{rotate}
+	\multicolumn{2}{@{}l}{\noindent Condition}
+	& \begin{rotate}{30} All tests pass \end{rotate}
 	& \begin{rotate}{30} Code compiles \end{rotate}
 	& \begin{rotate}{30} VCS warnings gone \end{rotate}
 	& \begin{rotate}{30} Merged to production \end{rotate}
 	& \begin{rotate}{30} Code looks correct \end{rotate}
-	& \begin{rotate}{30} Code review \end{rotate}
+	& \begin{rotate}{30} Code reviewed \end{rotate}
 	& \begin{rotate}{30} Other \end{rotate} \\
 \midrule
 	C1 & All tests pass & 67 & & & & & & \\
@@ -473,7 +474,7 @@ We received 324 selections from 89 respondents and present the aggregated result
 	C3 & VCS warnings gone & 38 & 42 & 51 & & & & \\
 	C4 & Merged to production & 27 & 27 & 26 & 33 & & & \\
 	C5 & Code looks correct & 50 & 54 & 41 & 27 & 66 & & \\
-	C6 & Code review & 32 & 31 & 25 & 19 & 27 & 38 & \\
+	C6 & Code reviewed & 32 & 31 & 25 & 19 & 27 & 38 & \\
 	C7 & Other & 2 & 2 & 0 & 0 & 2 & 0 & 2 \\
 \bottomrule
     \multicolumn{9}{c}{\noindent\parbox[t]{11.7cm}{\vspace{0.4em}\textsuperscript{i}\hspace{0.2em}\textit{Processes Survey}~(S1) respondents were allowed to select multiple conditions. Each entry represents the number of respondents that selected both of the conditions indicated for the column and row. 68 out of 102 respondents (67\%) selected three or more conditions.}} \\
