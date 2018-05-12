@@ -1,55 +1,55 @@
 \section{Implications}\label{implications}
 
 \subsection{For Researchers}
-%Our results inform future research by providing insights into software practitioners' perspectives during merge conflicts.
+%Our results inform future research by providing insights into software developers' perspectives during merge conflicts.
 
 The top factors that impact the assessment of merge conflict difficulty are primarily focused on program comprehension (F1, F3, F4 from Table~\ref{s2_factors}).
 Program comprehension has been an important research focus, with entire conferences dedicated to it.
 Previous research has explored tool support and visualizations to help comprehend programs, both small and large.
-Our results indicate that practitioners still have unmet needs along the following dimensions: (1) comprehending code snippets in isolation, (2) understanding the code context underlying multiple code snippets that are split across multiple files, and commits, and, (3) the ability to quickly comprehend the complexity of these code snippets. 
+Our results indicate that developers still have unmet needs along the following dimensions: (1) comprehending code snippets in isolation, (2) understanding the code context underlying multiple code snippets that are split across multiple files, and commits, and, (3) the ability to quickly comprehend the complexity of these code snippets. 
 
 %have a need to understand fragments of code, with some of this code split across multiples files, commits, or conflicting codebases.
 %The ability to quickly evaluate the complexity of these code fragments is needed, including at the scale of text editors as evidenced by the use of basic toolsets instead of modern IDEs when working with merge conflicts (see Section~\ref{RQ3}).
 
-Practitioners indicate that their needs during merge conflict resolutions center around the retrieval, organization, and presentation of relevant information (N1, N3, N4 from Table~\ref{s2_needs}).
+Developers indicate that their needs during merge conflict resolutions center around the retrieval, organization, and presentation of relevant information (N1, N3, N4 from Table~\ref{s2_needs}).
 With the variety of meta-information available across different toolsets, and the inconsistent use of terminology, there is a need for standardization and best practices to be developed.
-Standardization efforts would likely help to alleviate some of the mistrust of merging tools that practitioners have expressed.
-However, researchers should investigate the margin of errors that are tolerated by practitioners to determine the context in which practitioners discontinue use of tools.
+Standardization efforts would likely help to alleviate some of the mistrust of merging tools that developers have expressed.
+However, researchers should investigate the margin of errors that are tolerated by developers to determine the context in which developers discontinue use of tools.
  %threshold of merge tool errors that indicates whether a user will mistrust and discontinue use of those tools.
 
-Expertise is seen as both a significant factor that affects the assessment of merge conflict difficulty (F2), and an important need for practitioners to effectively resolve the conflict (N2).
+Expertise is seen as both a significant factor that affects the assessment of merge conflict difficulty (F2), and an important need for developers to effectively resolve the conflict (N2).
 We have also seen that experience can play a part in developer's assessment of the success of a merge conflict resolution.
 
 Previous work has focused on recommending developers best suited to perform a collaborative merge based on the previous edits to conflicting files~\cite{dasilva2015niche} or developers' experience across branches and project history~\cite{CostaSarma}. 
 However, these efforts have resulted in tools that require standalone installation and execution. 
-Our results indicate that practitioners are concerned about toolset fragmentation, and therefore adding an additional tool might be counterproductive to the workflow of most practitioners. 
+Our results indicate that developers are concerned about toolset fragmentation, and therefore adding an additional tool might be counterproductive to the workflow of most developers. 
 
-Finally, we find that practitioners need to quickly estimate whether they can fix the conflict, and whether to resolve it now or delay the resolution. 
-This indicates that practitioners need mechanisms to identify the skillsets required to complete the conflict resolution task, by viewing the code fragments.
+Finally, we find that developers need to quickly estimate whether they can fix the conflict, and whether to resolve it now or delay the resolution. 
+This indicates that developers need mechanisms to identify the skillsets required to complete the conflict resolution task, by viewing the code fragments.
 Research should investigate mechanisms to identify required skillsets by using information retrieval or machine learning techniques on the code fragment and past edits.
 
-\subsection{For Practitioners}
-Practitioners indicate that understanding code, having appropriate information, and dealing with complex codesets are key themes of difficulty when working with merge conflicts (Sections~\ref{RQ1}, \ref{RQ2}).
-Existing tool support can help with some of these issues, but practitioners also need to educate themselves on development processes that prevent and alleviate the severity of merge conflicts. 
+\subsection{For Developers}
+Developers indicate that understanding code, having appropriate information, and dealing with complex codesets are key themes of difficulty when working with merge conflicts (Sections~\ref{RQ1}, \ref{RQ2}).
+Existing tool support can help with some of these issues, but developers also need to educate themselves on development processes that prevent and alleviate the severity of merge conflicts. 
 For example, the number of conflicting files and the size of changes are considered important factors. 
 Researchers~\cite{brindescu2014versioncontrol} have previously found that when developers use distributed version control systems they commit smaller changes more often.
-Therefore, practitioners should strive to make smaller commits, and commit often.
+Therefore, developers should strive to make smaller commits, and commit often.
 Other agile development processes such as continuous integration, iterative development, and branch merging policies are known to facilitate development in large, distributed teams. 
-However, not all practitioners are actively using such techniques~\cite{phillips2011branching}, and further work is needed to determine how to enable and ease adoption of these processes and practices.
+However, not all developers are actively using such techniques~\cite{phillips2011branching}, and further work is needed to determine how to enable and ease adoption of these processes and practices.
 
 \subsection{For Tool Builders}
-Version control systems provide an easy method for storing and retrieving recent development history, but examining older development history at scale and in a usable manner has not completely met practitioners' expectations.
+Version control systems provide an easy method for storing and retrieving recent development history, but examining older development history at scale and in a usable manner has not completely met developers' expectations.
 Tool builders should work to address this unmet need by leveraging research in search systems for developer-assistance~\cite{nabi2016putting} and machine learning-based code assistance~\cite{bradley2011history_exploration} to provide intuitive and expressive tools for history exploration.
 
-Practitioners indicate that current merge toolsets do not scale to handle large, complex merge conflicts (see Section~\ref{tool_effectiveness}).
+Developers indicate that current merge toolsets do not scale to handle large, complex merge conflicts (see Section~\ref{tool_effectiveness}).
 To address this concern, tool builders should look at consolidating feature sets that currently span multiple tools in order to provide better usability (I1 from Table~\ref{s2_tool_improvements}).
-Tool builders should also add more expressive search and filtering features for both project history and meta-information related to merge conflicts (I2, I3) to ease the frustration of practitioners that must understand the context and evolution of code involved in the conflict.
+Tool builders should also add more expressive search and filtering features for both project history and meta-information related to merge conflicts (I2, I3) to ease the frustration of developers that must understand the context and evolution of code involved in the conflict.
 
-Before starting a merge conflict, we found practitioners having to \emph{``guess-timate''} the difficulty of the conflict resolution to decide whether to work on it now or delay it, or whether to integrate the changes or simply start over. 
+Before starting a merge conflict, we found developers having to \emph{``guess-timate''} the difficulty of the conflict resolution to decide whether to work on it now or delay it, or whether to integrate the changes or simply start over. 
 Prediction tools that identify the complexity of conflicts and difficulty of resolution can help alleviate this.
 
 When it comes to evaluating the result of a merge conflict resolution, we found that developers employ various strategies (Table~\ref{conditionsSuccess}).
-Practitioners mentioned that passing tests (C1) and successful compilation (C2) are some of the criteria for success.
+developers mentioned that passing tests (C1) and successful compilation (C2) are some of the criteria for success.
 However, for large projects, running the tests cane be time intensive.
 Tools can help developers by providing information or running only tests that are impacted by the conflict resolution.
 This would help developers as they would have to rely less on their own intuition (C5), when it comes to evaluating the result.
