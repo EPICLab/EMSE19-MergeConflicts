@@ -23,15 +23,15 @@ These factors can be grouped into themes of \textit{technical aspects} and \text
   \parnoteclear % tabularx will otherwise add each note thrice
   Factor & Description & \likertscale{1,2,3,4,5} & Median\parnote{Responses on 5-point Likert scale indicating the degree of effect on resolution difficulty (1 indicates \textit{no effect}, 5 indicates \textit{great effect}).} & Mean\textsuperscript{i} \\
 \midrule
-  \setrow{\bfseries}F1 & Complexity of conflicting lines of code & \likertplot{coordinates {(1,5)(2,29)(3,38)(4,56)(5,34)}}{28.2}{5,29,38,56,34} & 4 & 3.52 \\
-  \setrow{\bfseries}F2 & Expertise in area of conflicting code & \likertplot{coordinates {(1,5)(2,23)(3,50)(4,54)(5,30)}}{28.2}{5,23,50,54,30} & 4 & 3.50 \\
-  \setrow{\bfseries}F3 & Complexity of files with conflicts & \likertplot{coordinates {(1,8)(2,34)(3,49)(4,51)(5,18)}}{28.2}{8,34,49,51,18} & 3 & 3.23 \\
-  \setrow{\bfseries}F4 & Number of conflicting lines of code & \likertplot{coordinates {(1,2)(2,40)(3,64)(4,45)(5,11)}}{28.2}{2,40,64,45,11} & 3 & 3.14 \\
+  F1 & Complexity of conflicting lines of code & \likertplot{coordinates {(1,5)(2,29)(3,38)(4,56)(5,34)}}{28.2}{5,29,38,56,34} & 4 & 3.52 \\
+  F2 & Expertise in area of conflicting code & \likertplot{coordinates {(1,5)(2,23)(3,50)(4,54)(5,30)}}{28.2}{5,23,50,54,30} & 4 & 3.50 \\
+  F3 & Complexity of files with conflicts & \likertplot{coordinates {(1,8)(2,34)(3,49)(4,51)(5,18)}}{28.2}{8,34,49,51,18} & 3 & 3.23 \\
+  F4 & Number of conflicting lines of code & \likertplot{coordinates {(1,2)(2,40)(3,64)(4,45)(5,11)}}{28.2}{2,40,64,45,11} & 3 & 3.14 \\
   F5 & Time to resolve a conflict & \likertplot{coordinates {(1,14)(2,56)(3,51)(4,25)(5,15)}}{28.2}{14,56,51,25,15} & 3 & 2.82 \\
   F6 & Atomicity of changesets in conflict & \likertplot{coordinates {(1,20)(2,48)(3,51)(4,29)(5,13)}}{28.2}{20,48,51,29,13} & 3 & 2.80 \\
   F7 & Dependencies of conflicting code & \likertplot{coordinates {(1,20)(2,56)(3,39)(4,33)(5,14)}}{28.2}{20,56,39,33,14} & 3 & 2.78 \\
   F8 & Number of files in the conflict & \likertplot{coordinates {(1,10)(2,69)(3,50)(4,26)(5,6)}}{28.2}{10,69,50,26,6} & 3 & 2.68 \\
-  F9 & Non-functional changes in codebase & \likertplot{coordinates {(1,47)(2,63)(3,31)(4,15)(5,4)}}{28.2}{47,63,31,15,4} & 2 & 2.16 \\
+  F9 & Non-functional changes in codebase\hspace{1.2cm} & \likertplot{coordinates {(1,47)(2,63)(3,31)(4,15)(5,4)}}{28.2}{47,63,31,15,4} & 2 & 2.16 \\
 \bottomrule
 \end{tabularx}
 \parnotes
@@ -133,16 +133,16 @@ We identified ten needs (see Table~\ref{s2_needs}), which range from needs about
   \parnoteclear % tabularx will otherwise add each note thrice
   Need & Description & \likertscale{1,2,3,4,5} & Median\parnote{Responses on 5-point Likert scale indicating the degree of importance to merge resolutions (1 indicates \textit{no importance}, 5 indicates \textit{great importance}).} & Mean\textsuperscript{i} \\
 \midrule
-  \setrow{\bfseries}N1 & Ease of understanding conflicting code & \likertplot{coordinates {(1,0)(2,14)(3,25)(4,65)(5,37)}}{28.2}{0,14,25,65,37} & 4 & 3.89 \\
-  \setrow{\bfseries}N2 & Expertise in area of conflicting code & \likertplot{coordinates {(1,1)(2,17)(3,38)(4,49)(5,36)}}{28.2}{1,17,38,49,36} & 4 & 3.72 \\
-  \setrow{\bfseries}N3 & Amount of info about conflicting code & \likertplot{coordinates {(1,2)(2,21)(3,38)(4,48)(5,32)}}{28.2}{2,21,38,48,32} & 4 & 3.62 \\
-  \setrow{\bfseries}N4 & Tools presenting understandable info & \likertplot{coordinates {(1,4)(2,24)(3,47)(4,32)(5,34)}}{28.2}{4,24,47,32,34} & 3 & 3.48 \\
+  N1 & Ease of understanding conflicting code & \likertplot{coordinates {(1,0)(2,14)(3,25)(4,65)(5,37)}}{28.2}{0,14,25,65,37} & 4 & 3.89 \\
+  N2 & Expertise in area of conflicting code & \likertplot{coordinates {(1,1)(2,17)(3,38)(4,49)(5,36)}}{28.2}{1,17,38,49,36} & 4 & 3.72 \\
+  N3 & Amount of info about conflicting code & \likertplot{coordinates {(1,2)(2,21)(3,38)(4,48)(5,32)}}{28.2}{2,21,38,48,32} & 4 & 3.62 \\
+  N4 & Tools presenting understandable info & \likertplot{coordinates {(1,4)(2,24)(3,47)(4,32)(5,34)}}{28.2}{4,24,47,32,34} & 3 & 3.48 \\
   N5 & Changing assumptions within code & \likertplot{coordinates {(1,8)(2,27)(3,45)(4,36)(5,25)}}{28.2}{8,27,45,36,25} & 3 & 3.30 \\
   N6 & Complexity of project structure & \likertplot{coordinates {(1,6)(2,38)(3,39)(4,41)(5,17)}}{28.2}{6,38,39,41,17} & 3 & 3.18 \\
   N7 & Trustworthiness of tools & \likertplot{coordinates {(1,17)(2,29)(3,39)(4,32)(5,34)}}{28.2}{17,29,39,32,34} & 3 & 3.12 \\
   N8 & Informativeness of commit messages & \likertplot{coordinates {(1,18)(2,32)(3,30)(4,44)(5,17)}}{28.2}{18,32,30,44,17} & 3 & 3.07 \\
   N9 & Project culture & \likertplot{coordinates {(1,13)(2,37)(3,43)(4,27)(5,21)}}{28.2}{13,37,43,27,21} & 3 & 3.04 \\
-  N10 & Tool support for history exploration & \likertplot{coordinates {(1,16)(2,40)(3,31)(4,32)(5,22)}}{28.2}{16,40,31,32,22} & 3 & 3.03 \\
+  N10 & Tool support for history exploration\hspace{1.3cm} & \likertplot{coordinates {(1,16)(2,40)(3,31)(4,32)(5,22)}}{28.2}{16,40,31,32,22} & 3 & 3.03 \\
 \bottomrule
 \end{tabularx}
 \parnotes
