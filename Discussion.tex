@@ -21,7 +21,7 @@ While this technique might be effective in large teams, it scales very poorly, a
 Our results point to the conclusion that developers are not aware of existing proactive tools (e.g. Palant\'{i}r~\cite{sarma_palantir:_2003}, Crystal~\cite{Brun2011}).
 Furthermore they are note leveraging the advantages these tool bring to the table. %TODO Add at least one advantage here.
 
-\subsection{Planning phase}
+\subsection{Planning Phase}
 
 \boldif{25\% of developers consider all conflicts as being equally urgent.}
 One quarter of all developers consider all merge conflicts to be equally urgent.
@@ -49,11 +49,22 @@ Finally, an interesting result is that some developers do not have a strategy fo
 The existence of this \textit{no strategy} approach is anecdotal, but curious, since we assume that developers are rational actors seeking to organize themselves in ways that increase the likelihood of successful outcomes.
 And yet this strategy appears to go counter to that notion.
 On of the explanations for the lack of a strategy is the lack of experience, as they did not encounter enough situations to form a strategy.
-\subsection{Resolution phase}
 
-\boldif{@Nick: This requires some discussion from S2 - ICSME paper.} %TODO discussion about resolution strategies from S2/interviews.
+\subsection{Resolution Phase}
 
-\subsection{Evaluation phase}
+\boldif{Developers don't use metrics, they use basic measurements (such as educated guesses)}
+Developers rarely use metrics to guide their merge conflict resolutions.
+Instead, the developers use educated guesses and intuition based on familiarity with the codebase; either from writing the code, or having worked with it.
+
+Developers reported that expertise in the area of conflicting code is one of the top factors in determining the difficulty of a merge conflict.
+Additionally, developers also indicate that increases in perceived complexity of merge conflicts is strongly linked with the degree of difficulty in resolving it.
+Therefore, developers' perceptions and intuition are relied on throughout the implementation of their resolution.
+
+Interestingly, when developers perceive a merge conflict to be too difficult to resolve they occasionally resort to removing all conflicting code and reimplementing the underlying functionality in order to fix it.
+19\% of developers described \textit{redoing changes} as part of their backup strategy.
+This \textit{Nuclear Option} is clearly a time-consuming strategy for developers, and yet the perceived costs of trying to unravel the conflicting code appear to be higher than the costs of reimplementing features.
+
+\subsection{Evaluation Phase}
 
 \boldif{Tests are still the most common criteria for determining a merge conflict resolution successful.}
 The 2 most common criteria that developers mentioned is that the \emph{code compiles,} and that \emph{all tests pass.}
@@ -90,7 +101,7 @@ They either take the merge conflicts ``offline,'' and work on them without impac
 \boldif{Some strategies reveal that developers find it easier to reimplement, than to figure out what went wrong.}
 The two most intriguing strategies are developers \emph{trying again,} and \emph{redoing the changes.}
 \emph{Trying again} implies that developers think that they might have missed something, and that by going through the changes again, they might catch or have a better understanding of the two changes that are conflicting.
-On the other hand, the fact that 14 developers mention that they \emph{redo the changes} shows that the \emph{Nuclear Option} is more used that we initially observed.
+On the other hand, the fact that 14 developers mention that they \emph{redo the changes} shows that the \emph{Nuclear Option} is more used than we initially observed.
 This option is very expensive, as developers have to redo their changes, from scratch on top of what can possibly be new code.
 Tools should provide better merging support, so developers can resolve a conflict and not have to scrap good code just because it happens to intersect with other changes.
 
