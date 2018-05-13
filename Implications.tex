@@ -45,11 +45,11 @@ Developers indicate that current merge toolsets do not scale to handle large, co
 To address this concern, tool builders should look at consolidating feature sets that currently span multiple tools in order to provide better usability (I1 from Table~\ref{s2_tool_improvements}).
 Tool builders should also add more expressive search and filtering features for both project history and meta-information related to merge conflicts (I2, I3) to ease the frustration of developers that must understand the context and evolution of code involved in the conflict.
 
-Before starting a merge conflict, we found developers having to \emph{``guess-timate''} the difficulty of the conflict resolution to decide whether to work on it now or delay it, or whether to integrate the changes or simply start over. 
+Before starting a merge conflict, we found developers having to ``guess-timate'' the difficulty of the conflict resolution to decide whether to work on it now or delay it, or whether to integrate the changes or simply start over. 
 Prediction tools that identify the complexity of conflicts and difficulty of resolution can help alleviate this.
 
 When it comes to evaluating the result of a merge conflict resolution, we found that developers employ various strategies (Table~\ref{conditionsSuccess}).
-developers mentioned that passing tests (C1) and successful compilation (C2) are some of the criteria for success.
+Developers mentioned that passing tests (C1) and successful compilation (C2) are some of the criteria for success.
 However, for large projects, running the tests cane be time intensive.
 Tools can help developers by providing information or running only tests that are impacted by the conflict resolution.
 This would help developers as they would have to rely less on their own intuition (C5), when it comes to evaluating the result.
