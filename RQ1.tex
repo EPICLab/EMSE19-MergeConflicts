@@ -25,7 +25,7 @@ It consists of four phases: \emph{awareness, planning, resolution,} and \emph{ev
 \begin{figure}[!htbp]
 \centering
 \fbox{\includegraphics[width=0.90\textwidth,keepaspectratio]{imgs/MergeConflictModel}}
-\caption{Model of Developer Processes for Merge Conflicts. Developers alternate between \textit{clean} and \textit{conflicting} states within their codebase. Beginning from (1)~\textit{development}, developers maintain (2)~\textit{awareness} of conflicts within the codebase in different ways. Once aware, developers begin (3)~\textit{planning} for a (4)~\textit{resolution} to fix the conflict. And finally, developers (5)~\textit{evaluate} the effectiveness of their deployed resolutions (returning to planning if the resolution failed).\vspace*{-0.3\baselineskip}}
+\caption{Model of Developer Processes for Merge Conflicts. Developers alternate between \textit{clean} and \textit{conflicting} states within their codebase. Beginning from (1)~\textit{development}, developers maintain (2)~\textit{awareness} of conflicts within the codebase in different ways. Once aware, developers begin (3)~\textit{planning} for a (4)~\textit{resolution} to fix the conflict. And finally, developers (5)~\textit{evaluate} the effectiveness of their deployed resolutions (returning to \emph{planning} if the resolution failed).\vspace*{-0.3\baselineskip}}
 \label{model}
 \end{figure}
 
@@ -57,7 +57,7 @@ Finally, some groups might have policies such as code reviews that need to be pe
  
 \boldif{To explore and validate this model, we asked developers to reflect upon how they become aware of merge conflicts, how they plan for merge conflict resolutions, and how they evaluate their resolutions in the \textit{Processes Survey}~(S1).}
 In order to explore and validate this model, and our assumptions, we conducted the \emph{Processes Survey}~(S1).
-We plan on understanding how developers become aware of a merge conflicts (what steps they take, what tools they use, etc.)
+We plan on understanding how developers become aware of a merge conflicts (what steps they take, what tools they use, etc.).
 We also want to investigate their strategies for dealing with merge conflicts and how they decide whether the resolution has addressed all of their concerns.
 
 \boldif{We present the results to these research questions in Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c}.}
@@ -77,7 +77,7 @@ For the rest of the developers who answered with \emph{yes} or \emph{sometimes} 
 \nsubsection{Reactive and Proactive Monitoring for Merge Conflicts}
 
 \boldif{Reactive detection only notify developers that a merge conflict \emph{has happened}. Developers use it to minimize the size/complexity of the conflict, or it's impact on the team.}
-Reactive monitoring for merge conflicts will only allow the developer to be notified after a merge conflict has occurred.
+Reactive monitoring for merge conflicts will only notify the developer that a conflict has occurred.
 However, developers still use this process to manage or reduce the complexity of a conflict.
 For the developers that answered that they monitor for merge conflicts (replied either \emph{yes} or \emph{sometimes}), we found that 73.68\% (42 out of 57 responses) described reactive processes.
 For example, one developer said they use integration tools to detect merge problems before they advance to testing:
@@ -108,10 +108,10 @@ Others will broadcast their changes in order to notify team members if they will
 \nsubsection{Tools for Monitoring for Merge Conflicts}
 
 \boldif{The tools that developers use allow for only a \emph{reactive} approach.}
-Examining the tools used by respondents with reactive processes, we find that 87.72\% of our respondents use version control systems (Git, SVN, TFS, CVS), while 21.05\% use continuous integration systems (Jenkins, Travis CI, TeamCity).
+Examining the tools used by respondents with reactive processes, we find that 87.72\% of our respondents use version control systems (e.g. Git, SVN, TFS, CVS), while 21.05\% use continuous integration systems (e.g. Jenkins, Travis CI, TeamCity).
 Table~\ref{s1_toolset} presents the top 10 tools developers use when monitoring for merge conflicts.
 The majority of the tools allow only a reactive approach to merge conflict monitoring.
-It is worth noting that tools, such as those for Continuous Integration (CI) and developer notification systems (e.g. PagerDuty) are used only by developers relying on a \emph{reactive} strategy.
+It is worth noting that tools, such as those for Continuous Integration and developer notification systems (e.g. PagerDuty) are used only by developers relying on a \emph{reactive} strategy.
 
 %\boldif{Devs do not use existing workspace awareness tools that come from the acadmemia.}
 %When collaborating, developers generally rely on passive communication tools, like email, to coordinate.
@@ -259,7 +259,8 @@ In one extreme case, a participant reported that the effects of a unresolved mer
 \begin{quotation}
 	Broke the app for customers until we could get a patch pushed [\ldots].
 \end{quotation}
-Finally, the merge conflicts can get too severe, and developers have to resort to the \emph{Nuclear Option}, where they scrap their changes and reimplement them:
+Finally, the merge conflicts can get too severe.
+Then developers have to resort to the \emph{Nuclear Option} (E5), where they scrap their changes and reimplement them:
 \begin{quotation}
 	Uh.... KABOOM! More changes came in and everything piled up. Nothing to do but wipe it all back to clean and start trying to piece things back together.
 \end{quotation}
@@ -339,7 +340,7 @@ Surprisingly, we found that two of our participants (2.53\% of respondents) indi
 \nsubsection{Code Ownership in Merge Conflict Resolution Strategies}
 
 \boldif{The role of code ownership in the resolution strategy.}
-Finally, we found that, on average, participants indicate that code ownership factors \textit{about half the time} in their strategy of code ownership (mean: 3.21 on a 5-point Likert-type scale).
+Finally, we found that, on average, participants indicate that code ownership factors \textit{about half the time} in their strategy of code ownership (mean: $3.21$ on a 5-point Likert-type scale).
 This is consistent with their responses for their criteria for deferring a resolution, where it is the third most common factor in their decision. 
 Only 10.11\% of participants indicated that code ownership \textit{never} factors into their resolution strategy (see Figure~\ref{fig:code-ownership-resolution}).
 
@@ -495,7 +496,7 @@ Inspecting code requires time and expertise in the area of conflicting code.
 The survey respondents that selected \textit{code looks correct (i.e. visual test passes)} had a mean of 9.2 years of programming experience, which is only slightly higher than the overall mean of 9.0 years of programming experience.
 
 Looking at the combination of \textit{code looks correct (i.e. visual test passes} with the other conditions, we find that 54 respondents also selected \textit{all tests pass} (52.9\%).
-As the most common pairing of selected conditions on the S1 survey, we conclude that although developers rely upon their expertise to visually inspect a merge conflict resolution, they also verifying their observations through testing.
+As the most common pairing of selected conditions on the S1 survey, we conclude that although developers rely upon their expertise to visually inspect a merge conflict resolution, they also run the test suite to validate their evaluation.
 
 \nsubsection{Merge Resolution Evaluation Toolsets}
 
@@ -543,7 +544,7 @@ When they fail, developers have to alter their resolutions and potentially switc
 
 To understand the prevalence of failed conflict resolutions, we asked S1 survey participants to indicate the frequency in which their first attempt at resolving a merge conflict fails.
 Figure~\ref{fig:first-attempt-failure} illustrates the resulting distribution.
-On the 5-point Likert-type scale, where 1 is \textit{very frequently} and 5 is \textit{very infrequently,} the mean response was 3.49 ($std. dev.=1.11, variance=1.24$).
+On the 5-point Likert-type scale, where 1 is \textit{very frequently} and 5 is \textit{very infrequently,} the mean response was 3.49 ($std. dev.=1.11$, $variance=1.24$).
 This corresponds to \textit{somewhat infrequently} being both the average response and the most common response ($median=4$), which suggests that first attempts typically succeed.
 However, this also shows that 78.7\% of participants (70 out of 89) occasionally fail at their first attempt and must make additional attempts to resolve a merge conflict.
 
@@ -554,7 +555,7 @@ However, this also shows that 78.7\% of participants (70 out of 89) occasionally
 	\label{fig:first-attempt-failure}
 \end{figure}
 
-Further, we asked S1 survey participants to describe their backup strategies when their first attempt at resolving a merge conflict fails.
+Furthermore, we asked S1 survey participants to describe their backup strategies when their first attempt at resolving a merge conflict fails.
 We received 75 responses and the aggregate results are presented in Table~\ref{backup-strategies}, ranked according to the percentage of respondents that described using each backup strategy.
 
 Developers' backup strategies include \textit{take it offline} (B1), \textit{collaborating} (B2), \textit{try again} (B3), \textit{redoing changes} (B4), and \textit{no backup strategy} (B5).
