@@ -238,7 +238,7 @@ This indicated that the deferral is not always temporal, but sometimes developer
 
 \boldif{Deferring can have bad consequences, including increased complexity and delaying features.}
 Deferring the resolution does not come without a price.
-Figure~\ref{fig:effects-deferral} shows the top effects of a deferral.
+Table~\ref{effects-deferral} shows the top effects of a deferral.
 The most common effect was that developers have had to stop the development (\emph{Stop the Presses,} 15 responses) in order to resolve the conflicts.
 The second most common effect is the increased complexity of the conflicts, as it was reported by 9 of our participants.
 One participant noted that:
@@ -264,12 +264,28 @@ Finally, the merge conflicts can get too severe, and developers have to resort t
 	Uh.... KABOOM! More changes came in and everything piled up. Nothing to do but wipe it all back to clean and start trying to piece things back together.
 \end{quotation}
 
-\begin{figure}
-	\centering
-	\fbox{\includegraphics[width=0.9\textwidth,keepaspectratio]{EffectsDeferral.png}}
-	\caption{The effects of deferring a merge conflicts. It the majority of cases, the developers end up having to stop the development in order to resolve the problems.\vspace*{-0.3\baselineskip}}
-	\label{fig:effects-deferral}
-\end{figure}
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Effects of Deferring a Merge Conflict from Processes Survey (S1)}
+\label{effects-deferral}
+\centering
+\begin{tabularx}{\textwidth}{>{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
+\toprule
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Effect & \# Participants\parnote{46 out of 102 respondents (45.1\%) provided a description of the effects of deferring.\vspace*{-0.3\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
+\midrule
+  Stop the Presses & 15 & 32.61\% \\
+  Increased complexity & 9 & 19.57\% \\
+  Non-operation effects & 5 & 10.87\% \\
+  Policy/cultural changes & 3 & 6.52\% \\
+  The Nuclear Option & 2 & 4.35\% \\
+  Physical manifestations & 1 & 2.17\% \\
+  Impact beyond the organization\hspace{1.6cm} & 2 & 2.17\% \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
+\vspace{0.8em}
 
 \nsubsection{Initial Strategies}
 
