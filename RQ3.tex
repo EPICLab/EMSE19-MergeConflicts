@@ -18,7 +18,7 @@ We received 119 responses using a 5-point Likert-type scale to indicate the usef
 \begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | *1{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
-  Imp.\parnote{Imp. = Improvement} & Description & \likertscale{1,2,3,4,5} & Median\parnote{Responses on 5-point Likert scale indicating the degree of potential impact on merge conflict processes (1 indicates \textit{no impact}, 5 indicates \textit{great impact}).} & Mean\textsuperscript{ii} \\
+  Imp.\parnote{Imp. = Improvement} & Description & \likertscale{1,2,3,4,5} & Median\parnote{Responses on 5-point Likert scale indicating the degree of potential impact on merge conflict processes (1 indicates \textit{no impact}, 5 indicates \textit{great impact}).\vspace*{-0.3\baselineskip}} & Mean\textsuperscript{ii} \\
 \midrule
   I1 & Usability & \likertplot{coordinates {(1,6)(2,17)(3,32)(4,48)(5,16)}}{28.2}{6,17,32,48,16} & 4 & 3.43 \\
   I2 & Filtering of relevant information & \likertplot{coordinates {(1,8)(2,15)(3,32)(4,48)(5,16)}}{28.2}{8,15,32,48,16} & 4 & 3.41 \\
@@ -49,7 +49,7 @@ Table~\ref{s2_toolset} lists the top 10 most common tools used by participants t
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
   Tool & Description & \# Participants (\%)\parnote{
-  Survey participants were allowed to provide multiple tools. Each entry represents the number (and percentage) of participants that responded with that particular tool. 115 out of 162 respondents (70.99\%) indicated the use of at least one merge resolution tool.}\\
+  Survey participants were allowed to provide multiple tools. Each entry represents the number (and percentage) of participants that responded with that particular tool. 115 out of 162 respondents (70.99\%) indicated the use of at least one merge resolution tool.\vspace*{-0.3\baselineskip}}\\
 \midrule
   Git & Version Control System & 37 (15.68\%)\\
   Vim/vi & Text Editor & 17 (7.20\%)\\
@@ -172,7 +172,7 @@ P4 commented:
 \begin{figure}
 	\centering
 	\fbox{\includegraphics[width=0.95\textwidth,keepaspectratio]{s2_tool_trust}}
-	\caption{Degree of Trust for Merging, History Exploration, and Conflict Resolution Tools. Scale: 1 is \textit{completely} and 5 is \textit{not at all}. 121 out of 162 respondents (74.69\%) provided a response to this question in the \textit{Barriers Survey}~(S2).}
+	\caption{Degree of Trust for Merging, History Exploration, and Conflict Resolution Tools. Scale: 1 is \textit{completely} and 5 is \textit{not at all}. 121 out of 162 respondents (74.69\%) provided a response to this question in the \textit{Barriers Survey}~(S2).\vspace*{-0.3\baselineskip}}
 	\label{fig:tool_trust}
 \end{figure}
 
@@ -190,8 +190,8 @@ To understand the degree to which these two factors impact developers' perceptio
 
 \begin{figure*}[!htbp]
 \centering
-\includegraphics[width=\textwidth]{ConflictComplexityVsSize.pdf}
-\caption{Effectiveness of developers' toolsets in supporting perceived size and complexity of merge conflicts. Dot values indicate the number of S2 survey responses for effectiveness of a particular merge conflict size and complexity, and the vertical height of each segment indicating the number of responses at each degree of effectiveness.\vspace*{-0.5\baselineskip}}
+\includegraphics[width=1.01\textwidth]{ConflictComplexityVsSize.pdf}
+\caption{Effectiveness of developers' toolsets in supporting perceived size and complexity of merge conflicts. Dot values indicate the number of S2 survey responses for effectiveness of a particular merge conflict size and complexity, and the vertical height of each segment indicating the number of responses at each degree of effectiveness.\vspace*{-0.3\baselineskip}}
 \label{size_vs_complexity}
 \end{figure*}
 
