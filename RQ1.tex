@@ -236,11 +236,11 @@ This indicated that the deferral is not always temporal, but sometimes developer
 
 \nsubsection{Deferring Response to Merge Conflicts}
 
-\boldif{Deferring can have bad consequences, including increased complexity and delaying features.}
+\boldif{Deferring can have bad consequences, including increased complexity and delaying features. Organizations have sometimes changed the policy to prevent this.}
 Deferring the resolution does not come without a price.
 Table~\ref{effects-deferral} shows the top effects of a deferral.
 The most common effect was that developers have had to stop the development (\emph{Stop the Presses,} 15 responses) in order to resolve the conflicts.
-The second most common effect is the increased complexity of the conflicts, as it was reported by 9 of our participants.
+The second most common effect is the increased complexity of the conflicts (E2), as it was reported by 9 of our participants.
 One participant noted that:
 \begin{quotation}
 	Deferring a merge conflict simply kicks the can down the road (or off a cliff). Typically resolving the conflict only gets more difficult as time passes.
@@ -253,9 +253,13 @@ In some cases, features had to be removed from releases, in order for the integr
 \begin{quotation}
 	We have had several releases come up short in new features because they got delayed by integration problems.
 \end{quotation}
+Finally, in order to prevent similar problems arising, some organizations have instituted policy changes (E3) to prevent this from happening in the future:
+\begin{quotation}
+	We've had devs push a bunch of code up before going on holiday and mucking up a release, so we've instituted an all hands on deck policy for the 2 weeks leading up to a major release
+\end{quotation}
 
 \boldif{However, some effect can be severe, including impact to customers, or having to reimplement features.}
-In one extreme case, a participant reported that the effects of a unresolved merge conflicts affected production software, which resulted in downtime of the product, as it broke functionality:
+In one extreme case, a participant reported that the effects of a unresolved merge conflicts affected production software (E7), which resulted in downtime of the product, as it broke functionality:
 \begin{quotation}
 	Broke the app for customers until we could get a patch pushed [\ldots].
 \end{quotation}
@@ -270,18 +274,18 @@ Then developers have to resort to the \emph{Nuclear Option} (E5), where they scr
 \caption{Effects of Deferring a Merge Conflict from Processes Survey (S1)}
 \label{effects-deferral}
 \centering
-\begin{tabularx}{\textwidth}{>{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
+\begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
-  Effect & \# Participants\parnote{46 out of 102 respondents (45.1\%) provided a description of the effects of deferring.\vspace*{-0.3\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
+  Effect & Description & \# Participants\parnote{46 out of 102 respondents (45.1\%) provided a description of the effects of deferring.\vspace*{-0.3\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
 \midrule
-  Stop the Presses & 15 & 32.61\% \\
-  Increased complexity & 9 & 19.57\% \\
-  Non-operation effects & 5 & 10.87\% \\
-  Policy/cultural changes & 3 & 6.52\% \\
-  The Nuclear Option & 2 & 4.35\% \\
-  Physical manifestations & 1 & 2.17\% \\
-  Impact beyond the organization\hspace{1.6cm} & 2 & 2.17\% \\
+  E1 & Stop the Presses & 15 & 32.61\% \\
+  E2 & Increased complexity & 9 & 19.57\% \\
+  E3 & Non-operation effects & 5 & 10.87\% \\
+  E4 & Policy/cultural changes & 3 & 6.52\% \\
+  E5 & The Nuclear Option & 2 & 4.35\% \\
+  E6 & Physical manifestations & 1 & 2.17\% \\
+  E7 & Impact beyond the organization \hspace{1.2cm} & 2 & 2.17\% \\
 \bottomrule
 \end{tabularx}
 \parnotes
