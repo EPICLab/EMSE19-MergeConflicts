@@ -15,18 +15,17 @@ As described above, the user becomes aware of a merge conflicting by using these
 \boldif{Provide descriptions that link the stages of Merge Conflict model to this quote. Use it to drive description of simplified model description paragraph}
 
 \boldif{Based on these anecdotal observations, we construct an initial model of the processes that developers employ when working with merge conflicts, see Fig.~\ref{model}.}
-Our interview results suggest that a model 
-
- we construct an initial model of the process developers experience between the introduction and resolution of merge conflicts.
-Figure~\ref{model} provides an illustration of the model.
+Our interview results suggest that developers follow a series of phases through which they manage the lifecycle of individual merge conflicts.
+To verify these phases, we construct a model of the Developer Processes for Merge Conflicts and examine each phase in detail in Section~\ref{results}.
+Figure~\ref{model} provides an illustration of this model. 
 It consists of three phases: \emph{awareness, planning,} and \emph{evaluation.}
 
 \boldif{Discuss the fact that no other studies have shown that a model exists for merge conflicts}
 
 \begin{figure}[!htbp]
 \centering
-\fbox{\includegraphics[width=0.98\textwidth,keepaspectratio]{imgs/MergeConflictModel}}
-\caption{Model of Developer Processes for Merge Conflicts. Developers alternate between \textit{clean} and \textit{conflicting} states within their codebase. Developers maintain \textit{awareness}~(1) of conflicts within the codebase in different ways. Once aware, developers \textit{plan}~(2) a solution to fix the conflict. And finally, developers \textit{evaluate}~(3) the effectiveness of their deployed resolutions.}
+\fbox{\includegraphics[width=0.90\textwidth,keepaspectratio]{imgs/MergeConflictModel}}
+\caption{Model of Developer Processes for Merge Conflicts. Developers alternate between \textit{clean} and \textit{conflicting} states within their codebase. Beginning from (1)~\textit{development}, developers maintain (2)~\textit{awareness} of conflicts within the codebase in different ways. Once aware, developers begin (3)~\textit{planning} for a (4)~\textit{resolution} to fix the conflict. And finally, developers (5)~\textit{evaluate} the effectiveness of their deployed resolutions (returning to planning if the resolution failed).}
 \label{model}
 \end{figure}
 
