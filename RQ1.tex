@@ -453,15 +453,15 @@ Only 10.11\% of participants indicated that code ownership \textit{never} factor
 \vspace*{+0.3\baselineskip}
 
 After implementing a merge conflict resolution, software developers must evaluate whether their resolution has returned the codebase to a clean state.
-However, it is unclear what conditions are considered by developers to be the benchmark for successful merge conflict resolutions.
+However, it is unclear what conditions are considered by developers to be the benchmark of a successful merge conflict resolution.
 
 \nsubsection{Success Conditions for Merge Conflict Resolutions}
 
-We examined the interview responses to understand which conditions developers use to evaluate their merge conflict resolution.
+We examined \textit{Exploratory Interviews} responses to understand which conditions developers use to evaluate their merge conflict resolution.
 Developers described six common conditions they considered important in their evaluation.
-In S1, we asked developers to select all of the six conditions that they would consider for a successful merge conflict resolution.
-To allow for additional conditions to surface, we included an open-ended \textit{other}.
-Only two developers selected that condition, indicating \textit{performance tests showing similar performance} and \textit{client approval}.
+In the \textit{Processes Survey}~(S1), we asked developers to select all of the six conditions that they would consider for a successful merge conflict resolution.
+To allow for additional conditions to surface, we included an open-ended \textit{Other} option.
+Only two developers selected that condition, indicating ``performance tests showing similar performance'' and ``client approval''.
 We received 324 selections from 89 respondents and present the aggregated results in Table~\ref{conditionsSuccess}.
 
 \begin{table}[!htbp]
@@ -492,7 +492,7 @@ We received 324 selections from 89 respondents and present the aggregated result
 \end{table}
 
 \textit{All tests pass} (C1), \textit{code successfully compiles} (C2), and \textit{code looks correct (i.e. visual test passes)} (C3) were the most commonly selected conditions required for a successful merge resolution.
-Our results are in line with existing research, as testing (C1) is a well known technique for validating functionality and correctness~\cite{beizer1984software,tian2005software}. %and have been fundamental to development processes such as test-driven development for several years~\cite{beck2003test}.
+These results are in line with existing literature showing that testing (C1) can be used for validating program functionality and correctness~\cite{beizer1984software,tian2005software}. %and have been fundamental to development processes such as test-driven development for several years~\cite{beck2003test}.
 Similarly, the use of compilers to validate code (C2) as being executable and in good-working order will be familiar to any developer using a compiled programming language.
 
 The use of visual inspection as a measure of successful merge conflict resolutions is surprising, given that \textit{complexity of conflicting lines of code} is the highest rate factor for impact on merge conflict difficulty~\cite{mckee2017software}.
@@ -500,14 +500,15 @@ Inspecting code requires time and expertise in the area of conflicting code.
 The survey respondents that selected \textit{code looks correct (i.e. visual test passes)} had a mean of 9.2 years of programming experience, which is only slightly higher than the overall mean of 9.0 years of programming experience.
 
 Looking at the combination of \textit{code looks correct (i.e. visual test passes} with the other conditions, we find that 54 respondents also selected \textit{all tests pass} (52.9\%).
-As the most common pairing of selected conditions on the S1 survey, we conclude that although developers rely upon their expertise to visually inspect a merge conflict resolution, they also run the test suite to validate their evaluation.
+As the most common pairing of selected conditions on the \textit{Processes Survey}~(S1), we conclude that although developers rely upon their expertise to visually inspect a merge conflict resolution, they also run the test suite to validate their evaluation.
 
 \nsubsection{Merge Resolution Evaluation Toolsets}
 
-Testing and compilation are used as a criteria for determining a successful merge conflict resolution.
-What are the tools that developers are relying upon for evaluating resolutions?
-From the interview responses, we identified five categories of software development tools that developers mention, in relation to merge conflicts.
-In the S1 survey, we asked the developers to identify the tools they use when they evaluate a merge conflict resolution.
+Testing and compilation are used as criteria for determining a successful resolution.
+And both require tools with adequate features for developers to make conclusions about the underlying code. 
+
+From the \textit{Exploratory Interviews}, we identified five categories of software development tools that developers mention, in relation to merge conflicts.
+In the \textit{Processes Survey}~(S1), we asked the developers to identify the tools they use when evaluating a merge conflict resolution.
 We received 204 selections from 89 respondents.
 The aggregated results are presented in Table~\ref{resolution-evaluation-tools}, ranked according to the percentage of respondents that selected each toolset.
 
@@ -536,19 +537,18 @@ The aggregated results are presented in Table~\ref{resolution-evaluation-tools},
 By far, the most selected tools were \textit{version control systems} (VCS) and \textit{continuous integration} (CI) platforms, with 82 (92.14\%) and 62 (69.66\%), respectively.
 The mean for all other tool categories was 15 selections (16.85\%), and represents a combined 29.4\% of response selections.
 
-The use of continuous integration is heavily depended on tests being written and maintained, and it requires the code to successfully compile.
-This result is in line with the most common merge conflict resolution conditions described above (see Table~\ref{conditionsSuccess}), including \textit{all tests passing} (C1) and \textit{code successfully compiles} (C2).
+The use of version control systems to determine whether a resolution was successful aligns with \textit{VCS warnings are gone} (C3) being the fourth most selected success condition (see Table~\ref{conditionsSuccess}).
+Also, continuous integration is dependent on code being compilable (C2), and tests being written and maintained (C1).
 However, the availability of tools for evaluating merge conflict resolutions might constrain the conditions that developers are willing to consider.
 Further research is needed to determine whether there is a causal relationship between these dimensions, and whether more effective metrics could be supported by merge conflict toolsets.
 
 \nsubsection{Backup Strategies}
 
 Merge conflict resolutions are not always successful.
-When they fail, developers have to alter their resolutions and potentially switch strategies in order to successfully resolve the conflict.
+When they fail, developers must alter their patch and potentially switch strategies in order to successfully resolve the conflict.
 
-To understand the prevalence of failed conflict resolutions, we asked S1 survey participants to indicate the frequency in which their first attempt at resolving a merge conflict fails.
-Figure~\ref{fig:first-attempt-failure} illustrates the resulting distribution.
-On the 5-point Likert-type scale, where 1 is \textit{very frequently} and 5 is \textit{very infrequently,} the mean response was 3.49 ($std. dev.=1.11$, $variance=1.24$).
+To understand the prevalence of failed conflict resolutions, we asked \textit{Processes Survey}~(S1) participants to indicate the frequency in which their first attempt at resolving a merge conflict fails.
+Figure~\ref{fig:first-attempt-failure} illustrates the resulting distribution on a 5-point Likert-type scale, where 1 is \textit{very frequently} and 5 is \textit{very infrequently,} the mean response was 3.49 ($std. dev.=1.11$, $variance=1.24$).
 This corresponds to \textit{somewhat infrequently} being both the average response and the most common response ($median=4$), which suggests that first attempts typically succeed.
 However, this also shows that 78.7\% of participants (70 out of 89) occasionally fail at their first attempt and must make additional attempts to resolve a merge conflict.
 
@@ -559,7 +559,7 @@ However, this also shows that 78.7\% of participants (70 out of 89) occasionally
 	\label{fig:first-attempt-failure}
 \end{figure}
 
-Furthermore, we asked S1 survey participants to describe their backup strategies when their first attempt at resolving a merge conflict fails.
+Furthermore, we asked survey participants to describe their backup strategies when their first attempt at resolving a merge conflict fails.
 We received 75 responses and the aggregate results are presented in Table~\ref{backup-strategies}, ranked according to the percentage of respondents that described using each backup strategy.
 
 Developers' backup strategies include \textit{take it offline} (B1), \textit{collaborating} (B2), \textit{try again} (B3), \textit{redoing changes} (B4), and \textit{no backup strategy} (B5).
