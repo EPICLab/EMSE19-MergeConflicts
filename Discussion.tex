@@ -92,8 +92,18 @@ If this is the case, tools should provide better support for developers when the
 We leave it to future work to further explore this possibility. 
 
 \boldif{Some approaches will only detect direct merge conflicts, not indirect ones.}
+Not all of the tools developers use for evaluating the result of a merge conflict resolution can detect all types of conflicts.
+For example, Version Control Systems will detect only direct conflicts.
+Even if this conflict is solved, from the version control systems' perspective, there might still be build or test issues.
+Indirect conflicts might slip through if the developer does not run the test suite after resolving the conflict.
+While almost 70\% of our respondents mentioned that they used Continuous Integration as part of the evaluation process, those that don't might be inadvertently introducing bugs when they resolve the merge conflict.
 
 \boldif{There is a lack of tool support that makes it difficult for developers to properly evaluate the success of a merge conflict resolution.}
+Finally, developers have to manually check if their merge resolution is correct.
+This is done, either by checking that the version control warnings, inspecting the code for any mistakes, or by manually running the tests.
+We notice that there is a lack of an automated process.
+Without it developer might, willingly or unwillingly, skip steps.
+Also, this lack of a comprehensive tools set might make it difficult for developers new to the projects to successfully resolve merge conflicts.
 
 \boldif{Failed merge conflict resolution are a somewhat common occurrence. Backup strategies vary.}
 Finally, a large majority of our respondents indicated that they have had failed merge conflict resolutions.
