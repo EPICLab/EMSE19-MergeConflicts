@@ -166,7 +166,7 @@ Finally we asked questions about the tools and tool features that developers use
 Questions were presented either as 5-point Likert-type scales (with no pre-selected answers) or open-ended text forms to gather additional insights.
 
 \subsection{Data Analysis}\label{analysis}
-To evaluate the representativeness of our survey respondents to the larger software developer population, we compare the demographics from the \textit{Processes Survey}~(S1) and the \textit{Barriers Survey}~(S2) with the results of the 2018 StackOverflow Developer Survey\footnote{https://insights.stackoverflow.com/survey/2018}.
+To ensure that the survey populations are representative of the larger developer population, we compare the demographics from the \textit{Processes Survey}~(S1) and the \textit{Barriers Survey}~(S2) with the results of the 2018 StackOverflow Developer Survey\footnote{https://insights.stackoverflow.com/survey/2018}.
 
 The 2018 StackOverflow Developer Survey was conducted on 101,592 software developers from 183 countries.
 This survey includes the number of years spent coding professionally by 77,903 respondents, and is presented as totals for buckets of 0-2 years, 3-5 years, 6-8 years, 9-11 years, 12-14 years, 15-17 years, 18-20 years, 21-23 years, 24-26 years, 27-29 years, and 30 or more years.
@@ -184,6 +184,8 @@ To further compare the distribution of programming experience across these popul
 Comparing \textit{Processes Survey}~(S1) responses with 2018 StackOverflow Developer Survey responses, we conclude that we cannot reject the null hypothesis that these samples were drawn from the same population distribution (Two-sample Kolmogorov-Smirnov test, D = 0.33636, p-value = 0.5939).
 We similarly conclude that \textit{Barriers Survey}~(S2) responses and 2018 StackOverflow Developer Survey responses could plausibly be drawn from the same population distribution (Two-sample Kolmogorov-Smirnov test, D = 0.27273, p-value = 0.8326).
 Therefore, although we cannot conclude that our surveys were sampled from the same population distribution as the 2018 StackOverflow Developer Survey, we can have some evidence that the samples are plausibly representative of the larger developer community's experience distribution.
+Furthermore, we can see that our populations are more mature than the StackOverflow Developer Survey respondents.
+
 
 \subsubsection{Interview Analysis}
 
@@ -211,7 +213,7 @@ The resulting codebook, including descriptions and examples, are available on ou
 %Table~\ref{tab:codes} provides the resulting codebook, including descriptions and examples.
 After establishing a codebook, the first two authors independently coded the responses to each open-ended question.
 For question 7 (\textit{``How do you monitor for merge conflicts?''}), we achieve an inter-rater reliability (IRR) agreement of $0.95$ (Jaccard similarity coefficent).
-For questions 8 (\textit{``How do you determine the urgency of a merge conflict?''}), 11 (\textit{``What is your first step in trying to understand code involved in a merge conflict?''}), 14 (\textit{``What effect did deferring your response to a merge conflict have on the resolution of the conflict?''}), and 19 (\textit{``If your first attempt at resolving a merge conflict fails, what backup strategies do you use?''}), we achieve IRR agreements of $0.81$, $0.88$, $0.74$, and $0.92$, respectively.
+For questions 8 (\textit{``How do you determine the urgency of a merge conflict?''}), 11 (\textit{``What is your first step in trying to understand code involved in a merge conflict?''}), 14 (\textit{``What effect did deferring your response to a merge conflict have on the resolution of the conflict?''}), and 19 (\textit{``If your first attempt at resolving a merge conflict fails, what backup strategies do you use?''}), we achieve IRR agreements of $0.81$, $0.88$, $0.74$, and $0.92$, respectively (all are above the Software Engineering research standard of $0.80$ IRR).
 
 %\def\shift{\hspace{0.5em}}
 %\begin{table}[!htbp]
@@ -266,4 +268,4 @@ The \textit{Barriers Survey}~(S2) was primarily composed of Likert-type question
 This means that lower mean and median values indicate less agreement with the statement in a particular question.
 We use this design to validate both the degree of agreement to the interview results, as well as the existence of individual factors.
 
-We present the results of the \textit{Processes Survey}~(S1) and \textit{Barriers Survey}~(S2) in Section~\ref{results}, and the discussion in Section~\ref{discussion}.
+We present the results of the \textit{Exploratory Interviews,} \textit{Processes Survey}~(S1) and \textit{Barriers Survey}~(S2) in Section~\ref{results}, and the discussion in Section~\ref{discussion}.

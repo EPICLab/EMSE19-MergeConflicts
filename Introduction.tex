@@ -6,7 +6,7 @@ Collaborative development is essential for the success of large projects~\cite{h
 In Git, and other version control systems, developers work on their changes in isolation; periodically synchronizing them by merging with the main line of development. 
 This is problematic, because developers can concurrently change the same code, without being aware of each others' changes.
 This only becomes evident when they try to merge their work into the main line, and encounter a \emph{merge conflict.}
-In the majority of cases the merges succeed, however research has shown that, for open source projects, merge conflicts occur in approximately 19\% of all merges~\cite{cassandra,Brun2011}.
+In the majority of cases the merges succeed, however research has shown \cite{cassandra,Brun2011} that, for open source projects, merge conflicts occur in approximately 19\% of all merges.
 
 Resolving merge conflicts is nontrivial, especially when the changes diverge significantly.
 The resolution process can be tedious and can cause delays as developers figure out how to approach and resolve conflicts~\cite{cassandra}. 
@@ -34,7 +34,7 @@ We use two surveys to split the topics into manageable lengths and reduce fatigu
 The surveys sampled 102 and 162 participants, spanning both open source and commercial projects. 
 For both surveys, the majority of our participants had 6 or more years of software development experience, and reported that they face merge conflicts a few times a week.
 
-To understand the effects and implications of software developers' processes and strategies, we propose the following research questions:
+To understand the effects and implications of software developers' processes and strategies, we answer the following research questions:
 
 \begin{itemize}[label=$\bullet$]
 \item \textbf{RQ1:} How do software developers manage merge conflicts?
@@ -70,3 +70,8 @@ Overall, we make the following contributions.
 \item We expose disparities between developers' needs when resolving merge conflicts, and the features provided by development toolsets.
 %\item We present actionable implications that researchers, tool builders, and practitioners can build upon.
 \end{enumerate}
+
+This article extends the work presented at ICSME in 2017~\cite{mckee2017software}: 
+(1) by providing a model of developer's processes for managing merge conflicts; 
+(2) conducting an additional \emph{Processes Survey} for validating our model and examining developers' strategies, and; 
+(3) extending the \emph{Barriers Survey} results by further analysis based on our model. 
