@@ -3,7 +3,7 @@
 \section{Introduction}\label{introduction}
 
 Collaborative development is essential for the success of large projects~\cite{hattori2010syde}, and is enabled by version control systems. 
-In Git, and other version control systems, developers work on their changes in isolation, and periodically synchronize them by merging with the main line of development. 
+In Git, and other version control systems, developers work on their changes in isolation; periodically synchronizing them by merging with the main line of development. 
 This is problematic, because developers can concurrently change the same code, without being aware of each others' changes.
 This only becomes evident when they try to merge their work into the main line, and encounter a \emph{merge conflict.}
 In the majority of cases the merges succeed, however research has shown that, for open source projects, merge conflicts occur in approximately 19\% of all merges~\cite{cassandra,Brun2011}.
@@ -30,11 +30,11 @@ Our participants had a median of 5 years of software development experience, and
 These interviews helped us understand how developers approach merge conflicts, and their unmet needs.
 
 To triangulate our findings and provide a broader understanding of developers' processes, techniques, tools, barriers, and perceptions of merge conflicts, we deployed two surveys to a larger population of software developers.
-We use two surveys to split the topics into manageable lengths and reduce the fatigue on participants.
+We use two surveys to split the topics into manageable lengths and reduce fatigue on participants.
 The surveys sampled 102 and 162 participants, spanning both open source and commercial projects. 
 For both surveys, the majority of our participants had 6 or more years of software development experience, and reported that they face merge conflicts a few times a week.
 
-To understand the effects and implications of software developers' perceptions, we propose the following research questions:
+To understand the effects and implications of software developers' processes and strategies, we propose the following research questions:
 
 \begin{itemize}[label=$\bullet$]
 \item \textbf{RQ1:} How do software developers manage merge conflicts?
@@ -49,10 +49,10 @@ We found that developers, when initially assessing a merge conflict, rely on the
 These concerns cause developers to alter their resolution strategy, and in some cases delay the resolution, which can have negative consequences.
 
 After understanding the merge conflict, developers must resolve the conflict in order to return to normal development.
-We found that the key challenges that developers face when resolving conflicts is \textit{understanding the conflicting code,} and having enough meta information about the conflicting code (who made the change, why, and when).
+We found that the key challenges that developers face when resolving conflicts are \textit{understanding the conflicting code,} and having enough meta information about the conflicting code (who made the change, why, and when).
 Developers rely heavily on \textit{their knowledge of the conflicting code} when implementing their merge resolutions.
 
-Our findings show that developers perceive that an increase in conflict complexity has a greater impact on the resolution difficulty, than an increase in the size of the conflict.
+Our findings show that developers perceive that an \textit{increase in conflict complexity} has a greater impact on the resolution difficulty, than an increase in the size of the conflict.
 However, development tools struggle to address this perception.
 This could partially be alleviated by focusing on the tool improvements most desired by developers: \textit{better usability, better information filtering,} and \textit{better history exploration.}
 
@@ -63,10 +63,10 @@ This could partially be alleviated by focusing on the tool improvements most des
 Overall, we make the following contributions.
 \begin{enumerate}
 \item We conduct exploratory semi-structured interviews with 10 software developers, then confirm and elaborate these findings with a \textit{Processes Survey} of 102 developers and a \textit{Barriers Survey} of 162 developers from around the world;
-\item We introduce a model of a developer process for merge conflict resolution, that addresses the phases between the introduction and resolution of a conflict;
+\item We introduce a model of a developer process for merge conflict resolution, that addresses the phases between introduction and resolution of a conflict;
 \item We discuss proactive and reactive strategies developers use when monitoring for merge conflicts;
 \item We provide evidence for the prevalence of deferring a merge conflict resolution, and the knock-on effects of doing so;
-\item We provide empirically-derived rankings of factors that developers perceive an increasing a merge conflict resolution difficulty;
+\item We provide empirically-derived rankings of factors that developers perceive as increasing the difficulty of a merge conflict resolution;
 \item We expose disparities between developers' needs when resolving merge conflicts, and the features provided by development toolsets.
 %\item We present actionable implications that researchers, tool builders, and practitioners can build upon.
 \end{enumerate}

@@ -26,14 +26,14 @@ These works highlight the importance of collaboration and coordination in the da
 \subsection{History Understanding and Navigation}
 
 Codoban et al.~\cite{Mihai_lenses} seek to evaluate developer understanding and usage of code history. 
-Our results show that tool support during history exploration factors into the difficulty of a merge conflict a moderate amount (N10). 
+Our results show that tool support during history exploration factors a moderate amount into the difficulty of a merge conflict (N10). 
 This result independently verifies their findings that developers experience tool limitations in usability (I1) and history visualization (I4).
 
 Ragavan et al.~\cite{ragavan_pfis-v_2017} propose an Information Foraging Theory (IFT) model for how developers forage in the presences of history (in their paper they refer to this as ``variations'').
 This model highlights the needs of developers attempting to understand variations in code, whereas we examine the methods and strategies that developers employ prior to encountering a merge conflict and the processes for evaluating their resolutions.
 
-While these studies provide an insight into how developers use, explore, and understand history, they do not approach any of the problems that collaborative development can bring to software development.
-We specifically focus our study on the effects of merge conflicts on the collaborative development process, which is not addressed by these other works.
+While these studies provide an insight into how developers use, explore, and understand history, they do not approach any of the problems that collaboration can bring to software development.
+We aim to examine the complete process from awareness of a merge conflict to it's eventual resolution.
 
 \subsection{Better Merge Conflict Resolution}
 
@@ -41,9 +41,9 @@ Currently, all version control systems treat source code files as text.
 Therefore, merging is done at a textual level, ignoring all structure that the files might contain.
 Several researchers have looked at ways to improve this status quo.
 
-Westfechtel~\cite{westfechtel_structure-oriented_1991} proposes a merging technique that uses the structural (i.e. lexical) information of a language when performing a merge. However, such tools are language dependent and the required algorithms are expensive to run.
-Apel et al.~\cite{apel_structured_2012-1, apel_semistructured_2011} proposes \emph{JDime}, which improves existing structured merging techniques by only using structural information when the unstructured (i.e. text only) merge has failed.
-Binkley et al.~\cite{binkley_program_1995} proposes using call graph information to correctly merge different versions of the program.
+Westfechtel~\cite{westfechtel_structure-oriented_1991} propose a merging technique that uses the structural (i.e. lexical) information of a language when performing a merge. However, such tools are language dependent and the required algorithms are expensive to run.
+Apel et al.~\cite{apel_structured_2012-1, apel_semistructured_2011} propose \emph{JDime}, which improves existing structured merging techniques by only using structural information when the unstructured (i.e. text only) merge has failed.
+Binkley et al.~\cite{binkley_program_1995} propose using call graph information to correctly merge different versions of the program.
 
 Lippe and van Oosterom~\cite{lippe_operation-based_1992} go a different way.
 They propose a new merging technique, \emph{operation-based merging} that would replay the changes that were performed on the two branches, in the order in which they were performed.
