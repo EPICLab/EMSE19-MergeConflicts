@@ -36,7 +36,7 @@ Our interview participants mentioned six different dimensions along which they w
 
 In addition, we also asked S2 survey participants which tools they use during conflict resolution.
 We identified 105 different tools from the 115 responses. 
-Some mentioned generic responses such as \textit{``text editor''}, for which we create a separate category.
+Some mentioned generic responses such as \textit{``text editor,''} for which we create a separate category.
 %We group these generic responses together where semantically similar meanings exist. 
 Table~\ref{s2_toolset} lists the top 10 most common tools used by participants to resolve merge conflicts.
 
@@ -177,7 +177,7 @@ P4 commented:
 \end{figure}
 
 Based upon this theme of mistrust, we asked S2 survey participants to rate the degree to which they trust their merging, history exploration, and conflict resolution tools.
-We received 121 responses to this question, with a mean score of 3.66 placing the most common responses between \textit{a moderate amount} and \textit{a lot} of trust (Figure~\ref{fig:tool_trust}).
+We received 121 responses to this question, with a mean score of 3.66, placing the most common responses between \textit{a moderate amount} and \textit{a lot} of trust (Figure~\ref{fig:tool_trust}).
 Assuming that responses of \textit{a moderate amount}, \textit{a little}, or \textit{not at all} indicate some degree of mistrust, we find that 42.15\% of developers experience some gap in toolset trust.
 
 However, the severity of toolset mistrust is not as significant as our interview results suggested.
@@ -195,12 +195,13 @@ To understand the degree to which these two factors impact developers' perceptio
 \label{size_vs_complexity}
 \end{figure*}
 
-Since individual participants have different toolsets, and consider different factors when determining the perceived size and complexity of a merge conflict, we instructed participants to rate their own toolset against these archetypes using their notion of what constitutes a simple vs. complex and small vs. large merge conflict.
-Fig.~\ref{size_vs_complexity} provides a visual illustration of the results of this survey question.
+Individual participants have different toolsets, and consider different factors when determining the perceived size and complexity of a merge conflict.
+We therefore instructed participants to rate their own toolset using their notion of what constitutes \emph{simple} vs. \emph{complex} and \emph{small} vs. \emph{large} merge conflicts.
+Figure~\ref{size_vs_complexity} provides a visual illustration of the results of this survey question.
 
 Observing the overall trends when moving between plots lines, we find that developers perceive complexity of the conflict to have a greater impact on the effectiveness of their merge toolsets than the size of merge conflicts.
 Numerical analysis confirms this when finding that the mean response for archetype (A1) is 4.278 (where 5 is \textit{Extremely Effective} and 1 is \textit{Not effective at all}), (A2) is 3.782, (A3) is 3.347, and (A4) is 2.783.
-The shift from \textit{small} to \textit{large} merge conflict size (A1 to A2) results in a difference in mean responses of 0.496, whereas the shift from \textit{simple} to \textit{complex} merge conflict complexity results in a difference in mean responses of 0.930.
+The shift from \textit{small} to \textit{large} merge conflict size (A1 to A2) results in a difference in mean responses of 0.496, whereas the shift from \textit{simple} to \textit{complex} merge conflict complexity (A1 to A3) results in a difference in mean responses of 0.930.
 
 These results suggest that merge tools are currently equipped to handle increases in the size of merge conflicts, but not as well equipped for increases in complexity.
 The increasing amount of code being developed in distributed environments means that scaling support in both dimensions is necessary to accommodate developers' needs.
