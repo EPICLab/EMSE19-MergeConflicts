@@ -3,20 +3,20 @@
 \subsection{\textbf{RQ1:} Ho do software developers manage merge conflicts?}\label{RQ1}
 
 \boldif{Results from interviews indicated that a common model of operating with merge conflicts exists.}
-To understand the processes software developers use when working collaboratively on code, we asked interview participants to describe their current processes for handling merge conflicts.
+To understand how developers manage merge conflicts, we asked interview participants to describe their current processes for handling merge conflict.
 
 \boldif{\textit{Add anecdotal quotes and descriptions from interviews to highlight these observations.}}
-Several participants describe using tools that alert them to potential or current merge conflicts, processes for analyzing and understanding conflicting code prior to implementing a resolution, and the use of tools and checklists for validating that their resolution worked.
-In the interview, P3 describes this process as:
+Participants talked about different steps that they follow, including using tools that alert them to potential or current merge conflicts, processes for analyzing and understanding conflicting code prior to implementing a resolution, and the use of tools for validating that their resolution worked.
+As an example, P3 said:
 \begin{quoting}
 \textit{``Part of my job on the integration team requires that I check for bad regressions. I use scripts to track patches as they're being backported, so I know when and where to look if [a patch] introduces a conflict. [\ldots] And once I've fixed [the conflict], I try to compare with the previous version to make sure [the code] works in a similar way.''}
 \end{quoting}
-As described above, the user becomes aware of a merge conflicting by using these scripts, plans to resolve them by maintaining information about the locations of both the conflicts and patches, and evaluates the resulting patches to verify that the conflict has been resolved.
+
 \boldif{Provide descriptions that link the stages of Merge Conflict model to this quote. Use it to drive description of simplified model description paragraph}
 
 \boldif{Based on these anecdotal observations, we construct an initial model of the processes that developers employ when working with merge conflicts, see Fig.~\ref{model}.}
-Our interview and survey results suggest that developers follow a series of phases through which they manage the lifecycle of individual merge conflicts.
-To verify these phases, we construct a model of the Developer Processes for Merge Conflicts and examine each phase in detail in Section~\ref{results}.
+Our interview and survey results suggest that developers follow a series of phases through which they manage the life-cycle of individual merge conflicts.
+We construct a model of the developer processes for managing merge conflicts and examine each phase in detail.
 Figure~\ref{model} provides an illustration of this model. 
 It consists of four phases: \emph{awareness, planning, resolution,} and \emph{evaluation.}
 
@@ -25,27 +25,27 @@ It consists of four phases: \emph{awareness, planning, resolution,} and \emph{ev
 \begin{figure}[!htbp]
 \centering
 \fbox{\includegraphics[width=0.90\textwidth,keepaspectratio]{imgs/MergeConflictModel}}
-\caption{Model of Developer Processes for Merge Conflicts. Developers alternate between \textit{clean} and \textit{conflicting} states within their codebase. Beginning from (1)~\textit{development}, developers maintain (2)~\textit{awareness} of conflicts within the codebase in different ways. Once aware, developers begin (3)~\textit{planning} for a (4)~\textit{resolution} to fix the conflict. And finally, developers (5)~\textit{evaluate} the effectiveness of their deployed resolutions (returning to \emph{planning} if the resolution failed).\vspace*{-0.3\baselineskip}}
+\caption{Model of Developer Processes for Managing Merge Conflicts. Developers alternate between \textit{clean} and \textit{conflicting} states of code. Beginning from (1)~\textit{development}, developers maintain (2)~\textit{awareness} of conflicts within the codebase in different ways. Once aware, developers begin (3)~\textit{planning} for a (4)~\textit{resolution} to fix the conflict. And finally, developers (5)~\textit{evaluate} the effectiveness of their deployed resolutions (returning to \emph{planning} if the resolution failed).\vspace*{-0.3\baselineskip}}
 \label{model}
 \end{figure}
 
 \boldif{Awareness is how developers become aware}
-The \emph{awareness} phase consists of the actions developers take to become aware of merge conflicts.
-This could be accidental, or passive, as the developer will become aware of a merge conflict when attempting to merge changes or perform a pull.
+First, the \emph{awareness} phase consists of the actions developers take to become aware of merge conflicts.
+This could be passive, as the developer will become aware of a merge conflict when attempting to merge changes or perform a pull.
 At the other end of the spectrum are developers who \emph{proactively} monitor for merge conflicts as they write code.
 They are actively looking for changes that might be problematic, either manually or through the use of specialized tools.
 
 \boldif{Planning is when developers plan their future actions}
-Secondly, the \emph{planning} phase occurs after the developer has become aware that a conflict has occurred, and they are about to tackle the conflict.
+Second, the \emph{planning} phase occurs after the developer has become aware that a conflict has occurred, and they are about to tackle the conflict.
 This includes the decision of when they will try and resolve the conflict.
 Some developers might try and resolve it immediately, while others might postpone the resolution.
 Some might change their strategy depending on the conflict, incoming deadlines, or availability of resources.
-This also includes other actions, such as if they are going to tackle the conflict alone, or collaborate with other developers knowledgeable in the area of conflict.
+This also includes other actions, such as if they are going to tackle the conflict alone, or collaborate with other developers knowledgeable in the area of conflict~\cite{CostaSarma}.
 
 \boldif{Resolution is the action of implementing a resolution. Mundane and well understood, so we focus on the other three.}
-Third, the \emph{resolution} phase occurs once the developer has established a plan and has begun implementing it.
-Prior work has primarily focused on this aspect of merge conflicts~\cite{nishimura,mens2002state,Brun2011}.
-Therefore, we note that the resolution phase is important to the overall success of any merge conflict resolution, and focus on the other three phases in order to better understand the overall process.
+Third, the \emph{resolution} phase represents the implementation of the planned resolution.
+Several tools exist that help in this phase~\cite{nishimura,mens2002state,Brun2011}.
+Here we focus on the difficulties that developers face during these resolution implementations (see Section~\ref{RQ2}).
 
 \boldif{Evaluation is how developers check that their solution is correct}
 Finally, after the conflict has been resolved, developers enter in the \emph{evaluation} phase.
@@ -57,18 +57,13 @@ Finally, some groups have policies such as code reviews that need to be performe
  
 \boldif{To explore and validate this model, we asked developers to reflect upon how they become aware of merge conflicts, how they plan for merge conflict resolutions, and how they evaluate their resolutions in the \textit{Processes Survey}~(S1).}
 In order to explore and validate this model, and our assumptions, we conducted the \emph{Processes Survey}~(S1).
-We plan on understanding how developers become aware of merge conflicts (what steps they take, what tools they use, etc.).
-We also want to investigate their strategies for dealing with merge conflicts and how they decide whether the resolution has addressed all their concerns.
+Our aim in this survey was to understand how developers become aware of merge conflicts (what steps they take, what tools they use, etc.).
+Also, we wanted to investigate their strategies for dealing with merge conflicts and how they decide whether the resolution has addressed all of their concerns.
 
 \boldif{We present the results to these research questions in Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c}.}
 Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c} presents the results to these research questions.
 
 \subsubsection{\textbf{RQ1a:} How do software developers become \textbf{aware} of merge conflicts?}\label{RQ1a}
-\vspace*{-0.5\baselineskip}
-\begin{center}
-\fbox{\parbox{\dimexpr\linewidth-5\fboxsep-2\fboxrule\relax}{\small\centering\raggedleft \textit{``It isn't that they cannot find the solution. It is that they cannot see the problem.''\\ -- G.K. Chesterton}}}%
-\end{center}
-\vspace*{+0.3\baselineskip}
 
 \boldif{Developers use 2 methods for becoming aware of merge conflicts: proactive and reactive.}
 From the \textit{Processes Survey}~(S1) we found that 29.41\% of participants do not actively monitor for merge conflicts during their development activities.
@@ -77,30 +72,31 @@ For the rest of the developers who answered with \emph{yes} or \emph{sometimes} 
 \nsubsection{Reactive and Proactive Monitoring for Merge Conflicts}
 
 \boldif{Reactive detection only notifies developers that a merge conflict \emph{has happened}. Developers use it to minimize the size/complexity of the conflict, or it's impact on the team.}
-Reactive monitoring for merge conflicts will notify the developer that a conflict has already occurred.
+Reactive monitoring for merge conflicts notifies the developer that a conflict has already occurred.
 However, developers still use this process to manage or reduce the complexity of a conflict.
-For the developers that answered that they monitor for merge conflicts (replied either \emph{yes} or \emph{sometimes}), we found that 73.68\% (42 out of 57 responses; 6 respondents left this field blank) described reactive processes.
-For example, one developer said they use integration tools to detect merge problems before they advance to testing:
+For the developers who answered that they monitor for merge conflicts (replied either \emph{yes} or \emph{sometimes}), we found that 73.68\% (42 out of 57 responses; 6 participants left this field blank) described reactive processes.
+For example, participant S1--48 said they use integration tools to detect merge problems before they advance to testing:
 \begin{quotation}
 	[\ldots] integration tests tell us if builds are breaking and we use those to locate merge conflicts. [\ldots] we use it to catch merge bugs before they go to smoke testing for release
 \end{quotation}
-Another developer mentioned that they try to solve merge conflicts early in order to minimize disruptions to the team:
+And participant S1--64 mentioned that they try to solve merge conflicts early in order to minimize disruptions to the team:
 \begin{quotation}
 	We try to catch conflicts early so that fewer developers have to be involved in looking at broken code.
 \end{quotation}
 
 \boldif{Proactive monitoring allows devs to detect MC before they happen. However, it is more involved, as it requires a lot more manual effort from the developers.}
 Proactive monitoring allows developers to preemptively catch merge conflicts before they happen.
-Some developers mentioned they achieved this by manually tracking incoming changes:
+15 participants (14.71\%) mentioned they achieved this by manually tracking incoming changes, such as participant S1--35 who indicated:
 \begin{quotation}
 	I monitor commit logs before I begin merging branches so that I see any potentially overlapping code that will break the merge.
 \end{quotation}
 Other teams rely more on communication.
-This can happen during regular team meetings, to make sure that everybody is aware of each other's tasks:
+This can happen during regular team meetings, to make sure that everybody is aware of each other's tasks, for example participant S1--46 said:
 \begin{quotation}
 	[\ldots] standups allow us to know where everyone is working that week.
 \end{quotation}
-Others will broadcast their changes in order to notify team members if they will make breaking changes:
+While 10 respondents (9.80\%) indicated that they broadcast their changes in order to notify team members if they will make breaking changes.
+For example, participant S1--102 indicated that team members:
 \begin{quotation}
 	[\ldots] send emails before making breaking changes to the API or related sub-modules.
 \end{quotation}
@@ -189,11 +185,6 @@ In addition, we identified \textbf{X} distinct categories of processes that deve
 \end{comment}
 
 \subsubsection{\textbf{RQ1b:} How do software developers \textbf{plan} for merge conflict resolutions?}\label{RQ1b}
-\vspace*{-0.5\baselineskip}
-\begin{center}
-\fbox{\parbox{\dimexpr\linewidth-5\fboxsep-2\fboxrule\relax}{\small\centering\raggedleft \textit{``If you are unable to understand the cause of a problem, it is impossible to solve it.''\\ -- Naoto Kan}}}%
-\end{center}
-\vspace*{+0.3\baselineskip}
 
 \boldif{Developers use different strategies for dealing with MC}
 When encountering a merge conflict, developers have different strategies at their disposal.
@@ -204,7 +195,7 @@ In the \textit{Processes Survey}~(S1) we sought an understanding of these strate
 The easiest option when encountering a merge conflict is to simply not deal with it.
 Indeed, we found that 56.18\% of participants have deferred at least once when responding to a merge conflict.
 The reasons for deferring are varied and include the \textit{complexity of the conflicting code} (D1), the \textit{number of conflicting code locations} (D2), and the \textit{ownership of the conflicting code} (D3) (additional reasons D4--D7 can be found in Table~\ref{s1_deferring_response}).
-One of the participants succinctly describes how they consider the \emph{ownership of the conflicting code} when deciding whether to defer:
+Participant S1--8 succinctly describes how they consider the \emph{ownership of the conflicting code} when deciding whether to defer:
 \begin{quotation}
 	Code is mine? I fix it. Code is others? I submit PR or bug reports.
 \end{quotation}
@@ -239,30 +230,31 @@ Deferring the merge conflict resolution comes with a price.
 Table~\ref{effects-deferral} shows the top effects of deferring a response to a merge conflict.
 The most common effect was that developers have had to stop the development (\emph{Stop the Presses,} 15 responses) in order to resolve the conflicts.
 The second most common effect is the \textit{increased complexity} of the conflicts (E2), as it was reported by 9 of our participants.
-One participant noted that:
+Participant S1--93 noted that:
 \begin{quotation}
 	Deferring a merge conflict simply kicks the can down the road (or off a cliff). Typically resolving the conflict only gets more difficult as time passes.
 \end{quotation}
-A respondent even hinted that the increased complexity can be quite severe, on an order of magnitude greater than if the conflict were addressed immediately:
+Participant S1--70 even hinted that the increased complexity can be quite severe, on an order of magnitude greater than if the conflict were addressed immediately:
 \begin{quotation}
 	Untangling takes days instead of minutes when it gets too out of hand.
 \end{quotation}
-In some cases, features had to be removed from releases, in order for integration problems to be mitigated and the conflict to be successfully resolved:
+In some cases, features had to be removed from releases, in order for integration problems to be mitigated and the conflict to be successfully resolved. S1--5 said:
 \begin{quotation}
 	We have had several releases come up short in new features because they got delayed by integration problems.
 \end{quotation}
-Finally, in order to prevent similar problems arising, some organizations have instituted \textit{policy changes} (E4) to prevent this from happening in the future:
+Finally, in order to prevent similar problems arising, some organizations have instituted \textit{policy changes} (E4) to prevent this from happening in the future. Participant S1--46 said:
 \begin{quotation}
 	We've had devs push a bunch of code up before going on holiday and mucking up a release, so we've instituted an all hands on deck policy for the 2 weeks leading up to a major release
 \end{quotation}
 
 \boldif{However, some effect can be severe, including impact to customers, or having to reimplement features.}
-In one extreme case, a participant reported that the effects of an unresolved merge conflict affected production software (E7), which resulted in downtime of the product, as it broke functionality:
+In one extreme case, participant S1--9 reported that an unresolved merge conflict affected production software (E7), which resulted in downtime of the product, as it broke functionality:
 \begin{quotation}
 	Broke the app for customers until we could get a patch pushed [\ldots].
 \end{quotation}
 Finally, the merge conflicts can get too severe and intractable for developers to cope with the complexities.
-In these types of situations, developers have to resort to the \emph{Nuclear Option} (E5), where they scrap their changes and reimplement them:
+In these types of situations, developers have to resort to the \emph{Nuclear Option} (E5), where they scrap their changes and manually reimplement them.
+Such as in the case of S1--102, who said:
 \begin{quotation}
 	Uh.... KABOOM! More changes came in and everything piled up. Nothing to do but wipe it all back to clean and start trying to piece things back together.
 \end{quotation}
@@ -320,11 +312,11 @@ Table~\ref{s1_understanding_code} lists all six strategies described by \textit{
 \vspace{0.8em}
 
 \boldif{The most common strategies for understanding the conflict are examining the conflict and analysis/manipulation of the code.}
-One participant described their strategy of examining the conflict as:
+Participant S1--44 described their strategy of examining the conflict as:
 \begin{quotation}
 	Reviewing the most recent commits (comments and code) to see whether it's a shallow conflict or not.
 \end{quotation}
-	Another participant indicated their strategy of analyzing the code involves:
+	And participant S1--69 indicated their strategy of analyzing the code involves:
 \begin{quotation}
 [\ldots] determining if the merge conflict involves important functionality; stepping through with a debugger helps.
 \end{quotation}
@@ -444,11 +436,6 @@ Only 10.11\% of participants indicated that code ownership \textit{never} factor
 \end{comment}
 
 \subsubsection{\textbf{RQ1c}: How do software developers \textbf{evaluate} merge conflict resolutions?}\label{RQ1c}
-\vspace*{-0.5\baselineskip}
-\begin{center}
-\fbox{\parbox{\dimexpr\linewidth-5\fboxsep-2\fboxrule\relax}{\small\centering\raggedleft \textit{``We fail more often because we solve the wrong problem than because we get the wrong solution to the right problem.''\\ -- Russell L. Ackoff}}}%
-\end{center}
-\vspace*{+0.3\baselineskip}
 
 After implementing a merge conflict resolution, software developers must evaluate whether their resolution has returned the codebase to a clean state.
 However, it is unclear what conditions are considered by developers to be the benchmark of a successful merge conflict resolution.
