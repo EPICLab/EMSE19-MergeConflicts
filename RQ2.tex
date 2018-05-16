@@ -14,7 +14,7 @@ We asked \textit{Barrier Survey}~(S2) participants to rate how each of these nin
 
 We received 162 responses and present the aggregated results in Table~\ref{s2_factors}; ranked according to the mean score for each factor.
 Here, we discuss in detail the top 4 factors with a mean score greater than $3.00$.
-These factors can be grouped into themes of \textit{technical aspects} and \textit{expertise,} and our results are presented according to these groups.
+These factors can be grouped into \textit{technical aspects} and \textit{expertise,} and our results are presented according to these groups.
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
@@ -42,7 +42,7 @@ These factors can be grouped into themes of \textit{technical aspects} and \text
 
 \nsubsection{Technical Aspects}\label{artifact-based-factors}
 Two of the top four factors refer to the perceptions about the complexity of merge conflicts (F1, F3), with the third factor being \textit{number of conflicting lines of code} (F4), which can be construed as a specific metric for the complexity of the conflict. 
-While developers mentioned complexity of the lines of code and the file, none mentioned using any metrics, such as cyclomatic complexity~\cite{fenton2000quantitative,mccabe1976complexity}, Function Point Analysis~\cite{garmus2001fpa,symons1988function} etc. 
+While developers mentioned complexity of the lines of code and the file, none mentioned using any metrics, such as cyclomatic complexity~\cite{fenton2000quantitative,mccabe1976complexity} or Function Point Analysis~\cite{garmus2001fpa,symons1988function}. 
 Instead, developers made educated guesses on the complexity of the code based on their own experience of either writing the code, or having worked with it. 
 Some of the simple to compute metrics, such as the \textit{number of conflicting lines of code} (F4), the \textit{number of files in the conflict} (F8), the \textit{atomicity of changesets in conflict} (F6), and the \textit{time to resolve a conflict} (F5) were mentioned. 
 The only factor where static analysis tools can help was in identifying the \textit{dependencies of conflicting code} (F7).
@@ -75,7 +75,7 @@ And as seen in Section~\ref{RQ1c}, this expertise has a direct impact on the abi
 Our results indicate that when developers feel they don't have the expertise in the conflicting codebase, they consider the conflict difficult to merge and seek out more information or assistance from others.
 P5 illustrated this need for expertise when describing his workflow: 
 \begin{quoting}
-	\textit{``A lot of what I work on is in my own little area \textellipsis I know what to do [\textellipsis]. But in [unfamiliar part of code,] then I'll get someone else to resolve the merge conflict for me. It's someone else's code, and I don't want to screw it up.''}
+	\textit{``A lot of what I work on is in my own little area \textellipsis I know what to do [\textellipsis]. But in [an unfamiliar part of the code,] then I'll get someone else to resolve the merge conflict for me. It's someone else's code, and I don't want to screw it up.''}
 \end{quoting}
 
 Our findings confirm the need for tools that identify appropriate experts~\cite{CostaSarma} and encourage further research into selection of knowledgeable developers for merge conflict resolution.
@@ -122,7 +122,7 @@ Our findings confirm the need for tools that identify appropriate experts~\cite{
 There can often be gaps in how developers perceive the difficulty of merge conflicts and the actual hurdles that they face when resolving these conflicts. 
 These gaps can then in turn affect how effective developers are at resolving the conflict.
 
-We, therefore, asked our interview participants open-ended questions about their experiences in resolving the most recent conflicts, especially their recollection of what made the resolution difficult.
+We, therefore, asked our interview participants open-ended questions about their experiences in resolving the most recent conflicts, especially their recollection of what made the conflict resolution difficult.
 Their responses indicated that there are several unmet needs.
 We identified ten needs (see Table~\ref{s2_needs}), which range from needs about the ability to understand the code, their expertise, and existing tool support.  
 
@@ -170,7 +170,7 @@ The \textit{understandability of conflicting code} (N1) is ranked as the most im
 Data from version control systems is used by developers to identify the evolution of the code~\cite{Mihai_lenses}.
 However, it is not easily available and requires a context switch from the code editor to the version control system~\cite{Guzzi2015}. 
 Moreover, these changes are often processed in isolation, especially when there are many changes (conflicts) to process. 
-Such decomposition of overall conflicting changes into smaller ``chunks" is needed to be able to manage the complexity of the resolution process.
+Such decomposition of overall conflicting changes into smaller ``chunks'' is needed to be able to manage the complexity of the resolution process.
 However, this occludes viewing the changes in a larger context. 
 Often developers deal with the decomposed (smaller) changes, hoping that they will all together work out. 
 For example, P1 compared the resolution hurdles between two conflicts, where one was simple, and the other spanned multiple files and complex blocks of code.
