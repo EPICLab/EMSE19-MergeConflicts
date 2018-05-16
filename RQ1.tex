@@ -3,7 +3,7 @@
 \subsection{\textbf{RQ1:} Ho do software developers manage merge conflicts?}\label{RQ1}
 
 \boldif{Results from interviews indicated that a common model of operating with merge conflicts exists.}
-To understand the processes of software developers when collaboratively working on code, we asked interview participants to describe their current processes for handling merge conflicts.
+To understand the processes software developers use when working collaboratively on code, we asked interview participants to describe their current processes for handling merge conflicts.
 
 \boldif{\textit{Add anecdotal quotes and descriptions from interviews to highlight these observations.}}
 Several participants describe using tools that alert them to potential or current merge conflicts, processes for analyzing and understanding conflicting code prior to implementing a resolution, and the use of tools and checklists for validating that their resolution worked.
@@ -50,16 +50,17 @@ Therefore, we note that the resolution phase is important to the overall success
 \boldif{Evaluation is how developers check that their solution is correct}
 Finally, after the conflict has been resolved, developers enter in the \emph{evaluation} phase.
 In this phase, the developer has to evaluate their resolution before considering the conflict as resolved.
-This is to ensure the correctness of the resultant code.
-Possible actions during this stage are compilation and building the product.
+This is to ensure the correctness of the resulting code.
+Possible actions during this stage includes compiling the source code.
 Developers wanting more guarantees can go a step further and run the tests.
 Finally, some groups have policies such as code reviews that need to be performed on the merge conflict resolution.
  
 \boldif{To explore and validate this model, we asked developers to reflect upon how they become aware of merge conflicts, how they plan for merge conflict resolutions, and how they evaluate their resolutions in the \textit{Processes Survey}~(S1).}
 In order to explore and validate this model, and our assumptions, we conducted the \emph{Processes Survey}~(S1).
 We plan on understanding how developers become aware of merge conflicts (what steps they take, what tools they use, etc.).
-We also want to investigate their strategies for dealing with merge conflicts and how they decide whether the resolution has addressed all of their concerns.
+We also want to investigate their strategies for dealing with merge conflicts and how they decide whether the resolution has addressed all their concerns.
 
+%TODO CB Do we need this?
 \boldif{We present the results to these research questions in Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c}.}
 Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c} presents the results to these research questions.
 
@@ -76,8 +77,8 @@ For the rest of the developers who answered with \emph{yes} or \emph{sometimes} 
 
 \nsubsection{Reactive and Proactive Monitoring for Merge Conflicts}
 
-\boldif{Reactive detection only notify developers that a merge conflict \emph{has happened}. Developers use it to minimize the size/complexity of the conflict, or it's impact on the team.}
-Reactive monitoring for merge conflicts will only notify the developer that a conflict has occurred.
+\boldif{Reactive detection only notifies developers that a merge conflict \emph{has happened}. Developers use it to minimize the size/complexity of the conflict, or it's impact on the team.}
+Reactive monitoring for merge conflicts will notify the developer that a conflict has already occurred.
 However, developers still use this process to manage or reduce the complexity of a conflict.
 For the developers that answered that they monitor for merge conflicts (replied either \emph{yes} or \emph{sometimes}), we found that 73.68\% (42 out of 57 responses; 4 respondents left this field blank) described reactive processes.
 For example, one developer said they use integration tools to detect merge problems before they advance to testing:
@@ -108,7 +109,7 @@ Others will broadcast their changes in order to notify team members if they will
 \nsubsection{Tools for Monitoring for Merge Conflicts}
 
 \boldif{The tools that developers use allow for only a \emph{reactive} approach.}
-Examining the tools used by respondents with reactive processes, we find that 87.72\% of our respondents use version control systems (e.g. Git, SVN, TFS, CVS), while 21.05\% use continuous integration systems (e.g. Jenkins, Travis CI, TeamCity).
+Examining the tools used by respondents with reactive processes, we find that 87.72\% of our respondents rely on version control systems (e.g. Git, SVN, TFS, CVS), while 21.05\% use continuous integration systems (e.g. Jenkins, Travis CI, TeamCity).
 Table~\ref{s1_toolset} presents the top 10 tools developers use when monitoring for merge conflicts.
 It is worth noting that tools, such as those for continuous integration and developer notification systems (e.g. PagerDuty) are used only by developers relying on a \emph{reactive} strategy.
 The majority of the tools developers use for merge conflict monitoring only allow a reactive approach to monitoring.
@@ -197,7 +198,7 @@ In addition, we identified \textbf{X} distinct categories of processes that deve
 
 \boldif{Developers use different strategies for dealing with MC}
 When encountering a merge conflict, developers have different strategies at their disposal.
-They can either: (a) defer the merge conflict for a later date, or (b) try and solve the conflict.
+They can either: (a) defer the merge conflict for a later date, or; (b) solve the conflict.
 In the \textit{Processes Survey}~(S1) we sought an understanding of these strategies and when developers use them.
 
 \boldif{The first option is that they might defer the MC, for a later time}
@@ -209,8 +210,6 @@ One of the participants succinctly describes how they consider the \emph{ownersh
 	Code is mine? I fix it. Code is others? I submit PR or bug reports.
 \end{quotation}
 This indicates that the deferral is not always temporal, but can also be logistical when developers will defer to other team members.
-
-
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
@@ -237,7 +236,7 @@ This indicates that the deferral is not always temporal, but can also be logisti
 \nsubsection{Deferring Response to Merge Conflicts}
 
 \boldif{Deferring can have bad consequences, including increased complexity and delaying features. Organizations have sometimes changed the policy to prevent this.}
-Deferring the resolution comes with a price.
+Deferring the merge conflict resolution comes with a price.
 Table~\ref{effects-deferral} shows the top effects of deferring a response to a merge conflict.
 The most common effect was that developers have had to stop the development (\emph{Stop the Presses,} 15 responses) in order to resolve the conflicts.
 The second most common effect is the \textit{increased complexity} of the conflicts (E2), as it was reported by 9 of our participants.
@@ -322,7 +321,7 @@ Table~\ref{s1_understanding_code} lists all six strategies described by \textit{
 \vspace{0.8em}
 
 \boldif{The most common strategies for understanding the conflict are examining the conflict and analysis/manipulation of the code.}
-\noindent One participant described their strategy of examining the conflict as:
+One participant described their strategy of examining the conflict as:
 \begin{quotation}
 	Reviewing the most recent commits (comments and code) to see whether it's a shallow conflict or not.
 \end{quotation}
@@ -548,7 +547,7 @@ Merge conflict resolutions are not always successful.
 When they fail, developers must alter their patch and potentially switch strategies in order to successfully resolve the conflict.
 
 To understand the prevalence of failed conflict resolutions, we asked \textit{Processes Survey}~(S1) participants to indicate the frequency in which their first attempt at resolving a merge conflict fails.
-Figure~\ref{fig:first-attempt-failure} illustrates the resulting distribution on a 5-point Likert-type scale, where 1 is \textit{very frequently} and 5 is \textit{very infrequently,} the mean response was 3.49 ($std. dev.=1.11$, $variance=1.24$).
+Figure~\ref{fig:first-attempt-failure} illustrates the resulting distribution on a 5-point Likert scale, where 1 is \textit{very frequently} and 5 is \textit{very infrequently,} the mean response was 3.49 ($std. dev.=1.11$, $variance=1.24$).
 This corresponds to \textit{somewhat infrequently} being both the average response and the most common response ($median=4$), which suggests that first attempts typically succeed.
 However, this also shows that 78.7\% of participants (70 out of 89) occasionally fail at their first attempt and must make additional attempts to resolve a merge conflict.
 
