@@ -6,8 +6,8 @@ Development tools need to be easy to use and provide contextualized, pertinent i
 To investigate how well current tools satisfy the needs of developers, we asked interview participants open-ended questions about how they resolve merge conflicts.
 We also ask about improvements that would be most valuable to them.
 
-We framed the S2 survey questions to validate the improvement needs expressed in our interviews, and ranked those six needs according to mean score.
-Table~\ref{s2_tool_improvements} presents the needs from the S2 survey responses ordered by their mean scores.
+We framed the \textit{Barriers Survey}~(S2) questions to validate the improvement needs expressed in our interviews, and ranked those six needs according to mean score.
+Table~\ref{s2_tool_improvements} presents the needs from the survey responses ordered by their mean scores.
 We received 119 responses using a 5-point Likert-type scale to indicate the usefulness of each type of tool improvement (1 being \textit{Not Useful}, 3 being \textit{Moderately Useful}, and 5 being \textit{Essential}).
 
 \begin{table}[!htbp]
@@ -34,7 +34,7 @@ We received 119 responses using a 5-point Likert-type scale to indicate the usef
 Our results indicate that developers use a wide range of tools, with many directly using the Git command line interface. 
 Our interview participants mentioned six different dimensions along which they would like improvements to tool support.
 
-In addition, we also asked S2 survey participants which tools they use during conflict resolution.
+In addition, we also asked \textit{Barriers Survey}~(S2) participants which tools they use during conflict resolution.
 We identified 105 different tools from the 115 responses. 
 Some mentioned generic responses such as \textit{``text editor,''} for which we create a separate category.
 %We group these generic responses together where semantically similar meanings exist. 
@@ -75,12 +75,12 @@ We next discuss the top four improvements rated by survey participants. These ar
 \nsubsection{Better Usability}
 %The right toolset is essential for efficiently developing solutions and resolving conflicts.
 Usability is an important factor that determines whether a toolset supports or hinders the developer's workflow.
-Our S2 survey results indicate that \textit{better usability} (I1) is the most desired improvement of toolsets used for conflict resolution. 
+Our \textit{Barriers Survey}~(S2) results indicate that \textit{better usability} (I1) is the most desired improvement of toolsets used for conflict resolution. 
 %Based on the results of the survey, we found that practitioners rate usability as the most desired improvement for their current merge tools (I1).
 While usability of a particular tool is important, the usability concerns become even more pertinent when they span multiple tools that are similar and must operate in sync with each other.
 Survey results indicate that participants use an average of 2.5 tools, and as many as 7 tools, to resolve merge conflicts.
 %With multiple tools being used during merging and conflict resolution, toolset fragmentation is a real concern for practitioners.
-For instance, in our interview P1 demonstrated how he typically resolved a merge conflict by using four different tools and said: 
+For instance, in our interview, P1 demonstrated how he typically resolved a merge conflict by using four different tools and said: 
 \begin{quoting}
 \textit{``I have to jump around between tools and copy and paste version numbers...this is why integration matters.''}
 \end{quoting}
@@ -176,7 +176,7 @@ P4 commented:
 	\label{fig:tool_trust}
 \end{figure}
 
-Based upon this theme of mistrust, we asked S2 survey participants to rate the degree to which they trust their merging, history exploration, and conflict resolution tools.
+Based upon this theme of mistrust, we asked \textit{Barriers Survey}~(S2) participants to rate the degree to which they trust their merging, history exploration, and conflict resolution tools.
 We received 121 responses to this question, with a mean score of 3.66, placing the most common responses between \textit{a moderate amount} and \textit{a lot} of trust (Figure~\ref{fig:tool_trust}).
 Assuming that responses of \textit{a moderate amount}, \textit{a little}, or \textit{not at all} indicate some degree of mistrust, we find that 42.15\% of developers experience some gap in toolset trust.
 
@@ -191,7 +191,7 @@ To understand the degree to which these two factors impact developers' perceptio
 \begin{figure*}[!htbp]
 \centering
 \includegraphics[width=1.01\textwidth]{ConflictComplexityVsSize.pdf}\vspace*{-1\baselineskip}
-\caption{Effectiveness of developers' toolsets in supporting perceived size and complexity of merge conflicts. Dot values indicate the number of S2 survey responses for effectiveness of a particular merge conflict size and complexity, and the vertical height of each segment indicating the number of responses at each degree of effectiveness.\vspace*{-0.3\baselineskip}}
+\caption{Effectiveness of developers' toolsets in supporting perceived size and complexity of merge conflicts. Dot values indicate the number of \textit{Barriers Survey}~(S2) responses for effectiveness of a particular merge conflict size and complexity, and the vertical height of each segment indicating the number of responses at each degree of effectiveness.\vspace*{-0.3\baselineskip}}
 \label{size_vs_complexity}
 \end{figure*}
 
