@@ -95,7 +95,7 @@ This can happen during regular team meetings, to make sure that everybody is awa
 \begin{quotation}
 	[\ldots] standups allow us to know where everyone is working that week.
 \end{quotation}
-While 10 respondents (9.80\%) indicated that they broadcast their changes in order to notify team members if they will make breaking changes.
+While 10 participants (9.80\%) indicated that they broadcast their changes in order to notify team members if they will make breaking changes.
 For example, participant S1--102 indicated that team members:
 \begin{quotation}
 	[\ldots] send emails before making breaking changes to the API or related sub-modules.
@@ -109,10 +109,14 @@ This can lead to more frustration, as they do not have any warning of when the c
 \nsubsection{Tools for Monitoring for Merge Conflicts}
 
 \boldif{The tools that developers use allow for only a \emph{reactive} approach.}
-Examining the tools used by respondents with reactive processes, we find that 87.72\% of our respondents rely on version control systems (e.g. Git, SVN, TFS, CVS), while 21.05\% use continuous integration systems (e.g. Jenkins, Travis CI, TeamCity).
-Table~\ref{s1_toolset} presents the top 10 tools developers use when monitoring for merge conflicts.
-It is worth noting that tools, such as those for continuous integration and developer notification systems (e.g. PagerDuty) are used only by developers relying on a \emph{reactive} strategy.
-The majority of the tools developers use for merge conflict monitoring only allow a reactive approach to monitoring.
+Examining the tools used by participants with reactive processes, we find that 87.72\% of these participants rely on version control systems (e.g. Git, SVN, TFS, CVS), while 21.05\% use continuous integration systems (e.g. Jenkins, Travis CI, TeamCity).
+Table~\ref{s1_toolset} presents the top 10 tools developers use when monitoring for merge conflicts, including the totals for both reactive and proactive strategies.
+
+Additionally, we examine the tools used by participants with proactive processes.
+We find that all participants with a proactive strategy rely on version control systems, and 33.33\% use continuous integration systems.
+Additionally, 26.66\% of proactive participants use code analysis tools (e.g. SonarQube, Code Climate).
+
+We find that the majority of tools used by developers for merge conflict monitoring are built to only support reactive strategies, and that multiple tools must be used in conjunction for a proactive approach.
 
 %\boldif{Devs do not use existing workspace awareness tools that come from the acadmemia.}
 %When collaborating, developers generally rely on passive communication tools, like email, to coordinate.
@@ -128,15 +132,15 @@ The majority of the tools developers use for merge conflict monitoring only allo
 % \textbf{Par.}\parnote{Par. = Total number of survey participants using each tool.}
 % \vspace*{-0.3\baselineskip}
   \parnoteclear % tabularx will otherwise add each note thrice
-  Tool\parnote{\textit{Processes Survey}~(S1) participants were allowed to provide multiple tools. 57 out of 102 respondents (56\%) indicated the use of at least one merge awareness tool.} & Description & Proactive\parnote{Participants using this tool with a proactive strategy.} & Reactive\parnote{Participants using this tool with reactive strategy.} & Par.\parnote{Par. = Total number of survey participants using each particular tool.}\\
+  Tool\parnote{\textit{Processes Survey}~(S1) participants were allowed to provide multiple tools. 57 out of 102 participants (56\%) indicated the use of at least one merge awareness tool.} & Description & Proactive\parnote{Participants using this tool with a proactive strategy.} & Reactive\parnote{Participants using this tool with reactive strategy.} & Total\parnote{Total number of survey participants using each particular tool.}\\
 \midrule
   Git & Version Control System & 10 & 30 & 40\\
   Email (unspecified) & Email Client or System & 2 & 4 & 6\\
-  GitHub & Website & 2 & 5 & 7\\
+  GitHub & Project Hosting Site & 2 & 5 & 7\\
   SVN & Version Control System & 0 & 4 & 4\\
   Visual Studio & IDE & 1 & 2 & 3\\
   PagerDuty & IT Incident Manag. Sys. & 0 & 3 & 3\\
-  GitLab & Website & 2 & 1 & 3\\
+  GitLab & Project Hosting Site & 2 & 1 & 3\\
   Jenkins & Continuous Integration & 0 & 3 & 3\\
   VCS (unspecified) & Version Control System & 2 & 2 & 4\\
   Team Foundation Server & Version Control System & 1 & 1 & 2\\
@@ -161,9 +165,12 @@ However, developers are trying to mitigate the severity of merge conflicts by at
 \subsubsection{\textbf{RQ1b:} How do software developers \textbf{plan} for merge conflict resolutions?}\label{RQ1b}
 
 \boldif{Developers use different strategies for dealing with MC}
-When encountering a merge conflict, developers have different strategies at their disposal.
-They can either: (a) defer the merge conflict for a later date, or; (b) solve the conflict.
+When encountering a merge conflict, developers follow different strategies.
+They can either: (a) defer the merge conflict to a later date, or; (b) solve the conflict.
 In the \textit{Processes Survey}~(S1) we sought an understanding of these strategies and when developers use them.
+The tools that developers use when implementing merge conflict resolutions are discussed in Section~\ref{RQ3}.
+
+\nsubsection{Deferring Responses to Merge Conflicts}
 
 \boldif{25\% of developers consider all conflicts as being equally urgent.}
 One quarter of all developers consider all merge conflicts to be equally urgent.
@@ -175,12 +182,18 @@ Therefore, they will give the same level of attention, for example, to a conflic
 \boldif{The first option is that they might defer the MC, for a later time}
 The easiest option when encountering a merge conflict is to simply not deal with it.
 Indeed, we found that 56.18\% of participants have deferred at least once when responding to a merge conflict.
-The reasons for deferring are varied and include the \textit{complexity of the conflicting code} (D1), the \textit{number of conflicting code locations} (D2), and the \textit{ownership of the conflicting code} (D3) (additional reasons D4--D7 can be found in Table~\ref{s1_deferring_response}).
-Participant S1--8 succinctly describes how they consider the \emph{ownership of the conflicting code} when deciding whether to defer:
+The reasons for deferring are varied and listed in Table~\ref{s1_deferring_response}.
+
+The location and complexity of conflicting code (D1, D2) were the most selected factors, and match the top difficulty factors of merge conflicts (F1, F2) as described in Section~\ref{difficulty-factors}.
+% TODO Add a conclusion statement about the meaning of these factors being top in both tables.
+
+As the third most selected factor, \textit{ownership of the conflicting code}~(D3) indicates that the deferral is not always temporal, but can also be logistical when developers defer to other team members.
+Participant S1--8 succinctly defines the role ownership impacts his workflow as:
 \begin{quotation}
 	Code is mine? I fix it. Code is others? I submit PR or bug reports.
 \end{quotation}
-This indicates that the deferral is not always temporal, but can also be logistical when developers will defer to other team members.
+We additionally asked participants to rate the degree to which code ownership factors into their overall merge conflict strategy, and participants indicate that code ownership factors \textit{about half the time} in their strategy of code ownership (mean: $3.21$ on a 5-point Likert-type scale).
+Only 10.11\% of participants indicated that code ownership \textit{never} factors into their resolution strategy.
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
@@ -190,7 +203,7 @@ This indicates that the deferral is not always temporal, but can also be logisti
 \begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
-  Factor & Description & \# Selections\parnote{\textit{Processes Survey}~(S1) respondents were allowed to select multiple factors. 44 out of 102 respondents (43\%) selected more than one factor.\vspace*{-0.9\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
+  Factor & Description & \# Selections\parnote{\textit{Processes Survey}~(S1) participants were allowed to select multiple factors. 44 out of 102 participants (43\%) selected more than one factor.\vspace*{-0.9\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
 \midrule
   D1 & Complexity of the conflicting code & 36 & 25.00\% \\
   D2 & Number of conflicting code locations & 32 & 22.22\% \\
@@ -215,7 +228,8 @@ Both of these reasons indicate that a developer is more likely to defer if the c
 Deferring the merge conflict resolution comes with a price.
 Table~\ref{effects-deferral} shows the top effects of deferring a response to a merge conflict.
 The most common effect was that developers have had to stop the development (\emph{Stop the Presses,} 15 responses) in order to resolve the conflicts.
-The second most common effect is the \textit{increased complexity} of the conflicts (E2), as it was reported by 9 of our participants.
+This halt in development includes asking team members to also refrain from adding any additional code into the codebase.
+The second most common effect is the \textit{increased complexity} of the conflicts (E2), reported by nine participants.
 Participant S1--93 noted that:
 \begin{quotation}
 	Deferring a merge conflict simply kicks the can down the road (or off a cliff). Typically resolving the conflict only gets more difficult as time passes.
@@ -253,7 +267,7 @@ Such as in the case of S1--102, who said:
 \begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
-  Effect & Description & \# Participants\parnote{46 out of 102 respondents (45.1\%) provided a description of the effects of deferring.\vspace*{-0.8\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
+  Effect & Description & \# Participants\parnote{46 out of 102 participants (45.1\%) provided a description of the effects of deferring.\vspace*{-0.8\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
 \midrule
   E1 & Stop the Presses & 15 & 32.61\% \\
   E2 & Increased complexity & 9 & 19.57\% \\
@@ -274,12 +288,12 @@ The results of deferring can be disastrous.
 However, it is difficult to assess a deferral to determine if it will turn a single merge conflict into a larger problem.
 Tools could provide such information; responding to developers with enough information to make accurate and informed decisions in order to prevent further issues down the line.
 
-\nsubsection{Initial Strategies}
+\nsubsection{Attempting Resolution \& Initial Strategies}
 
 \boldif{If they have not deferred, they need to understand the (changes in the) conflict}
-Other than deferring, the other remaining option for developers is to resolve the conflict.
+When developers don't defer their response, they have to resolve the conflicts now.
 They primarily approach merge conflicts by \textit{examining the merge} (U1), \textit{analyzing or manipulating the code} (U2), or \textit{examining the code} (U3).
-Table~\ref{s1_understanding_code} lists all six strategies described by \textit{Processes Survey}~(S1) respondents.
+Table~\ref{s1_understanding_code} lists all six strategies described by the \textit{Processes Survey}~(S1) participants.
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
@@ -289,7 +303,7 @@ Table~\ref{s1_understanding_code} lists all six strategies described by \textit{
 \begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
-  Strategy & Description & \# Participants\parnote{79 out of 102 respondents (77\%) provided a description of their initial strategy.\vspace*{-0.3\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
+  Strategy & Description & \# Participants\parnote{79 out of 102 participants (77\%) provided a description of their initial strategy.\vspace*{-0.3\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
 \midrule
   U1 & Examining the merge & 26 & 32.91\% \\
   U2 & Analysis/manipulation of the code & 19 & 24.05\% \\
@@ -304,30 +318,29 @@ Table~\ref{s1_understanding_code} lists all six strategies described by \textit{
 \vspace{0.8em}
 
 \boldif{The most common strategies for understanding the conflict are examining the conflict and analysis/manipulation of the code.}
-Participant S1--44 described their strategy of examining the conflict as:
+Participant S1--44 described their strategy of \textit{examining the merge}~(U1) as:
 \begin{quotation}
 	Reviewing the most recent commits (comments and code) to see whether it's a shallow conflict or not.
 \end{quotation}
-	And participant S1--69 indicated their strategy of analyzing the code involves:
+	And participant S1--69 indicated their strategy of analyzing the code (U2) involves:
 \begin{quotation}
 [\ldots] determining if the merge conflict involves important functionality; stepping through with a debugger helps.
 \end{quotation}
 Overall, we find that developers initially focus on the code involved in the merge conflict or information related to the merge itself.
 
 \boldif{Surprisingly, some developers do not have a strategy for MCR}
-Surprisingly, we found that two of our participants (2.53\% of respondents) indicated that they \textit{``don't have a strategy''} or \textit{``mostly try to fix it as soon as possible.''}
+Surprisingly, we found that two of our participants (2.53\% of participants) indicated that they \textit{``don't have a strategy''} or \textit{``mostly try to fix it as soon as possible.''}
 
-\begin{figure}[!htbp]
-\centering
-\fbox{\includegraphics[width=0.98\textwidth,keepaspectratio]{imgs/CodeOwnershipFactor}}
-\caption{Degree of Code Ownership as a Factor in Merge Conflict Strategies. Scale: 1 is \textit{Always} and 5 is \textit{Never}. 89 out of 102 respondents (87.26\%) provided a response to this question in the \textit{Processes Survey}~(S1).\vspace*{-0.3\baselineskip}}
-\label{fig:code-ownership-resolution}
-\end{figure}
+%\begin{figure}[!htbp]
+%\centering
+%\fbox{\includegraphics[width=0.98\textwidth,keepaspectratio]{imgs/CodeOwnershipFactor}}
+%\caption{Degree of Code Ownership as a Factor in Merge Conflict Strategies. Scale: 1 is \textit{Always} and 5 is \textit{Never}. 89 out of 102 respondents (87.26\%) provided a response to this question in the \textit{Processes Survey}~(S1).\vspace*{-0.3\baselineskip}}
+%\label{fig:code-ownership-resolution}
+%\end{figure}
 
 To conclude, developers reported that expertise in the area of the conflicting code is one of the top factors in determining the difficulty of a merge conflict.
 Additionally, developers also indicate that increases in perceived complexity of merge conflicts is strongly linked with the degree of difficulty in resolving them.
 Therefore, developers' perceptions and intuition are relied on throughout the implementation of their resolution.
-
 
 \nsubsection{Code Ownership in Merge Conflict Resolution Strategies}
 
@@ -339,16 +352,14 @@ Only 10.11\% of participants indicated that code ownership \textit{never} factor
 \subsubsection{\textbf{RQ1c}: How do software developers \textbf{evaluate} merge conflict resolutions?}\label{RQ1c}
 
 After implementing a merge conflict resolution, software developers must evaluate whether their resolution has returned the codebase to a clean state.
-However, it is unclear what conditions are considered by developers to be the benchmark of a successful merge conflict resolution.
+We asked developers to select the conditions (from interviews) that they use to determine whether their resolution has successfully addressed the merge conflict.
 
 \nsubsection{Success Conditions for Merge Conflict Resolutions}
 
-We examined interview responses to understand which conditions developers use to evaluate their merge conflict resolution.
-Developers described six common conditions they considered important in their evaluation.
-In the \textit{Processes Survey}~(S1), we asked developers to select all of the six conditions that they would consider for a successful merge conflict resolution.
-To allow for additional conditions to surface, we included an open-ended \textit{Other} option.
+In the \textit{Exploratory Interviews}, developers described six common conditions they considered important in their evaluation.
+We asked \textit{Processes Survey}~(S1) participants to select from this list of conditions, including an \textit{Other} option to elicit additional conditions.
 Only two developers selected that condition, indicating ``performance tests showing similar performance'' and ``client approval.''
-We received 324 selections from 89 respondents and present the aggregated results in Table~\ref{conditionsSuccess}.
+We received 324 selections from 89 participants and present the aggregated results in Table~\ref{conditionsSuccess}.
 
 \begin{table}[!htbp]
 \caption{Conditions of Successful Merge Conflict Resolutions from Processes Survey (S1)\textsuperscript{i}}
@@ -373,7 +384,7 @@ We received 324 selections from 89 respondents and present the aggregated result
 	C6 & Merged to production & 27 & 27 & 27 & 26 & 19 & 33 & \\
 	C7 & Other & 2 & 2 & 0 & 0 & 0 & 0 & 2 \\
 \bottomrule
-    \multicolumn{9}{c}{\noindent\parbox[t]{11.7cm}{\vspace{0.4em}\textsuperscript{i}\hspace{0.2em}\textit{Processes Survey}~(S1) respondents were allowed to select multiple conditions. Each entry represents the number of respondents that selected both of the conditions indicated for the column and row. 68 out of 102 respondents (67\%) selected three or more conditions.}\vspace*{-0.3\baselineskip}} \\
+    \multicolumn{9}{c}{\noindent\parbox[t]{11.7cm}{\vspace{0.4em}\textsuperscript{i}\hspace{0.2em}\textit{Processes Survey}~(S1) participants were allowed to select multiple conditions. Each entry represents the number of participants that selected both of the conditions indicated for the column and row. 68 out of 102 participants (67\%) selected three or more conditions.}\vspace*{-0.3\baselineskip}} \\
 \end{tabularx}
 \end{table}
 
@@ -381,12 +392,12 @@ We received 324 selections from 89 respondents and present the aggregated result
 These results are in line with existing literature showing that testing (C1) can be used for validating program functionality and correctness~\cite{beizer1984software,tian2005software}. %and have been fundamental to development processes such as test-driven development for several years~\cite{beck2003test}.
 Similarly, the use of compilers to validate code (C2) as being executable and in good-working order will be familiar to any developer using a compiled programming language.
 
-The use of visual inspection as a measure of successful merge conflict resolutions is surprising, given that \textit{complexity of conflicting lines of code}~(F1) is the highest rate factor for impact on merge conflict difficulty~\cite{mckee2017software}.
+The use of visual inspection as a measure of successful merge conflict resolutions is surprising to us, given that \textit{complexity of conflicting lines of code}~(F1) is the highest rate factor for impact on merge conflict difficulty~\cite{mckee2017software}.
 Inspecting code requires time and expertise in the area of conflicting code.
-The survey respondents that selected \textit{code looks correct (i.e. visual test passes)}~(C3) had a mean of 9.2 years of programming experience, which is only slightly higher than the overall mean of 9.0 years of programming experience.
+However, the survey participants that selected \textit{code looks correct (i.e. visual test passes)}~(C3) had a mean of 9.2 years of programming experience, which is only slightly higher than the overall mean of 9.0 years of programming experience.
 
-Looking at the combination of \textit{code looks correct (i.e. visual test passes)}~(C3) with the other conditions, we find that 54 respondents also selected \textit{all tests pass}~(C1) (52.9\%).
-As the most common pairing of selected conditions on the \textit{Processes Survey}~(S1), we conclude that although developers rely upon their expertise to visually inspect a merge conflict resolution, they also run the test suite to validate their evaluation.
+Looking at the combination of \textit{code looks correct (i.e. visual test passes)}~(C3) with the other conditions, we find that 54 participants also selected \textit{all tests pass}~(C1) (52.9\%).
+As the most common co-occuring selections, we conclude that although developers rely upon their expertise to visually inspect a merge conflict resolution, they also run the test suite to validate their evaluation.
 Experience can play a big factor, as this method (C3) is highly subjective.
 
 \boldif{Tests are still the most common criteria for determining a merge conflict resolution successful.}
@@ -402,13 +413,10 @@ While code reviews are an effective way to detect bugs introduced by changes in 
 
 \nsubsection{Merge Resolution Evaluation Toolsets}
 
-Testing and compilation are used as criteria for determining a successful resolution.
-And both require tools with adequate features for developers to make conclusions about the underlying code. 
-
 From the \textit{Exploratory Interviews}, we identified five categories of software development tools that developers mention in relation to merge conflicts.
 In the \textit{Processes Survey}~(S1), we asked the developers to identify the tools they use when evaluating a merge conflict resolution.
-We received 204 selections from 89 respondents.
-The aggregated results are presented in Table~\ref{resolution-evaluation-tools}, ranked according to the percentage of respondents that selected each toolset.
+We received 204 selections from 89 participants.
+The aggregated results are presented in Table~\ref{resolution-evaluation-tools}, ranked according to the percentage of participants that selected each toolset.
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
@@ -418,7 +426,7 @@ The aggregated results are presented in Table~\ref{resolution-evaluation-tools},
 \begin{tabularx}{\textwidth}{>{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
-  Description & \# Selections\parnote{\textit{Processes Survey}~(S1) respondents were allowed to select multiple toolsets. 64 out of 89 respondents (71.91\%) selected multiple toolsets.\vspace*{-0.3\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
+  Description & \# Selections\parnote{\textit{Processes Survey}~(S1) participants were allowed to select multiple toolsets. 64 out of 89 participants (71.91\%) selected multiple toolsets.\vspace*{-0.3\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
 \midrule
   Version Control Systems (e.g. Git, Subversion, CVS) & 82 & 92.14\% \\
   Continuous Integration (e.g. TravisCI, Jenkins, TFS) & 62 & 69.66\% \\
@@ -435,10 +443,10 @@ The aggregated results are presented in Table~\ref{resolution-evaluation-tools},
 By far, the most selected tools were \textit{version control systems} (VCS) and \textit{continuous integration} (CI) platforms, with 82 (92.14\%) and 62 (69.66\%), respectively.
 The mean for all other tool categories was 15 selections (16.85\%), and represents a combined 29.4\% of response selections.
 
-The use of version control systems to determine whether a resolution was successful aligns with \textit{VCS warnings are gone} (C3) being the fourth most selected success condition (see Table~\ref{conditionsSuccess}).
+The use of version control systems to determine whether a resolution was successful aligns with the \textit{VCS warnings are gone} (C3) condition.
 Also, continuous integration is dependent on code being compilable (C2), and tests being written and maintained (C1).
-However, the availability of tools for evaluating merge conflict resolutions might constrain the conditions that developers are willing to consider.
-Further research is needed to determine whether there is a causal relationship between these dimensions, and whether more effective metrics could be supported by merge conflict toolsets.
+However, the availability of tools for evaluating merge conflict resolutions might constrain the conditions that developers are willing to consider for their merge conflict resolutions to be successful.
+Further research is needed to determine whether there is a causal relationship between these dimensions, and whether more effective conditions could be supported by merge conflict toolsets.
 
 \boldif{Some approaches will only detect direct merge conflicts, not indirect ones.}
 Not all of the tools developers use for evaluating the result of a merge conflict resolution can detect all types of conflicts.
@@ -460,20 +468,20 @@ Also, this lack of a comprehensive tools set might make it difficult for develop
 Merge conflict resolutions are not always successful.
 When they fail, developers must alter their patch and potentially switch strategies in order to successfully resolve the conflict.
 
-To understand the prevalence of failed conflict resolutions, we asked \textit{Processes Survey}~(S1) participants to indicate the frequency in which their first attempt at resolving a merge conflict fails.
-Figure~\ref{fig:first-attempt-failure} illustrates the resulting distribution on a 5-point Likert-type scale, where 1 is \textit{very frequently} and 5 is \textit{very infrequently,} the mean response was 3.49 ($std. dev.=1.11$, $variance=1.24$).
-This corresponds to \textit{somewhat infrequently} being both the average response and the most common response ($median=4$), which suggests that first attempts typically succeed.
+To understand the prevalence of failed conflict resolutions, we asked \textit{Processes Survey}~(S1) participants to indicate the frequency in which their first attempt at resolving a merge conflict fails (see Figure~\ref{fig:first-attempt-failure}).
+The most common response was \textit{somewhat infrequently} (mean: $3.49$ on a 5-point Likert-type scale).
+This suggests that first attempts typically succeed.
 However, this also shows that 78.7\% of participants (70 out of 89) occasionally fail at their first attempt and must make additional attempts to resolve a merge conflict.
 
 \begin{figure}
 	\centering
 	\fbox{\includegraphics[width=0.95\textwidth,keepaspectratio]{FirstAttemptFailure}}
-	\caption{Frequency of Failures in First Attempts at Merge Conflict Resolution. Scale: 1 is \textit{Very frequently} and 5 is \textit{very infrequently}. 89 out of 102 respondents (87.26\%) provided a response to this question in the \textit{Processes Survey}~(S1).\vspace*{-0.3\baselineskip}}
+	\caption{Frequency of Failures in First Attempts at Merge Conflict Resolution. Scale: 1 is \textit{Very frequently} and 5 is \textit{very infrequently}. 89 out of 102 participants (87.26\%) indicated a frequency in the \textit{Processes Survey}~(S1).\vspace*{-0.3\baselineskip}}
 	\label{fig:first-attempt-failure}
 \end{figure}
 
 Furthermore, we asked survey participants to describe their backup strategies when their first attempt at resolving a merge conflict fails.
-We received 75 responses and the aggregate results are presented in Table~\ref{backup-strategies}, ranked according to the percentage of respondents that described using each backup strategy.
+We received 75 responses and the aggregate results are presented in Table~\ref{backup-strategies}, ranked according to the percentage of participants that described using each backup strategy.
 
 Developers' backup strategies include \textit{take it offline} (B1), \textit{collaborating} (B2), \textit{try again} (B3), \textit{redoing changes} (B4), and \textit{no backup strategy} (B5).
 Since \textit{no backup strategy} (B5) is not a strategy in and of itself, we focus on strategies B1--B4 instead.
@@ -499,7 +507,7 @@ This \textit{Nuclear Option} is clearly a time-consuming strategy for developers
 \begin{tabularx}{\textwidth}{c|l|c|r}
 \toprule
   \parnoteclear % tabularx will otherwise add each note thrice
-  Strategy & Description & \# Participants\parnote{75 out of 102 respondents (73.53\%) provided a description of their backup strategy.\vspace*{-0.3\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
+  Strategy & Description & \# Participants\parnote{75 out of 102 participants (73.53\%) provided a description of their backup strategy.\vspace*{-0.3\baselineskip}} & Percentage (\%)\textsuperscript{i} \\
 \midrule
   B1 & Take it offline & 19 & 25.33\% \\
   B2 & Collaborating & 17 & 22.67\% \\
