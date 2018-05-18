@@ -64,6 +64,7 @@ In the interview, P1 describes this process as:
 Further, when integrators are preparing code for production environments they prioritize merge conflicts for code review based upon the perceived difficulty of resolving the affected code.
 We find that these decisions rely on human judgement factors as much as they rely on data-driven metrics.
 Developers may not have the time to compute project-wide complexity metrics, such as those proposed in literature.
+Instead, they use educated guesses and intuition based on familiarity with the codebase; either from writing the code, or having worked with it.
 Therefore, we need metrics that can be easily calculated by unexperienced developers as they face a conflict. 
 %are human-aware and take into account the perceived difficulties of merge conflicts.
 
@@ -158,10 +159,6 @@ Results of the survey are presented in Table~\ref{s2_needs}.
 All the unmet needs have a mean score of at least $3.03$ on the 5-point Likert-type scale, implying that all of them mattered at least a moderate amount.
 We present and discuss in detail the top four unmet needs, plus additional observations regarding the other six unmet needs. 
 As with the factors in the previous section, all these needs also relate to \textit{technical aspects} (e.g., understanding the conflicting code) and their \textit{expertise} in resolving conflicts.
-
-%All of the unmet needs in Table~\ref{survey_res_diffs} can be considered important to practitioners when resolving merge conflicts, since each received a mean score of at least 3.03 on the 5-point Likert scale.
-%However, practitioners primarily working on closed-source development differed in perceptions of \textit{tool support for examining development history} (N10).
-%We further discuss this demographic difference in Section~\ref{oss_vs_closed_tool_support}.
 
 \nsubsection{Technical Aspects}
 Three needs among the top four relate to technical aspects of merge conflict resolution.

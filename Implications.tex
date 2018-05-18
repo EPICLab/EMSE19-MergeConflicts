@@ -13,18 +13,28 @@ However, not all developers are actively using such techniques~\cite{phillips201
 Version control systems provide an easy method for storing and retrieving recent development history, but examining older development history at scale and in a usable manner has not completely met developers' expectations.
 Tool builders should work to address this unmet need by leveraging research in search systems for developer-assistance~\cite{nabi2016putting} and machine learning-based code assistance~\cite{bradley2011history_exploration} to provide intuitive and expressive tools for history exploration.
 
+Even if developers use a \emph{reactive} monitoring approach for detecting merge conflicts, better tool support can make their lives easier.
+For example, instead of notifying a developer that a merge conflict has occurred, adding an annotation within tools indicating the type of conflict might assist developers.
+This type of contextualized information would allow developers to more precisely know how urgent the merge conflict is, without having to interrupt their workflow.
+
 Developers indicate that current merge toolsets do not scale to handle large, complex merge conflicts (see Section~\ref{tool_effectiveness}).
 To address this concern, tool builders should look at consolidating feature sets that currently span multiple tools in order to provide better usability (I1 from Table~\ref{s2_tool_improvements}).
 Tool builders should also add more expressive search and filtering features for both project history and meta-information related to merge conflicts (I2, I3), to ease the frustration of developers that must understand the context and evolution of code involved in the conflict.
 
-Before starting a merge conflict resolution, we found developers having to ``guess-timate'' the difficulty of the conflict resolution to decide whether to work on it now or delay it, whether to integrate the changes or simply start over. 
+Before starting a merge conflict resolution, we found developers having to ``guess-timate'' the difficulty of the conflict resolution to decide whether to work on it now or deffer it, whether to integrate the changes or simply start over. 
 Prediction tools that identify the complexity of conflicts and difficulty of resolution can help alleviate this.
+This will provide to developers with enough information to make accurate and informed decisions in order to prevent further issues down the line.
 
 When it comes to evaluating the result of a merge conflict resolution, we found that developers employ various strategies (Table~\ref{conditionsSuccess}).
 Developers mentioned that passing tests (C1) and successful compilation (C2) are some of the criteria for success.
 However, for large projects, running the tests cane be time intensive.
 Tools can help developers by providing information or running only tests that are impacted by the conflict resolution.
 This would help developers as they would have to rely less on their own intuition (C5), when it comes to evaluating the result.
+
+\boldif{Conflicts might be difficult, because the result is hard to evaluate}
+The fact that developers mention code complexity as one of the main factors in deferring a merge conflict resolution, and that developers ``eyeball'' the resolutions, seems to be an indication that evaluation might be a problem in the resolution.
+Merge conflicts are perceived as difficult because \emph{the evaluation of the results are difficult.}
+In this case, tools should provide better support for developers when they evaluate their resolution.
 
 Finally, most developers have failed at least once in resolving a merge conflict resolution (Figure~\ref{fig:first-attempt-failure}).
 Tools can provide better insight into why the resolution has failed, so developers have information to formulate their next steps.
@@ -55,15 +65,10 @@ Previous work has focused on recommending developers best suited to perform a co
 However, these efforts have resulted in tools that require standalone installation and execution. 
 Our results indicate that developers are concerned about toolset fragmentation, and therefore adding an additional tool might be counterproductive to the workflow of most developers. 
 
+Our results show that 14 developers mention that they \emph{redo the changes} when a merge conflict resolution fails.
+This \emph{Nuclear option} is very expensive.
+Tools should provide better merging support, so developers can resolve a conflict and not have to scrap good code just because it happens to intersect with other changes.
+
 Finally, we find that developers need to quickly estimate whether they can fix the conflict, and whether to resolve it now or delay the resolution. 
 This indicates that developers need mechanisms to identify the skillsets required to complete the conflict resolution task, by viewing the code fragments.
 Research should investigate mechanisms to identify required skillsets by using information retrieval or machine learning techniques on the code fragment and past edits.
-
-
-
-
-
-
-
-
-
