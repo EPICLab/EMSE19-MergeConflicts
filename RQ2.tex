@@ -42,7 +42,7 @@ These factors can be grouped into \textit{technical aspects} and \textit{experti
 Two of the top four factors refer to the perceptions about the complexity of merge conflicts (F1, F3), with the third factor being \textit{number of conflicting lines of code} (F4), which can be construed as a specific metric for the complexity of the conflict. 
 While developers mentioned complexity of the lines of code and the file, none mentioned using any metrics, such as cyclomatic complexity~\cite{fenton2000quantitative,mccabe1976complexity} or Function Point Analysis~\cite{garmus2001fpa,symons1988function}. 
 Instead, developers made educated guesses on the complexity of the code based on their own experience of either writing the code, or having worked with it. 
-Some of the simple to compute metrics, such as the \textit{number of conflicting lines of code} (F4), the \textit{number of files in the conflict} (F8), the \textit{atomicity of changesets in conflict} (F6), and the \textit{time to resolve a conflict} (F5) were mentioned. 
+Some of the simple-to-compute metrics, such as the \textit{number of conflicting lines of code} (F4), the \textit{number of files in the conflict} (F8), the \textit{atomicity of changesets in conflict} (F6), and the \textit{time to resolve a conflict} (F5) were mentioned. 
 The only factor where static analysis tools can help was in identifying the \textit{dependencies of conflicting code} (F7).
 This indicates that understanding the complexity of the conflicting code is important, but developers do not use the metrics that have been proposed by research.
 While some of the simple proxies for complexity are used, developers primarily rely on their own judgement of the complexity of a conflict.
@@ -62,7 +62,7 @@ In the interview, P1 describes this process as:
 Further, when integrators are preparing code for production environments they prioritize merge conflicts for code review based upon the perceived difficulty of resolving the affected code.
 We find that these decisions rely on human judgement factors as much as they rely on data-driven metrics.
 Developers may not have the time to compute project-wide complexity metrics, such as those proposed in literature.
-Therefore, we need metrics that can be easily calculated by unexperienced developers as they face a conflict. 
+Therefore, we need metrics that can be easily calculated by inexperienced developers as they face a conflict. 
 %are human-aware and take into account the perceived difficulties of merge conflicts.
 
 \nsubsection{Expertise}\label{knowledge-based-factors}
@@ -170,7 +170,7 @@ However, it is not easily available and requires a context switch from the code 
 Moreover, these changes are often processed in isolation, especially when there are many changes (conflicts) to process. 
 Such decomposition of overall conflicting changes into smaller ``chunks'' is needed to be able to manage the complexity of the resolution process.
 However, this occludes viewing the changes in a larger context. 
-Often developers deal with the decomposed (smaller) changes, hoping that they will all together work out. 
+Often developers deal with the decomposed (smaller) changes, hoping that they will work well together. 
 For example, P1 compared the resolution hurdles between two conflicts, where one was simple, and the other spanned multiple files and complex blocks of code.
 \begin{quoting}
 \textit{``You focus on understanding the small change, not the big one. It's easier to understand... get the small change to go with the flow of the bigger change.''}
@@ -182,8 +182,8 @@ Identifying the impact of changes on the rest of the code base has been repeated
 The top unmet needs in our study also revolved around the challenges that developers face in how much information they had about the conflicting code (N3), and the difficulty in finding the needed information from current tools and practices (N3, N4, N8, N10). 
 This indicates that despite advances in supporting parallel development practices, the right information needed to resolve conflicts is still not easily available to developers. 
 
-Conflict resolution can sometime lead to defects in the code base. 
-This can arise because of several reasons. 
+Conflict resolution can sometimes lead to defects in the code base. 
+This can arise for several reasons. 
 For example the rationale of the two conflicting changes might be unclear and the merge might cause unintentional problems down the line. 
 Or the resolved changes might not follow rigorous code review and testing to which the original changes were subject to.
 Therefore, even when the developer understands the particular conflicting code, they may still need additional meta-information about the rationale of changes and idea of future feature implementation. 
@@ -193,7 +193,7 @@ This is especially true in situations where the code base is old, and such infor
 \end{quoting}
 
 \nsubsection{Expertise}
-Knowledge is a key component of developer's needs when resolving merge conflicts.
+Knowledge is a key component of developers' needs when resolving merge conflicts.
 Along with general knowledge there is a need for expertise in the specific areas of code involved in a conflict.
 Developers recognize this need as having a sizable effect on their ability to resolve a merge conflict, and selected \textit{expertise in the area of conflicting code} (N2) as the second most important need.
 
@@ -203,7 +203,7 @@ In fact, Forward et al.~\cite{forward2002documentation}, in a survey of 48 softw
 When these gaps arise, developers compensate by consulting experts in the area of conflicting code instead.
 
 This result aligns with the goals of the TIPMerge tool~\cite{CostaSarma}, which seeks to locate experts that are best suited to resolve conflicts in a particular area of code.
-However, TIPMerge, as well as other recommendation tools are not being used by real-world developers, as evidenced by the lack of such tools in the list of top 10 merge resolution tools (see Table~\ref{s2_toolset}).
+However, TIPMerge, as well as other recommendation tools are not being used by real-world developers, as evidenced by the lack of such tools in the list of top 10 merge awareness tools (Table~\ref{s1_toolset}) and merge resolution tools (Table~\ref{s2_toolset}).
 The reason for this lack of research tools adoption requires further investigation.
 
 Another surprising fact was that while the informative nature of commit messages (N8) and project culture (N9) were mentioned, they were not as highly ranked. % The same is true for project culture (N9). 
