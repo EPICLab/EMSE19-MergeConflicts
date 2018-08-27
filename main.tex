@@ -1,5 +1,7 @@
 \documentclass[smallcondensed]{svjour3}
 
+\usepackage{cite}
+\usepackage{natbib}
 \usepackage{dblfloatfix}
 \usepackage{url}
 \usepackage{color}
@@ -12,13 +14,11 @@
 \graphicspath{{./imgs/}{../jpeg/}}
 \DeclareGraphicsExtensions{.pdf}
 \usepackage{tabularx,booktabs,rotating,multirow,multicol}
-\usepackage[noadjust]{cite}
 \usepackage{caption}
 \usepackage{color}
 \usepackage[roman]{parnotes}
 \usepackage[many]{tcolorbox}
 \usepackage[symbol,para]{footmisc}
-\usepackage[strings]{underscore}
 \usepackage{tikz,dcolumn,booktabs,lscape}% <- sparklines chart embedded in tables
 \usetikzlibrary{positioning}
 
@@ -105,6 +105,8 @@
 %\newcommand\todo[1]{{\noindent\color{red}\\\textbf{TODO:~}#1\\}}
 %\newcommand\todo[1]{}
 
+\renewcommand{\cite}{\citep}
+
 \begin{document}
 \title{The Life-Cycle of Merge Conflicts: Processes, Barriers, and Strategies}
 
@@ -127,7 +129,7 @@
 \input{Conclusions}
 \input{Acknowledgements}
 
-\bibliographystyle{spmpsci}
+\bibliographystyle{spbasic}
 \bibliography{Bibliography,second}
 
 \end{document}
