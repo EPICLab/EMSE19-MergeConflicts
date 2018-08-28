@@ -141,12 +141,36 @@ The survey was conducted online and anonymity was guaranteed.
 The \textit{Processes Survey}~(S1) was available for 38 days and we received 113 survey responses, however, 11 responses were incomplete, resulting in 102 total responses.
 The results of this survey are presented in Section~\ref{results}.
 
-\begin{figure}[!htbp]
-\centering
-\hspace*{-0.7cm}\includegraphics[width=1.105\textwidth,keepaspectratio]{ProcessesParticipantRoles}
-\caption{Distribution of primary roles from Processes Survey~(S1) participants: 45.5\% are primarily a \textit{Developer}, 42.0\% an \textit{Engineer}, 12.5\% \textit{Other}, and 12.8\% were either \textit{DevOps}, \textit{Architect}, or \textit{Designer}. No participants selected \textit{Data Scientist} or \textit{Chief Technology Officer}.\vspace*{-0.3\baselineskip}}
+%\begin{figure}[!htbp]
+%\centering
+%\hspace*{-0.7cm}\includegraphics[width=1.105\textwidth,keepaspectratio]{ProcessesParticipantRoles}
+%\caption{Distribution of primary roles from Processes Survey~(S1) participants: 45.5\% are primarily a \textit{Developer}, 42.0\% an \textit{Engineer}, 12.5\% \textit{Other}, and 12.8\% were either \textit{DevOps}, \textit{Architect}, or \textit{Designer}. No participants selected \textit{Data Scientist} or \textit{Chief Technology Officer}.\vspace*{-0.3\baselineskip}}
+%\label{processes_roles}
+%\end{figure}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.3}
+\caption{Distribution of primary roles from Processes Survey~(S1) participants}
 \label{processes_roles}
-\end{figure}
+\centering
+\begin{tabularx}{\textwidth}{@{}YY@{}}
+\toprule
+	\textbf{Job Title} & \textbf{Response Rate}\\
+\midrule
+	Developer & 45.5\%\\
+	Engineer & 42\%\\
+	Other & 12.5\%\\
+	DevOps & 6.9\%\\
+	Architect & 5.0\%\\
+	Designer & 1.0\%\\
+	Data Scientist & 0\%\\
+	Chief Technology Officer & 0\%\\
+	
+\bottomrule
+\end{tabularx}
+\end{table}
 
 Survey participants had a mean of 9.1 years of programming experience, and primarily worked in teams of 2-5 members (45.10\% overall).
 Participants were assumed to be software developers in some capacity, but primary roles within individual organizations can differ throughout the industry.
