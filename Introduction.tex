@@ -14,10 +14,16 @@ The resolution process can be tedious and can cause delays as developers figure 
 Poorly-performed merge conflict resolutions have been known to cause integration errors~\cite{bird-branches-conflict}, workflow disruptions, and jeopardize project efficiency and introduce delays~\cite{estler2014awareness}. 
 
 Developers are aware of the problems posed by merge conflict resolutions.
-They follow different informal processes to avoid encountering, or having to resolve conflicts; e.g. sending out emails to the rest of the team, performing partial commits, or racing to finish changes~\cite{deSouza2003breaking,cataldo2008distributed_dev}.
+They follow different informal processes to avoid encountering, or having to resolve conflicts; e.g. sending out emails to the rest of the team~\cite{deSouza2003breaking}, performing partial commits, or racing to finish changes~\cite{cataldo2008distributed_dev}.
 Unfortunately, these practices come with their own problems, and can make the resolution of a merge conflict even harder~\cite{Brun2011}. 
 
-Past work examined different mechanisms for proactive merge conflict detection~\cite{Brun2011,palantir,Guimaraes}, proposed tools for resolving merge conflicts~\cite{nishimura,mens2002state}, and discussed advantages of syntax- and semantic-aware merge tools~\cite{danny_refactorings,hunt2002extensible,apel_semistructured_2011}. 
+Past work examined different mechanisms for proactive merge conflict detection, including Crystal by~\cite{Brun2011}, Palant\'{i}r by~\cite{palantir} and WeCode by~\cite{Guimaraes}. 
+\cite{mens2002state} presents an excelent survey of the research done around merge conflicts. 
+\cite{nishimura} presents a new approach of fine grained history. 
+\cite{apel_semistructured_2011,apel_structured_2012-1} presents a new approach for merging code, by taking into consideration the syntactical structure of the code. 
+\cite{lippe_operation-based_1992} presents Operational Based Merging and \cite{danny2008tse} propose a implementation for Java, that is refactoring aware, MohaldoRef.
+Finally,~\cite{hunt2002extensible} presents a extensible and language aware merging techinique.
+
 However, several key questions remain unanswered: 
 How do developers approach and manage merge conflicts?
 How do developers perceive the difficulty of a merge conflict resolution? 
@@ -35,7 +41,7 @@ We use two surveys to split the topics into manageable lengths and reduce fatigu
 The surveys sampled 102 and 162 developers (264 developers in total).
 For both surveys, the majority of our participants had 6 or more years of software development experience, and reported facing merge conflicts a few times a week.
 
-To understand the effects and implications of software developers' processes and strategies, we answer the following research questions:
+To understand the effects an(d implications of software developers' processes and strategies, we answer the following research questions:
 
 \begin{itemize}[label=$\bullet$]
 \item \textbf{RQ1:} How do software developers manage merge conflicts?
