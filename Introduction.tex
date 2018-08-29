@@ -14,10 +14,16 @@ The resolution process can be tedious and can cause delays as developers figure 
 Poorly-performed merge conflict resolutions have been known to cause integration errors~\cite{bird-branches-conflict}, workflow disruptions, and jeopardize project efficiency and introduce delays~\cite{estler2014awareness}. 
 
 Developers are aware of the problems posed by merge conflict resolutions.
-They follow different informal processes to avoid encountering, or having to resolve conflicts; e.g. sending out emails to the rest of the team, performing partial commits, or racing to finish changes~\cite{deSouza2003breaking,cataldo2008distributed_dev}.
+They follow different informal processes to avoid encountering, or having to resolve conflicts; e.g. sending out emails to the rest of the team~\cite{deSouza2003breaking}, performing partial commits, or racing to finish changes~\cite{cataldo2008distributed_dev}.
 Unfortunately, these practices come with their own problems, and can make the resolution of a merge conflict even harder~\cite{Brun2011}. 
 
-Past work examined different mechanisms for proactive merge conflict detection~\cite{Brun2011,palantir,Guimaraes}, proposed tools for resolving merge conflicts~\cite{nishimura,mens2002state}, and discussed advantages of syntax- and semantic-aware merge tools~\cite{danny_refactorings,hunt2002extensible,apel_semistructured_2011}. 
+Past work examined different mechanisms for proactive merge conflict detection, including Crystal for preemptive merging~\cite{Brun2011}, Palant\'{i}r for awareness of parallel changes~\cite{palantir} and WeCode for continuous merging~\cite{Guimaraes}.
+Mens presented a survey of merge conflict resolution techniques examined up to 2002~\cite{mens2002state}.
+Nishimura and Maruyama \cite{nishimura} used fine-grained edit history to localize potential conflicts.
+Apel et al.~\cite{apel_semistructured_2011,apel_structured_2012-1} presented an approach for merging code, by taking into consideration the syntactical structure of the code.
+Lippe and van Oosterom~\cite{lippe_operation-based_1992} presented Operational Based Merging, and Dig et al.~\cite{danny2008tse} proposed a refactoring-aware implementation for Java, called MohaldoRef.
+Finally, Hunt and Tichy~\cite{hunt2002extensible} presented an extensible language-aware merging technique that uses both language structure and semantics for improved results.
+
 However, several key questions remain unanswered: 
 How do developers approach and manage merge conflicts?
 How do developers perceive the difficulty of a merge conflict resolution? 
@@ -25,7 +31,7 @@ Do the current tools support developers' merge conflict resolution needs?
 Without such knowledge, tool builders might be building on wrong assumptions and researchers might miss opportunities for improving the state of the art.
 
 To answer these questions, we talked directly to developers.
-This is crucial to understanding problems in the context in which they occur~\cite{fritz2010using, sillito2006questions, ko2007information}.
+This step is crucial to understanding problems in the context in which they occur; which is highlighted as pressing concern in software engineering~\cite{fritz2010using, sillito2006questions, ko2007information}.
 We interviewed 10 software developers from 7 organizations about their experiences and perceptions of merge conflicts. % in the software development process.
 Our participants had a median of 5 years of software development experience, and work on a mix of both small-scale (less than 10 contributors) and large-scale projects (greater than 1000 contributors).
 These interviews helped us understand how developers approach and manage merge conflicts, and their unmet needs within their processes and tools.
@@ -71,7 +77,7 @@ Overall, we make the following contributions.
 %\item We present actionable implications that researchers, tool builders, and practitioners can build upon.
 \end{enumerate}
 
-This article extends the work presented at ICSME in 2017~\cite{mckee2017software} by: 
-(1) providing a model of developer's processes for managing merge conflicts; 
+This article extends the work presented at ICSME 2017~\cite{mckee2017software}:
+(1) by providing a model of developer's processes for managing merge conflicts; 
 (2) conducting an additional \emph{Processes Survey} for validating our model and examining developers' strategies, and; 
 (3) extending the \emph{Barriers Survey} results by further analysis based on our model. 

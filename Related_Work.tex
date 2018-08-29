@@ -2,9 +2,11 @@
 
 \section{Related Work}\label{related_work}
 
+Merge conflicts have been examined different lenses by researchers. We present a brief summary of those related works, grouped by topics relevant to this article.
+
 \subsection{Collaboration}
 
-Gousios et al. \cite{integrator_perspective} conduct a study in which they ask integrators to describe difficulties in maintaining their projects and code contributions. 
+Gousios et al.~\cite{integrator_perspective} conduct a study in which they ask integrators to describe difficulties in maintaining their projects and code contributions. 
 They showed that integrators have problems with their tools, have trouble with non-atomic changesets, and rank \textit{git knowledge} in the top 30\% of their list of biggest challenges. 
 Gousios et al.~\cite{gousios2016work} additionally conducted a study into the challenges of the pull-based model from the perspective of contributors. 
 They found that most challenges relate to code contribution, the tools and model used to contribute, and the social aspects of contributing (specifically highlighting merge conflicts).
@@ -41,7 +43,8 @@ Therefore, merging is done at a textual level, ignoring all structure that the f
 Several researchers have looked at ways to improve this status quo.
 
 Westfechtel~\cite{westfechtel_structure-oriented_1991} propose a merging technique that uses the structural (i.e. lexical) information of a language when performing a merge. However, such tools are language dependent and the required algorithms are expensive to run.
-Apel et al.~\cite{apel_structured_2012-1, apel_semistructured_2011} propose \emph{JDime}, which improves existing structured merging techniques by only using structural information when the unstructured (i.e. text only) merge has failed.
+Apel et al. propose \emph{JDime} which performs both structured~\cite{apel_structured_2012-1} and semi-structured merges~\cite{apel_semistructured_2011} merge techniques.
+Both approaches improve existing structured merging techniques by only using structural information when the unstructured (i.e. text only) merge has failed.
 Binkley et al.~\cite{binkley_program_1995} propose using call graph information to correctly merge different versions of the program.
 
 Lippe and van Oosterom~\cite{lippe_operation-based_1992} go a different way.
@@ -72,5 +75,5 @@ Guimara\~{e}s et al.~\cite{Guimaraes} propose \emph{WeCode}, which also merges i
 Servant et al.~\cite{servant_casi:_2010} proposes \emph{CASI}, that uses visualization to help developers detect conflict early.
 CASI shows all the program elements that are influenced by the changes made in the team, so that developers can coordinate more efficiently.
 
-Kasi and Sarma~\cite{kasi_cassandra:_2013} take a more proactive approach and propose a novel task scheduling approach that aims to minize the number of conflicts. 
+Kasi and Sarma~\cite{kasi_cassandra:_2013} take a more proactive approach and propose a novel task scheduling approach that aims to minimize the number of conflicts. 
 \emph{Cassandra} uses developer preferences, task and file dependencies to schedule tasks so that they are less likely to conflict.
