@@ -130,23 +130,22 @@ We find that the majority of tools used by developers for merge conflict monitor
 \caption{Merge Awareness Toolsets (Top 10) from Processes Survey (S1)}
 \label{s1_toolset}
 \centering
-\begin{tabularx}{\textwidth}{sl|cc|c}
+\begin{tabularx}{\textwidth}{Q{2.51cm}l|RQ{1.11cm}|RQ{1.12cm}|RZ{1cm}}
 \toprule
-% \textbf{Par.}\parnote{Par. = Total number of survey participants using each tool.}
-% \vspace*{-0.3\baselineskip}
+  \rowcolor[gray]{0.85}
   \parnoteclear % tabularx will otherwise add each note thrice
-  Tool\parnote{\textit{Processes Survey}~(S1) participants were allowed to provide multiple tools. 57 out of 102 participants (56\%) indicated the use of at least one merge awareness tool.} & Description & \% Proactive\parnote{Participants using this tool with a proactive strategy.} & \% Reactive\parnote{Participants using this tool with reactive strategy.} & \% Total\parnote{Total number of survey participants using each particular tool.}\\
+  Tool\parnote{\textit{Processes Survey}~(S1) participants were allowed to provide multiple tools. 57 out of 102 participants (56\%) indicated the use of at least one merge awareness tool.} & Description & \multicolumn{2}{c}{Proactive\parnote{\label{tool_responses}Participants using this tool with the proactive or reactive strategy (percentages).}} & \multicolumn{2}{c}{Reactive\parnoteref{tool_responses}} & \multicolumn{2}{c}{Total\parnote{Total number of survey participants using each particular tool.}}\\
 \midrule
-  Git & Version Control System & 13.3 & 40 & 53.3\\
-  GitHub & Project Hosting Site & 2.7 & 6.7 & 9.3\\
-  Email(unspecified) & Email Client or System & 2.7 & 5.3 & 8\\
-  SVN & Version Control System & 0 & 5.3 & 5.3\\
-  VCS (unspecified) & Version Control System & 2.7 & 2.7 & 5.3\\
-  Visual Studio & IDE & 1.3 & 2.7 & 4.0\\
-  PagerDuty & IT Incident Manag. Sys. & 0 & 4.0 & 4.0\\
-  GitLab & Project Hosting Site & 2.7 & 1.3 & 4.0\\
-  Jenkins & Continuous Integration & 0 & 4.0 & 4.0\\
-  Team Foundation Server & Version Control System & 1.3 & 1.3 & 2.7\\
+  Git & Version Control System & 10 & (9.8\%) & 30 & (29.4\%) & 40 & (39.2\%)\\
+  \rowcolor[gray]{0.95}GitHub & Project Hosting Site & 2 & (2.0\%) & 5 & (4.9\%) & 7 & (6.9\%)\\
+  Email (generic) & Email Client/System & 2 & (2.0\%) & 4 & (3.9\%) & 6 & (5.9\%)\\
+  \rowcolor[gray]{0.95}SVN\parnote{Subversion} & Version Control System & 0 & (0.0\%) & 4 & (3.9\%) & 4 & (3.9\%)\\
+  VCS (generic) & Version Control System & 2 & (2.0\%) & 2 & (2.0\%) & 4 & (3.9\%)\\
+  \rowcolor[gray]{0.95}Visual Studio & IDE & 1 & (1.0\%) & 2 & (2.0\%) & 3 & (2.9\%)\\
+  PagerDuty & IT Incident Mgmt. & 0 & (0.0\%) & 3 & (2.9\%) & 3 & (2.9\%)\\
+  \rowcolor[gray]{0.95}GitLab & Project Hosting Site & 2 & (2.0\%) & 1 & (1.0\%) & 3 & (2.9\%)\\
+  Jenkins & Continuous Integration & 0 & (0.0\%) & 3 & (2.9\%) & 3 & (2.9\%)\\
+  \rowcolor[gray]{0.95}TFS\parnote{Team Foundation Server} & Version Control System & 1 & (1.0\%) & 1 & (1.0\%) & 2 & (2.0\%)\\
 \bottomrule
 \end{tabularx}
 \parnotes
