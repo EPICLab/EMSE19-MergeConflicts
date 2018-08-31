@@ -16,6 +16,7 @@
 \usepackage{tabularx,booktabs,rotating,multirow,multicol}
 \usepackage{caption}
 \usepackage{color}
+\usepackage{colortbl}
 \usepackage[roman]{parnotes}
 \usepackage[many]{tcolorbox}
 \usepackage[symbol,para]{footmisc}
@@ -87,9 +88,18 @@
 
 \def\checkmark{\tikz\fill[scale=0.33](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
 
+% Left-alignments (L auto expands, Q allows manual width setting)
 \newcolumntype{L}{>{\hsize=.8\hsize\raggedright\arraybackslash}X}
-\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{Q}[1]{>{\hsize=.8\hsize\raggedright\arraybackslash}m{#1}}
+
+% Center-alignments (C auto expands, Z allows manual width setting)
 \newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{A}[1]{>{\centering\arraybackslash}m{#1}}
+
+% Right-alignments (R auto expands, A allows manual width setting)
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{Z}[1]{>{\raggedleft\arraybackslash}m{#1}}
+
 \newcommand\setrow[1]{\gdef\rowmac{#1}#1\ignorespaces}
 \newcommand\clearrow{\global\let\rowmac\relax}
 \clearrow
