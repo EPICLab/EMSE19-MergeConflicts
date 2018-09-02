@@ -43,7 +43,9 @@ These factors can be grouped into \textit{technical aspects} and \textit{experti
 Two of the top four factors refer to the perceptions about the complexity of merge conflicts (F1, F3), with the third factor being \textit{number of conflicting lines of code} (F4), which can be construed as a specific metric for the complexity of the conflict. 
 While developers mentioned complexity of the lines of code and the file, none mentioned using any metrics, such as cyclomatic complexity~\cite{fenton2000quantitative,mccabe1976complexity} or Function Point Analysis~\cite{garmus2001fpa,symons1988function}. 
 Instead, developers made educated guesses on the complexity of the code based on their own experience of either writing the code, or having worked with it. 
-Some of the simple-to-compute metrics, such as the \textit{number of conflicting lines of code} (F4), the \textit{number of files in the conflict} (F8), the \textit{atomicity of changesets in conflict} (F6), and the \textit{time to resolve a conflict} (F5) were mentioned. 
+Some of the simple-to-compute metrics, such as the \textit{number of conflicting lines of code} (F4), the \textit{number of files in the conflict} (F8), the \textit{atomicity of changesets in conflict} (F6), and the \textit{time to resolve a conflict} (F5) were mentioned.
+Research has shown~\cite{gil_correlation_2017} that the size of the code is the most important predictive feature for external factors (e.g. bugs) of all proposed complexity measures.
+This suggests that it might be enough for developers to rely on it when assesing the complexity of the (conflicting) code.
 The only factor where static analysis tools can help was in identifying the \textit{dependencies of conflicting code} (F7).
 This indicates that understanding the complexity of the conflicting code is important, but developers do not use the metrics that have been proposed by research.
 While some of the simple proxies for complexity are used, developers primarily rely on their own judgement of the complexity of a conflict.
