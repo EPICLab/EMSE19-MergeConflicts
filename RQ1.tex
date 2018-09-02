@@ -1,75 +1,11 @@
 %!TEX root = main.tex
-
-\subsection{\textbf{RQ1:} Ho do software developers manage merge conflicts?}\label{RQ1}
-
-\boldif{Results from interviews indicated that a common model of operating with merge conflicts exists.}
-To understand how developers manage merge conflicts, we asked interview participants to describe their current processes for handling merge conflict.
-
-\boldif{\textit{Add anecdotal quotes and descriptions from interviews to highlight these observations.}}
-Participants talked about different steps that they follow, including using tools that alert them to potential or current merge conflicts, processes for analyzing and understanding conflicting code prior to implementing a resolution, and the use of tools for validating that their resolution worked.
-As an example, P3 said:
-\begin{quoting}
-\textit{``Part of my job on the integration team requires that I check for bad regressions. I use scripts to track patches as they're being backported, so I know when and where to look if [a patch] introduces a conflict. [\ldots] And once I've fixed [the conflict], I try to compare with the previous version to make sure [the code] works in a similar way.''}
-\end{quoting}
-
-\boldif{Provide descriptions that link the stages of Merge Conflict model to this quote. Use it to drive description of simplified model description paragraph}
-
-\boldif{Based on these anecdotal observations, we construct an initial model of the processes that developers employ when working with merge conflicts, see Fig.~\ref{model}.}
-Our interview and survey results suggest that developers follow a series of phases through which they manage the life-cycle of individual merge conflicts.
-We construct a model of the developer processes for managing merge conflicts and examine each phase in detail.
-Figure~\ref{model} provides an illustration of this model. 
-It consists of four phases: \emph{awareness, planning, resolution,} and \emph{evaluation.}
-
-\boldif{Discuss the fact that no other studies have shown that a model exists for merge conflicts}
-
-\begin{figure}[!htbp]
-\centering
-\fbox{\includegraphics[width=0.90\textwidth,keepaspectratio]{imgs/MergeConflictModel}}
-\caption{Model of Developer Processes for Managing Merge Conflicts. Developers alternate between \textit{clean} and \textit{conflicting} states of code. Beginning from (1)~\textit{development}, developers maintain (2)~\textit{awareness} of conflicts within the codebase in different ways. Once aware, developers begin (3)~\textit{planning} for a (4)~\textit{resolution} to fix the conflict. And finally, developers (5)~\textit{evaluate} the effectiveness of their deployed resolutions (returning to \emph{planning} if the resolution failed).\vspace*{-0.3\baselineskip}}
-\label{model}
-\end{figure}
-
-\boldif{Awareness is how developers become aware}
-First, the \emph{awareness} phase consists of the actions developers take to become aware of merge conflicts.
-This could be passive, as the developer will become aware of a merge conflict when attempting to merge changes or perform a pull.
-At the other end of the spectrum are developers who \emph{proactively} monitor for merge conflicts as they write code.
-They are actively looking for changes that might be problematic, either manually or through the use of specialized tools.
-
-\boldif{Planning is when developers plan their future actions}
-Second, the \emph{planning} phase occurs after the developer has become aware that a conflict has occurred, and they are about to tackle the conflict.
-This includes the decision of when they will try and resolve the conflict.
-Some developers might try and resolve it immediately, while others might postpone the resolution.
-Some might change their strategy depending on the conflict, incoming deadlines, or availability of resources.
-This also includes other actions, such as if they are going to tackle the conflict alone, or collaborate with other developers knowledgeable in the area of conflict~\cite{CostaSarma}.
-
-\boldif{Resolution is the action of implementing a resolution. Mundane and well understood, so we focus on the other three.}
-Third, the \emph{resolution} phase represents the implementation of the planned resolution.
-Several tools exist that help in this phase~\cite{nishimura,mens2002state,Brun2011}.
-Here we focus on the difficulties that developers face during these resolution implementations (see Section~\ref{RQ2}).
-
-\boldif{Evaluation is how developers check that their solution is correct}
-Finally, after the conflict has been resolved, developers enter in the \emph{evaluation} phase.
-In this phase, the developer has to evaluate their resolution before considering the conflict as resolved.
-This is to ensure the correctness of the resulting code.
-Possible actions during this stage includes compiling the source code.
-Developers wanting more guarantees can go a step further and run the tests.
-Finally, some groups have policies such as code reviews that need to be performed on the merge conflict resolution.
- 
-\boldif{To explore and validate this model, we asked developers to reflect upon how they become aware of merge conflicts, how they plan for merge conflict resolutions, and how they evaluate their resolutions in the \textit{Processes Survey}~(S1).}
-In order to explore and validate this model, and our assumptions, we conducted the \emph{Processes Survey}~(S1).
-Our aim in this survey was to understand how developers become aware of merge conflicts (what steps they take, what tools they use, etc.).
-Also, we wanted to investigate their strategies for dealing with merge conflicts and how they decide whether the resolution has addressed all of their concerns.
-
-\boldif{We present the results to these research questions in Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c}.}
-Sections~\ref{RQ1a}, \ref{RQ1b}, and \ref{RQ1c} presents the results to these research questions.
-
-\subsubsection{\textbf{RQ1a:} How do software developers become \textbf{aware} of merge conflicts?}\label{RQ1a}
+\section{How do software developers become \textbf{aware} of merge conflicts? (RQ1)}\label{RQ1}
 
 \boldif{Developers use 2 methods for becoming aware of merge conflicts: proactive and reactive.}
-From the \textit{Processes Survey}~(S1) we found that 29.41\% of participants do not actively monitor for merge conflicts during their development activities.
+From the \textit{Processes Survey} we found that 29.41\% of participants do not actively monitor for merge conflicts during their development activities.
 For the rest of the developers who answered with \emph{yes} or \emph{sometimes} (61.77\%), we identified 61 different tools mentioned in 126 instances.
 
-\nsubsection{Reactive and Proactive Monitoring for Merge Conflicts}
+\subsection{Reactive and Proactive Monitoring for Merge Conflicts}
 
 \boldif{Reactive detection only notifies developers that a merge conflict \emph{has happened}. Developers use it to minimize the size/complexity of the conflict, or it's impact on the team.}
 Reactive monitoring for merge conflicts notifies the developer that a conflict has already occurred.
@@ -106,7 +42,7 @@ To conclude, only a third of developers actively monitor for merge conflicts.
 When developers are caught unaware of the conflict, they are more likely to be interrupted by it.
 This can lead to more frustration, as they do not have any warning of when the conflict will occur and whether they have the time to deal with it immediately.
 
-\nsubsection{Tools for Monitoring for Merge Conflicts}
+\subsection{Tools for Monitoring for Merge Conflicts}
 
 \boldif{The tools that developers use allow for only a \emph{reactive} approach.}
 Examining the tools used by participants with reactive processes, we find that 87.72\% of these participants rely on version control systems (e.g. Git, SVN, TFS, CVS), and 21.05\% use continuous integration systems (e.g. Jenkins, Travis CI, TeamCity).
@@ -127,14 +63,14 @@ We find that the majority of tools used by developers for merge conflict monitor
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.3}
-\caption{Merge Awareness Toolsets (Top 10) from Processes Survey (S1)}
+\caption{Merge Awareness Toolsets (Top 10) from \textit{Processes Survey}}
 \label{s1_toolset}
 \centering
 \begin{tabularx}{\textwidth}{Q{2.51cm}l|RQ{1.11cm}RQ{1.12cm}|RZ{1cm}}
 \toprule
   \rowcolor[gray]{0.85}
   \parnoteclear % tabularx will otherwise add each note thrice
-  Tool\parnote{\textit{Processes Survey}~(S1) participants were allowed to provide multiple tools. 57 out of 102 participants (56\%) indicated the use of at least one merge awareness tool.} & Description & \multicolumn{2}{c}{Proactive\parnote{\label{tool_responses}Participants using this tool with the proactive or reactive strategy (percentages).}} & \multicolumn{2}{c}{Reactive\parnoteref{tool_responses}} & \multicolumn{2}{|c}{Total\parnote{Total number of survey participants using each particular tool.}}\\
+  Tool\parnote{\textit{Processes Survey} participants were allowed to provide multiple tools. 57 out of 102 participants (56\%) indicated the use of at least one merge awareness tool.} & Description & \multicolumn{2}{c}{Proactive\parnote{\label{tool_responses}Participants using this tool with the proactive or reactive strategy (percentages).}} & \multicolumn{2}{c}{Reactive\parnoteref{tool_responses}} & \multicolumn{2}{|c}{Total\parnote{Total number of survey participants using each particular tool.}}\\
 \midrule
   Git & Version Control System & 10 & (9.8\%) & 30 & (29.4\%) & 40 & (39.2\%)\\
   \rowcolor[gray]{0.95}GitHub & Project Hosting Site & 2 & (2.0\%) & 5 & (4.9\%) & 7 & (6.9\%)\\
@@ -164,15 +100,15 @@ While this technique might be effective in small teams, it scales very poorly an
 Finally, our results point to the conclusion that developers are not aware of existing proactive tools (e.g. Palant\'{i}r~\cite{sarma_palantir:_2003}, Crystal~\cite{Brun2011}), and are therefore not leveraging those tools to actively monitor for merge conflicts.
 However, developers are trying to mitigate the severity of merge conflicts by attempting to resolve them as soon as they become aware.
 
-\subsubsection{\textbf{RQ1b:} How do software developers \textbf{plan} for merge conflict resolutions?}\label{RQ1b}
+\section{How do software developers \textbf{plan} for merge conflict resolutions? (RQ2)}\label{RQ2}
 
 \boldif{Developers use different strategies for dealing with MC}
 When encountering a merge conflict, developers follow different strategies.
 They can either: (a) defer the merge conflict to a later date, or; (b) solve the conflict.
-In the \textit{Processes Survey}~(S1) we sought an understanding of these strategies and when developers use them.
-The tools that developers use when implementing merge conflict resolutions are discussed in Section~\ref{RQ3}.
+In the \textit{Processes Survey} we sought an understanding of these strategies and when developers use them.
+The tools that developers use when implementing merge conflict resolutions are discussed in Section~\ref{RQ5}.
 
-\nsubsection{Deferring Responses to Merge Conflicts}
+\subsection{Deferring Responses to Merge Conflicts}
 
 \boldif{25\% of developers consider all conflicts as being equally urgent.}
 One quarter of our participants consider all merge conflicts to be equally urgent.
@@ -199,7 +135,7 @@ Only 10.11\% of participants indicated that code ownership \textit{never} factor
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
-\caption{Factors in Deferring Responses to Merge Conflicts from Processes Survey (S1)}
+\caption{Factors in Deferring Responses to Merge Conflicts from \textit{Processes Survey}}
 \label{s1_deferring_response}
 \centering
 \begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
@@ -261,7 +197,7 @@ Such as in the case of S1--102, who said:
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
-\caption{Effects of Deferring Response to a Merge Conflict from Processes Survey (S1)}
+\caption{Effects of Deferring Response to a Merge Conflict from \textit{Processes Survey}}
 \label{effects-deferral}
 \centering
 \begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
@@ -288,16 +224,16 @@ The results of deferring can be disastrous.
 However, it is difficult to assess a deferral to determine if it will turn a single merge conflict into a larger problem.
 Tools could provide such information; responding to developers with enough information to make accurate and informed decisions in order to prevent further issues down the line.
 
-\nsubsection{Resolution Attempts \& Strategies}
+\subsection{Resolution Attempts \& Strategies}
 
 \boldif{If they have not deferred, they need to understand the (changes in the) conflict}
 When developers don't defer their response, they have to resolve the conflicts now.
 They primarily approach merge conflicts by \textit{examining the merge} (U1), \textit{analyzing or manipulating the code} (U2), or \textit{examining the code} (U3).
-Table~\ref{s1_understanding_code} lists all six strategies described by the \textit{Processes Survey}~(S1) participants.
+Table~\ref{s1_understanding_code} lists all six strategies described by the \textit{Processes Survey} participants.
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
-\caption{Initial Strategies for Understanding Conflicting Code from Processes Survey (S1)}
+\caption{Initial Strategies for Understanding Conflicting Code from \textit{Processes Survey}}
 \label{s1_understanding_code}
 \centering
 \begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | >{\rowmac}c | >{\rowmac}r <{\clearrow}}
@@ -342,20 +278,20 @@ To conclude, developers reported that expertise in the area of the conflicting c
 Additionally, developers also indicate that increases in perceived complexity of merge conflicts is strongly linked with the degree of difficulty in resolving them.
 Therefore, developers' perceptions and intuition are relied on throughout the implementation of their resolution.
 
-\subsubsection{\textbf{RQ1c}: How do software developers \textbf{evaluate} merge conflict resolutions?}\label{RQ1c}
+\section{How do software developers \textbf{evaluate} merge conflict resolutions? (RQ3)}\label{RQ3}
 
 After implementing a merge conflict resolution, software developers must evaluate whether their resolution has returned the codebase to a clean state.
 We asked developers to select the conditions (from interviews) that they use to determine whether their resolution has successfully addressed the merge conflict.
 
-\nsubsection{Success Conditions for Merge Conflict Resolutions}
+\subsection{Success Conditions for Merge Conflict Resolutions}
 
 In the \textit{Exploratory Interviews}, developers described six common conditions they considered important in their evaluation.
-We asked \textit{Processes Survey}~(S1) participants to select from this list of conditions, including an \textit{Other} option to elicit additional conditions.
+We asked \textit{Processes Survey} participants to select from this list of conditions, including an \textit{Other} option to elicit additional conditions.
 Only two developers selected that condition, indicating ``performance tests showing similar performance'' and ``client approval.''
 We received 324 selections from 89 participants and present the aggregated results in Table~\ref{conditionsSuccess}.
 
 \begin{table}[!htbp]
-\caption{Conditions of Successful Merge Conflict Resolutions from Processes Survey (S1)\textsuperscript{i}}
+\caption{Conditions of Successful Merge Conflict Resolutions from \textit{Processes Survey}\textsuperscript{i}}
 \label{conditionsSuccess}
 \centering
 \begin{tabularx}{\textwidth}{@{}lr|*{7}{C}c@{}}
@@ -404,10 +340,10 @@ Interestingly, only a minority of developers (37.25\%) mentioned code reviews as
 %TODO add citation for the code review part
 While code reviews are an effective way to detect bugs introduced by changes in the codebase, the practice appears to have not been adopted for code changed during merge conflict resolutions.
 
-\nsubsection{Merge Resolution Evaluation Toolsets}
+\subsection{Merge Resolution Evaluation Toolsets}
 
 From the \textit{Exploratory Interviews}, we identified five categories of software development tools that developers mention in relation to merge conflicts.
-In the \textit{Processes Survey}~(S1), we asked the developers to identify the tools they use when evaluating a merge conflict resolution.
+In the \textit{Processes Survey}, we asked the developers to identify the tools they use when evaluating a merge conflict resolution.
 We received 204 selections from 89 participants.
 The aggregated results are presented in Table~\ref{resolution-evaluation-tools}, ranked according to the percentage of participants that selected each toolset.
 
@@ -455,12 +391,12 @@ We notice that there is a lack of an automated process.
 Without it the developer might, willingly or unwillingly, skip steps.
 Also, this lack of a comprehensive toolset might hamper new developers in their efforts to successfully resolve merge conflicts.
 
-\nsubsection{Backup Strategies}
+\subsection{Backup Strategies}
 
 Merge conflict resolutions are not always successful.
 When they fail, developers must alter their patch and potentially switch strategies in order to successfully resolve the conflict.
 
-To understand the prevalence of failed conflict resolutions, we asked \textit{Processes Survey}~(S1) participants to indicate the frequency in which their first attempt at resolving a merge conflict fails (see Figure~\ref{fig:first-attempt-failure}).
+To understand the prevalence of failed conflict resolutions, we asked \textit{Processes Survey} participants to indicate the frequency in which their first attempt at resolving a merge conflict fails (see Figure~\ref{fig:first-attempt-failure}).
 The most common response was \textit{somewhat infrequently} (mean: $3.49$ on a 5-point Likert-type scale).
 This suggests that first attempts typically succeed.
 However, this also shows that 78.7\% of participants (70 out of 89) occasionally fail at their first attempt and must make additional attempts to resolve a merge conflict.
@@ -468,7 +404,7 @@ However, this also shows that 78.7\% of participants (70 out of 89) occasionally
 \begin{figure}
 	\centering
 	\fbox{\includegraphics[width=0.95\textwidth,keepaspectratio]{FirstAttemptFailure}}
-	\caption{Frequency of Failures in First Attempts at Merge Conflict Resolution. Scale: 1 is \textit{Very frequently} and 5 is \textit{very infrequently}. 89 out of 102 participants (87.26\%) indicated a frequency in the \textit{Processes Survey}~(S1).\vspace*{-0.3\baselineskip}}
+	\caption{Frequency of Failures in First Attempts at Merge Conflict Resolution. Scale: 1 is \textit{Very frequently} and 5 is \textit{very infrequently}. 89 out of 102 participants (87.26\%) indicated a frequency in the \textit{Processes Survey}.\vspace*{-0.3\baselineskip}}
 	\label{fig:first-attempt-failure}
 \end{figure}
 
@@ -479,7 +415,7 @@ Developers' backup strategies include \textit{take it offline} (B1), \textit{col
 Since \textit{no backup strategy} (B5) is not a strategy in and of itself, we focus on strategies B1--B4 instead.
 
 The \textit{take it offline} (B1) strategy involves moving conflicting code away from shared branches or code repositories, and working locally to resolve the conflict without disrupting other developers.
-The antithesis of this strategy is \textit{collaborating} (S2), where developers seek out other developers that are more knowledgeable about the area of conflicting code.
+The antithesis of this strategy is \textit{collaborating} (B2), where developers seek out other developers that are more knowledgeable about the area of conflicting code.
 The B1 and B2 strategies contrast each other, and show that developers reserve more costly strategies (in terms of time, effort, and coordination) as backups to their primary resolution strategies.
 The most common backup strategies, are in a way, opposite of the primary strategies.
 
@@ -493,7 +429,7 @@ This \textit{Nuclear Option} is clearly a time-consuming strategy for developers
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
-\caption{Backup Strategies for Resolving Merge Conflicts from Processes Survey (S1)}
+\caption{Backup Strategies for Resolving Merge Conflicts from \textit{Processes Survey}}
 \label{backup-strategies}
 \centering
 \begin{tabularx}{\textwidth}{c|l|c|r}

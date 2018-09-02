@@ -1,18 +1,18 @@
 %!TEX root = main.tex
 
-\subsection{\textbf{RQ3:} How well do tools support developer's needs for managing merge conflicts?}\label{RQ3}
+\section{How well do tools support developer's needs for managing merge conflicts? (RQ5)}\label{RQ5}
 
 Development tools need to be easy to use and provide contextualized, pertinent information in a manner that is easy to understand.
 To investigate how well current tools satisfy the needs of developers, we asked interview participants open-ended questions about how they resolve merge conflicts.
 We also ask about improvements that would be most valuable to them.
 
-We framed the \textit{Barriers Survey}~(S2) questions to validate the improvement needs expressed in our interviews, and ranked those six needs according to mean score.
+We framed the \textit{Barriers Survey} questions to validate the improvement needs expressed in our interviews, and ranked those six needs according to mean score.
 Table~\ref{s2_tool_improvements} presents the needs from the survey responses ordered by their mean scores.
 We received 119 responses using a 5-point Likert-type scale to indicate the usefulness of each type of tool improvement (1 being \textit{Not Useful}, 3 being \textit{Moderately Useful}, and 5 being \textit{Essential}).
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
-\caption{Desired Improvements to Merge Toolsets from Barriers Survey (S2)}
+\caption{Desired Improvements to Merge Toolsets from \textit{Barriers Survey}}
 \label{s2_tool_improvements}
 \centering
 \begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | *1{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
@@ -34,7 +34,7 @@ We received 119 responses using a 5-point Likert-type scale to indicate the usef
 Our results indicate that developers use a wide range of tools, with many directly using the Git command line interface. 
 Our interview participants mentioned six different dimensions along which they would like improvements to tool support.
 
-In addition, we also asked \textit{Barriers Survey}~(S2) participants which tools they use during conflict resolution.
+In addition, we also asked \textit{Barriers Survey} participants which tools they use during conflict resolution.
 We identified 105 different tools from the 115 responses. 
 Some mentioned generic responses such as \textit{``text editor,''} for which we create a separate category.
 %We group these generic responses together where semantically similar meanings exist. 
@@ -42,7 +42,7 @@ Table~\ref{s2_toolset} lists the top 10 most common tools used by participants t
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.3}
-\caption{Merge Resolution Toolsets (Top 10) from Barriers Survey (S2)}
+\caption{Merge Resolution Toolsets (Top 10) from \textit{Barriers Survey}}
 \label{s2_toolset}
 \centering
 \begin{tabularx}{\textwidth}{ll|c}
@@ -72,10 +72,10 @@ Along with the list of toolsets used for evaluating whether a merge resolution w
 
 We next discuss the top four improvements rated by survey participants. These are the responses that have a mean value higher than $3.00$.
 
-\nsubsection{Better Usability}
+\subsection{Better Usability}
 %The right toolset is essential for efficiently developing solutions and resolving conflicts.
 Usability is an important factor that determines whether a toolset supports or hinders the developer's workflow.
-Our \textit{Barriers Survey}~(S2) results indicate that \textit{better usability} (I1) is the most desired improvement of toolsets used for conflict resolution. 
+Our \textit{Barriers Survey} results indicate that \textit{better usability} (I1) is the most desired improvement of toolsets used for conflict resolution. 
 %Based on the results of the survey, we found that practitioners rate usability as the most desired improvement for their current merge tools (I1).
 While usability of a particular tool is important, the usability concerns become even more pertinent when they span multiple tools that are similar and must operate in sync with each other.
 Survey results indicate that participants use an average of 2.5 tools, and as many as 7 tools, to resolve merge conflicts.
@@ -91,7 +91,7 @@ Gerald Weinberg highlighted that context switching arising from toolset fragment
 
 %This frustration is understandable for practitioners whose workflows frequently get interrupted by tool switches. Psychology studies~\cite{Meiran2000}\cite{gopher2000switching} have found that task switching comes with costs in performance and mental fatigue, and, in 1992, Gerald Weinberg highlighted the problem of toolset fragmentation within engineering teams~\cite{Weinberg1992}. 
 
-\nsubsection{Better Exploration of Project History}
+\subsection{Better Exploration of Project History}
 Developers have been known to use historical data to understand code evolution and development processes~\cite{Mihai_lenses}.
 Version control and bug tracking systems contain a huge amount of meta-information about the evolution of code and development processes.
 However, it is not easy to find the right bit of information in these large systems. 
@@ -117,7 +117,7 @@ We are not the first to recognize the gap in tool support provided for analyzing
 It appears that practical applications of history exploration are still beyond the reach of developers. 
 One of the reasons for this might be the simple set of text editors, and toolsets, that our study participants seem to prefer.
 
-\nsubsection{Better Filtering of Less-Relevant Information}\label{better_filtering}
+\subsection{Better Filtering of Less-Relevant Information}\label{better_filtering}
 Tools that routinely handle large or complex datasets require filtering in order to efficiently locate desired pieces of information.
 For example, when there are several commits in a pull request and multiple levels of code review at the line level.
 It is difficult to extract the key issue in the pull request, which can get lost in the sea of low level details. Similarly, if there are multiple commits in a pull request or branch, it is hard to extract the right information.
@@ -152,7 +152,7 @@ While improvements in history exploration (I3) will make project metadata more a
 %
 %The gap in support for analyzing development history among practitioner toolsets has previously been recognized by researchers~\cite{sun2015informationhistory, guo2016cold-start, yan2014miningcontracts}, however practical application of these efforts appear to have not yet reached practitioners.
 
-\nsubsection{Better Graphical Presentation of Information}
+\subsection{Better Graphical Presentation of Information}
 The usefulness of information is helped or hindered by the way in which it is presented to users.
 In our survey results, we found that \textit{better graphical presentation of information} (I4) was ranked the fourth highest improvement needed (mean: 3.14).
 
@@ -160,7 +160,7 @@ In our interviews, several developers reported experiencing issues with inconsis
 The cost of context switching in software development is well-known to researchers~\cite{czerwinski2004taskswitching, li2007cost_of_context_switch, blackwell2002attentioninvestment, convertino2003dualview}, and our results indicate that switching between different terminology and information presentation styles can also be a problem.
 There is a need for tools that share commonality in both terminology and presentation. 
 
-\nsubsection{Tool Mistrust/Transparency}\label{tool_trust}
+\subsection{Tool Mistrust/Transparency}\label{tool_trust}
 Most merge tools attempt to resolve conflicts using a variety of algorithms, but revert to manual resolution when these algorithms fail.
 Several interview participants indicated that they mistrust merge tools when they obscure the steps and rationale for particular results when resolving merge conflicts.
 The opaque nature of history exploration tools was also found to be a source of developers' overall mistrust of their toolsets.
@@ -172,11 +172,11 @@ P4 commented:
 \begin{figure}
 	\centering
 	\fbox{\includegraphics[width=0.95\textwidth,keepaspectratio]{s2_tool_trust}}
-	\caption{Degree of Trust for Merging, History Exploration, and Conflict Resolution Tools. Scale: 1 is \textit{completely} and 5 is \textit{not at all}. 121 out of 162 participants (74.69\%) provided a response to this question in the \textit{Barriers Survey}~(S2).\vspace*{-0.3\baselineskip}}
+	\caption{Degree of Trust for Merging, History Exploration, and Conflict Resolution Tools. Scale: 1 is \textit{completely} and 5 is \textit{not at all}. 121 out of 162 participants (74.69\%) provided a response to this question in the \textit{Barriers Survey}.\vspace*{-0.3\baselineskip}}
 	\label{fig:tool_trust}
 \end{figure}
 
-Based upon this theme of mistrust, we asked \textit{Barriers Survey}~(S2) participants to rate the degree to which they trust their merging, history exploration, and conflict resolution tools.
+Based upon this theme of mistrust, we asked \textit{Barriers Survey} participants to rate the degree to which they trust their merging, history exploration, and conflict resolution tools.
 We received 121 responses to this question, with a mean score of 3.66, placing the most common responses between \textit{a moderate amount} and \textit{a lot} of trust (Figure~\ref{fig:tool_trust}).
 Assuming that responses of \textit{a moderate amount}, \textit{a little}, or \textit{not at all} indicate some degree of mistrust, we find that 42.15\% of developers experience some gap in toolset trust.
 
@@ -184,14 +184,14 @@ However, the severity of toolset mistrust is not as significant as our interview
 Only 8.26\% of developers indicated that they trust their toolset \textit{a little} or \textit{not at all} (10 out of 121 responses).
 As the results of the survey were counter to our interview results, we looked further. We found that: (1) participants reported on the trust levels of the tools that they regularly use, and (2) a large number of participants reported that they had discontinued using toolsets when they ran into errors. This indicates that if participants had reported their trust level of these discontinued tools the results would have been lower.
 
-\nsubsection{Perceptions of Tool Effectiveness}\label{tool_effectiveness}
+\subsection{Perceptions of Tool Effectiveness}\label{tool_effectiveness}
 The perceived size and complexity of merge conflicts affect the way in which developers plan, allocate, and enact resolutions.
 To understand the degree to which these two factors impact developers' perceptions about the effectiveness of their toolsets, we asked survey participants to rate their toolset across four different merge conflict archetypes: (A1) \textit{simple, small merge conflicts}, (A2) \textit{simple, large merge conflicts}, (A3) \textit{complex, small merge conflicts}, and (A4) \textit{complex, large merge conflicts}.
 
 \begin{figure*}[!htbp]
 \centering
 \includegraphics[width=1.01\textwidth]{ConflictComplexityVsSize.pdf}\vspace*{-1\baselineskip}
-\caption{Effectiveness of developers' toolsets in supporting perceived size and complexity of merge conflicts. Dot values indicate the number of \textit{Barriers Survey}~(S2) responses for effectiveness of a particular merge conflict size and complexity, and the vertical height of each segment indicating the number of responses at each degree of effectiveness.\vspace*{-0.3\baselineskip}}
+\caption{Effectiveness of developers' toolsets in supporting perceived size and complexity of merge conflicts. Dot values indicate the number of \textit{Barriers Survey} responses for effectiveness of a particular merge conflict size and complexity, and the vertical height of each segment indicating the number of responses at each degree of effectiveness.\vspace*{-0.3\baselineskip}}
 \label{size_vs_complexity}
 \end{figure*}
 

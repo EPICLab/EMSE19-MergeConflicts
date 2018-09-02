@@ -1,15 +1,15 @@
 %!TEX root = main.tex
 
 \vspace*{1.8\baselineskip}
-\subsection{\textbf{RQ2:} What difficulties do software developers experience when managing merge conflicts?}\label{RQ2}
+\section{What difficulties do software developers experience when managing merge conflicts? (RQ4)}\label{RQ4}
 
 To understand the difficulties software developers face when managing merge conflict, we asked interview participants to reflect on situations when they faced a merge conflict.
-Based on responses in the \textit{Exploratory Interviews}, we asked \textit{Barriers Survey}~(S2) participants to rate the resulting factors and needs.
+Based on responses in the \textit{Exploratory Interviews}, we asked \textit{Barriers Survey} participants to rate the resulting factors and needs.
 
-\subsubsection{Difficulty Factors}\label{difficulty-factors}
+\subsection{Difficulty Factors}\label{difficulty-factors}
 
 We identified nine factors that developers consider when approaching a conflict and attempting to determine its difficulty (see Table~\ref{s2_factors}).
-We asked \textit{Barrier Survey}~(S2) participants to rate how each of these nine factors affected their perceptions of difficulty when approaching a merge conflict.
+We asked \textit{Barrier Survey} participants to rate how each of these nine factors affected their perceptions of difficulty when approaching a merge conflict.
 
 We received 162 responses and present the aggregated results in Table~\ref{s2_factors}; ranked according to the mean score for each factor.
 Here, we discuss in detail the top 4 factors with a mean score greater than $3.00$.
@@ -17,7 +17,7 @@ These factors can be grouped into \textit{technical aspects} and \textit{experti
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
-\caption{Difficulty Factors of Merge Conflicts from Barriers Survey (S2)}
+\caption{Difficulty Factors of Merge Conflicts from \textit{Barriers Survey}}
 \label{s2_factors}
 \centering
 \begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | *1{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
@@ -39,7 +39,7 @@ These factors can be grouped into \textit{technical aspects} and \textit{experti
 \parnotes
 \end{table}
 
-\nsubsection{Technical Aspects}\label{artifact-based-factors}
+\subsection{Technical Aspects}\label{artifact-based-factors}
 Two of the top four factors refer to the perceptions about the complexity of merge conflicts (F1, F3), with the third factor being \textit{number of conflicting lines of code} (F4), which can be construed as a specific metric for the complexity of the conflict. 
 While developers mentioned complexity of the lines of code and the file, none mentioned using any metrics, such as cyclomatic complexity~\cite{fenton2000quantitative,mccabe1976complexity} or Function Point Analysis~\cite{garmus2001fpa,symons1988function}. 
 Instead, developers made educated guesses on the complexity of the code based on their own experience of either writing the code, or having worked with it. 
@@ -67,7 +67,7 @@ Instead, they use educated guesses and intuition based on familiarity with the c
 Therefore, we need metrics that can be easily calculated by unexperienced developers as they face a conflict. 
 %are human-aware and take into account the perceived difficulties of merge conflicts.
 
-\nsubsection{Expertise}\label{knowledge-based-factors}
+\subsection{Expertise}\label{knowledge-based-factors}
 
 Our findings show that the \textit{expertise in the area of conflicting code}~(F2) is one of the top factors in determining the difficulty of a merge conflict. 
 This reiterates the fact that developers rely on their own knowledge about the conflicting codebase when approaching a conflict. 
@@ -118,7 +118,7 @@ Our findings confirm the need for tools that identify appropriate experts~\cite{
 
 %\subsubsection{\textbf{Old RQ3:} What unmet needs impact the difficulty of merge conflict resolutions?}
 
-\subsubsection{Unmet Needs for Merge Conflict Resolutions}
+\subsection{Unmet Needs for Merge Conflict Resolutions}
 
 There can often be gaps in how developers perceive the difficulty of merge conflicts and the actual hurdles that they face when resolving these conflicts. 
 These gaps can then in turn affect how effective developers are at resolving the conflict.
@@ -129,7 +129,7 @@ We identified ten needs (see Table~\ref{s2_needs}), which range from needs about
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
-\caption{Developer Needs for Merge Conflict Resolutions from Barriers Survey (S2)}
+\caption{Developer Needs for Merge Conflict Resolutions from \textit{Barriers Survey}}
 \label{s2_needs}
 \centering
 \begin{tabularx}{\textwidth}{>{\rowmac}c | >{\rowmac}l | *1{>{\rowmac}c} | *2{>{\rowmac}c}<{\clearrow}}
@@ -152,7 +152,7 @@ We identified ten needs (see Table~\ref{s2_needs}), which range from needs about
 \parnotes
 \end{table}
 
-Using the results from the interview, we asked \textit{Barriers Survey}~(S2) participants to rate how much each of the ten needs affected their ability to resolve the merge conflicts.
+Using the results from the interview, we asked \textit{Barriers Survey} participants to rate how much each of the ten needs affected their ability to resolve the merge conflicts.
 We received 141 responses using a 5-point Likert-type scale indicating the the effect on resolution difficulty, with 1 being \textit{Not at all}, 3 being \textit{A moderate amount}, and 5 being \textit{A great deal.}
 Results of the survey are presented in Table~\ref{s2_needs}. 
 
@@ -160,7 +160,7 @@ All the unmet needs have a mean score of at least $3.03$ on the 5-point Likert-t
 We present and discuss in detail the top four unmet needs, plus additional observations regarding the other six unmet needs. 
 As with the factors in the previous section, all these needs also relate to \textit{technical aspects} (e.g., understanding the conflicting code) and their \textit{expertise} in resolving conflicts.
 
-\nsubsection{Technical Aspects}
+\subsection{Technical Aspects}
 Three needs among the top four relate to technical aspects of merge conflict resolution.
 The \textit{understandability of conflicting code} (N1) is ranked as the most important need, with both \textit{contextual information about the conflict} (N3) and \textit{the way in which tools present relevant information} (N4) ranking in the top four.
 
@@ -191,7 +191,7 @@ This is especially true in situations where the code base is old, and such infor
 \textit{``It's harder to merge code when you're merging in some legacy code... But if you're a young team, and everybody who wrote the code is still a part of the team, it's easier.''}
 \end{quoting}
 
-\nsubsection{Expertise}
+\subsection{Expertise}
 Knowledge is a key component of developers' needs when resolving merge conflicts.
 Along with general knowledge there is a need for expertise in the specific areas of code involved in a conflict.
 Developers recognize this need as having a sizable effect on their ability to resolve a merge conflict, and selected \textit{expertise in the area of conflicting code} (N2) as the second most important need.
