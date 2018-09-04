@@ -50,7 +50,7 @@ Both approaches improve existing structured merging techniques by only using str
 
 \citet{accioly_understanding_2018} used a semi-structured approach to understand the types of merge conflicts.
 Overall, they identified 9 conflict categories, depending on the syntactical elements that were conflicting.
-While their work does identify the types and frequencies of merge conflict, it doesn't address the resolution part.
+Their work identifies the types and frequencies of merge conflicts, however, it does not address the resolution process.
 
 \citet{lippe_operation-based_1992} go a different way.
 They propose a new merging technique, \emph{operation-based merging} that would replay the changes that were performed on the two branches, in the order in which they were performed.
@@ -76,7 +76,7 @@ This allows the tool to give more precise information to the developer.
 Crystal preemptively merges the branches in the background and will notify the developers of any conflicts that arise. 
 It detects both \emph{direct} conflicts (changes to the same line), and \emph{indirect} conflicts (changes to a different line that cause build or test failures).
 \citet{Guimaraes} propose \emph{WeCode}, which also merges in uncommitted code, in order to improve the time to detection of a merge conflict.
-Finally, \citet{estler2014awareness} presents a collaboration framework that integrates both fine grained changes and a real-time awareness system to prevent merge conflicts.
+Finally, \citet{estler_unifying_2013} presents a collaboration framework that integrates both fine grained changes and a real-time awareness system to prevent merge conflicts.
 
 \citet{servant_casi:_2010} proposes \emph{CASI}, that uses visualization to help developers detect conflict early.
 CASI shows all the program elements that are influenced by the changes made in the team, so that developers can coordinate more efficiently.
