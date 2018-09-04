@@ -160,26 +160,9 @@ Third, we asked questions related to planning and implementing merge conflict re
 Finally, we asked questions about evaluating the effectiveness of those merge conflict resolutions and the particular tools that are used throughout the processes of working with merge conflicts.
 
 \subsection{Data Analysis}\label{analysis}
-To ensure that our survey samples are representative of the larger developer population, we compare the demographics from the \textit{Processes Survey} and the \textit{Barriers Survey} with the results of the 2018 StackOverflow Developer Survey\footnote{\url{https://insights.stackoverflow.com/survey/2018}}.
 
-The 2018 StackOverflow Developer Survey was conducted on 101,592 software developers from 183 countries.
-This survey includes the number of years spent coding professionally by 77,903 participants.
-%, and is presented as totals for buckets of 0-2 years, 3-5 years, 6-8 years, 9-11 years, 12-14 years, 15-17 years, 18-20 years, 21-23 years, 24-26 years, 27-29 years, and 30 or more years.
-%For comparison purposes, we similarly grouped the results from the \textit{Processes Survey}~(S1) and the \textit{Barriers Survey}~(S2).
-Figure~\ref{populations} provides a graphical representation of the percentile distribution of professional programming experience among participants in the \textit{Processes Survey}, \textit{Barriers Survey}, and the 2018 StackOverflow Developer Survey.
-We see that our sample population has more experienced developers, and the trends match between all three samples.
-
-\begin{figure}[!htbp]
-\centering
-\fbox{\includegraphics[width=0.98\textwidth,keepaspectratio]{imgs/populations}}
-\caption{Percentile distributions of professional programming experience compared between \textit{Processes Survey}~(S1), \textit{Barriers Survey}~(S2), and 2018 StackOverflow Developer Survey participants. Responses are inclusively binned into 3-year buckets for comparison across surveys.\vspace*{-0.3\baselineskip}}
-\label{populations}
-\end{figure}
-
-To further compare the distribution of programming experience across these population samples, we conduct nonparametric tests of the equality of the probability distributions between two samples.
-Comparing \textit{Processes Survey}~(S1) responses with 2018 StackOverflow Developer Survey responses, we conclude that we cannot reject the null hypothesis that these samples were drawn from the same population distribution (Two-sample Kolmogorov-Smirnov test, $D = 0.33636$, p-value$ = 0.5939$).
-We similarly conclude that \textit{Barriers Survey}~(S2) responses and 2018 StackOverflow Developer Survey responses could plausibly be drawn from the same population distribution (Two-sample Kolmogorov-Smirnov test, $D = 0.27273$, p-value$ = 0.8326$).
-In both cases, we cannot reject the null hypothesis that the survey sample population is the same as the 2018 StackOverflow Developer Survey population, therefore, we conclude that our samples are representative of the development community.
+The methods used to analyze and evaluate the results from \textit{Exploratory Interviews,} \textit{Barriers Survey} and \textit{Processes Survey} are described below.
+We present the results of this analysis in Sections~\ref{RQ1}--\ref{RQ5}.
 
 \subsubsection{Interview Analysis}
 
@@ -216,7 +199,26 @@ After establishing a codebook, the first two authors independently coded the res
 For question 7 (\textit{``How do you monitor for merge conflicts?''}), we achieve an inter-rater reliability (IRR) agreement of $0.95$ (Jaccard similarity coefficient).
 For questions 8 (\textit{``How do you determine the urgency of a merge conflict?''}), 11 (\textit{``What is your first step in trying to understand code involved in a merge conflict?''}), 14 (\textit{``What effect did deferring your response to a merge conflict have on the resolution of the conflict?''}), and 19 (\textit{``If your first attempt at resolving a merge conflict fails, what backup strategies do you use?''}), we achieve IRR agreements of $0.81$, $0.88$, $0.74$, and $0.92$, respectively.
 
-We present the results of the \textit{Exploratory Interviews,} \textit{Processes Survey} and \textit{Barriers Survey} in Sections~\ref{RQ1}--\ref{RQ5}.
+To ensure that our survey samples are representative of the larger developer population, we compare the demographics from the \textit{Processes Survey} and the \textit{Barriers Survey} with the results of the 2018 StackOverflow Developer Survey\footnote{\url{https://insights.stackoverflow.com/survey/2018}}.
+
+The 2018 StackOverflow Developer Survey was conducted on 101,592 software developers from 183 countries.
+This survey includes the number of years spent coding professionally by 77,903 participants.
+%, and is presented as totals for buckets of 0-2 years, 3-5 years, 6-8 years, 9-11 years, 12-14 years, 15-17 years, 18-20 years, 21-23 years, 24-26 years, 27-29 years, and 30 or more years.
+%For comparison purposes, we similarly grouped the results from the \textit{Processes Survey}~(S1) and the \textit{Barriers Survey}~(S2).
+Figure~\ref{populations} provides a graphical representation of the percentile distribution of professional programming experience among participants in the \textit{Processes Survey}, \textit{Barriers Survey}, and the 2018 StackOverflow Developer Survey.
+We see that our sample population has more experienced developers, and the trends match between all three samples.
+
+\begin{figure}[!htbp]
+\centering
+\fbox{\includegraphics[width=0.98\textwidth,keepaspectratio]{imgs/populations}}
+\caption{Percentile distributions of professional programming experience compared between \textit{Processes Survey}~(S1), \textit{Barriers Survey}~(S2), and 2018 StackOverflow Developer Survey participants. Responses are inclusively binned into 3-year buckets for comparison across surveys.\vspace*{-0.3\baselineskip}}
+\label{populations}
+\end{figure}
+
+To further compare the distribution of programming experience across these population samples, we conduct nonparametric tests of the equality of the probability distributions between two samples.
+Comparing \textit{Processes Survey} responses with 2018 StackOverflow Developer Survey responses, we conclude that we cannot reject the null hypothesis that these samples were drawn from the same population distribution (Two-sample Kolmogorov-Smirnov test, $D = 0.33636$, p-value$ = 0.5939$; where $D$ represents the combined statistic for both directional hypotheses).
+We similarly conclude that \textit{Barriers Survey} responses and 2018 StackOverflow Developer Survey responses could plausibly be drawn from the same population distribution (Two-sample Kolmogorov-Smirnov test, $D = 0.27273$, p-value$ = 0.8326$).
+In both cases, we cannot reject the null hypothesis that the survey sample population is the same as the 2018 StackOverflow Developer Survey population, therefore, we conclude that our samples are representative of the development community.
 
 %\def\shift{\hspace{0.5em}}
 %\begin{table}[!htbp]
