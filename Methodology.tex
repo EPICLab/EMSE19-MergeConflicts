@@ -91,19 +91,6 @@ A majority of participants considered themselves to be \textit{Software Develope
 Participants indicated a median software developer experience of 6--10 years (36.4\% overall), and worked on project sizing ranges from 2 to more than 51 developers (the median was 2--5 developers, constituting 48.8\% of all responses).
 Table~\ref{survey_roles} provides additional demographics data delineated by role, including median and distribution of software development experience responses, and median team size.
 
-We divided the \textit{Barriers Survey} into four categories, each category containing 5-7 questions (see our companion site for a list of questions).
-First, we elicited background information about demographics, roles, and experience.
-Second, we asked questions related to difficulties that developers experience when encountering merge conflicts.
-Third, we asked questions related to conflict resolution and the factors that affect developers.
-Finally we asked questions about the tools and tool features that developers use when working with merge conflicts.
-Questions were presented either as 5-point Likert-type scales (with no pre-selected answers) or open-ended text forms to gather additional insights.
-
-\subsection{Processes Survey}\label{processes_survey}
-
-Merge conflicts disrupt the collaborative development workflow, and developers have adapted and developed different processes for handling these complexities.
-To understand the common structure and prevalence of these processes we use surveys, which are used for mapping the state of practice, establishing baselines for investigating research topics, and gathering opinions regarding software engineering technologies and practices~\cite{deMello2016survey}.
-Therefore, we conducted a second 15-question \textit{Processes Survey} of software developers that included both open-ended and predefined questions.
-
 \begin{table}
 \renewcommand{\arraystretch}{1.3}
 \caption{Survey Participant Demographics from Barriers Survey and Processes Survey}
@@ -136,6 +123,19 @@ Therefore, we conducted a second 15-question \textit{Processes Survey} of softwa
 \parnotes
 \end{table}
 
+We divided the \textit{Barriers Survey} into four categories, each category containing 5-7 questions (see our companion site for a list of questions).
+First, we elicited background information about demographics, roles, and experience.
+Second, we asked questions related to difficulties that developers experience when encountering merge conflicts.
+Third, we asked questions related to conflict resolution and the factors that affect developers.
+Finally we asked questions about the tools and tool features that developers use when working with merge conflicts.
+Questions were presented either as 5-point Likert-type scales (with no pre-selected answers) or open-ended text forms to gather additional insights.
+
+\subsection{Processes Survey}\label{processes_survey}
+
+Merge conflicts disrupt the collaborative development workflow, and developers have adapted and developed different processes for handling these complexities.
+To understand the common structure and prevalence of these processes we use surveys, which are used for mapping the state of practice, establishing baselines for investigating research topics, and gathering opinions regarding software engineering technologies and practices~\cite{deMello2016survey}.
+Therefore, we conducted a second 15-question \textit{Processes Survey} of software developers that included both open-ended and predefined questions.
+
 We recruited participants for \textit{Processes Survey} to be similar to \textit{Barriers Survey} participants so that we could compare and triangulate the results.
 We therefore recruited participants from contributor lists on popular open-source repositories on GitHub, advertised on social networking sites (Twitter and Reddit), and by directly contacting software developers via email.
 Due to the nature of social media and mailing lists, we cannot compute a response rate from these distribution methods.
@@ -161,7 +161,7 @@ Finally, we asked questions about evaluating the effectiveness of those merge co
 
 \subsection{Data Analysis}\label{analysis}
 
-The methods used to analyze and evaluate the results from \textit{Exploratory Interviews,} \textit{Barriers Survey} and \textit{Processes Survey} are described below.
+The methods used to analyze and evaluate the results from the \textit{Exploratory Interviews,} \textit{Barriers Survey} and \textit{Processes Survey} are described below.
 We present the results of this analysis in Sections~\ref{RQ1}--\ref{RQ5}.
 
 \subsubsection{Interview Analysis}
@@ -176,7 +176,7 @@ The coding scheme dictated that sentences must be consecutive and topically rela
 Logically connected statements that were separated by other lines were considered to be separate cards, as a conservative measure to preserve context within each card.
 
 In the second iteration, the first and third authors sorted cards according to our coding scheme and discussed the resulting taxonomies until consensus was reached.
-Based upon our research questions, we grouped the resulting categories as follows: the processes that developers use for merge conflicts (Section~\ref{RQ1}, the difficulties that developers face with merge conflicts (Section~\ref{RQ2}), and the impact of development tools on the resolution process (Section~\ref{RQ3}).
+Based upon our research questions, we grouped the resulting categories as follows: the processes that developers use for merge conflicts (Section~\ref{RQ1}--\ref{RQ3}), the difficulties that developers face with merge conflicts (Section~\ref{RQ4}), and the impact of development tools on the resolution process (Section~\ref{RQ5}).
 
 \subsubsection{Survey Analysis}
 
@@ -204,14 +204,14 @@ To ensure that our survey samples are representative of the larger developer pop
 The 2018 StackOverflow Developer Survey was conducted on 101,592 software developers from 183 countries.
 This survey includes the number of years spent coding professionally by 77,903 participants.
 %, and is presented as totals for buckets of 0-2 years, 3-5 years, 6-8 years, 9-11 years, 12-14 years, 15-17 years, 18-20 years, 21-23 years, 24-26 years, 27-29 years, and 30 or more years.
-%For comparison purposes, we similarly grouped the results from the \textit{Processes Survey}~(S1) and the \textit{Barriers Survey}~(S2).
+%For comparison purposes, we similarly grouped the results from the \textit{Processes Survey} and the \textit{Barriers Survey}.
 Figure~\ref{populations} provides a graphical representation of the percentile distribution of professional programming experience among participants in the \textit{Processes Survey}, \textit{Barriers Survey}, and the 2018 StackOverflow Developer Survey.
 We see that our sample population has more experienced developers, and the trends match between all three samples.
 
 \begin{figure}[!htbp]
 \centering
 \fbox{\includegraphics[width=0.98\textwidth,keepaspectratio]{imgs/populations}}
-\caption{Percentile distributions of professional programming experience compared between \textit{Processes Survey}~(S1), \textit{Barriers Survey}~(S2), and 2018 StackOverflow Developer Survey participants. Responses are inclusively binned into 3-year buckets for comparison across surveys.\vspace*{-0.3\baselineskip}}
+\caption{Percentile distributions of professional programming experience compared between \textit{Processes Survey}, \textit{Barriers Survey}, and 2018 StackOverflow Developer Survey participants. Responses are inclusively binned into 3-year buckets for comparison across surveys.\vspace*{-0.3\baselineskip}}
 \label{populations}
 \end{figure}
 
@@ -223,7 +223,7 @@ In both cases, we cannot reject the null hypothesis that the survey sample popul
 %\def\shift{\hspace{0.5em}}
 %\begin{table}[!htbp]
 %\centering
-%\caption{Codebook used for coding open-ended responses from Processes Survey (S1)}
+%\caption{Codebook used for coding open-ended responses from Processes Survey}
 %\label{tab:codes}
 %\begin{tabular}{lp{1.5in}p{1.3in}}
 %\toprule
