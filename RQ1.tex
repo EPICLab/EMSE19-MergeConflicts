@@ -8,38 +8,38 @@ For the rest of the developers who answered with \emph{yes} or \emph{sometimes} 
 \subsection{Reactive and Proactive Monitoring for Merge Conflicts}
 
 \boldif{Reactive detection only notifies developers that a merge conflict \emph{has happened}. Developers use it to minimize the size/complexity of the conflict, or it's impact on the team.}
-Reactive monitoring for merge conflicts notifies the developer that a conflict has already occurred.
+Reactive monitoring for merge conflicts involves notifies the developer that a conflict has already occurred.
 However, developers still use this process to manage or reduce the complexity of a conflict.
 For the developers who answered that they monitor for merge conflicts (replied either \emph{yes} or \emph{sometimes}), we found that 73.68\% (42 out of 57 responses; 6 participants left this field blank) described reactive processes.
-For example, participant S1--48 said they use integration tools to detect merge problems before they advance to testing:
+For example, a \textit{Processes Survey} participant said they use PagerDuty (an IT incident management and notification system) to detect merge conflicts on important development branches:
 \begin{quotation}
-	[\ldots] integration tests tell us if builds are breaking and we use those to locate merge conflicts. [\ldots] we use it to catch merge bugs before they go to smoke testing for release
+	[\ldots] using PagerDuty, we are all notified if a conflict is pushed to the next or future release branches, so that we can respond quickly. We don't want broken code accidentally going out on a release.
 \end{quotation}
-And participant S1--64 mentioned that they try to solve merge conflicts early in order to minimize disruptions to the team:
+And another participant mentioned that they try to solve merge conflicts early in order to minimize disruptions to the team:
 \begin{quotation}
 	We try to catch conflicts early so that fewer developers have to be involved in looking at broken code.
 \end{quotation}
 
 \boldif{Proactive monitoring allows devs to detect MC before they happen. However, it is more involved, as it requires a lot more manual effort from the developers.}
 Proactive monitoring allows developers to preemptively catch merge conflicts before they happen.
-15 participants (14.71\%) mentioned they achieved this by manually tracking incoming changes, such as participant S1--35 who indicated:
+15 participants (14.71\%) mentioned they achieved this by manually tracking incoming changes, such as one participant who indicated:
 \begin{quotation}
 	I monitor commit logs before I begin merging branches so that I see any potentially overlapping code that will break the merge.
 \end{quotation}
 Other teams rely more on communication.
-This can happen during regular team meetings, to make sure that everybody is aware of each other's tasks, for example participant S1--46 said:
+This can happen during regular team meetings, to make sure that everybody is aware of each other's tasks, for example another participant said:
 \begin{quotation}
 	[\ldots] standups allow us to know where everyone is working that week.
 \end{quotation}
 While 10 participants (9.80\%) indicated that they broadcast their changes in order to notify team members if they will make breaking changes.
-For example, participant S1--102 indicated that team members:
+One participant indicated that team members:
 \begin{quotation}
 	[\ldots] send emails before making breaking changes to the API or related sub-modules.
 \end{quotation}
 
 \boldif{Developers do not regularly actively monitor for merge conflicts. ...}
 To conclude, only a third of developers actively monitor for merge conflicts.
-When developers are caught unaware of the conflict, they are more likely to be interrupted by it.
+When developers are caught unaware of the conflict, additional developers and resources are necessary to fix the conflicting code.
 This can lead to more frustration, as they do not have any warning of when the conflict will occur and whether they have the time to deal with it immediately.
 
 \subsection{Tools for Monitoring for Merge Conflicts}
