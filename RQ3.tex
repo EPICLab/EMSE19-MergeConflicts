@@ -187,18 +187,33 @@ As the results of the survey were counter to our interview results, we looked fu
 
 \subsection{Perceptions of Tool Effectiveness}\label{tool_effectiveness}
 The perceived size and complexity of merge conflicts affect the way in which developers plan, allocate, and enact resolutions.
-To understand the degree to which these two factors impact developers' perceptions about the effectiveness of their toolsets, we asked survey participants to rate their toolset across four different merge conflict archetypes: (A1) \textit{simple, small merge conflicts}, (A2) \textit{simple, large merge conflicts}, (A3) \textit{complex, small merge conflicts}, and (A4) \textit{complex, large merge conflicts}.
+To understand the degree to which these two factors impact developers' perceptions about the effectiveness of their toolsets, we asked \textit{Barriers Survey} participants to rate their toolset across four different merge conflict archetypes: (A1) \textit{simple, small merge conflicts}, (A2) \textit{simple, large merge conflicts}, (A3) \textit{complex, small merge conflicts}, and (A4) \textit{complex, large merge conflicts}.
 
 \begin{figure*}[!htbp]
 \centering
-\includegraphics[width=1.01\textwidth]{ConflictComplexityVsSize.pdf}\vspace*{-1\baselineskip}
-\caption{Effectiveness of developers' toolsets in supporting perceived size and complexity of merge conflicts. Dot values indicate the number of \textit{Barriers Survey} responses for effectiveness of a particular merge conflict size and complexity, and the vertical height of each segment indicating the number of responses at each degree of effectiveness.\vspace*{-0.3\baselineskip}}
+\fbox{\includegraphics[width=0.98\textwidth]{BubbleChartUpdated.pdf}}
+\caption{Effectiveness of developers' toolsets in supporting perceived size and complexity of merge conflicts, split on software development experience. Bubble values indicate number of \textit{Barriers Survey} responses for effectiveness of a particular merge conflict size and complexity, and bubble sizes indicate the number of responses for comparison.}
 \label{size_vs_complexity}
 \end{figure*}
 
+%\begin{figure*}[!htbp]
+%\centering
+%\includegraphics[width=1.01\textwidth]{ConflictComplexityVsSize.pdf}\vspace*{-1\baselineskip}
+%\caption{Effectiveness of developers' toolsets in supporting perceived size and complexity of merge conflicts. Dot values indicate the number of \textit{Barriers Survey} responses for effectiveness of a particular merge conflict size and complexity, and the vertical height of each segment indicating the number of responses at each degree of effectiveness.\vspace*{-0.3\baselineskip}}
+%\label{size_vs_complexity}
+%\end{figure*}
+
 Individual participants have different toolsets, and consider different factors when determining the perceived size and complexity of a merge conflict.
 We therefore instructed participants to rate their own toolset using their notion of what constitutes \emph{simple} vs. \emph{complex} and \emph{small} vs. \emph{large} merge conflicts.
-Figure~\ref{size_vs_complexity} provides a visual illustration of the results of this survey question.
+
+Fig.~\ref{size_vs_complexity} provides a visual illustration of the results of this survey question.
+The four plots display the results for each of the archetypes, with archetype (A1) in the top-left plot, (A2) in bottom-left plot, (A3) in the top-right plot, and (A4) in the bottom-right plot.
+Individual plots are composed of a horizontal axis containing participants' software development experience, which we collect since experience can determine the range of conflicts that they have faced and their perceptions.
+The vertical axis shows the range of possible responses for the effectiveness of merge toolsets.
+The size and number within each bubble represent the number of respondents with a particular amount of software development experience that rated their toolset at that specific effectiveness level.
+
+For example, a practitioner with 6-10 years of experience who indicates that her merge toolset is \textit{Extremely Effective} for \textit{small, simple merge conflicts} would be represented in the largest bubble (containing 19) in A1. % in the top-left plot. 
+She would also be represented in the largest bubble (containing 13) in the bottom-right plot (A4) if she indicated that her merge toolset was \textit{Moderately effective} for \textit{large, complex merge conflicts}.
 
 Observing the overall trends when moving between plots, we find that developers perceive complexity of the conflict to have a greater impact on the effectiveness of their merge toolsets than the size of merge conflicts.
 Numerical analysis confirms this when finding that the mean response for archetype (A1) is 4.278 (where 5 is \textit{Extremely Effective} and 1 is \textit{Not effective at all}), (A2) is 3.782, (A3) is 3.347, and (A4) is 2.783.
