@@ -170,15 +170,36 @@ P4 commented:
 \textit{``I've never trusted the merge tools or diff tools... Sometimes I'll even manually go and do the merge myself rather than use a tool. Just because I've had several times where it's a bad merge, and I broke some code.''}
 \end{quoting}
 
-\begin{figure}
-	\centering
-	\fbox{\includegraphics[width=0.95\textwidth,keepaspectratio]{s2_tool_trust}}
-	\caption{Degree of Trust for Merging, History Exploration, and Conflict Resolution Tools. Scale: 1 is \textit{completely} and 5 is \textit{not at all}. 121 out of 162 participants (74.69\%) provided a response to this question in the \textit{Barriers Survey}.\vspace*{-0.3\baselineskip}}
-	\label{fig:tool_trust}
-\end{figure}
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Degree of Trust for Merging, History Exploration, and Conflict Resolution Tools from \textit{Barriers Survey}}
+\label{tool_trust}
+\centering
+\begin{tabularx}{\textwidth}{lQ{5.1cm}|A{1.6cm}Q{1.9cm}|A{2.7cm}}
+\toprule
+  \rowcolor[gray]{0.85}
+  \parnoteclear % tabularx will otherwise add each note thrice
+  & Trust & Selections\parnote{121 out of 162 participants (74.69\%) indicated a degree of trust.} & Percentage & Dev. Experience\parnote{Mean software development experience for participants that indicated a specific degree of trust.} \\
+\midrule
+  1 & Completely & 20 & (16.53\%) & 6-10 years \\
+  \rowcolor[gray]{0.95}2 & A lot & 50 & (41.32\%) & 11-15 years \\
+  3 & A moderate amount & 41 & (33.88\%) & 11-15 years \\
+  \rowcolor[gray]{0.95}4 & A little & 10 & (8.27\%) & 6-10 years \\
+  5 & Not at all & 0 & (0.00\%) & 0 years \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
+
+%\begin{figure}
+%	\centering
+%	\fbox{\includegraphics[width=0.95\textwidth,keepaspectratio]{s2_tool_trust}}
+%	\caption{Degree of Trust for Merging, History Exploration, and Conflict Resolution Tools. Scale: 1 is \textit{completely} and 5 is \textit{not at all}. 121 out of 162 participants (74.69\%) provided a response to this question in the \textit{Barriers Survey}.\vspace*{-0.3\baselineskip}}
+%	\label{fig:tool_trust}
+%\end{figure}
 
 Based upon this theme of mistrust, we asked \textit{Barriers Survey} participants to rate the degree to which they trust their merging, history exploration, and conflict resolution tools.
-We received 121 responses to this question, with a mean score of 3.66, placing the most common responses between \textit{a moderate amount} and \textit{a lot} of trust (Figure~\ref{fig:tool_trust}).
+We received 121 responses to this question, with a mean score of 3.66, placing the most common responses between \textit{a moderate amount} and \textit{a lot} of trust (Table~\ref{tool_trust}).
 Assuming that responses of \textit{a moderate amount}, \textit{a little}, or \textit{not at all} indicate some degree of mistrust, we find that 42.15\% of developers experience some gap in toolset trust.
 
 However, the severity of toolset mistrust is not as significant as our interview results suggested.
@@ -212,11 +233,11 @@ Individual plots are composed of a horizontal axis containing participants' soft
 The vertical axis shows the range of possible responses for the effectiveness of merge toolsets.
 The size and number within each bubble represent the number of respondents with a particular amount of software development experience that rated their toolset at that specific effectiveness level.
 
-For example, a practitioner with 6-10 years of experience who indicates that her merge toolset is \textit{Extremely Effective} for \textit{small, simple merge conflicts} would be represented in the largest bubble (containing 19) in A1. % in the top-left plot. 
-She would also be represented in the largest bubble (containing 13) in the bottom-right plot (A4) if she indicated that her merge toolset was \textit{Moderately effective} for \textit{large, complex merge conflicts}.
+For example, a practitioner with 6-10 years of experience who indicates that her merge toolset is \textit{extremely effective} for \textit{small, simple merge conflicts} would be represented in the largest bubble (containing 19) in A1. % in the top-left plot. 
+She would also be represented in the largest bubble (containing 13) in the bottom-right plot (A4) if she indicated that her merge toolset was \textit{moderately effective} for \textit{large, complex merge conflicts}.
 
 Observing the overall trends when moving between plots, we find that developers perceive complexity of the conflict to have a greater impact on the effectiveness of their merge toolsets than the size of merge conflicts.
-Numerical analysis confirms this when finding that the mean response for archetype (A1) is 4.278 (where 5 is \textit{Extremely Effective} and 1 is \textit{Not effective at all}), (A2) is 3.782, (A3) is 3.347, and (A4) is 2.783.
+Numerical analysis confirms this when finding that the mean response for archetype (A1) is 4.278 (where 5 is \textit{extremely effective} and 1 is \textit{not effective at all}), (A2) is 3.782, (A3) is 3.347, and (A4) is 2.783.
 The shift from \textit{small} to \textit{large} merge conflict size (A1 to A2) results in a difference in mean responses of 0.496, whereas the shift from \textit{simple} to \textit{complex} merge conflict complexity (A1 to A3) results in a difference in mean responses of 0.930.
 
 These results suggest that merge tools are currently equipped to handle increases in the size of merge conflicts, but not as well equipped for increases in complexity.
