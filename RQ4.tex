@@ -1,0 +1,232 @@
+%!TEX root = main.tex
+
+%\vspace*{1.8\baselineskip}
+\section{What difficulties do software developers experience when managing merge conflicts? (RQ4)}\label{RQ4}
+
+To understand the difficulties software developers face when managing merge conflict, we asked interview participants to reflect on situations when they faced a merge conflict.
+Based on responses in the \textit{Exploratory Interviews}, we asked \textit{Barriers Survey} participants to rate the resulting factors and needs.
+
+\subsection{Difficulty Factors}\label{difficulty-factors}
+
+We identified nine factors that developers consider when approaching a conflict and attempting to determine its difficulty (see Table~\ref{s2_factors}).
+We asked \textit{Barrier Survey} participants to rate how each of these nine factors affected their perceptions of difficulty when approaching a merge conflict.
+
+We received 162 responses and present the aggregated results in Table~\ref{s2_factors}; ranked according to the mean score for each factor.
+Here, we discuss in detail the top 4 factors with a mean score greater than $3.00$.
+These factors can be grouped into \textit{technical aspects} and \textit{expertise,} and our results are presented according to these groups.
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Difficulty Factors of Merge Conflicts from \textit{Barriers Survey}}
+\label{s2_factors}
+\centering
+\begin{tabularx}{\textwidth}{c|l|*1{c}|A{1cm}A{1cm}}
+\toprule
+  \rowcolor[gray]{0.85}
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Factor & Description & \likertscale{1,2,3,4,5} & Median\parnote{Responses on 5-point Likert-type scale indicating the degree of effect on resolution difficulty (1 indicates \textit{no effect}, 5 indicates \textit{great effect}).} & Mean\textsuperscript{i} \\
+\midrule
+  F1 & Complexity of conflicting lines of code & \likertplot{coordinates {(1,5)(2,29)(3,38)(4,56)(5,34)}}{28.2}{5,29,38,56,34} & 4 & 3.52 \\
+  \rowcolor[gray]{0.95}F2 & Expertise in area of conflicting code & \likertplot{coordinates {(1,5)(2,23)(3,50)(4,54)(5,30)}}{28.2}{5,23,50,54,30} & 4 & 3.50 \\
+  F3 & Complexity of files with conflicts & \likertplot{coordinates {(1,8)(2,34)(3,49)(4,51)(5,18)}}{28.2}{8,34,49,51,18} & 3 & 3.23 \\
+  \rowcolor[gray]{0.95}F4 & Number of conflicting lines of code & \likertplot{coordinates {(1,2)(2,40)(3,64)(4,45)(5,11)}}{28.2}{2,40,64,45,11} & 3 & 3.14 \\
+  F5 & Time to resolve a conflict & \likertplot{coordinates {(1,14)(2,56)(3,51)(4,25)(5,15)}}{28.2}{14,56,51,25,15} & 3 & 2.82 \\
+  \rowcolor[gray]{0.95}F6 & Atomicity of changesets in conflict & \likertplot{coordinates {(1,20)(2,48)(3,51)(4,29)(5,13)}}{28.2}{20,48,51,29,13} & 3 & 2.80 \\
+  F7 & Dependencies of conflicting code & \likertplot{coordinates {(1,20)(2,56)(3,39)(4,33)(5,14)}}{28.2}{20,56,39,33,14} & 3 & 2.78 \\
+  \rowcolor[gray]{0.95}F8 & Number of files in the conflict & \likertplot{coordinates {(1,10)(2,69)(3,50)(4,26)(5,6)}}{28.2}{10,69,50,26,6} & 3 & 2.68 \\
+  F9 & Non-functional changes in codebase\hspace{1.2cm} & \likertplot{coordinates {(1,47)(2,63)(3,31)(4,15)(5,4)}}{28.2}{47,63,31,15,4} & 2 & 2.16 \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
+
+\subsection{Technical Aspects}\label{artifact-based-factors}
+Two of the top four factors refer to the perceptions about the complexity of merge conflicts (F1, F3), with the third factor being \textit{number of conflicting lines of code} (F4), which can be construed as a specific metric for the complexity of the conflict. 
+While developers mentioned complexity of the lines of code and the file, none mentioned using any metrics, such as cyclomatic complexity~\cite{fenton2000quantitative,mccabe1976complexity} or Function Point Analysis~\cite{garmus2001fpa,symons1988function}. 
+Instead, developers made educated guesses on the complexity of the code based on their own experience of either writing the code, or having worked with it. 
+Some of the simple-to-compute metrics, such as the \textit{number of conflicting lines of code} (F4), the \textit{number of files in the conflict} (F8), the \textit{atomicity of changesets in conflict} (F6), and the \textit{time to resolve a conflict} (F5) were mentioned.
+
+Research has shown~\cite{gil_correlation_2017} that the size of the code is the most important predictive feature for external factors (e.g. bugs) of all proposed complexity measures.
+This suggests that it might be enough for developers to rely on it when assesing the complexity of the conflicting code.
+
+The only factor where static analysis tools can help was in identifying the \textit{dependencies of conflicting code} (F7).
+This indicates that understanding the complexity of the conflicting code is important, but developers do not use the metrics that have been proposed by research.
+While some of the simple proxies for complexity are used, developers primarily rely on their own judgement of the complexity of a conflict.
+This perception of the conflict complexity can affect whether a developer resolves the conflict immediately, or whether they should wait to examine the conflict when further resources are available. In the interviews, P8 commented:
+\begin{quoting}
+\textit{``Small is always easy. A 1-line merge conflict is always easier to resolve than a 400-line merge conflict, and can be done now.''}
+\end{quoting}
+
+If a merge conflict is perceived to be large or complex, a developer may decide to forgo attempting to resolve it through code manipulation and choose to revert the changes instead~\cite{Guzzi2015}.
+This \emph{``nuclear option''} requires developers to disrupt the development flow, set aside their current development work, and potentially remove good, working code that was not part of the conflict in order to return to a non-conflicting state.
+In the interview, P1 describes this process as:
+\begin{quoting}
+\textit{``If you have many conflicts involved, many commits in the conflict... throw one of the branches away. You cannot combine tens of commits conflicting... it's not sane!''}
+\end{quoting}
+
+Further, when integrators are preparing code for production environments they prioritize merge conflicts for code review based upon the perceived difficulty of resolving the affected code.
+We find that these decisions rely on human judgement factors as much as they rely on data-driven metrics.
+Developers may not have the time to compute project-wide complexity metrics, such as those proposed in literature.
+Instead, they use educated guesses and intuition based on familiarity with the codebase; either from writing the code, or having worked with it.
+Therefore, we need metrics that can be easily calculated by unexperienced developers as they face a conflict. 
+%are human-aware and take into account the perceived difficulties of merge conflicts.
+
+\subsection{Expertise}\label{knowledge-based-factors}
+
+Our findings show that the \textit{expertise in the area of conflicting code}~(F2) is one of the top factors in determining the difficulty of a merge conflict. 
+This reiterates the fact that developers rely on their own knowledge about the conflicting codebase when approaching a conflict. 
+And as seen in Section~\ref{RQ1c}, this expertise has a direct impact on the ability of developers to use \textit{code looks correct (i.e. visual test passes)} (C3) as a strategy for evaluating merge conflict resolutions.
+
+Our results indicate that when developers feel they don't have the expertise in the conflicting codebase, they consider the conflict difficult to merge and seek out more information or assistance from others.
+P5 illustrated this need for expertise when describing his workflow: 
+\begin{quoting}
+	\textit{``A lot of what I work on is in my own little area \textellipsis I know what to do [\textellipsis]. But in [an unfamiliar part of the code,] then I'll get someone else to resolve the merge conflict for me. It's someone else's code, and I don't want to screw it up.''}
+\end{quoting}
+
+Our findings confirm the need for tools that identify appropriate experts~\cite{CostaSarma} and encourage further research into selection of knowledgeable developers for merge conflict resolution.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\subsubsection{Interviews}
+%%The interview results suggest that developers approach merge conflicts...
+%
+%\subsubsection{Survey}
+%Our survey suggests that regardless of gender, developer role, experience level, project size, and source distribution model, software practitioners say that the following factors affect the difficulty of a merge conflict most: 
+%\begin{itemize}
+%\item \textit{Complexity of conflicting lines of code}
+%\item \textit{Your knowledge/expertise in area of conflicting code}
+%\end{itemize}
+%
+%Similarly, software practitioners across every measured demographic perceived the following factors to be less important when deciding the difficulty of a merge conflict:
+%\begin{itemize}
+%\item \textit{Non-functional changes (whitespace, renaming, etc)}
+%\item \textit{Number of files in the conflict}
+%\end{itemize}
+%
+%While survey participants did not agree that non-functional changes strongly factor into the difficulty of a merge conflict, it is still worth noting that several interview participants named non-functional changes, such as large refactor or reformatting changes, as a cause for merge conflicts. This suggests that non-functional changes may increase the likelihood of a merge conflict happening, but they do not contribute to the conflict's difficulty.
+%
+%However, some demographics do view certain difficulties. For instance, open-source developers think that \textit{Atomicity of change sets in the conflict} impacts the difficulty, while closed-source developers and people who split their time evenly think that atomic change sets have no effect on the difficulty. This may be explained by the findings in Rigby et al\cite{OSS_smaller_commits}, which shows that open-source projects tend to review smaller changes than closed-source projects because "The small size lets reviewers focus on the entire change, and the incrementality reduces reviewers’ preparation time and lets them maintain an overall picture of how the change fits into the system." It is possible that our result reflects this difference of culture.
+%
+%We also found that Project Maintainers say that \textit{Time to resolve a conflict} has an effect, while no other role agrees. This suggests that those in a maintainer role may be more subject to time-related constraints such as maintenance or release schedules. 
+%
+%\comment{Project Managers say no effect because they focus on project schedules, not conflict resolutions, i.e. they are higher level/abstraction?}
+%
+%\todo{might be previous work}
+%Support and infrastructure roles (System Engineer, Sys Admin, System Architect, DevOps) emphasized that \textit{Dependencies of conflicting code on other components} have more of an effect than other roles did. This might be due to infrastructure systems being maintained in a live environment, or systems that are currently in production use and at risk of real-time dependency failures. 
+%
+%Developers on projects of size 1 say that \textit{Dependencies of conflicting code on other components}. Because no other project sizes agree with this idea, we hypothesize that this could be due to their high dependence on external code because of the software production limitations of a 1-developer team.
+%
+%We also found that the group of developers with 21-25 years of experience frequently contradicted general consensus, but it seems more likely that these differences were simply due to the group's small sample size (4).
+
+%We asked participants how much they trust their merging, history exploration, and/or conflict resolution tools, and 57.9\% of participants reported that they trusted these tools either \textit{A Lot} or \textit{Completely}. While this is a majority of developers, this still leaves a significant number of people (42.1\%) who trust their tools \textit{A moderate amount} or \textit{A little}. Though we had the option for \textit{Not at all}, no participants selected this option, presumably because users stop using tools that they do not trust at all. While we found no previous work discussing the threshold for how much users must trust tools for a good tool experience, we postulate that users who cannot trust their tools \textit{A Lot} or \textit{Completely} will avoid relying on such tools too much.
+
+%\subsubsection{\textbf{Old RQ3:} What unmet needs impact the difficulty of merge conflict resolutions?}
+
+\subsection{Unmet Needs for Merge Conflict Resolutions}
+
+There can often be gaps in how developers perceive the difficulty of merge conflicts and the actual hurdles that they face when resolving these conflicts. 
+These gaps can then in turn affect how effective developers are at resolving the conflict.
+
+We, therefore, asked our interview participants open-ended questions about their experiences in resolving the most recent conflicts, especially their recollection of what made the conflict resolution difficult.
+Their responses indicated that there are several unmet needs.
+We identified ten needs (see Table~\ref{s2_needs}), which range from needs about the ability to understand the code, their expertise, and existing tool support.  
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Developer Needs for Merge Conflict Resolutions from \textit{Barriers Survey}}
+\label{s2_needs}
+\centering
+\begin{tabularx}{\textwidth}{c|l|*1{c}|A{1cm}A{1cm}}
+\toprule
+  \rowcolor[gray]{0.85}
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Need & Description & \likertscale{1,2,3,4,5} & Median\parnote{Responses on 5-point Likert-type scale indicating the degree of importance to merge resolutions (1 indicates \textit{no importance}, 5 indicates \textit{great importance}).\vspace*{-0.3\baselineskip}} & Mean\textsuperscript{i} \\
+\midrule
+  N1 & Ease of understanding conflicting code & \likertplot{coordinates {(1,0)(2,14)(3,25)(4,65)(5,37)}}{28.2}{0,14,25,65,37} & 4 & 3.89 \\
+  \rowcolor[gray]{0.95}N2 & Expertise in area of conflicting code & \likertplot{coordinates {(1,1)(2,17)(3,38)(4,49)(5,36)}}{28.2}{1,17,38,49,36} & 4 & 3.72 \\
+  N3 & Amount of info about conflicting code & \likertplot{coordinates {(1,2)(2,21)(3,38)(4,48)(5,32)}}{28.2}{2,21,38,48,32} & 4 & 3.62 \\
+  \rowcolor[gray]{0.95}N4 & Tools presenting understandable info & \likertplot{coordinates {(1,4)(2,24)(3,47)(4,32)(5,34)}}{28.2}{4,24,47,32,34} & 3 & 3.48 \\
+  N5 & Changing assumptions within code & \likertplot{coordinates {(1,8)(2,27)(3,45)(4,36)(5,25)}}{28.2}{8,27,45,36,25} & 3 & 3.30 \\
+  \rowcolor[gray]{0.95}N6 & Complexity of project structure & \likertplot{coordinates {(1,6)(2,38)(3,39)(4,41)(5,17)}}{28.2}{6,38,39,41,17} & 3 & 3.18 \\
+  N7 & Trustworthiness of tools & \likertplot{coordinates {(1,17)(2,29)(3,39)(4,32)(5,34)}}{28.2}{17,29,39,32,34} & 3 & 3.12 \\
+  \rowcolor[gray]{0.95}N8 & Informativeness of commit messages & \likertplot{coordinates {(1,18)(2,32)(3,30)(4,44)(5,17)}}{28.2}{18,32,30,44,17} & 3 & 3.07 \\
+  N9 & Project culture & \likertplot{coordinates {(1,13)(2,37)(3,43)(4,27)(5,21)}}{28.2}{13,37,43,27,21} & 3 & 3.04 \\
+  \rowcolor[gray]{0.95}N10 & Tool support for history exploration\hspace{1.3cm} & \likertplot{coordinates {(1,16)(2,40)(3,31)(4,32)(5,22)}}{28.2}{16,40,31,32,22} & 3 & 3.03 \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
+
+Using the results from the interview, we asked \textit{Barriers Survey} participants to rate how much each of the ten needs affected their ability to resolve the merge conflicts.
+We received 141 responses using a 5-point Likert-type scale indicating the the effect on resolution difficulty, with 1 being \textit{Not at all}, 3 being \textit{A moderate amount}, and 5 being \textit{A great deal.}
+Results of the survey are presented in Table~\ref{s2_needs}. 
+
+All the unmet needs have a mean score of at least $3.03$ on the 5-point Likert-type scale, implying that all of them mattered at least a moderate amount.
+We present and discuss in detail the top four unmet needs, plus additional observations regarding the other six unmet needs. 
+As with the factors in the previous section, all these needs also relate to \textit{technical aspects} (e.g., understanding the conflicting code) and their \textit{expertise} in resolving conflicts.
+
+\subsection{Technical Aspects}
+Three needs among the top four relate to technical aspects of merge conflict resolution.
+The \textit{understandability of conflicting code} (N1) is ranked as the most important need, with both \textit{contextual information about the conflict} (N3) and \textit{the way in which tools present relevant information} (N4) ranking in the top four.
+
+Data from version control systems is used by developers to identify the evolution of the code~\cite{Mihai_lenses}.
+However, it is not easily available and requires a context switch from the code editor to the version control system~\cite{Guzzi2015}. 
+Moreover, these changes are often processed in isolation, especially when there are many changes (conflicts) to process. 
+Such decomposition of overall conflicting changes into smaller ``chunks'' is needed to be able to manage the complexity of the resolution process.
+However, this occludes viewing the changes in a larger context. 
+Often developers deal with the decomposed (smaller) changes, hoping that they will work well together. 
+For example, P1 compared the resolution hurdles between two conflicts, where one was simple, and the other spanned multiple files and complex blocks of code.
+\begin{quoting}
+\textit{``You focus on understanding the small change, not the big one. It's easier to understand... get the small change to go with the flow of the bigger change.''}
+\end{quoting}
+
+Another challenge when viewing changes in isolation is the fact that developers may miss the impact of the changes made as part of the resolution to the rest of the code base. 
+Identifying the impact of changes on the rest of the code base has been repeatedly found to be a problem in collaborative development~\cite{deSouza2008, Guzzi2015}. 
+%as found by deSouza and Redmiles~\cite{deSouza2008} and more recently by Guzzi et al.~\cite{Guzzi2015}. 
+The top unmet needs in our study also revolved around the challenges that developers face in how much information they had about the conflicting code (N3), and the difficulty in finding the needed information from current tools and practices (N3, N4, N8, N10). 
+This indicates that despite advances in supporting parallel development practices, the right information needed to resolve conflicts is still not easily available to developers. 
+
+Conflict resolution can sometimes lead to defects in the code base. 
+This can arise for several reasons. 
+For example the rationale of the two conflicting changes might be unclear and the merge might cause unintentional problems down the line. 
+Or the resolved changes might not follow rigorous code review and testing to which the original changes were subject to.
+Therefore, even when the developer understands the particular conflicting code, they may still need additional meta-information about the rationale of changes and idea of future feature implementation. 
+This is especially true in situations where the code base is old, and such information not readily available. During our interview, P7 commented:
+\begin{quoting}
+\textit{``It's harder to merge code when you're merging in some legacy code... But if you're a young team, and everybody who wrote the code is still a part of the team, it's easier.''}
+\end{quoting}
+
+\subsection{Expertise}
+Knowledge is a key component of developers' needs when resolving merge conflicts.
+Along with general knowledge there is a need for expertise in the specific areas of code involved in a conflict.
+Developers recognize this need as having a sizable effect on their ability to resolve a merge conflict, and selected \textit{expertise in the area of conflicting code} (N2) as the second most important need.
+
+Examining code artifacts, reviewing change history, and reading documentation helps with understanding the code when they are present and well-maintained.
+However, locating and maintaining these supporting documents is not always possible.
+In fact, Forward et al.~\cite{forward2002documentation}, in a survey of 48 software developers, found that 68\% either agreed or strongly agreed that documentation is always outdated.
+When these gaps arise, developers compensate by consulting experts in the area of conflicting code instead.
+
+This result aligns with the goals of the TIPMerge tool~\cite{CostaSarma}, which seeks to locate experts that are best suited to resolve conflicts in a particular area of code.
+However, TIPMerge, as well as other recommendation tools are not being used by real-world developers, as evidenced by the lack of such tools in the list of top 10 merge awareness tools (Table~\ref{s1_toolset}) and merge resolution tools (Table~\ref{s2_toolset}).
+The reason for this lack of research tools adoption requires further investigation.
+
+Another surprising fact was that while the informative nature of commit messages (N8) and project culture (N9) were mentioned, they were not as highly ranked. % The same is true for project culture (N9). 
+We had expected them to be higher based on prior work~\cite{yamauchi2014clustering, hindle2009automatic, cortes2014automatically, hattori2008nature}. 
+We found no statistical differences between commercial or open source projects, including when accounting for experience levels.
+Our results indicate that team practices, including writing commit messages may have matured enough, such that these factors are no longer considered critical in our sample set. 
+
+
+%\nsubsection{Open-Source vs. Closed-Source Needs}\label{oss_vs_closed_tool_support} 
+%It is interesting to note that for needs N1-N8 there was no statistical difference between practitioners focused on open-source and those focused on closed-source development when it comes to their conflict resolution needs.
+%We found that practitioners who focus on open-source software development consider \textit{tool support for examining development history} (N10) to be the 3rd highest unmet need (mean: 3.60).
+%Whereas, practitioners who focus on closed-source software development consider it to be the least impactful unmet need (mean: 2.86).
+%%A Wilcoxon Signed-Ranks test indicated that open-source practitioners' ranking of N10 were statistically higher than closed-source practitioners' rankings of N10 (W = 1192.5, $p$-value = 0.02).
+%
+%This was also true in our interviews, with P8 stating:
+%
+%\begin{quoting}
+%\textit{``I'm often dealing with code other people wrote. Nobody can review every pull request. So now I have to go back and do some archaeology to find out what's going on. Code is much easier to write than read.''}
+%\end{quoting}
+%
+%This result suggests that history exploration in open-source projects is a more difficult task due to the lack of upfront planning and large number of volunteering contributors.
+%%, or that tools are better at supporting history exploration in closed-source development environments.
