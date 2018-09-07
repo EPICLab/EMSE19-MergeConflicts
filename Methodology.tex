@@ -24,16 +24,6 @@ The full set of questions in the interview, as well as the questions and codeboo
 Semi-structured interviews provide qualitative data collection through open-ended questions that elicit interviewee's thoughts and opinions about a particular topic.
 The resulting data includes themes and terminology from the perspective of the interviewee, as opposed to the interviewer, and provides a context for further quantitative inquiry~\cite{easterbrook2008selecting}.
 
-We conducted semi-structured interviews with software developers to understand their concerns when facing merge conflicts and the factors that impact merge conflict difficulty.
-We selected interview participants from top contributors to open-source projects, and from industry contacts using snowball sampling~\cite{goodman1961snowball} to reach a larger sample size. Additionally, we limited participant referrals to one connection per interviewee, where referred individuals did not provide additional referrals. In doing this, we sought to reduce the impact of any particular cohort of developers on the generalizability  of our results.
-
-We interviewed ten software developers from seven different organizations spanning six different industries.
-Eight of the participants worked primarily on open-source projects.
-Participants worked on a variety of project sizes; from projects with less than five active contributors, to more than 1700 contributors (as evaluated by analyzing code repositories for a 12-month period).
-Table~\ref{interview_demographics} provides additional demographics data, including software development experience, role, industry, project size, and whether the participant primarily focused on open- or closed-source software development.
-Each interview lasted between 30 to 60 minutes.
-Participants were offered US\$50 in either cash, gift card, or a donation to a charity of their choice.
-
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.3}
 \caption{Interview Participant Demographics}
@@ -59,6 +49,16 @@ Participants were offered US\$50 in either cash, gift card, or a donation to a c
 \end{tabularx}
 \parnotes
 \end{table}
+
+We conducted semi-structured interviews with software developers to understand their concerns when facing merge conflicts and the factors that impact merge conflict difficulty.
+We selected interview participants from top contributors to open-source projects, and from industry contacts using snowball sampling~\cite{goodman1961snowball} to reach a larger sample size. Additionally, we limited participant referrals to one connection per interviewee, where referred individuals did not provide additional referrals. In doing this, we sought to reduce the impact of any particular cohort of developers on the generalizability  of our results.
+
+We interviewed ten software developers from seven different organizations spanning six different industries.
+Eight of the participants worked primarily on open-source projects.
+Participants worked on a variety of project sizes; from projects with less than five active contributors, to more than 1700 contributors (as evaluated by analyzing code repositories for a 12-month period).
+Table~\ref{interview_demographics} provides additional demographics data, including software development experience, role, industry, project size, and whether the participant primarily focused on open- or closed-source software development.
+Each interview lasted between 30 to 60 minutes.
+Participants were offered US\$50 in either cash, gift card, or a donation to a charity of their choice.
 
 At the beginning of the interview we gave participants a short explanation of the research goals, our definition of merge conflicts, and collected demographics data. 
 We then asked participants about the roles that they play in their project, their experience working in team settings, questions about merge conflicts, the process of conflict resolution, and the difficulties that they faced in conflict resolution.
@@ -91,6 +91,19 @@ A majority of participants considered themselves to be \textit{Software Develope
 Participants indicated a median software developer experience of 6--10 years (36.4\% overall), and worked on project sizing ranges from 2 to more than 51 developers (the median was 2--5 developers, constituting 48.8\% of all responses).
 Table~\ref{survey_roles} provides additional demographics data delineated by role, including median and distribution of software development experience responses, and median team size.
 
+We divided the \textit{Barriers Survey} into four categories, each category containing 5-7 questions (see our companion site for a list of questions).
+First, we elicited background information about demographics, roles, and experience.
+Second, we asked questions related to difficulties that developers experience when encountering merge conflicts.
+Third, we asked questions related to conflict resolution and the factors that affect developers.
+Finally we asked questions about the tools and tool features that developers use when working with merge conflicts.
+Questions were presented either as 5-point Likert-type scales (with no pre-selected answers) or open-ended text forms to gather additional insights.
+
+\subsection{Processes Survey}\label{processes_survey}
+
+Merge conflicts disrupt the collaborative development workflow, and developers have adapted and developed different processes for handling these complexities.
+To understand the common structure and prevalence of these processes we use surveys, which are used for mapping the state of practice, establishing baselines for investigating research topics, and gathering opinions regarding software engineering technologies and practices~\cite{deMello2016survey}.
+Therefore, we conducted a second 15-question \textit{Processes Survey} of software developers that included both open-ended and predefined questions.
+
 \begin{table}
 \renewcommand{\arraystretch}{1.3}
 \caption{Survey Participant Demographics from Barriers Survey and Processes Survey}
@@ -122,19 +135,6 @@ Table~\ref{survey_roles} provides additional demographics data delineated by rol
 \end{tabularx}
 \parnotes
 \end{table}
-
-We divided the \textit{Barriers Survey} into four categories, each category containing 5-7 questions (see our companion site for a list of questions).
-First, we elicited background information about demographics, roles, and experience.
-Second, we asked questions related to difficulties that developers experience when encountering merge conflicts.
-Third, we asked questions related to conflict resolution and the factors that affect developers.
-Finally we asked questions about the tools and tool features that developers use when working with merge conflicts.
-Questions were presented either as 5-point Likert-type scales (with no pre-selected answers) or open-ended text forms to gather additional insights.
-
-\subsection{Processes Survey}\label{processes_survey}
-
-Merge conflicts disrupt the collaborative development workflow, and developers have adapted and developed different processes for handling these complexities.
-To understand the common structure and prevalence of these processes we use surveys, which are used for mapping the state of practice, establishing baselines for investigating research topics, and gathering opinions regarding software engineering technologies and practices~\cite{deMello2016survey}.
-Therefore, we conducted a second 15-question \textit{Processes Survey} of software developers that included both open-ended and predefined questions.
 
 We recruited participants for \textit{Processes Survey} to be similar to \textit{Barriers Survey} participants so that we could compare and triangulate the results.
 We therefore recruited participants from contributor lists on popular open-source repositories on GitHub, advertised on social networking sites (Twitter and Reddit), and by directly contacting software developers via email.
