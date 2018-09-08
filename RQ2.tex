@@ -26,7 +26,7 @@ The location and complexity of conflicting code (D1, D2) were the most selected 
 % TODO Add a conclusion statement about the meaning of these factors being top in both tables.
 
 As the third most selected factor, \textit{ownership of the conflicting code}~(D3) indicates that the deferral is not always temporal, but can also be logistical when developers defer to other team members.
-Participant S1--8 succinctly defines the role ownership impacts his workflow as:
+A \textit{Barriers Survey} participant succinctly defines the role ownership impacts his workflow as:
 \begin{quotation}
 	Code is mine? I fix it. Code is others? I submit PR or bug reports.
 \end{quotation}
@@ -67,31 +67,34 @@ Table~\ref{effects-deferral} shows the top effects of deferring a response to a 
 The most common effect was that developers have had to stop the development (\emph{Stop the Presses,} 15 responses) in order to resolve the conflicts.
 This halt in development includes asking team members to also refrain from adding any additional code into the codebase.
 The second most common effect is the \textit{increased complexity} of the conflicts (E2), reported by nine participants.
-Participant S1--93 noted that:
+A \textit{Barriers Survey} participant noted that:
 \begin{quotation}
 	Deferring a merge conflict simply kicks the can down the road (or off a cliff). Typically resolving the conflict only gets more difficult as time passes.
 \end{quotation}
-Participant S1--70 even hinted that the increased complexity can be quite severe, on an order of magnitude greater than if the conflict were addressed immediately:
+Another participant even hinted that the increased complexity can be quite severe, on an order of magnitude greater than if the conflict were addressed immediately:
 \begin{quotation}
 	Untangling takes days instead of minutes when it gets too out of hand.
 \end{quotation}
-In some cases, features had to be removed from releases, in order for integration problems to be mitigated and the conflict to be successfully resolved. S1--5 said:
+In some cases, features had to be removed from releases, in order for integration problems to be mitigated and the conflict to be successfully resolved. One participant said:
 \begin{quotation}
 	We have had several releases come up short in new features because they got delayed by integration problems.
 \end{quotation}
-Finally, in order to prevent similar problems arising, some organizations have instituted \textit{policy changes} (E4) to prevent this from happening in the future. Participant S1--46 said:
+Finally, in order to prevent similar problems arising, some organizations have instituted \textit{policy changes} (E4) to prevent this from happening in the future.
+However, the survey participants that selected \textit{policy changes} (E4) had a mean of 10.2 years of software development experience, which is higher than the overall mean of 9.1 years.
+The awareness of policy changes that were introduced specifically to address merge conflicts might be higher among senior developers. 
+A \textit{Barriers Survey} participant said:
 \begin{quotation}
 	We've had devs push a bunch of code up before going on holiday and mucking up a release, so we've instituted an all hands on deck policy for the 2 weeks leading up to a major release
 \end{quotation}
 
 \boldif{However, some effect can be severe, including impact to customers, or having to reimplement features.}
-In one extreme case, participant S1--9 reported that an unresolved merge conflict affected production software (E7), which resulted in downtime of the product, as it broke functionality:
+In one extreme case, a participant reported that an unresolved merge conflict affected production software (E7), which resulted in downtime of the product, as it broke functionality:
 \begin{quotation}
 	Broke the app for customers until we could get a patch pushed [\ldots].
 \end{quotation}
 Finally, the merge conflicts can get too severe and intractable for developers to cope with the complexities.
 In these types of situations, developers have to resort to the \emph{Nuclear Option} (E5), where they scrap their changes and manually reimplement them.
-Such as in the case of S1--102, who said:
+Such as in the case of one participant, who said:
 \begin{quotation}
 	Uh.... KABOOM! More changes came in and everything piled up. Nothing to do but wipe it all back to clean and start trying to piece things back together.
 \end{quotation}
