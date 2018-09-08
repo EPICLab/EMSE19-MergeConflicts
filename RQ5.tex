@@ -170,6 +170,14 @@ P4 commented:
 \textit{``I've never trusted the merge tools or diff tools... Sometimes I'll even manually go and do the merge myself rather than use a tool. Just because I've had several times where it's a bad merge, and I broke some code.''}
 \end{quoting}
 
+Based upon this theme of mistrust, we asked \textit{Barriers Survey} participants to rate the degree to which they trust their merging, history exploration, and conflict resolution tools.
+We received 121 responses to this question, with a mean score of 3.66, placing the most common responses between \textit{a moderate amount} and \textit{a lot} of trust (Table~\ref{tool_trust}).
+Assuming that responses of \textit{a moderate amount}, \textit{a little}, or \textit{not at all} indicate some degree of mistrust, we find that 42.15\% of developers experience some gap in toolset trust.
+
+However, the severity of toolset mistrust is not as significant as our interview results suggested.
+Only 8.26\% of developers indicated that they trust their toolset \textit{a little} or \textit{not at all} (10 out of 121 responses).
+As the results of the survey were counter to our interview results, we looked further. We found that: (1) participants reported on the trust levels of the tools that they regularly use, and (2) a large number of participants reported that they had discontinued using toolsets when they ran into errors. This indicates that if participants had reported their trust level of these discontinued tools the results would have been lower.
+
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
 \caption{Degree of Trust for Merging, History Exploration, and Conflict Resolution Tools from \textit{Barriers Survey}}
@@ -198,14 +206,6 @@ P4 commented:
 %	\label{fig:tool_trust}
 %\end{figure}
 
-Based upon this theme of mistrust, we asked \textit{Barriers Survey} participants to rate the degree to which they trust their merging, history exploration, and conflict resolution tools.
-We received 121 responses to this question, with a mean score of 3.66, placing the most common responses between \textit{a moderate amount} and \textit{a lot} of trust (Table~\ref{tool_trust}).
-Assuming that responses of \textit{a moderate amount}, \textit{a little}, or \textit{not at all} indicate some degree of mistrust, we find that 42.15\% of developers experience some gap in toolset trust.
-
-However, the severity of toolset mistrust is not as significant as our interview results suggested.
-Only 8.26\% of developers indicated that they trust their toolset \textit{a little} or \textit{not at all} (10 out of 121 responses).
-As the results of the survey were counter to our interview results, we looked further. We found that: (1) participants reported on the trust levels of the tools that they regularly use, and (2) a large number of participants reported that they had discontinued using toolsets when they ran into errors. This indicates that if participants had reported their trust level of these discontinued tools the results would have been lower.
-
 \subsection{Perceptions of Tool Effectiveness}\label{tool_effectiveness}
 The perceived size and complexity of merge conflicts affect the way in which developers plan, allocate, and enact resolutions.
 To understand the degree to which these two factors impact developers' perceptions about the effectiveness of their toolsets, we asked \textit{Barriers Survey} participants to rate their toolset across four different merge conflict archetypes: (A1) \textit{simple, small merge conflicts}, (A2) \textit{simple, large merge conflicts}, (A3) \textit{complex, small merge conflicts}, and (A4) \textit{complex, large merge conflicts}.
@@ -227,7 +227,7 @@ To understand the degree to which these two factors impact developers' perceptio
 Individual participants have different toolsets, and consider different factors when determining the perceived size and complexity of a merge conflict.
 We therefore instructed participants to rate their own toolset using their notion of what constitutes \emph{simple} vs. \emph{complex} and \emph{small} vs. \emph{large} merge conflicts.
 
-Fig.~\ref{size_vs_complexity} provides a visual illustration of the results of this survey question.
+Figure~\ref{size_vs_complexity} provides a visual illustration of the results of this survey question.
 The four plots display the results for each of the archetypes, with archetype (A1) in the top-left plot, (A2) in bottom-left plot, (A3) in the top-right plot, and (A4) in the bottom-right plot.
 Individual plots are composed of a horizontal axis containing participants' software development experience, which we collect since experience can determine the range of conflicts that they have faced and their perceptions.
 The vertical axis shows the range of possible responses for the effectiveness of merge toolsets.
@@ -240,5 +240,36 @@ Observing the overall trends when moving between plots, we find that developers 
 Numerical analysis confirms this when finding that the mean response for archetype (A1) is 4.278 (where 5 is \textit{extremely effective} and 1 is \textit{not effective at all}), (A2) is 3.782, (A3) is 3.347, and (A4) is 2.783.
 The shift from \textit{small} to \textit{large} merge conflict size (A1 to A2) results in a difference in mean responses of 0.496, whereas the shift from \textit{simple} to \textit{complex} merge conflict complexity (A1 to A3) results in a difference in mean responses of 0.930.
 
+Examining this trend through the lens of software development experience, we find that more experienced developers perceive a greater disparity in the effects of increasing merge conflict complexity (as opposed to merge conflict size) on the effectiveness of their merge toolsets.
+Table~\ref{experience_vs_effectiveness} illustrates the numerical analysis between each of the software development experience groups defined in the \textit{Barriers Survey}.
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.2}
+\caption{Mean effectiveness of developers' toolsets across software developer experience and merge conflict archetypes from \textit{Barriers Survey}}
+\label{experience_vs_effectiveness}
+\centering
+\begin{tabularx}{\textwidth}{r|cccc|ccA{0.9cm}}
+\toprule
+  \rowcolor[gray]{0.85}
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Experience\parnote{Software development experience of participants.} & A1\parnote{\label{mean_response}Mean response for the archetype; where 5 is \textit{extremely effective} and 1 is \textit{not effective at all}.} & A2\parnoteref{mean_response} & A3\parnoteref{mean_response} & A4\parnoteref{mean_response} & MC Size\parnote{Difference in mean responses when shifting from \textit{small} to \textit{large} merge conflict size (A1 to A2).} & MC Complexity\parnote{Difference in mean responses when shifting from \textit{simple} to \textit{complex} merge conflict complexity (A1 to A3).} & Diff.\parnote{Aggregate difference between MC Complexity and MC Size (negative indicates a reverse relationship).}\\
+\midrule
+  1-5 years & 4.200 & 3.733 & 3.367 & 2.733 & 0.467 & 0.833 & 0.367 \\
+  \rowcolor[gray]{0.95}6-10 years & 4.231 & 3.667 & 3.256 & 2.795 & 0.564 & 0.974 & 0.410\\
+  11-15 years & 4.438 & 4.000 & 3.563 & 3.000 & 0.438 & 0.875 & 0.438 \\
+  \rowcolor[gray]{0.95}16-20 years & 4.167 & 3.833 & 3.333 & 2.750 & 0.333 & 0.833 & 0.500 \\
+  21-25 years & 4.250 & 3.750 & 4.000 & 3.000 & 0.500 & 0.250 & -0.250 \\
+  26+ years & 4.500 & 3.929 & 3.143 & 2.571 & 0.571 & 1.357 & 0.786 \\
+\bottomrule
+\end{tabularx}
+\parnotes
+\end{table}
+
+When comparing the aggregate differences between shifting from \textit{small} to \textit{large} merge conflict size (A1 to A2) and shifting from \textit{simple} and \textit{complex} merge conflict complexity (A1 to A3), we see that participants with 1-5 years of software development experience have a 0.367 gap in dimensional differences (complexity vs. size mean differences).
+This gap widens as the number of year of software development experience increases, until participants with 26+ years of software development experience have a 0.786 gap in dimensional differences.
+The exception to this pattern is the small group of participants with 21-25 years of software development experience (10 participants, 4.42\% overall), who indicate that the size of a merge conflict has a greater impact on the effectiveness of their merge conflict toolsets.
+We find that this group uses the same merge toolsets as the larger participant population (see Table~\ref{s2_toolset}), which suggests that concerns vary among experienced developers.
+
 These results suggest that merge tools are currently equipped to handle increases in the size of merge conflicts, but not as well equipped for increases in complexity.
+However, development experience affects both the concerns (complexity vs. size) and degree to which merge toolsets are failing to meet expectations.
 The increasing amount of code being developed in distributed environments means that scaling support in both dimensions is necessary to accommodate developers' needs.
