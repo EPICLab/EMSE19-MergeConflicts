@@ -92,24 +92,24 @@ This lack of awareness also means that tools are less mature, as maturity is rea
 Our research aims to better understand the problems merge conflicts pose, and aid developers more directly.
 We hope that this will serve as a stepping stone to bringing more of the existing tools to the lime light.
 
-\subsection{Program comprehension}
-\label{sec:rw:pc}
+\subsection{Program Comprehension}\label{sec:rw:pc}
 
-Program comprehension has been a key focus in Software Engineering Research.
-In this subsection we will present some of the work that is related to merge conflicts, their understanding and their resolution.
+Program comprehension is a major research area within Software Engineering.
+In this subsection, we present work that is related to merge conflicts, their understanding, and their resolution.
+
 \citet{borg2017software}, through interview, look at how tools support \emph{Change Impact Analysis}. 
 They find that developers have different information seeking behaviors, and tools should should support these various seeking approaches.
 
-\citet{wang2015version} propose a technique that uses version history and previous bug reports to help developers localize bugs.
-\citet{panichella2014how} explore how collaboration affects the structure of the source code.
-\citet{robillard2008reusing} propose a technique for reusing information obtained during previous code exploration tasks, to help developers find the information they need more efficiently. 
+\citet{wang2015version} propose a technique that uses version history and previous bug reports to assist developers in localizing bugs.
+\citet{panichella2014how} explore how collaboration affects the structure of the source code under development.
+\citet{robillard2008reusing} propose a technique for reusing information obtained during previous code exploration tasks, to assist developers in more efficiently locating information they need now.
 
 \citet{tao2012how} investigates how developers understand software changes, in an industrial setting.
-They find significant gaps between the developers need and what the tools provide.
+They find significant gaps between the developer's need and what the tools provide.
 
-While existing work focuses in investigating how developers understand source code, and changes made to source code, the focus is in understand changes in isolation.
-When resolving a merge conflict, a developer has to understand two sets of changes that conflicting.
+Existing work focuses on investigating how developers understand source code, and changes made to source code, when isolated as a single stream of changes.
+However, when resolving a merge conflict a developer has to understand two sets of changes that conflict.
 Moreover, they need to understand how the changes interact with the existing code base, and \emph{between each other} in order to successfully resolve the conflict.
-It's also worth noting that the changes occurred at different points in time.
+It is also worth noting that the changes occurred at different points in time.
 Even if a developers were to consult the author of the changes, they might not have perfect recollection of the exact reasoning of how and why those changes were made.
 All these factors add to the cognitive load that developers face, which makes conflict resolution a difficult task.
