@@ -37,13 +37,13 @@ We received 324 selections from 89 participants and present the aggregated resul
 These results are in line with existing literature showing that testing (C1) can be used for validating program functionality and correctness~\cite{beizer1984software,tian2005software}. %and have been fundamental to development processes such as test-driven development for several years~\cite{beck2003test}.
 Similarly, the use of compilers to validate code (C2) as being executable and in good-working order will be familiar to any developer using a compiled programming language.
 
-The use of visual inspection as a measure of successful merge conflict resolutions is surprising to us, given that \textit{complexity of conflicting lines of code}~(F1) is the highest rate factor for impact on merge conflict difficulty~\cite{mckee2017software}.
+The use of visual inspection as a measure of successful merge conflict resolutions is surprising to us, given that \textit{complexity of conflicting lines of code}~(F1) is the highest rated factor for impact on merge conflict difficulty~\cite{mckee2017software}.
 Inspecting code requires time and expertise in the area of conflicting code.
-However, the survey participants that selected \textit{code looks correct (i.e. visual test passes)}~(C3) had a mean of 9.2 years of programming experience, which is only slightly higher than the overall mean of 9.0 years of programming experience.
+However, the survey participants that selected \textit{code looks correct (i.e. visual test passes)}~(C3) had a mean of 9.2 years of programming experience, which is only slightly higher than the overall mean of 9.1 years of programming experience.
 
 Looking at the combination of \textit{code looks correct (i.e. visual test passes)}~(C3) with the other conditions, we find that 54 participants also selected \textit{all tests pass}~(C1) (52.9\%).
 As the most common co-occuring selections, we conclude that although developers rely upon their expertise to visually inspect a merge conflict resolution, they also run the test suite to validate their evaluation.
-Experience can play a big factor, as this method (C3) is highly subjective.
+Experience can play a big factor, as this visual method (C3) is highly subjective.
 
 \boldif{Tests are still the most common criteria for determining a merge conflict resolution successful.}
 The two most common evaluation criteria that developers mentioned are that the \emph{code compiles,} and that \emph{all tests pass.}
@@ -157,14 +157,6 @@ The antithesis of this strategy is \textit{collaborating} (B2), where developers
 The B1 and B2 strategies contrast each other, and show that developers reserve more costly strategies (in terms of time, effort, and coordination) as backups to their primary resolution strategies.
 The most common backup strategies, are in a way, opposite of the primary strategies.
 
-Additionally, we find that developers also simply \textit{try again} (B3) to merge the same code together and hope that their tools are able to succeed with a second attempt.
-Developers also resort to \textit{redoing changes} (B4), by way of reverting and manually recreating the changes found in conflicting commits when their initial attempt failed.
-The B3 and B4 strategies appear to cement the extremes of the cost spectrum of backup strategies for resolving merge conflicts.
-Simply retrying the same merge (B3) requires very little additional work.
-It implies that developers think that they might have missed something, and that by going through the changes again, they might catch or have a better understanding of the two changes that are conflicting.
-However, the process of redoing changes (B4) is a duplication of previous efforts. %and is therefore costly on developer's time.
-This \textit{Nuclear Option} is clearly a time-consuming strategy for developers (both in planning and implementing a resolution), and yet the perceived costs of trying to unravel the conflicting code appear to be higher than the costs of reimplementing features.
-
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.2}
 \caption{Backup Strategies for Resolving Merge Conflicts from \textit{Processes Survey}}
@@ -186,6 +178,14 @@ This \textit{Nuclear Option} is clearly a time-consuming strategy for developers
 \parnotes
 \end{table}
 \vspace{0.8em}
+
+Additionally, we find that developers also simply \textit{try again} (B3) to merge the same code together and hope that their tools are able to succeed with a second attempt.
+Developers also resort to \textit{redoing changes} (B4), by way of reverting and manually recreating the changes found in conflicting commits when their initial attempt failed.
+The B3 and B4 strategies appear to cement the extremes of the cost spectrum of backup strategies for resolving merge conflicts.
+Simply retrying the same merge (B3) requires very little additional work.
+It implies that developers think that they might have missed something, and that by going through the changes again, they might catch or have a better understanding of the two changes that are conflicting.
+However, the process of redoing changes (B4) is a duplication of previous efforts. %and is therefore costly on developer's time.
+This \textit{Nuclear Option} is clearly a time-consuming strategy for developers (both in planning and implementing a resolution), and yet the perceived costs of trying to unravel the conflicting code appear to be higher than the costs of reimplementing features.
 
 \boldif{Some developers do not have an approach for dealing with merge conflicts.}
 Finally, an interesting result is that some developers do not have a strategy for approaching a merge conflict resolution.
