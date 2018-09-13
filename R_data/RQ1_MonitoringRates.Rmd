@@ -1,0 +1,23 @@
+---
+title: "Programming Experience vs. Monitoring for Merge Conflicts"
+output: html_notebook
+---
+
+Converting programming experience from ranges to nominal values, and inputing the percentage of participant responses that indicated ``Sometimes`` or ``Yes`` to the Processes Survey question ``Do you monitor for merge conflicts?``, we get the following dataframe:
+
+```{r}
+exp <- c("1-5 years", "6-10 years", "11-15 years", "16-20 years", "21-25 years", "26+ years")
+exp_nom <- c(1,2,3,4,5,6)
+monitoring <- c(63.6,70.4,76.5,58.3,75.0,0.0)
+proactive <- c(76.2,57.9,61.5,71.4,66.7,0.0)
+reactive <- c(23.8,42.1,38.5,28.6,33.3,0.0)
+df <- data.frame(exp, exp_nom, monitoring, proactive, reactive)
+```
+
+Now we can analyze the correlation between ``exp_nom`` (as a numerical proxy for experience range) and ``mon`` using a Pearson correlation/covariance test:
+
+```{r}
+cor.test(df$exp_nom,df$monitoring)
+cor.test(df$exp_nom,df$proactive)
+cor.test(df$exp_nom,df$reactive)
+```
