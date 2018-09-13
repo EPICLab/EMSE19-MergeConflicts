@@ -3,7 +3,7 @@
 \vspace*{1.8\baselineskip}
 \section{What difficulties do software developers experience when managing merge conflicts? (RQ4)}\label{RQ4}
 
-To understand the difficulties software developers face when managing merge conflict, we asked interview participants to reflect on situations when they faced a merge conflict.
+To understand the difficulties software developers face when managing merge conflicts, we asked interview participants to reflect on situations when they faced a merge conflict.
 Based on responses in the \textit{Exploratory Interviews}, we asked \textit{Barriers Survey} participants to rate the resulting factors and needs.
 
 \subsection{Difficulty Factors}\label{difficulty-factors}
@@ -41,13 +41,14 @@ These factors can be grouped into \textit{technical aspects} and \textit{experti
 \end{table}\vspace{2.1em}
 
 \subsection{Technical Aspects}\label{artifact-based-factors}
-Two of the top four factors refer to the perceptions about the complexity of merge conflicts (F1, F3), with the third factor being \textit{number of conflicting lines of code} (F4), which can be construed as a specific metric for the complexity of the conflict. 
+Two of the top four factors refer to the perceptions about the complexity of merge conflicts (F1, F3), with the fourth factor being \textit{number of conflicting lines of code} (F4), which can be construed as a specific metric for the complexity of the conflict. 
 While developers mentioned complexity of the lines of code and the file, none mentioned using any metrics, such as cyclomatic complexity~\cite{fenton2000quantitative,mccabe1976complexity} or Function Point Analysis~\cite{garmus2001fpa,symons1988function}. 
 Instead, developers made educated guesses on the complexity of the code based on their own experience of either writing the code, or having worked with it. 
 Some of the simple-to-compute metrics, such as the \textit{number of conflicting lines of code} (F4), the \textit{number of files in the conflict} (F8), the \textit{atomicity of changesets in conflict} (F6), and the \textit{time to resolve a conflict} (F5) were mentioned.
 
 Research has shown~\cite{gil_correlation_2017} that the size of the code is the most important predictive feature for external factors (e.g. bugs) of all proposed complexity measures.
 This suggests that it might be enough for developers to rely on it when assessing the complexity of the conflicting code.
+However, we find that the impacts of size differ from those of complexity measures when developers provide their own definitions for these measures (see Section~\ref{tool_effectiveness}).
 
 The only factor where static analysis tools can help was in identifying the \textit{dependencies of conflicting code} (F7).
 This indicates that understanding the complexity of the conflicting code is important, but developers do not use the metrics that have been proposed by research.
