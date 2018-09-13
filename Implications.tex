@@ -57,7 +57,11 @@ The life-cycle of merge conflicts is a preliminary model for understanding the p
 Additional research is needed to expand this model, such as to understand which strategies are most (and least) effective at addressing the needs of developers in each phase of the cycle.
 
 Version control systems (VCS) feature heavily in the top merge awareness tools (Table~\ref{s1_toolset}), the top merge resolution tools (Table~\ref{s2_toolset}), and the top merge resolution evaluation toolsets (Table~\ref{resolution-evaluation-tools}).
-Therefore, researchers should also examine the usage patterns for different features within VCS tools across the life-cycle phases to understand the specific needs developers ask of their tools.
+Therefore, researchers should also examine the usage patterns for different features within VCS tools across the life-cycle phases to understand the evolution of developer needs with their tools.
+
+The size of a merge conflict is often considered an approximation for complexity.
+However, our findings show that developers perceive size and complexity to be different factors in merge conflict resolution and tool effectiveness (Table~\ref{experience_vs_effectiveness}).
+Which suggests that researchers need to further investigate measures that can be used to better approximate merge conflict complexity.
 
 %Our results inform future research by providing insights into software developers' perspectives during merge conflicts.
 The top factors that impact the assessment of merge conflict difficulty are primarily focused on program comprehension (F1, F3, F4 from Table~\ref{s2_factors}).
@@ -83,9 +87,9 @@ Previous work has focused on recommending developers best suited to perform a co
 However, these efforts have resulted in tools that require standalone installation and execution. 
 Our results indicate that developers are concerned about toolset fragmentation, and therefore adding an additional tool might be counterproductive to the workflow of most developers. 
 
-Our results show that 14 developers mention that they \emph{redo the changes} when a merge conflict resolution fails.
+Our results show that developers mention that they \emph{redo the changes} when a merge conflict resolution fails.
 This \emph{Nuclear option} is very expensive.
-Tools should provide better merging support, so developers can resolve a conflict and not have to scrap good code just because it happens to intersect with other changes.
+Tools should provide better merging support, so that developers can resolve a conflict and not have to scrap good code just because it happens to intersect with other changes.
 
 Finally, we find that developers need to quickly estimate whether they can fix the conflict, and whether to resolve it now or delay the resolution. 
 This indicates that developers need mechanisms to identify the skillsets required to complete the conflict resolution task, by viewing the code fragments (D1, D2).
