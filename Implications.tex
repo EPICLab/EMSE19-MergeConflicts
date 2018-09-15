@@ -1,24 +1,5 @@
 \section{Implications}\label{implications}
 
-\subsection{For Developers}
-Developers are at the center of situations involving merge conflicts, and as such are the most affected by the time and resources required to resolve them.
-Understanding the constraints that different phases along the life-cycle of merge conflicts places on time and resources can allow more effective prevention and management of any merge conflicts that do arise.
-
-Developers indicate that understanding code, having appropriate information, and dealing with complex codesets are key themes of difficulty when working with merge conflicts (Sections~\ref{RQ1}, \ref{RQ2}).
-Existing tool support can help with some of these issues, but developers also need to educate themselves on development processes that prevent and alleviate the severity of merge conflicts. 
-For example, the number of conflicting files and the size of changes are considered important factors (Section~\ref{difficulty-factors}).
-Researchers~\cite{brindescu2014versioncontrol} have previously found that developers using distributed version control systems commit more often, and that committing more often makes debugging easier when something breaks~\cite{meyer2014continuous}.
-Therefore, developers should strive to make smaller commits, and commit often.
-
-Other agile development processes such as continuous integration, iterative development, and branch merging policies are known to facilitate development in large, distributed teams. 
-However, not all developers are actively using such techniques~\cite{phillips2011branching}, and large organizations will require additional diligence in order to address the increased possibility of conflicts occurring.
-Developers should integrate proactive merge conflict monitoring into their own processes, and seek to add tools that enable proactive monitoring within their organizations.
-These steps will help accelerate the demand for additional proactive merge conflict monitoring tools, and thus bring greater accessibility for these proactive processes in smaller development organizations.
-
-The effectiveness of developers' merge conflict toolsets varies by software development experience, with the most experienced developers indicating that their toolsets are least equipped to handle increases in merge conflict complexity (Table~\ref{experience_vs_effectiveness}).
-These experienced developers use the same merge toolsets as the other developers, which means that any changes made to their toolsets will affect all developers' toolsets.
-Therefore, experienced developers should advocate for features that specifically address the complexity dimension of merge conflicts.
-
 \subsection{For Tool Builders}
 Version control systems provide an easy method for storing and retrieving recent development history, but examining older development history at scale and in a usable manner has not completely met developers' expectations.
 Tool builders should work to address this unmet need by leveraging research in search systems for developer-assistance~\cite{nabi2016putting} and machine learning-based code assistance~\cite{bradley2011history_exploration} to provide intuitive and expressive tools for history exploration.
@@ -51,6 +32,24 @@ Finally, most developers have failed at least once in resolving a merge conflict
 Tools can provide better insight into why the resolution has failed, so developers have information to formulate their next steps.
 Currently, when a merge conflict resolution fails, developers have to interrupt their workflow by taking the resolution offline (B1 from Table~\ref{backup-strategies}), or they have to ask for help, which has the potential of interrupting other developers (B2).
 If developers had more information about \emph{why} the merge conflict resolution failed, they might be able to recover more efficiently.
+
+\subsection{For Developers}
+%wordy....change to: understanding the constraints that the different phases involved in merge conflict resolution can allow...
+Understanding the constraints of the different phases involved in merge conflict resolution can allow more effective prevention and management of merge conflicts as they occur.
+
+Developers indicate that understanding code, having appropriate information, and dealing with complex codesets are key themes of difficulty when working with merge conflicts (Sections~\ref{RQ1}, \ref{RQ2}).
+Existing tool support can help with some of these issues, but developers also need to educate themselves on development processes that prevent and alleviate the severity of merge conflicts.
+For example, the number of conflicting files and the size of changes are considered important factors (Section~\ref{difficulty-factors}).
+Researchers~\cite{brindescu2014versioncontrol} have previously found that developers using distributed version control systems commit more often, and that committing more often makes debugging easier when something breaks~\cite{meyer2014continuous}.
+Therefore, developers should strive to make smaller commits, and commit often.
+
+Other agile development processes such as continuous integration, iterative development, and branch merging policies are known to facilitate development in large, distributed teams.
+However, not all developers are actively using such techniques~\cite{phillips2011branching}, and large organizations will require additional diligence in order to address the increased possibility of conflicts occurring.
+Developers should integrate proactive merge conflict monitoring into their own processes, and seek to add tools that enable proactive monitoring within their organizations.
+
+The most experienced developers indicate that their toolsets are least equipped to handle increases in merge conflict complexity (Table~\ref{experience_vs_effectiveness}).
+If experienced developers struggle to use merge toolsets for complex merge conflicts, then less experienced developers are also likely to encounter increasing difficulties as they gain experience dealing with complex merge conflicts.
+Therefore, developers should take steps to reduce the complexity of merge conflicts by using proactive merge conflict detection tools, create well-defined code ownership boundaries, and reduce the time between commits.
 
 \subsection{For Researchers}
 The life-cycle of merge conflicts is a preliminary model for understanding the phases involved in a merge conflict.
