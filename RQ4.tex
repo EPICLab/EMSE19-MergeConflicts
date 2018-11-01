@@ -170,7 +170,7 @@ All the unmet needs have a mean score of at least $3.03$ on the 5-point Likert-t
 We present and discuss in detail the top four unmet needs, plus additional observations regarding the other six unmet needs. 
 As with the factors in the previous section, all these needs also relate to \textit{technical aspects} (e.g., understanding the conflicting code) and their \textit{expertise} in resolving conflicts.\vspace{2em}
 
-\subsection{Technical Aspects}
+\subsection{Technical Aspects}\label{technical_aspects}
 Three needs among the top four relate to technical aspects of merge conflict resolution.
 The \textit{understandability of conflicting code} (N1) is ranked as the most important need, with both \textit{contextual information about the conflict} (N3) and \textit{the way in which tools present relevant information} (N4) ranking in the top four.
 
@@ -194,7 +194,7 @@ This indicates that despite advances in supporting parallel development practice
 Conflict resolution can sometimes lead to defects in the code base. 
 This can arise for several reasons. 
 For example the rationale of the two conflicting changes might be unclear and the merge might cause unintentional problems down the line. 
-Or the resolved changes might not follow rigorous code review and testing to which the original changes were subject to.
+Or the resolved changes might not follow rigorous code review and testing to which the original changes were subjected.
 Therefore, even when the developer understands the particular conflicting code, they may still need additional meta-information about the rationale of changes and idea of future feature implementation. 
 This is especially true in situations where the code base is old, and such information not readily available. During our interview, P7 commented:
 \begin{quoting}
@@ -208,7 +208,7 @@ Developers recognize this need as having a sizable effect on their ability to re
 
 Examining code artifacts, reviewing change history, and reading documentation helps with understanding the code when they are present and well-maintained.
 However, locating and maintaining these supporting documents is not always possible.
-In fact, Forward et al.~\cite{forward2002documentation}, in a survey of 48 software developers, found that 68\% either agreed or strongly agreed that documentation is always outdated.
+In fact, \citet{forward2002documentation}, in a survey of 48 software developers, found that 68\% either agreed or strongly agreed that documentation is always outdated.
 When these gaps arise, developers compensate by consulting experts in the area of conflicting code instead.
 
 This result aligns with the goals of the TIPMerge tool~\cite{CostaSarma}, which seeks to locate experts that are best suited to resolve conflicts in a particular area of code.
