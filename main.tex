@@ -119,6 +119,26 @@
 \renewcommand*{\thefootnote}{\arabic{footnote}}
 %\setcounter{footnote}{0}
 
+\definecolor{shaded}{RGB}{217,217,217} % same color as [grey]{0.85}
+\newcommand*{\belowrulesepcolor}[1]{%
+  \noalign{%
+    \kern-\belowrulesep
+    \begingroup
+      \color{#1}%
+      \hrule height\belowrulesep
+    \endgroup
+  }%
+}
+\newcommand*{\aboverulesepcolor}[1]{%
+  \noalign{%
+    \begingroup
+      \color{#1}%
+      \hrule height\aboverulesep
+    \endgroup
+    \kern-\aboverulesep
+  }%
+}
+
 \begin{document}
 \title{The Life-Cycle of Merge Conflicts: Processes, Barriers, and Strategies}
 

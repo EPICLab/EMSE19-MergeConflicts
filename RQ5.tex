@@ -15,11 +15,13 @@ We received 119 responses using a 5-point Likert-type scale to indicate the usef
 \caption{Desired Improvements to Merge Toolsets from \textit{Barriers Survey}}
 \label{s2_tool_improvements}
 \centering
-\begin{tabularx}{\textwidth}{c|Q{7.5cm}|*1{c}|A{1cm}A{1cm}}
+\begin{tabularx}{\textwidth}{cQ{7.5cm}*1{c}A{1.03cm}A{1.02cm}}
 \toprule
+  \belowrulesepcolor{shaded}
   \rowcolor[gray]{0.85}
   \parnoteclear % tabularx will otherwise add each note thrice
   Imp.\parnote{Imp. = Improvement} & Description & \likertscale{1,2,3,4,5} & Median\parnote{Responses on 5-point Likert-type scale indicating the degree of potential impact on merge conflict processes (1 indicates \textit{no impact}, 5 indicates \textit{great impact}).\vspace*{-0.3\baselineskip}} & Mean\textsuperscript{ii} \\
+  \aboverulesepcolor{shaded}
 \midrule
   I1 & Usability & \likertplot{coordinates {(1,6)(2,17)(3,32)(4,48)(5,16)}}{28.2}{6,17,32,48,16} & 4 & 3.43 \\
   \rowcolor[gray]{0.95}I2 & Filtering of relevant information & \likertplot{coordinates {(1,8)(2,15)(3,32)(4,48)(5,16)}}{28.2}{8,15,32,48,16} & 4 & 3.41 \\
@@ -46,11 +48,13 @@ Table~\ref{s2_toolset} lists the top 10 most common tools used by participants t
 \caption{Merge Resolution Toolsets (Top 10) from \textit{Barriers Survey}}
 \label{s2_toolset}
 \centering
-\begin{tabularx}{\textwidth}{Q{4.65cm}Q{4.5cm}|cr}
+\begin{tabularx}{\textwidth}{Q{4.65cm}Q{4.51cm}cr}
 \toprule
+  \belowrulesepcolor{shaded}
   \rowcolor[gray]{0.85}
   \parnoteclear % tabularx will otherwise add each note thrice
   Tool & Description & Participants\parnote{\label{mergetools}Survey participants were allowed to provide multiple tools. Each entry represents the number (and percentage) of participants that responded with that particular tool. 115 out of 162 participants (70.99\%) indicated the use of at least one merge resolution tool.} & Percentage\parnoteref{mergetools}\\
+  \aboverulesepcolor{shaded}
 \midrule
   Git & Version Control System & 37 & (15.68\%)\\
   \rowcolor[gray]{0.95}Vim/vi & Text Editor & 17 & (7.20\%)\\
@@ -73,7 +77,8 @@ Along with the list of toolsets used for evaluating whether a merge resolution w
 
 We next discuss the top four improvements rated by survey participants. These are the responses that have a mean value higher than $3.00$.
 
-\subsection{Better Usability}
+\vspace{0.5cm}
+\subsection{Better Usability}\label{better_usability}
 %The right toolset is essential for efficiently developing solutions and resolving conflicts.
 Usability is an important factor that determines whether a toolset supports or hinders the developer's workflow.
 Our \textit{Barriers Survey} results indicate that \textit{better usability} (I1) is the most desired improvement of toolsets used for conflict resolution. 
@@ -186,11 +191,13 @@ Although we were unable to capture participant trust levels in these discontinue
 \caption{Degree of Trust for Merging, History Exploration, and Conflict Resolution Tools from \textit{Barriers Survey}}
 \label{tool_trust}
 \centering
-\begin{tabularx}{\textwidth}{lQ{5.1cm}|A{1.6cm}Q{1.9cm}|A{2.7cm}}
+\begin{tabularx}{\textwidth}{lQ{5.1cm}A{1.64cm}Q{1.9cm}A{2.7cm}}
 \toprule
+  \belowrulesepcolor{shaded}
   \rowcolor[gray]{0.85}
   \parnoteclear % tabularx will otherwise add each note thrice
   & Trust & Selections\parnote{121 out of 162 participants (74.69\%) indicated a degree of trust.} & Percentage & Dev. Experience\parnote{Mean software development experience for participants that indicated a specific degree of trust.} \\
+  \aboverulesepcolor{shaded}
 \midrule
   1 & Completely & 20 & (16.53\%) & 6-10 years \\
   \rowcolor[gray]{0.95}2 & A lot & 50 & (41.32\%) & 11-15 years \\
@@ -251,18 +258,20 @@ Table~\ref{experience_vs_effectiveness} illustrates the numerical analysis betwe
 \caption{Mean effectiveness of developers' toolsets across software developer experience and merge conflict archetypes from \textit{Barriers Survey}}
 \label{experience_vs_effectiveness}
 \centering
-\begin{tabularx}{\textwidth}{r|cccc|ccA{0.9cm}}
+\begin{tabularx}{\textwidth}{rccccccA{0.92cm}}
 \toprule
+  \belowrulesepcolor{shaded}
   \rowcolor[gray]{0.85}
   \parnoteclear % tabularx will otherwise add each note thrice
   Experience\parnote{Software development experience of participants.} & A1\parnote{\label{mean_response}Mean response for the archetype; where 5 is \textit{extremely effective} and 1 is \textit{not effective at all}.} & A2\parnoteref{mean_response} & A3\parnoteref{mean_response} & A4\parnoteref{mean_response} & MC Size\parnote{Difference in mean responses when shifting from \textit{small} to \textit{large} merge conflict size (A1 to A2).} & MC Complexity\parnote{Difference in mean responses when shifting from \textit{simple} to \textit{complex} merge conflict complexity (A1 to A3).} & Diff.\parnote{Aggregate difference between MC Complexity and MC Size (negative indicates a reverse relationship).}\\
+  \aboverulesepcolor{shaded}
 \midrule
   1-5 years & 4.200 & 3.733 & 3.367 & 2.733 & 0.467 & 0.833 & 0.367 \\
   \rowcolor[gray]{0.95}6-10 years & 4.231 & 3.667 & 3.256 & 2.795 & 0.564 & 0.974 & 0.410\\
   11-15 years & 4.438 & 4.000 & 3.563 & 3.000 & 0.438 & 0.875 & 0.438 \\
   \rowcolor[gray]{0.95}16-20 years & 4.167 & 3.833 & 3.333 & 2.750 & 0.333 & 0.833 & 0.500 \\
   21-25 years & 4.250 & 3.750 & 4.000 & 3.000 & 0.500 & 0.250 & -0.250 \\
-  26+ years & 4.500 & 3.929 & 3.143 & 2.571 & 0.571 & 1.357 & 0.786 \\
+  \rowcolor[gray]{0.95}26+ years & 4.500 & 3.929 & 3.143 & 2.571 & 0.571 & 1.357 & 0.786 \\
 \bottomrule
 \end{tabularx}
 \parnotes

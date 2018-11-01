@@ -49,22 +49,24 @@ We find similar statistical results when examining across the combinations of mo
 \caption{Rates of Monitoring for Merge Conflicts from \textit{Processes Survey}}
 \label{monitoring_rates}
 \centering
-\begin{tabularx}{\textwidth}{Q{2.2cm}|Z{0.4cm}Z{1cm}Z{0.9cm}Z{1cm}|Z{0.5cm}Z{1cm}Z{0.8cm}Z{1cm}}
+\begin{tabularx}{\textwidth}{Q{2.2cm}Z{0.4cm}Z{1.03cm}Z{0.9cm}Z{1cm}Z{0.5cm}Z{1cm}Z{0.8cm}Z{1cm}}
 \toprule
+  \belowrulesepcolor{shaded}
   \rowcolor[gray]{0.85}
   \parnoteclear % tabularx will otherwise add each note thrice
   Exp.\parnote{Ranges of software development experience.} & 
-  \multicolumn{2}{c}{No\parnote{\label{response}Participant responses to the survey question \textit{``do you monitor for merge conflicts?''} (percentages).}} & 
+  \multicolumn{2}{|c}{No\parnote{\label{response}Participant responses to the survey question \textit{``do you monitor for merge conflicts?''} (percentages).}} &
   \multicolumn{2}{c|}{Yes/Sometimes\parnoteref{response}} & 
   \multicolumn{2}{c}{Proactive\parnote{\label{strategy}Participants that monitor for merge conflicts with the proactive or reactive strategy (percentages).}} & 
   \multicolumn{2}{c}{Reactive\parnoteref{strategy}} \\
+  \aboverulesepcolor{shaded}
 \midrule
   1--5 years & 12 & (36.4\%) & 21 & (63.6\%) & 5 & (23.8\%) & 16 & (76.2\%)\\
   \rowcolor[gray]{0.95}6--10 years & 8 & (29.6\%) & 19 & (70.4\%) & 8 & (42.1\%) & 11 & (57.9\%)\\
   11--15 years & 4 & (23.5\%) & 13 & (76.5\%) & 5 & (38.5\%) & 8 & (61.5\%)\\
   \rowcolor[gray]{0.95}16--20 years & 5 & (41.7\%) & 7 & (58.3\%) & 2 & (28.6\%) & 5 & (71.4\%)\\
   21--25 years & 1 & (25.0\%) & 3 & (75.0\%) & 1 & (33.3\%) & 2 & (66.7\%)\\
-  \rowcolor[gray]{0.95}26+ years & 0 & (\%) & 0 & (0.0\%) & 0 & (0.0\%) & 0 & (0.0\%)\\
+  \rowcolor[gray]{0.95}26+ years & 0 & (0.0\%) & 0 & (0.0\%) & 0 & (0.0\%) & 0 & (0.0\%)\\
 \bottomrule
 \end{tabularx}
 \parnotes
@@ -99,11 +101,13 @@ We find that the majority of tools used by developers for merge conflict monitor
 \caption{Merge Awareness Toolsets (Top 10) from \textit{Processes Survey}}
 \label{s1_toolset}
 \centering
-\begin{tabularx}{\textwidth}{Q{2.51cm}l|RQ{1.11cm}RQ{1.12cm}|RZ{1cm}}
+\begin{tabularx}{\textwidth}{Q{2.51cm}lRQ{1.11cm}RQ{1.17cm}RZ{1cm}}
 \toprule
+  \belowrulesepcolor{shaded}
   \rowcolor[gray]{0.85}
   \parnoteclear % tabularx will otherwise add each note thrice
   Tool\parnote{\textit{Processes Survey} participants were allowed to provide multiple tools. 57 out of 102 participants (56\%) indicated the use of at least one merge awareness tool.} & Description & \multicolumn{2}{c}{Proactive\parnote{\label{tool_responses}Participants using this tool with the proactive or reactive strategy (percentages).}} & \multicolumn{2}{c}{Reactive\parnoteref{tool_responses}} & \multicolumn{2}{|c}{Total\parnote{Total number of survey participants using each particular tool.}}\\
+  \aboverulesepcolor{shaded}
 \midrule
   Git & Version Control System & 10 & (9.8\%) & 30 & (29.4\%) & 40 & (39.2\%)\\
   \rowcolor[gray]{0.95}GitHub & Project Hosting Site & 2 & (2.0\%) & 5 & (4.9\%) & 7 & (6.9\%)\\
