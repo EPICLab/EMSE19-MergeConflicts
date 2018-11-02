@@ -50,7 +50,7 @@ Both approaches improve existing structured merging techniques by only using str
 
 \citet{accioly_understanding_2018} used a semi-structured approach to understand the types of merge conflicts.
 Overall, they identified 9 conflict categories, depending on the syntactical elements that were conflicting.
-Their work identifies the types and frequencies of merge conflicts, however, it does not address the resolution process.
+Their work identifies the types and frequencies of merge conflicts, however, it does not address the impact of human factors on the prevalence of merge conflicts.
 
 \citet{lippe_operation-based_1992} go a different way.
 They propose a new merging technique, \emph{operation-based merging} that would replay the changes that were performed on the two branches, in the order in which they were performed.
@@ -84,9 +84,10 @@ CASI shows all the program elements that are influenced by the changes made in t
 \citet{cassandra} take a more proactive approach and propose a novel task scheduling approach that aims to minimize the number of conflicts. 
 \emph{Cassandra} uses developer preferences, task and file dependencies to schedule tasks so that they are less likely to conflict.
 On a similar approach, \citet{accioly_analyzing_2018} present 2 predictors that can be used to identify potential merge conflict ahead of time.
-Their predictors achieve a precision of 57.99\% and a recall of 82.67\%.
+Their predictors achieve precision and recall percentages that range between 8.85\%--57.99\% and 13.15\%--83.62\%, respectively.
+In their current form, high numbers of erroneous predictions make these techniques unsuitable for industry adoption.
 
-However, despite the extensive research, very few of them are used by professional developers.
+However, despite the extensive research, very few techniques are used by professional developers.
 This can be mostly blamed on a lack of awareness.
 This lack of awareness also means that tools are less mature, as maturity is reached once a tool has a stable user base.
 Our research aims to better understand the problems merge conflicts pose, and aid developers more directly.
