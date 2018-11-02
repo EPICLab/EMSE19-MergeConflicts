@@ -13,24 +13,28 @@ Only two developers selected that condition, indicating ``performance tests show
 We received 324 selections from 89 participants and present the aggregated results in Table~\ref{conditionsSuccess}.
 
 \begin{table}[!htbp]
-\caption{Conditions of Successful Merge Conflict Resolutions from \textit{Processes Survey}\textsuperscript{i}}
+\renewcommand{\arraystretch}{1.2}
+\caption{Conditions of Successful Merge Conflict Resolutions from \textit{Processes Survey}}
 \label{conditionsSuccess}
 \centering
-\begin{tabularx}{\textwidth}{lr|*{7}{C}c@{}}
+\begin{tabularx}{\textwidth}{{cQ{7.78cm}cr}}
 \toprule
+  \belowrulesepcolor{shaded}
   \rowcolor[gray]{0.85}
-  & & C1 & C2 & C3 & C4 & C5 & C6 & C7 \\
+  \parnoteclear % tabularx will otherwise add each note thrice
+  Condition & Description & Selections\parnote{\label{toolsets}\textit{Processes Survey} participants were allowed to select multiple conditions. 79 out of 89 participants (89\%) selected multiple conditions.} & Percentage\parnoteref{toolsets} \\
+  \aboverulesepcolor{shaded}
 \midrule
-	C1 & All tests pass & \textbf{67} & & & & & & \\
-	\rowcolor[gray]{0.95}C2 & Code compiles & 50 & \textbf{67} & & & & & \\
-	C3 & Code looks correct & 50 & 54 & \textbf{66} & & & & \\
-	\rowcolor[gray]{0.95}C4 & VCS warmings gone & 38 & 42 & 41 & 51 & & & \\
-	C5 & Code reviewed & 32 & 31 & 27 & 25 & 38 & & \\
-	\rowcolor[gray]{0.95}C6 & Merged to production & 27 & 27 & 27 & 26 & 19 & 33 & \\
-	C7 & Other & 2 & 2 & 0 & 0 & 0 & 0 & 2 \\
+  C1 & All tests pass & 67 & (75.28\%) \\
+  \rowcolor[gray]{0.95}C2 & Code successfully compiles & 67 & (75.28\%) \\
+  C3 & Code looks correct (i.e. visual test passes) & 66 & (74.16\%) \\
+  \rowcolor[gray]{0.95}C4 & VCS warnings are gone & 51 & (57.30\%) \\
+  C5 & Merged code is approved during code review & 38 & (42.70\%) \\
+  \rowcolor[gray]{0.95}C6 & Merged code accepted into production codebase & 33 & (37.08\%) \\
+  C7 & Other & 2 & (2.25\%) \\
 \bottomrule
-    \multicolumn{9}{c}{\noindent\parbox[t]{11.7cm}{\vspace{0.4em}\textsuperscript{i}\hspace{0.2em}\textit{Processes Survey} participants were allowed to select multiple conditions. Each entry represents the number of participants that selected both of the conditions indicated for the column and row. 68 out of 102 participants (67\%) selected three or more conditions.}\vspace*{-0.3\baselineskip}} \\
 \end{tabularx}
+\parnotes
 \end{table}
 
 \textit{All tests pass} (C1), \textit{code successfully compiles} (C2), and \textit{code looks correct (i.e. visual test passes)} (C3) were the most commonly selected conditions required for a successful merge resolution.
