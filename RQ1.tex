@@ -40,9 +40,8 @@ One participant indicated that team members:
 	[\ldots] send emails before making breaking changes to the API or related sub-modules.
 \end{quotation}
 
-When examining the correlation between software development experience and rates of monitoring for merge conflicts (see Table~\ref{monitoring_rates}), we find a moderate negative relationship with weak statistical significance (Pearson correlation coefficient, $r=-0.5962$, $n=6$, $p=0.2117$).
-However, examining the data shows that developers with 16--20 years of experience reverse the trend of increased monitoring as development experience increases and thus causes a negative relationship result.
-We find similar statistical results when examining across the combinations of monitoring and either proactive or reactive strategies, and conclude that experience holds only moderate effect on the adoption of either proactive or reactive strategies for merge conflict monitoring.
+When examining the data (see Table~\ref{monitoring_rates}), we observe that developers across all experience groups monitor for merge conflicts at similar rates (67.7\% overall) and that rates of proactive processes also remain consistent (26.3\% overall).
+We find no statistically significant correlations between participant experience groups when examining across the combinations of monitoring and either proactive or reactive strategies, and conclude that experience is not a driving factor in the adoption of either proactive or reactive strategies for merge conflict monitoring.
 
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.3}
@@ -55,19 +54,17 @@ We find similar statistical results when examining across the combinations of mo
   \rowcolor[gray]{0.85}
   \parnoteclear % tabularx will otherwise add each note thrice
   Exp.\parnote{Ranges of software development experience.} & 
-  \multicolumn{2}{|c}{No\parnote{\label{response}Participant responses to the survey question \textit{``do you monitor for merge conflicts?''} (percentages).}} &
+  \multicolumn{2}{|c}{No\parnote{\label{response}Participant responses to the survey question \textit{``do you monitor for merge conflicts?''} (percentage of experience range responses).}} &
   \multicolumn{2}{c|}{Yes/Sometimes\parnoteref{response}} & 
-  \multicolumn{2}{c}{Proactive\parnote{\label{strategy}Participants that monitor for merge conflicts with the proactive or reactive strategy (percentages).}} & 
+  \multicolumn{2}{c}{Proactive\parnote{\label{strategy}Participants that monitor for merge conflicts with the proactive or reactive strategy (percentage of 57 proactive/reactive responses).}} &
   \multicolumn{2}{c}{Reactive\parnoteref{strategy}} \\
   \aboverulesepcolor{shaded}
 \midrule
-  1--5 years & 12 & (36.4\%) & 21 & (63.6\%) & 5 & (23.8\%) & 16 & (76.2\%)\\
-  \rowcolor[gray]{0.95}6--10 years & 8 & (29.6\%) & 19 & (70.4\%) & 8 & (42.1\%) & 11 & (57.9\%)\\
-  11--15 years & 4 & (23.5\%) & 13 & (76.5\%) & 5 & (38.5\%) & 8 & (61.5\%)\\
-  \rowcolor[gray]{0.95}16--20 years & 5 & (41.7\%) & 7 & (58.3\%) & 2 & (28.6\%) & 5 & (71.4\%)\\
-  21--25 years & 1 & (25.0\%) & 3 & (75.0\%) & 1 & (33.3\%) & 2 & (66.7\%)\\
-  \rowcolor[gray]{0.95}26+ years & 0 & (0.0\%) & 0 & (0.0\%) & 0 & (0.0\%) & 0 & (0.0\%)\\
+  1--5 years & 12 & (36.4\%) & 21 & (63.6\%) & 6 & (27.3\%) & 16 & (72.7\%)\\
+  \rowcolor[gray]{0.95}6--10 years & 8 & (29.6\%) & 19 & (70.4\%) & 5 & (31.3\%) & 11 & (68.7\%)\\
+  11+ years & 10 & (30.3\%) & 23 & (69.7\%) & 4 & (21.1\%) & 15 & (78.9\%)\\
 \bottomrule
+Totals & 30 & (32.3\%) & 63 & (67.7\%) & 15 & (26.3\%) & 42 & (73.7\%) \\
 \end{tabularx}
 \parnotes
 \end{table}
@@ -77,6 +74,7 @@ To conclude, only a third of developers actively monitor for merge conflicts.
 When developers are caught unaware of the conflict, additional developers and resources are necessary to fix the conflicting code.
 This can lead to more frustration, as they do not have any warning of when the conflict will occur and whether they have the time to deal with it immediately.
 
+\vspace{0.5cm}
 \subsection{Tools for Monitoring for Merge Conflicts}
 
 \boldif{The tools that developers use allow for only a \emph{reactive} approach.}
